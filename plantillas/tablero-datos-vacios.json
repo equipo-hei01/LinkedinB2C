@@ -1,0 +1,242 @@
+{
+  "_leeme": "Semilla del tablero. Cada entrada de 'datasets' es un dataset del tablero: 'rows' es el contenido del archivo JSON que se adjunta (una lista de filas) y 'columnas' documenta cada columna. 'columnas' y '_leeme' no se suben. Ver LEEME.md.",
+  "dash/meta": { "title": "Tablero LinkedIn", "lang": "es" },
+  "datasets": {
+    "supuestos": {
+      "title": "Supuestos y metas",
+      "description": "Configuración del tablero en una sola fila: metas, plan, próximo evento, ticket, tasa de cierre y moneda.",
+      "columnas": {
+        "meta_reuniones_semana": "meta de reuniones agendadas por semana (número)",
+        "meta_charlas_mes": "meta de charlas aceptadas o dadas por mes (número)",
+        "plan_inicio": "fecha de inicio del plan, AAAA-MM-DD (lunes)",
+        "plan_dias": "duración del plan en días (90 por defecto)",
+        "evento_nombre": "nombre del próximo evento o formación con cupos (texto, opcional)",
+        "evento_fecha": "fecha del evento, AAAA-MM-DD (opcional)",
+        "evento_cupos": "cupos del evento (número, opcional)",
+        "ticket_promedio": "ticket promedio por proyecto, en la moneda indicada",
+        "tasa_cierre": "parte de las reuniones u oportunidades que termina en venta, de 0 a 1",
+        "moneda": "código ISO de la moneda (USD, EUR, CLP, MXN...)",
+        "ticket_meta": "meta de ticket promedio",
+        "ticket_meta_siguiente": "meta de ticket que sigue al lograr la primera (opcional)"
+      },
+      "rows": [
+        { "meta_reuniones_semana": null, "meta_charlas_mes": null, "plan_inicio": "", "plan_dias": 90, "evento_nombre": "", "evento_fecha": "", "evento_cupos": null, "ticket_promedio": null, "tasa_cierre": null, "moneda": "USD", "ticket_meta": null, "ticket_meta_siguiente": null }
+      ]
+    },
+    "arquetipos": {
+      "title": "Arquetipos de cliente",
+      "description": "Una fila por arquetipo de decisión: quién es, qué le duele, qué busca y qué se le ofrece.",
+      "columnas": {
+        "arquetipo": "nombre del arquetipo; debe coincidir con el usado en conv_arquetipo, citas_detalle y en la configuración del kanban",
+        "quien": "quién es (cargo y tipo de empresa)",
+        "dolor": "qué le duele",
+        "busca": "qué busca",
+        "oferta": "qué se le ofrece",
+        "campo_audiencia": "columna de audiencia_arquetipos que mide su peso en el público (por ejemplo alta_direccion_pct); vacío = s/d"
+      },
+      "rows": [
+        { "arquetipo": "Arquetipo A", "quien": "", "dolor": "", "busca": "", "oferta": "", "campo_audiencia": "" },
+        { "arquetipo": "Arquetipo B", "quien": "", "dolor": "", "busca": "", "oferta": "", "campo_audiencia": "" },
+        { "arquetipo": "Arquetipo C", "quien": "", "dolor": "", "busca": "", "oferta": "", "campo_audiencia": "" }
+      ]
+    },
+    "resumen": {
+      "title": "Resumen del perfil y la página",
+      "description": "Una fila con los totales de los exports de analytics del perfil y de la página, más la fase actual del plan.",
+      "fixed": true,
+      "columnas": {
+        "seguidores_perfil": "seguidores del perfil personal",
+        "impresiones_perfil_365d": "impresiones del perfil en los últimos 365 días",
+        "variacion_impresiones": "variación frente a los 365 días anteriores, como fracción (-0.04 = -4 %)",
+        "miembros_alcanzados": "personas alcanzadas en el año",
+        "fuera_de_red": "fracción de impresiones fuera de la red, de 0 a 1",
+        "visitas_perfil_7d": "visitas al perfil en los últimos 7 días",
+        "impresiones_perfil_7d": "impresiones del perfil en los últimos 7 días",
+        "busquedas_7d": "apariciones en búsquedas en los últimos 7 días",
+        "posts_pagina": "posts publicados por la página en el periodo",
+        "impresiones_pagina": "impresiones de la página en el periodo",
+        "clics_pagina": "clics en posts de la página",
+        "reacciones_pagina": "reacciones en posts de la página",
+        "comentarios_pagina": "comentarios en posts de la página",
+        "seguidores_pagina": "seguidores de la página",
+        "fase_actual": "fase del plan, de 0 a 4",
+        "semana": "número de semana desde el arranque",
+        "linea_base_sesiones_semana": "reuniones por semana al inicio del plan",
+        "linea_base_charlas_mes": "charlas por mes al inicio del plan",
+        "fecha_linea_base": "fecha de la línea base, AAAA-MM-DD"
+      },
+      "rows": []
+    },
+    "linea_base": {
+      "title": "Punto de partida",
+      "description": "Una fila con los valores al inicio del plan, para comparar antes y después.",
+      "fixed": true,
+      "columnas": {
+        "fecha": "fecha de la línea base, AAAA-MM-DD",
+        "visitas_perfil_7d": "visitas al perfil en 7 días",
+        "impresiones_perfil_7d": "impresiones del perfil en 7 días",
+        "busquedas_7d": "apariciones en búsquedas en 7 días",
+        "seguidores_perfil": "seguidores del perfil",
+        "seguidores_pagina": "seguidores de la página",
+        "citas_semana": "reuniones por semana",
+        "charlas_mes": "charlas por mes",
+        "puntaje_perfil": "puntaje inicial del perfil sobre 100 (opcional)",
+        "puntaje_pagina": "puntaje inicial de la página sobre 100 (opcional)"
+      },
+      "rows": []
+    },
+    "citas_semanas": {
+      "title": "Reuniones y conversaciones por semana",
+      "description": "Una fila por semana: reuniones agendadas, conversaciones, mensajes, respuestas, alcance y hábitos, desde el análisis semanal.",
+      "columnas": {
+        "semana": "lunes de la semana, AAAA-MM-DD",
+        "citas": "reuniones agendadas",
+        "meta": "meta de reuniones vigente esa semana",
+        "conversaciones": "personas con interés",
+        "dms_enviados": "mensajes enviados",
+        "respuestas": "respuestas recibidas",
+        "inscritos_evento": "inscritos confirmados al próximo evento",
+        "impresiones": "impresiones del perfil en la semana",
+        "interacciones": "interacciones del perfil en la semana",
+        "visitas_perfil": "visitas al perfil en la semana",
+        "impresiones_pagina": "impresiones de la página en la semana",
+        "clics_pagina": "clics de la página en la semana",
+        "interacciones_pagina": "interacciones de la página en la semana",
+        "seguidores_nuevos_pagina": "seguidores nuevos de la página",
+        "posts_publicados": "posts publicados",
+        "posts_plan": "posts planificados",
+        "rondas": "rondas de conversación hechas (la meta es 2)"
+      },
+      "rows": []
+    },
+    "citas_detalle": {
+      "title": "Reuniones agendadas",
+      "description": "Una fila por reunión de la página de reservas, sin datos personales.",
+      "columnas": {
+        "semana": "lunes de la semana, AAAA-MM-DD",
+        "fecha": "fecha de la reunión, AAAA-MM-DD",
+        "origen": "respuesta a '¿Dónde nos conociste?'; el embudo usa 'Perfil de LinkedIn' y 'Página de LinkedIn'",
+        "arquetipo": "arquetipo de quien agenda",
+        "presupuesto": "rango de presupuesto declarado",
+        "modalidad": "modalidad de la reunión",
+        "estado": "estado de la reunión",
+        "tema": "tema agrupado de '¿Qué te gustaría resolver?' (opcional)"
+      },
+      "rows": []
+    },
+    "conv_arquetipo": {
+      "title": "Conversaciones por arquetipo",
+      "description": "Una fila por semana y arquetipo: personas que conversaron, respondieron y agendaron. Sin datos personales.",
+      "columnas": { "semana": "lunes de la semana, AAAA-MM-DD", "arquetipo": "nombre del arquetipo", "conversaciones": "personas que conversaron", "respuestas": "personas que respondieron", "citas": "personas que agendaron" },
+      "rows": []
+    },
+    "aprendizajes": {
+      "title": "Aprendizajes de la semana",
+      "description": "Una fila por semana del análisis semanal.",
+      "columnas": {
+        "semana": "lunes de la semana, AAAA-MM-DD",
+        "repetir": "qué hacer más, separado con ' · '",
+        "dejar": "qué dejar de hacer, separado con ' · '",
+        "aprendizaje": "aprendizaje principal",
+        "accion_semana": "la única acción de la semana siguiente",
+        "post_semana": "título o gancho del post de la semana",
+        "post_cuenta": "cuenta que lo publicó",
+        "post_por_que": "por qué funcionó",
+        "temas": "temas que piden los clientes, separados con ';'"
+      },
+      "rows": []
+    },
+    "hitos": {
+      "title": "Hitos",
+      "description": "Hitos desde la Fila de contenido: piezas publicadas (realizado) y fechas fijas reales (planificado).",
+      "columnas": { "fecha": "AAAA-MM-DD", "evento": "texto corto del hito", "cuenta": "'Perfil', 'Página' o 'Ambas'", "tipo": "Post, Perfil, Evento, Diagnóstico...", "estado": "'realizado' o 'planificado'" },
+      "rows": []
+    },
+    "charlas": {
+      "title": "Charlas",
+      "description": "Una fila por charla: fecha, evento, estado y origen.",
+      "columnas": { "fecha": "AAAA-MM-DD", "evento": "nombre del evento", "estado": "'encontrada', 'propuesta', 'aceptada' o 'dada'", "origen": "de dónde llegó" },
+      "rows": []
+    },
+    "puntaje": {
+      "title": "Puntaje de los perfiles",
+      "description": "Rúbrica de 100 puntos para el perfil personal y para la página de empresa; los ítems sin puntaje faltan por medir.",
+      "fixed": true,
+      "columnas": { "item": "ítem de la rúbrica", "puntaje": "puntos obtenidos (null = falta medir)", "maximo": "puntos máximos del ítem", "nota": "explicación corta", "perfil": "'Perfil' o 'Página'" },
+      "rows": []
+    },
+    "personal_mensual": {
+      "title": "Perfil · impresiones por mes",
+      "description": "Impresiones, interacciones y nuevos seguidores del perfil por mes.",
+      "fixed": true,
+      "columnas": { "mes": "AAAA-MM", "impresiones": "impresiones del mes", "interacciones": "interacciones del mes", "nuevos_seguidores": "seguidores nuevos del mes" },
+      "rows": []
+    },
+    "pagina_mensual": {
+      "title": "Página · impresiones por mes",
+      "description": "Impresiones, clics, reacciones, comentarios y compartidos de la página por mes.",
+      "fixed": true,
+      "columnas": { "mes": "AAAA-MM", "impresiones": "impresiones", "clics": "clics", "reacciones": "reacciones", "comentarios": "comentarios", "compartidos": "compartidos" },
+      "rows": []
+    },
+    "posts_perfil": {
+      "title": "Posts del perfil",
+      "description": "Los mejores posts del año y los últimos 15 del perfil personal, con su tipo.",
+      "fixed": true,
+      "columnas": { "post": "primeras palabras del post", "grupo": "'Mejores del año' o 'Últimos 15'", "cuando": "fecha corta (por ejemplo '2 may')", "tipo": "tipo de post (Opinión, Historia, Caso de cliente, Invitación a conversar, Repost...; los mejores del año llevan tipo 'Mejores del año')", "impresiones": "impresiones", "interacciones": "interacciones (o null)", "reacciones": "reacciones (o null)", "comentarios": "comentarios (o null)", "reposts": "reposts (o null)" },
+      "rows": []
+    },
+    "posts_pagina": {
+      "title": "Posts de la página",
+      "description": "Posts de la página de empresa del export de contenido, con su tipo.",
+      "fixed": true,
+      "columnas": { "post": "primeras palabras del post", "cuando": "fecha corta", "tipo": "tipo de post", "impresiones": "impresiones", "clics": "clics", "reacciones": "reacciones", "comentarios": "comentarios", "compartidos": "compartidos" },
+      "rows": []
+    },
+    "audiencia": {
+      "title": "Perfil · audiencia",
+      "description": "Distribución del público por ubicación, nivel, sector, tamaño de empresa y cargo, según el export del perfil.",
+      "fixed": true,
+      "columnas": {
+        "categoria": "'Ubicación', 'Nivel de responsabilidad', 'Sector', 'Tamaño de la empresa' o 'Cargo'",
+        "valor": "nombre del grupo (ciudad, nivel, sector...)",
+        "porcentaje": "porcentaje del público (número, 35 = 35 %)",
+        "pais": "solo en Ubicación: país a mostrar",
+        "pais_mapa": "solo en Ubicación: nombre del país en mapa_mundo, en inglés (Chile, Mexico, Spain...)",
+        "iso2": "solo en Ubicación: código de país de dos letras, para la bandera",
+        "lat": "solo en Ubicación: latitud de la ciudad (opcional)",
+        "lon": "solo en Ubicación: longitud de la ciudad (opcional)"
+      },
+      "rows": []
+    },
+    "audiencia_arquetipos": {
+      "title": "Audiencia por arquetipo",
+      "description": "Por fecha de export, porcentaje estimado del público en cada grupo de decisión.",
+      "columnas": { "fecha": "fecha del export, AAAA-MM-DD", "decisores_pct": "% que toma decisiones (gerente o superior)", "alta_direccion_pct": "% de alta dirección", "empresas_1000_pct": "% en empresas de más de 1.000 personas", "rrhh_pct": "% de personas y RR. HH.", "sin_decision_pct": "% sin rol de decisión" },
+      "rows": []
+    },
+    "ventas": {
+      "title": "Oportunidades de venta",
+      "description": "Una fila por oportunidad del tablero de ventas o CRM, sin nombres de clientes.",
+      "columnas": {
+        "key": "identificador interno de la oportunidad",
+        "estado": "etapa del embudo; las ventas usan exactamente 'Venta cerrada' y 'Venta perdida'",
+        "creado": "fecha de creación, AAAA-MM-DD",
+        "cierre": "fecha de cierre, AAAA-MM-DD, o vacío",
+        "valor": "valor estimado o vendido (número, o null)",
+        "servicio": "servicio de interés",
+        "origen": "origen agrupado de la oportunidad",
+        "con_fecha_reunion": "true si tiene reunión agendada",
+        "linea": "línea de negocio"
+      },
+      "rows": []
+    },
+    "mapa_mundo": {
+      "title": "Mapa del mundo",
+      "description": "Contornos de países (Natural Earth 1:110m, vía world-atlas) para dibujar dónde está tu público.",
+      "fixed": true,
+      "columnas": { "id": "código numérico del país", "pais": "nombre del país en inglés", "geometria": "geometría GeoJSON como texto" },
+      "archivo": "tablero-mapa-mundo.json"
+    }
+  }
+}

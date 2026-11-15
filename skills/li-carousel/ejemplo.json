@@ -1,0 +1,136 @@
+{
+  "_nota": "EJEMPLO FICTICIO. Norte Consultores y Ana Pérez no existen: copia la forma y cambia todo por los datos de marca.md.",
+  "titulo": "Tu proyecto no necesita más reuniones",
+  "tema": "empresa",
+  "marca": "empresa",
+  "red": "ambas",
+  "identidad": {
+    "color_fondo": "#111318",
+    "color_texto": "#FFFFFF",
+    "color_acento": "#3B82F6",
+    "color_acento2": "",
+    "tipografia": "",
+    "logo": "",
+    "foto": "",
+    "iniciales": "NC"
+  },
+  "autor": {
+    "nombre": "Norte Consultores",
+    "nombre_marcado": "Norte *Consultores*",
+    "handle": "[usuario real]"
+  },
+  "slides": [
+    {
+      "tipo": "portada",
+      "etiqueta": "Serie de ejemplo · 01",
+      "titulo": "Tu proyecto no necesita más *reuniones*.",
+      "titulo_ligero": "Necesita un dueño.",
+      "puente": "circulo"
+    },
+    {
+      "tipo": "idea",
+      "icono": "alerta",
+      "etiqueta": "El punto de partida",
+      "titulo": "El problema no es el *plan*",
+      "texto": "Es que cada área lo lee a su manera, sin prioridades claras y sin nadie que mire el resultado."
+    },
+    {
+      "tipo": "contraste",
+      "icono": "escudo",
+      "etiqueta": "Paso 1 de 3",
+      "titulo": "Primero, *reglas*",
+      "antes": {
+        "etiqueta": "En vez de",
+        "texto": "Pedir avances en cada reunión y esperar que alguien responda."
+      },
+      "despues": {
+        "etiqueta": "Prueba con",
+        "texto": "Decir quién decide, con qué datos y quién revisa."
+      },
+      "nota": "Las reglas claras dan permiso.",
+      "paso": "01"
+    },
+    {
+      "tipo": "lista",
+      "icono": "ruta",
+      "etiqueta": "Paso 2 de 3",
+      "titulo": "Luego, *foco*",
+      "items": [
+        {
+          "icono": "diana",
+          "fuerte": "Un problema real:",
+          "texto": "no la iniciativa de moda"
+        },
+        {
+          "icono": "grafico",
+          "fuerte": "Una métrica:",
+          "texto": "la que ya mira la gerencia"
+        },
+        {
+          "icono": "reloj",
+          "fuerte": "Un plazo:",
+          "texto": "con fecha de término"
+        }
+      ],
+      "nota": "Sin fecha de término, el proyecto se vuelve eterno.",
+      "paso": "02"
+    },
+    {
+      "tipo": "chips",
+      "icono": "personas",
+      "etiqueta": "Paso 3 de 3",
+      "titulo": "Y siempre, *personas*",
+      "texto": "El cambio se gana cuando el equipo entiende qué cambia en su día y qué gana con eso.",
+      "chips": [
+        "Formación",
+        "Acompañamiento",
+        "Rituales"
+      ],
+      "paso": "03",
+      "fondo": "acento"
+    },
+    {
+      "tipo": "frase",
+      "etiqueta": "La condición",
+      "titulo": "Más proyectos piden *mejor* criterio.",
+      "fondo": "oscuro",
+      "panorama": {
+        "arte": "ondas"
+      }
+    },
+    {
+      "tipo": "imagen",
+      "etiqueta": "Sigue el hilo",
+      "titulo": "El criterio decide *hacia dónde*.",
+      "texto": "El plan solo acelera.",
+      "fondo": "oscuro"
+    },
+    {
+      "tipo": "prompt",
+      "icono": "terminal",
+      "etiqueta": "Guárdalo",
+      "titulo": "Una pregunta para el *lunes*",
+      "prompt": "¿Qué proyectos de [tu área] no tienen hoy un dueño, una métrica y una fecha de término?"
+    },
+    {
+      "tipo": "resumen",
+      "icono": "guardar",
+      "etiqueta": "En una lámina",
+      "titulo": "El orden *importa*",
+      "items": [
+        "**Reglas:** quién decide y quién revisa",
+        "**Foco:** un problema, una métrica, un plazo",
+        "**Personas:** un equipo que entiende qué gana"
+      ]
+    },
+    {
+      "tipo": "cierre",
+      "etiqueta": "Fin del recorrido",
+      "titulo": "¿Te sirvió?",
+      "titulo_ligero": "Guárdalo para tu próxima reunión",
+      "cta": "Comenta GUIA y te enviamos la guía por DM."
+    }
+  ],
+  "ritmo": "alterno",
+  "estilo_acento": "serif"
+}

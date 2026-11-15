@@ -1,0 +1,416 @@
+<title>Fila de contenido</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: "Hoy" arriba (qué publicar en cada carril), debajo el tablero de 5 columnas; en teléfono, una columna por pestaña. */
+/* Paleta neutra. Para usar los colores de tu marca, cambia solo estas variables (claro y oscuro). */
+:root{
+  --bg:#f7f8fa; --surface:#ffffff; --sunk:#eef0f4; --line:#d9dde5;
+  --fg:#1c2330; --muted:#5d6676; --accent:#2f5d8a; --accent-ink:#ffffff; --accent-soft:#e1eaf4;
+  --alert:#b3413a; --alert-soft:#f8e4e2; --ok:#1f7a4d; --ok-soft:#e2f4ea; --warn:#8a5a00; --warn-soft:#fbefd6;
+  --lane-1:#2f5d8a; --lane-2:#3a7d7b; --lane-3:#8a5fa8; --lane-4:#a8662f;
+  --f-display:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; --f-body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12151b; --surface:#1b2029; --sunk:#161a22; --line:#2c3340;
+  --fg:#e7eaf0; --muted:#9aa3b2; --accent:#7fb0e0; --accent-ink:#10202f; --accent-soft:#22344a;
+  --alert:#f0928a; --alert-soft:#3a2221; --ok:#6fd3a0; --ok-soft:#1c3328; --warn:#f2c06b; --warn-soft:#3a2e17;
+  --lane-1:#7fb0e0; --lane-2:#6cc3bd; --lane-3:#c09be0; --lane-4:#e0a36c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12151b; --surface:#1b2029; --sunk:#161a22; --line:#2c3340;
+  --fg:#e7eaf0; --muted:#9aa3b2; --accent:#7fb0e0; --accent-ink:#10202f; --accent-soft:#22344a;
+  --alert:#f0928a; --alert-soft:#3a2221; --ok:#6fd3a0; --ok-soft:#1c3328; --warn:#f2c06b; --warn-soft:#3a2e17;
+  --lane-1:#7fb0e0; --lane-2:#6cc3bd; --lane-3:#c09be0; --lane-4:#e0a36c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.45}
+.wrap{max-width:1400px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+h1{font-size:1.6rem;letter-spacing:-.01em}
+h2{font-size:1.05rem}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between}
+.sub{color:var(--muted);margin:4px 0 0;font-size:.9rem}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:8px 12px}
+button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+button.ghost{background:transparent}
+button:disabled{opacity:.5;cursor:not-allowed}
+.status{font-size:.82rem;color:var(--muted)}
+.status.warn{color:var(--warn)}
+
+/* Hoy */
+.hoy{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px}
+.lane{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.lane-h{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.lane-h h2{display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--lane,var(--lane-1))}
+.next-t{font-weight:600;font-size:1.02rem}
+.why{font-size:.84rem;color:var(--muted)}
+.note{font-size:.85rem;padding:8px 10px;border-radius:8px;background:var(--warn-soft);color:var(--warn)}
+.note.ok{background:var(--ok-soft);color:var(--ok)}
+.then{font-size:.84rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pubbox{display:flex;gap:8px;flex-wrap:wrap}
+.pubbox input{flex:1 1 180px;min-width:0}
+
+/* Criterio */
+details.crit{background:var(--sunk);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+details.crit summary{cursor:pointer;font-family:var(--f-display);font-weight:600}
+.crit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px;margin-top:12px}
+.crit-grid div{font-size:.88rem}
+.crit-grid b{display:block;font-family:var(--f-display)}
+.crit p{font-size:.88rem;max-width:72ch}
+
+/* Filtros y pestañas */
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border-radius:999px;padding:6px 12px;font-size:.85rem}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--fg);font-weight:600}
+.tabs{display:none;gap:6px;overflow-x:auto;padding-bottom:2px}
+.tabs button{white-space:nowrap;font-size:.85rem;border-radius:999px;padding:6px 12px}
+.tabs button[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+/* Tablero */
+.board-scroll{overflow-x:auto}
+.board{display:grid;grid-template-columns:repeat(5,minmax(240px,1fr));gap:12px;min-width:1240px}
+.col{background:var(--sunk);border:1px solid var(--line);border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.col-h{display:flex;justify-content:space-between;align-items:baseline;padding:2px 4px 4px}
+.col-h h3{font-size:.95rem}
+.col-h span{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.col-d{font-size:.78rem;color:var(--muted);padding:0 4px}
+.empty{font-size:.85rem;color:var(--muted);padding:14px 6px;text-align:center}
+.card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--lane,var(--lane-1));border-radius:10px;padding:10px 10px 10px 12px;display:flex;flex-direction:column;gap:6px;text-align:left;width:100%;position:relative}
+.card:hover{border-color:var(--accent)}
+.card-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.card-t{font-weight:600;font-size:.92rem;min-width:0;overflow-wrap:anywhere}
+.score{font-family:var(--f-display);font-weight:700;font-variant-numeric:tabular-nums;font-size:.9rem;background:var(--accent-soft);color:var(--accent);border-radius:8px;padding:2px 7px;flex:none}
+.meta{display:flex;flex-wrap:wrap;gap:4px}
+.pill{font-size:.72rem;padding:2px 7px;border-radius:999px;background:var(--sunk);color:var(--muted);border:1px solid var(--line)}
+.pill.fija{background:var(--alert-soft);color:var(--alert);border-color:transparent;font-weight:600}
+.pill.arq{color:var(--fg)}
+.pos{font-family:var(--f-display);font-weight:700;color:var(--muted);font-size:.8rem}
+
+/* Diálogo */
+dialog{border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--fg);padding:0;width:min(560px,calc(100vw - 24px));max-height:calc(100vh - 40px)}
+dialog::backdrop{background:rgba(15,20,30,.45)}
+.dlg{padding:18px;display:flex;flex-direction:column;gap:12px}
+.dlg-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fgrid .full{grid-column:1/-1}
+label{display:flex;flex-direction:column;gap:4px;font-size:.8rem;color:var(--muted);min-width:0}
+input,select,textarea{font:inherit;font-size:.92rem;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 9px;width:100%;min-width:0}
+textarea{min-height:64px;resize:vertical}
+.scorebox{background:var(--sunk);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.scorebox .row{justify-content:space-between}
+.total{font-family:var(--f-display);font-weight:700;font-size:1.1rem;color:var(--accent)}
+.moves{display:flex;flex-wrap:wrap;gap:6px}
+.moves button{font-size:.82rem;padding:6px 10px}
+.moves button[aria-current="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.danger{color:var(--alert)}
+.copyrow{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.copyrow button{font-size:.8rem;padding:4px 10px}
+textarea.post{min-height:180px;font-size:.88rem;white-space:pre-wrap}
+.file{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:6px 8px;overflow-wrap:anywhere;color:var(--fg)}
+.pill.miss{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+@media (max-width:900px){
+  .tabs{display:flex}
+  .board{grid-template-columns:1fr;min-width:0}
+  .col{display:none}
+  .col.on{display:flex}
+  .fgrid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1 id="titulo">Fila de contenido</h1>
+      <p class="sub">Sin fechas que mover. Cada día se publica la primera pieza lista de cada carril; solo las 📌 tienen fecha.</p>
+    </div>
+    <div class="row">
+      <span id="status" class="status">Cargando tablero…</span>
+      <button class="primary" id="btnNew" type="button">+ Idea</button>
+    </div>
+  </header>
+
+  <section class="hoy" id="hoy" aria-label="Qué publicar hoy"></section>
+
+  <details class="crit">
+    <summary>Cómo se ordena la fila</summary>
+    <p>Cada pieza tiene un puntaje de 0 a 24. La fila de cada carril se ordena por ese puntaje, de mayor a menor. Una pieza 📌 con fecha va primero desde 2 días antes de su fecha.</p>
+    <div class="crit-grid">
+      <div><b>Lleva a reunión · ×3</b>0 sin llamado · 1 conversación general · 2 palabra clave con entregable · 3 invita directo a sesión o programa.</div>
+      <div><b>Pierde valor si espera · ×2</b>0 atemporal · 1 conviene esta semana o dos · 2 hay alguien esperando (persona etiquetada, pieza gemela en otra cuenta) · 3 tema caliente o evento cerca.</div>
+      <div><b>Prueba real · ×2</b>0 opinión · 1 caso de terceros con fuente · 2 dato o caso propio · 3 testimonio o resultado de cliente.</div>
+      <div><b>Equilibrio de arquetipo · +3</b>Automático: suma 3 si su arquetipo no salió en las 2 últimas publicaciones de ese carril, para rotar entre <span id="critArq">tus arquetipos</span>.</div>
+    </div>
+    <p>Reglas fijas: cada carril lleva su propia fila y nunca sale el mismo tema dos veces el mismo día. <span id="critUno"></span></p>
+  </details>
+
+  <div class="bar">
+    <div class="chips" id="chips" role="group" aria-label="Filtrar por carril"></div>
+    <div class="tabs" id="tabs" role="tablist" aria-label="Columnas"></div>
+  </div>
+
+  <div class="board-scroll"><div class="board" id="board"></div></div>
+</div>
+
+<dialog id="dlg">
+  <form class="dlg" id="form" method="dialog">
+    <div class="dlg-h"><h2 id="dlgTitle">Pieza</h2><button type="button" class="ghost" id="btnClose" aria-label="Cerrar">✕</button></div>
+    <div class="fgrid">
+      <label class="full">Pieza<input id="f_t" required></label>
+      <label>Carril<select id="f_carril"></select></label>
+      <label>Cuenta<select id="f_cuenta"></select></label>
+      <label>Formato<input id="f_formato" placeholder="Video 4:5, carrusel, texto…"></label>
+      <label>Arquetipo<select id="f_arq"></select></label>
+      <label>Llamado<input id="f_cta" placeholder="Comenta la palabra clave"></label>
+      <label>Etiquetar<input id="f_tag"></label>
+      <label>📌 Fecha fija (solo si es real)<input id="f_fija" type="date"></label>
+      <label>Tema (para no repetir el mismo día)<input id="f_tema"></label>
+      <label class="full">Archivo para subir (video, PDF o imagen)<input id="f_archivo" placeholder="Ruta o nombre del archivo"></label>
+      <div class="full"><div class="copyrow"><span class="status">Texto para publicar</span><button type="button" data-copy="f_texto">Copiar texto</button></div><textarea id="f_texto" class="post" aria-label="Texto para publicar" placeholder="Pega aquí el texto final."></textarea></div>
+      <div class="full"><div class="copyrow"><span class="status">Primer comentario</span><button type="button" data-copy="f_comentario">Copiar</button></div><textarea id="f_comentario" aria-label="Primer comentario" placeholder="Link o texto que va en el primer comentario"></textarea></div>
+      <label class="full">Hilo o borrador de origen<input id="f_hilo"></label>
+      <label class="full">Notas<textarea id="f_nota"></textarea></label>
+      <label class="full">Link publicado<input id="f_link" type="url" placeholder="https://"></label>
+    </div>
+    <div class="scorebox">
+      <div class="row"><strong>Prioridad</strong><span class="total" id="f_total">0</span></div>
+      <div class="fgrid">
+        <label>Lleva a reunión (0-3) ×3<select id="f_cita"></select></label>
+        <label>Pierde valor si espera (0-3) ×2<select id="f_vence"></select></label>
+        <label>Prueba real (0-3) ×2<select id="f_prueba"></select></label>
+        <label>Equilibrio de arquetipo<input id="f_bal" disabled></label>
+      </div>
+    </div>
+    <div><div class="status" style="margin-bottom:6px">Columna</div><div class="moves" id="moves"></div></div>
+    <div class="row" style="justify-content:space-between">
+      <button type="button" class="ghost danger" id="btnDel">Borrar</button>
+      <div class="row"><span class="status" id="dlgMsg"></span><button type="submit" class="primary" id="btnSave">Guardar</button></div>
+    </div>
+  </form>
+</dialog>
+
+<script>
+(function(){
+const COLS=[
+  {id:"ideas",n:"Ideas",d:"Tuyas y del equipo, sin fecha."},
+  {id:"prep",n:"En preparación",d:"Redacción, video o diseño."},
+  {id:"aprobar",n:"Por aprobar",d:"Falta tu sí."},
+  {id:"lista",n:"Lista para publicar",d:"Aprobada. La fila, por prioridad."},
+  {id:"publicada",n:"Publicada",d:"Con su link."}
+];
+/* Configuración: documento config/marca de la base de datos del artefacto.
+   Campos: marca, usuario, arquetipos (lista), cuentas (lista), carriles (lista), zona (opcional, zona horaria IANA).
+   Cada carril puede ser un texto ("LinkedIn") o un objeto {id, n, sub, unoAlDia}.
+   Si el documento no existe, se usan estos valores neutros. */
+const DEF={marca:"",usuario:"",arquetipos:["Arquetipo A","Arquetipo B","Arquetipo C"],cuentas:["Perfil personal","Página de empresa"],carriles:["LinkedIn","Instagram"],zona:""};
+let CFG=Object.assign({},DEF),LANES=[];
+const slug=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")||"carril";
+const lista=(v,d)=>Array.isArray(v)&&v.length?v:d;
+function setCfg(raw){
+  const r=raw&&typeof raw==="object"?raw:{};
+  CFG={marca:String(r.marca||""),usuario:String(r.usuario||""),arquetipos:lista(r.arquetipos,DEF.arquetipos).map(String),cuentas:lista(r.cuentas,DEF.cuentas).map(String),carriles:lista(r.carriles,DEF.carriles),zona:String(r.zona||"")};
+  LANES=CFG.carriles.map((c,i)=>{
+    const o=c&&typeof c==="object"?c:{n:String(c)};
+    const id=String(o.id||slug(o.n));
+    return {id,n:String(o.n||o.id||"Carril"),sub:String(o.sub||""),unoAlDia:o.unoAlDia!==undefined?!!o.unoAlDia:id==="linkedin",color:"var(--lane-"+(i%4+1)+")"};
+  });
+  if(filter!=="all"&&!LANES.some(l=>l.id===filter))filter="all";
+}
+let docs=[],db=null,canWrite=true,filter="all",tab="lista",editing=null,pubOpen=null,confirmTwice=null;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function ymd(date){
+  try{return new Intl.DateTimeFormat("en-CA",CFG.zona?{timeZone:CFG.zona}:{}).format(date)}
+  catch(e){return new Intl.DateTimeFormat("en-CA").format(date)}
+}
+const today=()=>ymd(new Date());
+const daysTo=d=>Math.round((Date.parse(d+"T12:00:00Z")-Date.parse(today()+"T12:00:00Z"))/864e5);
+const fmtD=d=>{try{return new Intl.DateTimeFormat("es",{weekday:"short",day:"numeric",month:"short",timeZone:"UTC"}).format(new Date(d+"T12:00:00Z"))}catch(e){return d}};
+const n=v=>Math.max(0,Math.min(3,Number(v)||0));
+const laneOf=id=>LANES.find(l=>l.id===id);
+const laneColor=id=>{const l=laneOf(id);return l?l.color:"var(--muted)"};
+
+function lastArqs(carril){
+  return docs.filter(d=>d.col==="publicada"&&d.carril===carril&&d.pubAt).sort((a,b)=>b.pubAt.localeCompare(a.pubAt)).slice(0,2).map(d=>d.arq);
+}
+function bal(d){return d.col==="publicada"?0:(lastArqs(d.carril).includes(d.arq)?0:3)}
+function score(d){return n(d.cita)*3+n(d.vence)*2+n(d.prueba)*2+bal(d)}
+function fijaUrgent(d){return d.fija&&daysTo(d.fija)<=2}
+function sortQ(a,b){
+  const fa=fijaUrgent(a),fb=fijaUrgent(b);
+  if(fa!==fb)return fa?-1:1;
+  if(fa&&fb)return a.fija.localeCompare(b.fija);
+  return score(b)-score(a)||String(a.t).localeCompare(String(b.t));
+}
+function colDocs(c){
+  let L=docs.filter(d=>d.col===c&&(filter==="all"||d.carril===filter));
+  if(c==="publicada")L.sort((a,b)=>String(b.pubAt||"").localeCompare(String(a.pubAt||"")));
+  else L.sort(sortQ);
+  return L;
+}
+
+function renderCfg(){
+  $("#titulo").textContent="Fila de contenido"+(CFG.marca?" · "+CFG.marca:"");
+  $("#critArq").textContent=CFG.arquetipos.join(", ");
+  const uno=LANES.filter(l=>l.unoAlDia).map(l=>l.n);
+  $("#critUno").textContent=uno.length?"En "+uno.join(" y ")+" sale una pieza al día como máximo, aunque tenga varias cuentas.":"";
+  $("#chips").innerHTML=`<button class="chip" type="button" data-f="all" aria-pressed="${filter==="all"}">Todo</button>`+LANES.map(l=>`<button class="chip" type="button" data-f="${esc(l.id)}" aria-pressed="${filter===l.id}">${esc(l.n)}</button>`).join("");
+}
+function fillSel(id,items,cur){
+  const have=items.map(i=>i.v);
+  const all=cur&&!have.includes(cur)?items.concat([{v:cur,n:cur}]):items;
+  $(id).innerHTML=all.map(i=>`<option value="${esc(i.v)}">${esc(i.n)}</option>`).join("");
+  if(cur)$(id).value=cur;
+}
+
+function renderHoy(){
+  const t=today();
+  $("#hoy").innerHTML=LANES.map(l=>{
+    const q=docs.filter(d=>d.col==="lista"&&d.carril===l.id).sort(sortQ);
+    const pubToday=docs.filter(d=>d.col==="publicada"&&d.carril===l.id&&d.pubAt===t);
+    const fijasSoon=docs.filter(d=>d.carril===l.id&&d.col!=="publicada"&&d.fija&&daysTo(d.fija)>=0&&daysTo(d.fija)<=7).sort((a,b)=>a.fija.localeCompare(b.fija));
+    const top=q[0];
+    let body="";
+    if(l.unoAlDia&&pubToday.length){
+      body=`<div class="note ok">Hoy ya salió “${esc(pubToday[0].t)}”. ${esc(l.n)} queda listo por hoy; mañana sigue la fila.</div>`;
+    } else if(!top){
+      body=`<div class="empty">No hay piezas listas en este carril. Aprueba una de “Por aprobar” para llenar la fila.</div>`;
+    } else {
+      const why=[`${score(top)} pts`, top.cuenta, top.arq, top.formato].filter(Boolean).join(" · ");
+      const sameTema=pubToday.find(p=>p.tema&&p.tema===top.tema);
+      body=`<div><div class="status">Publicar hoy</div><div class="next-t">${esc(top.t)}</div><div class="why">${esc(why)}${top.cta?" · "+esc(top.cta):""}</div></div>
+      ${top.fija?`<div class="note">📌 Fecha fija: ${esc(fmtD(top.fija))}</div>`:""}
+      ${top.archivo?`<div><div class="status">Archivo</div><div class="file">${esc(top.archivo)}</div></div>`:""}
+      <div class="row">${top.texto?`<button type="button" data-copyid="${esc(top.id)}" data-field="texto">Copiar texto</button>`:`<span class="pill miss">Falta el texto</span>`}${top.comentario?`<button type="button" data-copyid="${esc(top.id)}" data-field="comentario">Copiar 1er comentario</button>`:""}</div>
+      ${top.tag?`<div class="why">Antes de publicar, avísale a ${esc(top.tag)} para que comente en la primera hora.</div>`:""}
+      ${sameTema?`<div class="note">Ojo: hoy ya salió el mismo tema en este carril. Espera a mañana.</div>`:""}
+      ${pubOpen===top.id?`<div class="pubbox"><input id="pubLink" type="url" placeholder="Pega el link (opcional)" aria-label="Link de la publicación"><button class="primary" type="button" data-pubok="${esc(top.id)}">Listo</button><button type="button" class="ghost" data-pubcancel>Cancelar</button></div>`
+        :`<div class="row"><button class="primary" type="button" data-pub="${esc(top.id)}" ${canWrite?"":"disabled"}>Marcar publicada</button><button type="button" data-open="${esc(top.id)}">Ver pieza</button></div>`}
+      ${q.length>1?`<div class="then"><span>Después:</span>${q.slice(1,4).map((d,i)=>`<span><span class="pos">${i+2}.</span> ${esc(d.t)} · ${score(d)} pts</span>`).join("")}</div>`:""}`;
+    }
+    const soon=fijasSoon.filter(f=>!top||f.id!==top.id);
+    return `<article class="lane"><div class="lane-h"><h2><span class="dot" style="--lane:${l.color}"></span>${esc(l.n)}</h2><span class="status">${l.sub?esc(l.sub)+" · ":""}${q.length} en fila</span></div>${body}
+      ${soon.length?`<div class="then"><span>📌 Próximas fijas:</span>${soon.map(f=>`<span>${esc(fmtD(f.fija))} · ${esc(f.t)} (${esc((COLS.find(c=>c.id===f.col)||{n:f.col}).n)})</span>`).join("")}</div>`:""}</article>`;
+  }).join("");
+}
+
+function card(d,i,c){
+  const fija=d.fija?`<span class="pill fija">📌 ${esc(fmtD(d.fija))}</span>`:"";
+  const right=c==="publicada"?`<span class="pill">${esc(d.pubAt?fmtD(d.pubAt):"")}</span>`:`<span class="score" title="Prioridad">${score(d)}</span>`;
+  return `<button type="button" class="card" style="--lane:${laneColor(d.carril)}" data-open="${esc(d.id)}">
+    <div class="card-top"><span class="card-t">${c==="lista"?`<span class="pos">${i+1}.</span> `:""}${esc(d.t)}</span>${right}</div>
+    <div class="meta"><span class="pill">${esc(d.cuenta||"")}</span><span class="pill arq">${esc(d.arq||"")}</span>${d.formato?`<span class="pill">${esc(d.formato)}</span>`:""}${fija}${c!=="ideas"&&c!=="publicada"&&!d.texto?`<span class="pill miss">sin texto</span>`:""}</div>
+  </button>`;
+}
+function renderBoard(){
+  $("#tabs").innerHTML=COLS.map(c=>`<button type="button" role="tab" data-tab="${c.id}" aria-selected="${tab===c.id}">${c.n} · ${colDocs(c.id).length}</button>`).join("");
+  $("#board").innerHTML=COLS.map(c=>{
+    const L=colDocs(c.id);
+    return `<section class="col ${tab===c.id?"on":""}" aria-label="${c.n}"><div class="col-h"><h3>${c.n}</h3><span>${L.length}</span></div><div class="col-d">${c.d}</div>
+      ${L.length?L.map((d,i)=>card(d,i,c.id)).join(""):`<div class="empty">${docs.length?"Nada aquí todavía.":"Aún no hay piezas: agrega la primera con “+ Idea”."}</div>`}</section>`;
+  }).join("");
+}
+function render(){renderCfg();renderHoy();renderBoard()}
+
+/* Diálogo */
+const sel3=id=>{$(id).innerHTML=[0,1,2,3].map(v=>`<option value="${v}">${v}</option>`).join("")};
+["#f_cita","#f_vence","#f_prueba"].forEach(sel3);
+let dlgCol="ideas";
+function fillMoves(){ $("#moves").innerHTML=COLS.map(c=>`<button type="button" data-move="${c.id}" aria-current="${dlgCol===c.id}">${c.n}</button>`).join("") }
+function formObj(){
+  return {t:$("#f_t").value.trim(),carril:$("#f_carril").value,cuenta:$("#f_cuenta").value,formato:$("#f_formato").value.trim(),arq:$("#f_arq").value,
+    cta:$("#f_cta").value.trim(),tag:$("#f_tag").value.trim(),fija:$("#f_fija").value||"",tema:$("#f_tema").value.trim(),hilo:$("#f_hilo").value.trim(),
+    nota:$("#f_nota").value.trim(),archivo:$("#f_archivo").value.trim(),texto:$("#f_texto").value,comentario:$("#f_comentario").value,link:$("#f_link").value.trim(),cita:n($("#f_cita").value),vence:n($("#f_vence").value),prueba:n($("#f_prueba").value),col:dlgCol};
+}
+function updTotal(){const o=formObj();const b=bal(o);$("#f_bal").value=b?"+3 (rota arquetipo)":"0";$("#f_total").textContent=score(o)+" / 24"}
+function openDlg(id){
+  const d=id?docs.find(x=>x.id===id):{t:"",carril:filter!=="all"?filter:(LANES[0]||{}).id,cuenta:CFG.cuentas[0],arq:CFG.arquetipos[0],cita:1,vence:0,prueba:0,col:"ideas"};
+  if(!d)return;
+  editing=id||null; dlgCol=d.col||"ideas";
+  $("#dlgTitle").textContent=id?"Pieza":"Nueva idea";
+  fillSel("#f_carril",LANES.map(l=>({v:l.id,n:l.n})),d.carril);
+  fillSel("#f_cuenta",CFG.cuentas.map(c=>({v:c,n:c})),d.cuenta);
+  fillSel("#f_arq",CFG.arquetipos.map(a=>({v:a,n:a})),d.arq);
+  const keys=["t","formato","cta","tag","fija","tema","hilo","archivo","texto","comentario","nota","link","cita","vence","prueba"];
+  keys.forEach(k=>{$("#f_"+k).value=d[k]??(["cita","vence","prueba"].includes(k)?0:"")});
+  $("#btnDel").hidden=!id; $("#dlgMsg").textContent=""; confirmTwice=null; $("#btnDel").textContent="Borrar";
+  $("#btnSave").disabled=!canWrite;
+  fillMoves(); updTotal();
+  try{$("#dlg").showModal()}catch(e){$("#dlg").setAttribute("open","")}
+}
+function closeDlg(){try{$("#dlg").close()}catch(e){$("#dlg").removeAttribute("open")}}
+$("#form").addEventListener("input",updTotal);
+$("#form").addEventListener("change",updTotal);
+$("#btnClose").addEventListener("click",closeDlg);
+$("#moves").addEventListener("click",e=>{const b=e.target.closest("[data-move]");if(!b)return;dlgCol=b.dataset.move;fillMoves();updTotal()});
+$("#form").addEventListener("submit",async e=>{
+  e.preventDefault(); if(!db){$("#dlgMsg").textContent="El tablero no está conectado.";return}
+  const o=formObj(); if(!o.t){$("#dlgMsg").textContent="Ponle nombre a la pieza.";return}
+  const prev=editing?docs.find(x=>x.id===editing):null;
+  if(o.col==="publicada"&&(!prev||prev.col!=="publicada"))o.pubAt=today(); else if(prev&&prev.pubAt)o.pubAt=prev.pubAt;
+  o.actualizado=new Date().toISOString(); if(!prev)o.creado=today(); else o.creado=prev.creado||"";
+  $("#btnSave").disabled=true; $("#dlgMsg").textContent="Guardando…";
+  try{
+    if(editing) await db.doc("piezas/"+editing).set(o); else await db.collection("piezas").add(o);
+    closeDlg();
+  }catch(err){$("#dlgMsg").textContent=err&&err.code==="invalid_argument"?"No tienes permiso para editar este tablero.":"No se pudo guardar. Intenta de nuevo."}
+  finally{$("#btnSave").disabled=!canWrite}
+});
+$("#btnDel").addEventListener("click",async()=>{
+  if(!editing||!db)return;
+  if(confirmTwice!==editing){confirmTwice=editing;$("#btnDel").textContent="Toca otra vez para borrar";return}
+  try{await db.doc("piezas/"+editing).delete();closeDlg()}catch(e){$("#dlgMsg").textContent="No se pudo borrar."}
+});
+$("#btnNew").addEventListener("click",()=>openDlg(null));
+
+/* Clicks generales */
+async function copyText(t,btn){
+  const old=btn.textContent;
+  try{await navigator.clipboard.writeText(t);btn.textContent="Copiado ✓"}
+  catch(err){const ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand("copy")}catch(e2){}ta.remove();btn.textContent=ok?"Copiado ✓":"Mantén presionado el texto para copiar"}
+  setTimeout(()=>{btn.textContent=old},1800);
+}
+document.addEventListener("click",async e=>{
+  const cp=e.target.closest("[data-copy]"); if(cp){const el=$("#"+cp.dataset.copy);copyText(el.value,cp);return}
+  const ci=e.target.closest("[data-copyid]"); if(ci){const d=docs.find(x=>x.id===ci.dataset.copyid);if(d)copyText(d[ci.dataset.field]||"",ci);return}
+  const o=e.target.closest("[data-open]"); if(o){openDlg(o.dataset.open);return}
+  const f=e.target.closest("[data-f]"); if(f){filter=f.dataset.f;render();return}
+  const t=e.target.closest("[data-tab]"); if(t){tab=t.dataset.tab;renderBoard();return}
+  const p=e.target.closest("[data-pub]"); if(p){pubOpen=p.dataset.pub;renderHoy();setTimeout(()=>{const i=$("#pubLink");i&&i.focus()},0);return}
+  if(e.target.closest("[data-pubcancel]")){pubOpen=null;renderHoy();return}
+  const ok=e.target.closest("[data-pubok]");
+  if(ok&&db){
+    const id=ok.dataset.pubok,link=($("#pubLink")||{}).value||"";ok.disabled=true;
+    try{await db.doc("piezas/"+id).update({col:"publicada",pubAt:today(),link:link.trim(),actualizado:new Date().toISOString()});pubOpen=null}
+    catch(err){ok.disabled=false;setStatus("No se pudo marcar. Intenta de nuevo.",true)}
+  }
+});
+
+function setStatus(t,w){const s=$("#status");s.textContent=t;s.classList.toggle("warn",!!w)}
+
+setCfg(null);
+render();
+(async()=>{
+  if(!window.claude||!window.claude.use){setStatus("Ábrelo desde claude.ai para ver y mover las piezas.",true);return}
+  db=await window.claude.use("db");
+  if(!db){setStatus("No se pudo abrir el tablero en esta vista. Entra con tu cuenta de claude.ai.",true);return}
+  try{const u=await window.claude.use("user");if(u){const c=await u.can("data.write");if(c===false)canWrite=false}}catch(e){}
+  if(!canWrite){$("#btnNew").disabled=true}
+  /* Configuración de marca: si config/marca no existe, quedan los valores neutros. */
+  try{db.doc("config/marca").onSnapshot(s=>{setCfg(s&&s.exists?s.data():null);render()},()=>{})}catch(e){}
+  let loaded=false;
+  const timer=setTimeout(()=>{if(!loaded)setStatus("El tablero no responde todavía. Revisa tu conexión.",true)},10000);
+  db.collection("piezas").onSnapshot(snap=>{
+    docs=snap.docs.map(d=>{const o=Object.assign({id:d.id},d.data());
+      if(typeof o.pubAt==="string"&&o.pubAt.includes("T")){const ms=Date.parse(o.pubAt);if(!isNaN(ms))o.pubAt=ymd(new Date(ms))}
+      return o});
+    if(!snap.metadata.fromCache){loaded=true;clearTimeout(timer)}
+    const live=docs.filter(d=>d.col!=="publicada").length;
+    setStatus(loaded?(docs.length?`${live} piezas en curso`:"Aún no hay piezas")+(canWrite?"":" · solo lectura"):"Cargando…");
+    render();
+  },err=>{clearTimeout(timer);setStatus(err&&err.code==="revoked"?"Ya no tienes acceso a este tablero.":"Se cortó la conexión con el tablero. Recarga la página.",true)});
+})();
+})();
+</script>

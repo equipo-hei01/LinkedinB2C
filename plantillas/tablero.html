@@ -1,0 +1,1921 @@
+<meta name="dash-one-writer">
+<style>
+.hx{display:flex;flex-direction:column;gap:var(--cds-gap-xl);font-family:var(--font-anthropic-sans);color:var(--color-fg)}
+.hx b{font-weight:600}
+.hx-head{display:flex;flex-direction:column;gap:var(--cds-gap-sm);max-width:52rem}
+.hx-title{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0;text-wrap:balance}
+.hx-take{font-size:var(--cds-font-size-body);margin:0;line-height:1.5}
+.hx-sec{display:flex;flex-direction:column;gap:var(--cds-gap-md)}
+.hx-h2{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:0}
+.hx-sub{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);margin:0}
+.hx-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-sm);min-width:0}
+.hx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:var(--cds-gap-md)}
+.hx-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:var(--cds-gap-md)}
+.hx-tile{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-md) var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-xs);min-width:0}
+.hx-lab{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0}
+.hx-big{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);font-variant-numeric:tabular-nums;margin:0}
+.hx-note{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:0}
+.hx-bad{color:var(--color-bad)}
+.hx-ok{color:var(--color-ok)}
+.hx-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr));gap:var(--cds-gap-sm);list-style:none;margin:0;padding:0}
+.hx-step{border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-sm) var(--cds-pad-md);display:flex;flex-direction:column;gap:2px;background:var(--color-panel)}
+.hx-step .hx-stn{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.hx-step .hx-stt{font-weight:var(--cds-font-weight-medium)}
+.hx-step .hx-std{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.hx-step.is-done{opacity:.7}
+.hx-step.is-done .hx-stn::after{content:" · hecho"}
+.hx-step.is-now{border-color:var(--color-fg);box-shadow:inset 0 0 0 1px var(--color-fg)}
+.hx-step.is-now .hx-stn::after{content:" · estás aquí"}
+.hx-bars{position:relative;display:flex;flex-direction:column;gap:6px;min-height:8rem}
+.hx-row{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr) 4.5rem;gap:var(--cds-gap-sm);align-items:center;font-size:var(--cds-font-size-caption);cursor:default}
+.hx-row .hx-rl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hx-row .hx-rt{height:14px;background:var(--cds-chart-grid);border-radius:3px;position:relative;overflow:hidden}
+.hx-row .hx-rb{position:absolute;inset:0 auto 0 0;border-radius:3px}
+.hx-row .hx-rv{text-align:right;font-variant-numeric:tabular-nums}
+.hx-row:hover .hx-rl{color:var(--color-fg);text-decoration:underline}
+@media (max-width:560px){.hx-row{grid-template-columns:minmax(0,1fr) 4rem}.hx-row .hx-rl{grid-column:1/-1;white-space:normal}}
+.hx-legend{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm) var(--cds-gap-md);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.hx-legend span{display:inline-flex;align-items:center;gap:6px}
+.hx-sw{width:10px;height:10px;border-radius:2px;display:inline-block}
+.hx-tip{position:absolute;z-index:5;background:var(--cds-surface-popover);border:1px solid var(--cds-border);border-radius:var(--cds-radius);box-shadow:var(--cds-shadow-popover);padding:var(--cds-pad-xs) var(--cds-pad-sm);font-size:var(--cds-font-size-caption);pointer-events:none;max-width:18rem;line-height:1.45}
+.hx-tip .hx-tk{color:var(--cds-text-secondary)}
+.hx-score .hx-rt{height:12px}
+.hx-pend .hx-rt{background:transparent;border:1px dashed var(--cds-chart-axis)}
+.hx-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:var(--cds-gap-md)}
+.hx-list{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:var(--cds-gap-sm);line-height:1.45}
+.hx-fail{display:flex;align-items:center;justify-content:center;gap:6px;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);min-height:8rem}
+.hx-fail::before{content:"";width:.375rem;height:.375rem;border-radius:50%;background:var(--color-bad)}
+.hx-vchart{position:relative;min-height:240px}
+.hx-ctl{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm);align-items:center;justify-content:space-between}
+.hx-prog{height:12px;background:var(--cds-chart-grid);border-radius:6px;overflow:hidden;position:relative}
+.hx-prog i{position:absolute;inset:0 auto 0 0;border-radius:6px;background:var(--tb-acento)}
+.hx-empty{border:1px dashed var(--cds-chart-axis);border-radius:var(--cds-radius);padding:var(--cds-pad-md);margin:0;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
+[data-dash-source-state=empty]{color:transparent}
+[data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow)}
+
+.st-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--cds-gap-sm);counter-reset:fl}
+.st-fi{position:relative;background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-sm) var(--cds-pad-md);display:flex;flex-direction:column;gap:2px;min-width:0}
+.st-fi::after{content:"";position:absolute;right:calc(-1 * var(--cds-gap-sm));top:50%;width:var(--cds-gap-sm);height:2px;background:var(--cds-chart-axis)}
+.st-fi:last-child::after{display:none}
+.st-fi .st-fk{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);text-transform:uppercase;letter-spacing:.04em}
+.st-fi .st-fv{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-heading);font-variant-numeric:tabular-nums}
+.st-fi .st-fw{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.st-fi.is-goal{border-color:var(--color-fg);box-shadow:inset 0 0 0 1px var(--color-fg)}
+@media (max-width:820px){.st-flow{grid-template-columns:repeat(3,minmax(0,1fr))}.st-fi:nth-child(3)::after{display:none}}
+@media (max-width:460px){.st-flow{grid-template-columns:minmax(0,1fr)}.st-fi::after{right:auto;left:1.25rem;top:auto;bottom:calc(-1 * var(--cds-gap-sm));width:2px;height:var(--cds-gap-sm)}.st-fi:nth-child(3)::after{display:block}.st-fi:last-child::after{display:none}}
+.st-story{display:flex;flex-direction:column;gap:0}
+.st-ch{position:relative;padding:0 0 var(--cds-gap-xl) 3.25rem;display:flex;flex-direction:column;gap:var(--cds-gap-md);min-width:0}
+.st-ch::before{content:"";position:absolute;left:1.05rem;top:2.2rem;bottom:0;width:2px;background:linear-gradient(var(--cds-chart-axis),var(--cds-chart-grid))}
+.st-ch:last-child::before{display:none}
+.st-node{position:absolute;left:0;top:0;width:2.2rem;height:2.2rem;border-radius:50%;border:2px solid var(--color-fg);background:var(--color-bg);display:flex;align-items:center;justify-content:center;font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-body);font-variant-numeric:tabular-nums}
+.st-ch.is-goal .st-node{background:var(--color-fg);color:var(--color-bg)}
+.st-kick{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);text-transform:uppercase;letter-spacing:.06em;margin:0}
+.st-h2{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0;text-wrap:balance;line-height:1.15}
+.st-lead{font-size:var(--cds-font-size-body);line-height:1.55;margin:0;max-width:46rem}
+.st-sub3{font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium);margin:var(--cds-gap-sm) 0 0}
+@media (max-width:560px){.st-ch{padding-left:2.5rem}.st-node{width:1.8rem;height:1.8rem;font-size:var(--cds-font-size-caption)}.st-ch::before{left:.85rem;top:1.8rem}}
+@media (prefers-reduced-motion:no-preference){.st-ch.st-pre{opacity:0;transform:translateY(14px)}.st-ch{transition:opacity var(--cds-dur-slow) var(--cds-ease-out),transform var(--cds-dur-slow) var(--cds-ease-out)}}
+.hx-trio{display:flex;flex-direction:column;gap:3px}
+.hx-trio .hx-rt{height:9px}
+.st-sw1{background:var(--cds-chart-1, currentColor)}
+
+.vz-gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:var(--cds-gap-md)}
+.vz-g{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-md);display:flex;flex-direction:column;align-items:center;gap:var(--cds-gap-xs);min-width:0;text-align:center}
+.vz-g .hx-lab{text-align:center}
+.vz-gd{width:100%;max-width:15rem;min-height:7.5rem;position:relative}
+.vz-gv{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-heading);font-variant-numeric:tabular-nums;margin:0}
+.vz-cump{font-size:var(--cds-font-size-caption);border:1px solid var(--color-border-line);border-radius:4px;padding:1px 8px;display:inline-block}
+.vz-people{display:grid;grid-template-columns:repeat(auto-fit,minmax(6.5rem,1fr));gap:var(--cds-gap-md);position:relative;min-height:9rem}
+.vz-p{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;min-width:0}
+.vz-p .vz-circ{width:5.5rem;height:5.5rem;border-radius:50%;border:1px solid var(--color-border-line);background:var(--color-bg);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.vz-p .vz-pv{font-weight:600;font-variant-numeric:tabular-nums}
+.vz-p .vz-pl{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.3}
+.vz-map{position:relative;min-height:16rem}
+.vz-flags{display:grid;grid-template-columns:repeat(auto-fit,minmax(6.5rem,1fr));gap:var(--cds-gap-sm)}
+.vz-flag{border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-xs) var(--cds-pad-sm);display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--color-panel)}
+.vz-flag .vz-fe{font-size:1.9rem;line-height:1}
+.vz-flag .vz-fn{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.vz-flag .vz-fp{font-weight:600;font-variant-numeric:tabular-nums}
+.vz-funnel{position:relative;min-height:22rem}
+.vz-stage{font-size:var(--cds-font-size-caption);letter-spacing:.08em;font-weight:600}
+
+/* Paleta neutra. Para usar los colores de tu marca, cambia solo estas variables (claro y oscuro). */
+.hx{--tb-1:#2f5d8a;--tb-2:#3a7d7b;--tb-acento:#c2622d;--tb-pag:#3d4451;--tb-gris:#7d8590}
+@media (prefers-color-scheme:dark){.hx{--tb-1:#5b8fc7;--tb-2:#5fb0a8;--tb-acento:#e08a4f;--tb-pag:#9aa4b2;--tb-gris:#8b949e}}
+[data-theme="dark"] .hx{--tb-1:#5b8fc7;--tb-2:#5fb0a8;--tb-acento:#e08a4f;--tb-pag:#9aa4b2;--tb-gris:#8b949e}
+[data-theme="light"] .hx{--tb-1:#2f5d8a;--tb-2:#3a7d7b;--tb-acento:#c2622d;--tb-pag:#3d4451;--tb-gris:#7d8590}
+
+.vz-y{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--cds-gap-md)}
+@media (max-width:640px){.vz-y{grid-template-columns:minmax(0,1fr)}}
+.vz-join{display:block;width:100%;height:42px}
+.vz-join path{fill:none;stroke:var(--cds-chart-axis);stroke-width:2}
+.vz-brand{display:flex;align-items:center;gap:8px}
+.vz-dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.st-now{font-size:var(--cds-font-size-body);line-height:1.55;margin:0;max-width:46rem;padding:var(--cds-pad-sm) var(--cds-pad-md);border-left:3px solid var(--tb-acento);background:var(--color-panel);border-radius:0 var(--cds-radius) var(--cds-radius) 0}
+.vz-delta{font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.vz-delta.up{color:var(--color-ok)}.vz-delta.down{color:var(--color-bad)}
+.vz-tl{position:relative;min-height:12rem}
+.vz-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:var(--cds-gap-md)}
+.vz-pc{border-top:4px solid var(--tb-1)}
+.vz-pc dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px var(--cds-gap-sm);font-size:var(--cds-font-size-caption)}
+.vz-pc dt{color:var(--color-fg-muted)}.vz-pc dd{margin:0}
+.vz-pc .vz-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--cds-gap-xs);text-align:center;border-top:1px solid var(--color-border-line);padding-top:var(--cds-pad-sm)}
+.vz-pc .vz-nums b{display:block;font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-heading)}
+.vz-pc .vz-nums span{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.vz-action{border:2px solid var(--color-fg);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-sm);background:var(--color-panel)}
+.vz-action .vz-act{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-heading);line-height:1.35;margin:0}
+.vz-post{display:flex;flex-direction:column;gap:var(--cds-gap-xs)}
+.vz-post q{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-heading);line-height:1.35}
+.vz-temas{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:6px}
+.vz-ten{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:var(--cds-gap-md)}
+.vz-ten .hx-card{border-top:4px solid var(--tb-acento)}
+.vz-ten .vz-tq{font-size:var(--cds-font-size-caption);text-transform:uppercase;letter-spacing:.06em;color:var(--color-fg-muted);margin:0}
+.vz-ten .vz-ta{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-heading);line-height:1.35;margin:0}
+.vz-light{display:flex;gap:var(--cds-gap-md);align-items:center;flex-wrap:wrap}
+.vz-bulbs{display:flex;flex-direction:column;gap:6px;padding:8px;border-radius:14px;background:var(--color-fg)}
+.vz-bulbs i{width:26px;height:26px;border-radius:50%;background:var(--cds-chart-grid);opacity:.35;display:block}
+.vz-bulbs i.on{opacity:1}
+.vz-bulbs i.r.on{background:var(--color-bad)}.vz-bulbs i.y.on{background:var(--color-warn)}.vz-bulbs i.g.on{background:var(--color-ok)}
+.vz-lt{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.vz-lt .vz-ls{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-title);margin:0;line-height:1.1}
+.vz-arrow{font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.vz-arrow.up{color:var(--color-ok)}.vz-arrow.down{color:var(--color-bad)}
+.vz-pasos{display:flex;flex-direction:column;gap:var(--cds-gap-sm);position:relative}
+.vz-paso{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px var(--cds-gap-md);padding:var(--cds-pad-sm) var(--cds-pad-md);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);background:var(--color-panel)}
+.vz-paso.cuello{border:2px solid var(--tb-acento)}
+.vz-paso .vz-pt{margin:0;line-height:1.45}
+.vz-paso .vz-pn{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-heading);font-variant-numeric:tabular-nums;margin:0;text-align:right}
+.vz-paso .vz-tag{font-size:var(--cds-font-size-caption);color:var(--tb-acento);font-weight:600}
+.vz-rev{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr));gap:var(--cds-gap-sm);list-style:none;margin:0;padding:0}
+.vz-rev li{border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-sm) var(--cds-pad-md);background:var(--color-panel);display:flex;flex-direction:column;gap:2px}
+.vz-rev li b{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);font-variant-numeric:tabular-nums}
+.vz-rev li span{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.vz-hab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--cds-gap-md)}
+@media (max-width:640px){.vz-hab{grid-template-columns:minmax(0,1fr)}}
+.vz-hab h4{margin:0 0 4px;font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium)}
+.vz-col{display:flex;flex-direction:column;gap:6px;position:relative}
+</style>
+
+<div class="hx">
+  <header class="hx-head">
+    <h1 class="hx-title" id="inicio">De que te vean a que te agenden</h1>
+    <p class="hx-take">Tus mejores posts del año promediaron <b data-draw="num" data-fmt="int" data-source="por_tipo" data-field="promedio" data-where="tipo=Mejores del año">—</b> impresiones. Los últimos 15 promediaron <b data-draw="num" data-fmt="int" data-source="por_tipo" data-field="promedio" data-where="tipo=Últimos 15">—</b>. La meta es convertir esa atención en <b><span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span></b> reuniones por semana.</p>
+    <p class="hx-sub">Se lee de arriba hacia abajo: cada capítulo es un paso del camino, desde tu vitrina hasta la reunión agendada. Se actualiza una vez por semana.</p>
+  </header>
+
+  <section class="hx-sec" id="camino">
+    <h2 class="hx-h2">¿Vas en camino? La versión de 10 segundos</h2>
+    <div class="vz-ten" id="diez-segundos">
+      <div class="hx-card"><p class="vz-tq">Dónde estás</p><p class="vz-ta" data-draw="txt" data-source="resumen10" data-field="donde" data-row="0">—</p></div>
+      <div class="hx-card"><p class="vz-tq">Qué cambió</p><p class="vz-ta" data-draw="txt" data-source="resumen10" data-field="cambio" data-row="0">—</p></div>
+      <div class="hx-card"><p class="vz-tq">Qué hacer ahora</p><p class="vz-ta" data-draw="txt" data-source="resumen10" data-field="accion" data-row="0">—</p></div>
+    </div>
+    <div class="hx-grid">
+      <div class="hx-card" id="semaforo">
+        <h3 class="hx-h2">El semáforo de la meta</h3>
+        <div class="vz-light" data-draw="semaforo" data-source="camino"></div>
+        <p class="hx-note">Verde: vas al 90 % o más de lo que tocaba esta semana. Amarillo: entre 60 % y 90 %. Rojo: menos del 60 %. Se mide con el promedio de las dos últimas semanas.</p>
+      </div>
+      <div class="hx-card" id="rampa">
+        <h3 class="hx-h2">Tu ritmo frente al ideal</h3>
+        <p class="hx-sub">La línea punteada es el ideal: subir parejo cada semana hasta llegar a tu meta de reuniones semanales en la semana 10 y sostenerla hasta el final del plan. Los puntos de acento son tus semanas reales y la línea fina, hacia dónde vas si sigues igual.</p>
+        <div class="hx-vchart" data-draw="rampa" data-source="rampa camino"></div>
+      </div>
+    </div>
+    <div class="hx-tiles" id="cuentas">
+      <div class="hx-tile"><p class="hx-lab">Tu plan</p><p class="hx-big">Día <span data-draw="num" data-fmt="int" data-source="camino" data-field="dia" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="plan_dias" data-row="0">—</span></p><div class="hx-prog" data-draw="avance" data-source="camino"></div><p class="hx-note" data-draw="txt" data-source="camino" data-field="plan_txt" data-row="0">—</p></div>
+      <div class="hx-tile"><p class="hx-lab">Próximo evento · <span data-draw="txt" data-source="camino" data-field="evento_nombre" data-row="0">—</span></p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="dias_evento" data-row="0">—</span> días</p><p class="hx-note">Quedan <b data-draw="num" data-fmt="int" data-source="camino" data-field="cupos_libres" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos libres.</p></div>
+      <div class="hx-tile"><p class="hx-lab">Racha · posts según el plan</p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_plan" data-row="0">—</span> semanas</p><p class="hx-note">Semanas seguidas publicando todo lo planificado.</p></div>
+      <div class="hx-tile"><p class="hx-lab">Racha · 2 rondas de conversación</p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_rondas" data-row="0">—</span> semanas</p><p class="hx-note">Semanas seguidas con las dos rondas hechas.</p></div>
+      <div class="hx-tile"><p class="hx-lab">Racha · meta de reuniones</p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_meta" data-row="0">—</span> semanas</p><p class="hx-note">Semanas seguidas cumpliendo la meta de reuniones.</p></div>
+    </div>
+  </section>
+
+  <section class="hx-sec" id="recorrido">
+    <h2 class="hx-h2">El embudo: de que te vean a que te agenden</h2>
+    <p class="st-now" id="titular-embudo">En <b data-draw="txt" data-source="embudo" data-field="periodo_txt" data-where="id=h1">—</b>, <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h1">—</b> veces te vieron en el feed, <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h2">—</b> interacciones, <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h3">—</b> visitas a tu perfil y <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=b3">—</b> reuniones agendadas.</p>
+    <p class="hx-sub">Arriba, cada cuenta atrae por su lado: tu perfil con sus colores y la página de empresa con los suyos. Abajo se juntan, porque las reuniones llegan a un solo calendario. TOFU es donde te descubren, MOFU donde se interesan y BOFU donde deciden.</p>
+    <div class="vz-y">
+      <div class="hx-card" id="embudo-perfil">
+        <h3 class="hx-h2 vz-brand"><i class="vz-dot" style="background:var(--tb-1)"></i>Tu perfil</h3>
+        <div class="vz-funnel" data-draw="funnel" data-source="embudo" data-grupo="perfil"></div>
+        <p class="hx-note">Reuniones que llegaron por tu perfil, todas las semanas: <b data-draw="num" data-fmt="int" data-source="citas_por_origen" data-field="citas" data-where="origen=Perfil%20de%20LinkedIn">—</b></p>
+      </div>
+      <div class="hx-card" id="embudo-pagina">
+        <h3 class="hx-h2 vz-brand"><i class="vz-dot" style="background:var(--tb-pag)"></i>La página de empresa</h3>
+        <div class="vz-funnel" data-draw="funnel" data-source="embudo" data-grupo="pagina"></div>
+        <p class="hx-note">Reuniones que llegaron por la página, todas las semanas: <b data-draw="num" data-fmt="int" data-source="citas_por_origen" data-field="citas" data-where="origen=P%C3%A1gina%20de%20LinkedIn">—</b></p>
+      </div>
+    </div>
+    <svg class="vz-join" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><path d="M25 0 C25 24, 50 18, 50 42"></path><path d="M75 0 C75 24, 50 18, 50 42"></path></svg>
+    <div class="hx-card" id="embudo-juntos">
+      <h3 class="hx-h2 vz-brand"><i class="vz-dot" style="background:var(--tb-acento)"></i>Juntos · conversan, responden y agendan</h3>
+      <div class="vz-funnel" data-draw="funnel" data-source="embudo" data-grupo="bofu"></div>
+    </div>
+    <p class="hx-note">Con la primera actualización semanal todos los pasos miden la misma semana. Antes de eso, la parte alta usa el último mes completo y las visitas, los últimos 7 días. Cada reunión se asigna a una cuenta según la respuesta a "¿Dónde nos conociste?" del formulario de reservas.</p>
+  </section>
+
+  <section class="hx-sec" id="hitos">
+    <h2 class="hx-h2">Lo que pasó y lo que viene</h2>
+    <p class="hx-sub">Cada punto es un hito: un cambio de perfil, un post clave o un evento. La línea vertical es hoy. Los mismos hitos aparecen marcados con un rombo en los gráficos por mes y por semana, para ver qué causó cada salto.</p>
+    <div class="hx-card"><div class="vz-tl" data-draw="timeline" data-source="hitos"></div></div>
+  </section>
+
+  <div class="st-story">
+
+  <section class="st-ch" id="vitrina">
+    <span class="st-node" aria-hidden="true">1</span>
+    <p class="st-kick">Capítulo 1 · Tu vitrina</p>
+    <h2 class="st-h2">Antes de que te vean, la vitrina tiene que convencer</h2>
+    <p class="st-now">Tu perfil suma <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</b> de 100 y la página <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</b>. Lo que más resta en tu perfil es <b data-draw="txt" data-source="puntaje_brecha" data-field="item" data-where="perfil=Perfil">—</b> y en la página, <b data-draw="txt" data-source="puntaje_brecha" data-field="item" data-where="perfil=P%C3%A1gina">—</b>.</p>
+    <p class="st-lead">Quien llega a tu perfil o a la página decide en segundos si vale la pena escribirte. Este es el puntaje de 100 de cada uno. Las barras punteadas son ítems que faltan por medir.</p>
+    <div class="vz-gauges">
+      <div class="vz-g" id="gauge-perfil">
+        <p class="hx-lab">Perfil personal</p>
+        <div class="vz-gd" data-draw="gauge" data-source="puntaje_total" data-where="perfil=Perfil" data-field="obtenido" data-goal-field="medible"></div>
+        <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</span> de <span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=Perfil">—</span> puntos</p>
+        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=puntaje_perfil">—</span></p>
+      </div>
+      <div class="vz-g" id="gauge-pagina">
+        <p class="hx-lab">Página de empresa</p>
+        <div class="vz-gd" data-draw="gauge" data-source="puntaje_total" data-where="perfil=P%C3%A1gina" data-field="obtenido" data-goal-field="medible"></div>
+        <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</span> de <span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=P%C3%A1gina">—</span> puntos</p>
+        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=puntaje_pagina">—</span></p>
+      </div>
+    </div>
+    <div class="hx-grid">
+      <div class="hx-card" id="puntaje-perfil">
+        <h3 class="hx-h2">Perfil personal</h3>
+        <p class="hx-take">Llevas <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</b> de <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=Perfil">—</b> puntos en lo que ya está medido.</p>
+        <div class="hx-bars hx-score" data-draw="score" data-source="puntaje" data-perfil="Perfil"></div>
+      </div>
+      <div class="hx-card" id="puntaje-pagina">
+        <h3 class="hx-h2">Página de empresa</h3>
+        <p class="hx-take">Lleva <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</b> de <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=P%C3%A1gina">—</b> puntos en lo que ya está medido.</p>
+        <div class="hx-bars hx-score" data-draw="score" data-source="puntaje" data-perfil="Página"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="st-ch" id="te-ven">
+    <span class="st-node" aria-hidden="true">2</span>
+    <p class="st-kick">Capítulo 2 · Te ven</p>
+    <h2 class="st-h2">La gente ya llega a tu perfil. Falta que se quede</h2>
+    <p class="st-now">Tu mejor mes fue <b data-draw="txt" data-source="mes_clave" data-field="mes_txt" data-where="cual=mejor">—</b>, con <b data-draw="num" data-fmt="int" data-source="mes_clave" data-field="impresiones" data-where="cual=mejor">—</b> impresiones. El último mes completo, <b data-draw="txt" data-source="mes_clave" data-field="mes_txt" data-where="cual=ultimo">—</b>, tuvo <b data-draw="num" data-fmt="int" data-source="mes_clave" data-field="impresiones" data-where="cual=ultimo">—</b>. Hoy te visitan <b data-draw="num" data-fmt="int" data-source="resumen" data-field="visitas_perfil_7d" data-row="0">—</b> personas por semana.</p>
+    <p class="st-lead">Cuántas veces aparecieron tus posts en el feed y cuántas personas nuevas sumaste.</p>
+    <div class="hx-tiles" id="perfil">
+      <div class="hx-tile">
+        <p class="hx-lab">Impresiones · 365 días</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="impresiones_perfil_365d" data-row="0">—</p>
+        <p class="hx-note"><span data-draw="num" data-fmt="signedpct" data-source="resumen" data-field="variacion_impresiones" data-row="0">—</span> frente a los 365 días anteriores</p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">Visitas al perfil · últimos 7 días</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="visitas_perfil_7d" data-row="0">—</p>
+        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=visitas_perfil_7d">—</span></p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">Seguidores</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="seguidores_perfil" data-row="0">—</p>
+        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=seguidores_perfil">—</span> · <span data-draw="num" data-fmt="int" data-source="resumen" data-field="miembros_alcanzados" data-row="0">—</span> personas alcanzadas en el año</p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">Apariciones en búsquedas · 7 días</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="busquedas_7d" data-row="0">—</p>
+        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=busquedas_7d">—</span></p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">Impresiones fuera de tu red</p>
+        <p class="hx-big" data-draw="num" data-fmt="pct" data-source="resumen" data-field="fuera_de_red" data-row="0">—</p>
+        <p class="hx-note">El resto lo ve gente que ya te sigue</p>
+      </div>
+    </div>
+    <div class="hx-grid">
+      <div class="hx-card" id="impresiones-mes">
+        <h3 class="hx-h2">Impresiones por mes · tu perfil</h3>
+        <p class="hx-sub">Los meses de los extremos están incompletos y van más claros.</p>
+        <div class="hx-vchart" data-draw="mes-imp" data-source="personal_mensual hitos"></div>
+      </div>
+      <div class="hx-card" id="seguidores-mes">
+        <h3 class="hx-h2">Seguidores nuevos por mes</h3>
+        <p class="hx-sub">Sumaste <b data-draw="num" data-fmt="int" data-source="tot_mensual" data-field="nuevos_seguidores" data-row="0">—</b> seguidores en el año.</p>
+        <div class="hx-vchart" data-draw="mes-seg" data-source="personal_mensual hitos"></div>
+      </div>
+    </div>
+    <h3 class="st-sub3" id="pagina">Y la página de empresa</h3>
+    <div class="hx-tiles">
+      <div class="hx-tile">
+        <p class="hx-lab">Posts publicados en el periodo</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="posts_pagina" data-row="0">—</p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">Impresiones por post</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="pagina_prom" data-field="impresiones_por_post" data-row="0">—</p>
+        <p class="hx-note"><span data-draw="num" data-fmt="int" data-source="resumen" data-field="impresiones_pagina" data-row="0">—</span> en total</p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">Seguidores de la página</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="seguidores_pagina" data-row="0">—</p>
+        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=seguidores_pagina">—</span></p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">Comentarios en el periodo</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="comentarios_pagina" data-row="0">—</p>
+        <p class="hx-note"><span data-draw="num" data-fmt="int" data-source="resumen" data-field="clics_pagina" data-row="0">—</span> clics y <span data-draw="num" data-fmt="int" data-source="resumen" data-field="reacciones_pagina" data-row="0">—</span> reacciones</p>
+      </div>
+    </div>
+    <div class="hx-grid">
+      <div class="hx-card" id="impresiones-mes-pagina">
+        <h3 class="hx-h2">Impresiones por mes · página</h3>
+        <p class="hx-sub">Los meses de los extremos están incompletos y van más claros.</p>
+        <div class="hx-vchart" data-draw="mes-pag-imp" data-source="pagina_mensual hitos"></div>
+      </div>
+      <div class="hx-card" id="clics-mes-pagina">
+        <h3 class="hx-h2">Clics por mes · página</h3>
+        <p class="hx-sub">Clics en los posts de la página, mes a mes.</p>
+        <div class="hx-vchart" data-draw="mes-pag-clics" data-source="pagina_mensual hitos"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="st-ch" id="audiencia">
+    <span class="st-node" aria-hidden="true">3</span>
+    <p class="st-kick">Capítulo 3 · Quién te lee</p>
+    <h2 class="st-h2">¿Te está leyendo quien te puede contratar?</h2>
+    <p class="st-now"><b data-draw="num" data-fmt="int" data-source="audiencia_pais" data-field="porcentaje" data-row="0">—</b> % de tu público está en <b data-draw="txt" data-source="audiencia_pais" data-field="nombre" data-row="0">—</b> y <b data-draw="num" data-fmt="int" data-source="audiencia_arquetipo" data-field="porcentaje" data-where="grupo=Toman%20decisiones%20(gerente%20o%20superior)">—</b> % toma decisiones. El <b data-draw="num" data-fmt="int" data-source="audiencia_arquetipo" data-field="porcentaje" data-where="grupo=Sin%20rol%20de%20decisi%C3%B3n">—</b> % aprende de ti pero no decide: ahí está el espacio para la publicidad por arquetipo.</p>
+    <p class="st-lead">Dónde está tu público, quiénes son por arquetipo y cómo se reparte por nivel, sector y tamaño de empresa, según el export de tu perfil.</p>
+    <div class="hx-card" id="donde">
+      <h3 class="hx-h2">Dónde están</h3>
+      <p class="hx-sub">Porcentaje de tu público por país, sumando las ciudades del export. Los círculos son las ciudades. El export trae solo las 10 ciudades principales.</p>
+      <div class="vz-flags" data-draw="flags" data-source="audiencia_pais"></div>
+      <div class="vz-map" data-draw="mapa" data-source="mapa_mundo audiencia_pais audiencia"></div>
+    </div>
+    <div class="hx-card">
+      <div class="hx-ctl">
+        <p class="hx-sub">Los valores bajo 1 % aparecen como "&lt; 1 %".</p>
+        <select class="dash-select" id="hx-cat" aria-label="Grupo de audiencia">
+          <option value="Nivel de responsabilidad">Nivel de responsabilidad</option>
+          <option value="Sector">Sector</option>
+          <option value="Tamaño de la empresa">Tamaño de la empresa</option>
+          <option value="Cargo">Cargo</option>
+        </select>
+      </div>
+      <div class="hx-bars" data-draw="aud" data-source="audiencia"></div>
+    </div>
+    <div class="hx-grid">
+      <div class="hx-card" id="audiencia-arquetipo">
+        <h3 class="hx-h2">Tu audiencia por arquetipo · estimado</h3>
+        <p class="hx-sub">Porcentaje de tu público en cada grupo, desde el export de cada semana. Es una estimación: el export trae el nivel de responsabilidad completo, pero solo los 10 cargos más comunes. Los grupos se cruzan, así que no suman 100 %. Pasa el cursor para comparar con la primera lectura.</p>
+        <div class="vz-people" data-draw="arq-aud" data-source="audiencia_arquetipo"></div>
+        <p class="hx-note">Un grupo en 0 % significa que no aparece entre tus 10 cargos más comunes.</p>
+      </div>
+      <div class="hx-card" id="audiencia-vs-citas">
+        <h3 class="hx-h2">Y quién termina agendando</h3>
+        <p class="hx-sub">Reuniones por arquetipo, todas las semanas. Si tu público decide poco pero agenda mucho un arquetipo, ahí conviene invertir en publicidad.</p>
+        <div class="hx-bars" data-draw="cbars" data-source="citas_por_arquetipo" data-key="arquetipo"></div>
+      </div>
+    </div>
+    <h3 class="st-sub3" id="fichas">Tus arquetipos</h3>
+    <p class="hx-sub">Quién es cada arquetipo, qué le duele y qué busca, con cuánto pesa en tu público y cuántos ya conversaron o agendaron. Si un arquetipo no tiene medida directa en el export, aparece como "s/d".</p>
+    <div class="vz-cards" data-draw="fichas" data-source="arquetipos audiencia_arquetipos conv_por_arquetipo citas_por_arquetipo"></div>
+  </section>
+
+  <section class="st-ch" id="engancha">
+    <span class="st-node" aria-hidden="true">4</span>
+    <p class="st-kick">Capítulo 4 · Qué los engancha</p>
+    <h2 class="st-h2">Qué tipo de post viaja más</h2>
+    <p class="st-now">Tus mejores posts del año promediaron <b data-draw="num" data-fmt="int" data-source="por_tipo" data-field="promedio" data-where="tipo=Mejores del año">—</b> impresiones. De lo reciente, lo que más se ve es <b data-draw="txt" data-source="tipo_top" data-field="tipo" data-row="0">—</b>, con <b data-draw="num" data-fmt="int" data-source="tipo_top" data-field="promedio" data-row="0">—</b>. La distancia entre esos dos números es lo que hay que recuperar.</p>
+    <div class="hx-card" id="post-semana">
+      <h3 class="hx-h2">El post de la semana</h3>
+      <div class="vz-post" data-draw="postsem" data-source="semana_ultima post_reciente"></div>
+    </div>
+    <p class="st-lead">Impresiones promedio por tipo de post y cada post uno por uno. Pasa el cursor sobre una barra para ver el detalle.</p>
+    <div class="hx-grid">
+      <div class="hx-card" id="tipos">
+        <h3 class="hx-h2">Cuánto viaja cada tipo · tu perfil</h3>
+        <p class="hx-sub">Entre paréntesis, cuántos posts hay de cada tipo.</p>
+        <div class="hx-bars" data-draw="tipos" data-source="por_tipo" data-skip="Últimos 15"></div>
+      </div>
+      <div class="hx-card" id="posts">
+        <h3 class="hx-h2">Tus posts, uno por uno</h3>
+        <p class="hx-sub">Los mejores del año y los últimos 15, por impresiones.</p>
+        <div class="hx-bars" data-draw="ranking" data-source="posts_perfil"></div>
+      </div>
+    </div>
+    <div class="hx-grid">
+      <div class="hx-card" id="tipos-pagina">
+        <h3 class="hx-h2">Cuánto viaja cada tipo · página</h3>
+        <p class="hx-sub">Entre paréntesis, cuántos posts hay de cada tipo.</p>
+        <div class="hx-bars" data-draw="tipos" data-source="por_tipo_pagina"></div>
+      </div>
+      <div class="hx-card" id="posts-pagina">
+        <h3 class="hx-h2">Posts de la página, uno por uno</h3>
+        <p class="hx-sub">Cada post de la página, por impresiones.</p>
+        <div class="hx-bars" data-draw="ranking" data-source="posts_pagina"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="st-ch" id="conversan">
+    <span class="st-node" aria-hidden="true">5</span>
+    <p class="st-kick">Capítulo 5 · Conversan contigo</p>
+    <h2 class="st-h2">Del comentario al mensaje, y del mensaje a la respuesta</h2>
+    <p class="st-now">La semana del <b data-draw="semana" data-source="citas_ultima" data-field="semana" data-row="0">—</b>, <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="conversaciones" data-row="0">—</b> personas mostraron interés, <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="respuestas" data-row="0">—</b> respondieron y <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</b> agendaron.</p>
+    <p class="st-lead">Cada semana cuenta cuántas personas mostraron interés, a cuántas les escribiste, cuántas respondieron y cuántas terminaron agendando.</p>
+    <p class="hx-empty" id="citas-vacio">Aún no hay datos: se llena con la primera actualización semanal. Desde ahí verás aquí cada semana cuántas reuniones llegan, de dónde vienen y con quién.</p>
+    <div class="hx-card" id="citas-embudo">
+      <h3 class="hx-h2">De la conversación a la reunión · última semana</h3>
+      <p class="hx-sub">Semana del <span data-draw="semana" data-source="citas_ultima" data-field="semana" data-row="0">—</span></p>
+      <div class="hx-bars" data-draw="embudo" data-source="citas_ultima"></div>
+    </div>
+    <div class="hx-card" id="de-cada-100">
+      <h3 class="hx-h2">De cada 100, en palabras simples</h3>
+      <p class="hx-sub">Última semana medida. La flecha compara con la semana anterior. El paso con borde destacado es tu cuello de botella: el que más cayó frente a tu propio promedio, y donde una mejora pequeña mueve más reuniones.</p>
+      <div class="vz-pasos" data-draw="pasos" data-source="pasos"></div>
+    </div>
+    <div class="hx-card" id="conv-arquetipo">
+      <h3 class="hx-h2">Qué arquetipo conversa, responde y agenda</h3>
+      <p class="hx-sub">Todas las semanas sumadas. Cada persona se clasifica por su cargo en uno de tus arquetipos.</p>
+      <div class="hx-legend"><span><i class="hx-sw" style="background:var(--tb-gris)"></i>Conversan</span><span><i class="hx-sw" style="background:var(--tb-pag)"></i>Responden</span><span><i class="hx-sw" style="background:var(--tb-acento)"></i>Agendan</span></div>
+      <div class="hx-bars" data-draw="conv-arq" data-source="conv_por_arquetipo"></div>
+    </div>
+  </section>
+
+  <section class="st-ch is-goal" id="citas">
+    <span class="st-node" aria-hidden="true">6</span>
+    <p class="st-kick">Capítulo 6 · Agendan</p>
+    <h2 class="st-h2">La meta: <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span> reuniones por semana</h2>
+    <p class="st-now">Llevas <b data-draw="num" data-fmt="int" data-source="citas_acum" data-field="citas" data-row="0">—</b> reuniones desde que empezó el plan. La última semana fueron <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</b> de <b data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</b>, y tu próximo evento tiene <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos tomados.</p>
+    <p class="st-lead">Reuniones de tu página de reservas, sin nombres, correos ni teléfonos. La barra se pone verde la semana que llegas a la meta.</p>
+    <div class="vz-gauges">
+      <div class="vz-g" id="gauge-reuniones">
+        <p class="hx-lab">Reuniones · última semana</p>
+        <div class="vz-gd" data-draw="gauge" data-source="citas_ultima" data-row="0" data-field="citas" data-goal-source="supuestos" data-goal-field="meta_reuniones_semana"></div>
+        <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span></p>
+      </div>
+      <div class="vz-g" id="gauge-cupos">
+        <p class="hx-lab">Próximo evento · inscritos</p>
+        <div class="vz-gd" data-draw="gauge" data-source="citas_ultima" data-row="0" data-field="inscritos_evento" data-goal-source="supuestos" data-goal-field="evento_cupos"></div>
+        <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos</p>
+      </div>
+      <div class="vz-g" id="gauge-charlas">
+        <p class="hx-lab">Charlas aceptadas o dadas · este mes</p>
+        <div class="vz-gd" data-draw="gauge" data-source="charlas_mes" data-row="0" data-field="logradas" data-goal-source="supuestos" data-goal-field="meta_charlas_mes"></div>
+        <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="charlas_mes" data-field="logradas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_charlas_mes" data-row="0">—</span></p>
+      </div>
+    </div>
+    <div class="hx-tiles">
+      <div class="hx-tile" id="citas-ultima">
+        <p class="hx-lab">Reuniones · última semana medida</p>
+        <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span></p>
+        <p class="hx-note">Hoy la línea base es <span data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_sesiones_semana" data-row="0">—</span> por semana</p>
+      </div>
+      <div class="hx-tile" id="citas-total">
+        <p class="hx-lab">Reuniones agendadas · desde el inicio del plan</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="citas_acum" data-field="citas" data-row="0">—</p>
+        <p class="hx-note">Suma de todas las semanas medidas</p>
+      </div>
+      <div class="hx-tile" id="inscritos-claude">
+        <p class="hx-lab">Próximo evento · <span data-draw="txt" data-source="camino" data-field="evento_nombre" data-row="0">—</span></p>
+        <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos</p>
+        <div class="hx-prog" data-draw="cupos" data-source="citas_ultima supuestos"></div>
+        <p class="hx-note">Inscritos confirmados hasta la fecha del evento.</p>
+      </div>
+    </div>
+    <div class="hx-card" id="vs-semana">
+      <h3 class="hx-h2">Frente a la semana anterior</h3>
+      <p class="hx-sub">Verde sube, rojo baja. Con una sola semana medida, solo se muestra el valor.</p>
+      <ul class="vz-rev" data-draw="vssem" data-source="vs_semana"></ul>
+    </div>
+    <div class="hx-card" id="meta-reversa">
+      <h3 class="hx-h2">La meta al revés: qué necesitas para llegar</h3>
+      <p class="st-now" data-draw="txt" data-source="meta_reversa" data-field="frase" data-row="0">—</p>
+      <ul class="vz-rev">
+        <li><b data-draw="num" data-fmt="int" data-source="meta_reversa" data-field="meta" data-row="0">—</b><span>reuniones por semana</span></li>
+        <li><b data-draw="num" data-fmt="int" data-source="meta_reversa" data-field="respuestas_necesarias" data-row="0">—</b><span>respuestas que necesitas</span></li>
+        <li><b data-draw="num" data-fmt="int" data-source="meta_reversa" data-field="mensajes_necesarios" data-row="0">—</b><span>mensajes que tienes que enviar</span></li>
+        <li><b data-draw="num" data-fmt="int" data-source="meta_reversa" data-field="mensajes_reales" data-row="0">—</b><span>mensajes que enviaste la última semana</span></li>
+      </ul>
+      <p class="hx-note">Se calcula con tus tasas reales de todas las semanas: cuántos mensajes reciben respuesta y cuántas respuestas terminan en reunión.</p>
+    </div>
+    <div class="hx-card" id="habitos">
+      <h3 class="hx-h2">Lo que depende de ti y lo que llega</h3>
+      <p class="hx-sub">A la izquierda, tus hábitos de la última semana frente a lo planificado. A la derecha, los resultados. Si la izquierda está llena y la derecha no, hay que cambiar el mensaje, no el esfuerzo.</p>
+      <div class="vz-hab">
+        <div><h4>Tus hábitos</h4><div class="vz-col" data-draw="hab" data-source="habitos" data-lado="habito"></div></div>
+        <div><h4>Los resultados</h4><div class="vz-col" data-draw="hab" data-source="habitos" data-lado="resultado"></div></div>
+      </div>
+    </div>
+    <div class="hx-grid">
+      <div class="hx-card" id="charlas-embudo">
+        <h3 class="hx-h2">Charlas: de encontrada a dada</h3>
+        <p class="hx-sub">Todas las charlas registradas. Una charla dada también pasó por las etapas anteriores.</p>
+        <div class="hx-bars" data-draw="charlas-emb" data-source="charlas_embudo"></div>
+      </div>
+    </div>
+    <div class="hx-card" id="citas-semana">
+      <h3 class="hx-h2">Reuniones por semana frente a la meta</h3>
+      <p class="hx-sub">Cada barra es una semana. La línea punteada es la meta.</p>
+      <div class="hx-vchart" data-draw="citas-sem" data-source="citas_semanas supuestos hitos"></div>
+    </div>
+    <div class="hx-grid">
+      <div class="hx-card" id="citas-origen">
+        <h3 class="hx-h2">De dónde vienen</h3>
+        <p class="hx-sub">Según "¿Dónde nos conociste?", todas las semanas.</p>
+        <div class="hx-bars" data-draw="cbars" data-source="citas_por_origen" data-key="origen"></div>
+      </div>
+      <div class="hx-card" id="citas-arquetipo">
+        <h3 class="hx-h2">Con quién</h3>
+        <p class="hx-sub">Reuniones por arquetipo, según el cargo de quien agenda.</p>
+        <div class="hx-bars" data-draw="cbars" data-source="citas_por_arquetipo" data-key="arquetipo"></div>
+      </div>
+    </div>
+    <div class="hx-card" id="temas">
+      <h3 class="hx-h2">Lo que piden tus clientes</h3>
+      <p class="hx-sub">Los temas que más se repiten en "¿Qué te gustaría resolver?" del formulario de reservas, agrupados. Son la mejor pista de qué escribir la semana siguiente.</p>
+      <div data-draw="temas" data-source="temas_clientes semana_ultima"></div>
+    </div>
+  </section>
+
+  <section class="st-ch is-goal" id="dinero">
+    <span class="st-node" aria-hidden="true">7</span>
+    <p class="st-kick">Capítulo 7 · El dinero</p>
+    <h2 class="st-h2">De reunión a proyecto: cuánto vale tu agenda</h2>
+    <p class="st-now">Hasta ahora cerraste <b data-draw="num" data-fmt="int" data-source="dinero" data-field="ventas" data-row="0">—</b> ventas por <b data-draw="txt" data-source="dinero" data-field="vendido_txt" data-row="0">—</b>. Tu ticket promedio es de <b data-draw="txt" data-source="dinero" data-field="ticket_txt" data-row="0">—</b> y tu próxima meta, <b data-draw="txt" data-source="ticket_meta" data-field="meta_txt" data-row="0">—</b>. Hoy cada reunión vale unos <b data-draw="txt" data-source="dinero" data-field="valor_reunion_txt" data-row="0">—</b> esperados.</p>
+    <p class="st-lead">Todo sale de tu tablero de ventas o CRM, sin nombres de clientes. Se lee como el resto: dónde estás, qué hay en juego, cuánto vale tu agenda, dónde está la meta y qué palanca la mueve.</p>
+    <div class="hx-tiles">
+      <div class="hx-tile"><p class="hx-lab">Vendido</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="vendido_txt" data-row="0">—</p><p class="hx-note"><span data-draw="num" data-fmt="int" data-source="dinero" data-field="ventas" data-row="0">—</span> ventas cerradas y <span data-draw="num" data-fmt="int" data-source="dinero" data-field="perdidas" data-row="0">—</span> perdidas</p></div>
+      <div class="hx-tile"><p class="hx-lab">Ticket promedio</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="ticket_txt" data-row="0">—</p><p class="hx-note">Van de <span data-draw="txt" data-source="dinero" data-field="min_txt" data-row="0">—</span> a <span data-draw="txt" data-source="dinero" data-field="max_txt" data-row="0">—</span></p></div>
+      <div class="hx-tile"><p class="hx-lab">Tasa de cierre</p><p class="hx-big"><span data-draw="num" data-fmt="pct" data-source="supuestos" data-field="tasa_cierre" data-row="0">—</span></p><p class="hx-note">Qué parte de las oportunidades termina en venta</p></div>
+      <div class="hx-tile"><p class="hx-lab">Valor de cada reunión</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="valor_reunion_txt" data-row="0">—</p><p class="hx-note">Ticket × tasa de cierre</p></div>
+    </div>
+    <h3 class="st-sub3">1 · Dónde estás: lo que ya vendiste</h3>
+    <div class="hx-grid">
+      <div class="hx-card" id="ventas-mes">
+        <h3 class="hx-h2">Ventas cerradas por mes</h3>
+        <p class="hx-sub">Monto de las ventas según el mes en que se cerraron.</p>
+        <div class="hx-bars" data-draw="ventas-mes" data-source="ventas_mes"></div>
+      </div>
+      <div class="hx-card" id="ventas-tickets">
+        <h3 class="hx-h2">Cada venta, en la regla de la meta</h3>
+        <p class="hx-sub">Cada punto es una venta cerrada. La línea gris es tu promedio y la de acento, la meta. La distancia entre los puntos y la línea de acento es el salto que viene.</p>
+        <div class="hx-vchart" data-draw="tickets" data-source="ventas ticket_meta" style="min-height:140px"></div>
+      </div>
+    </div>
+    <div class="hx-card" id="ventas-linea">
+      <h3 class="hx-h2">Cuánto deja cada línea de negocio</h3>
+      <p class="st-now" data-draw="txt" data-source="ventas_linea_frase" data-field="frase" data-row="0">—</p>
+      <div class="hx-bars" data-draw="lineas" data-source="ventas_linea"></div>
+      <p class="hx-note">La barra es lo vendido y a la derecha, el ticket promedio de esa línea. Pasa el mouse para ver las oportunidades abiertas. Cada línea es el valor del campo "linea" de cada oportunidad; una venta sin línea aparece como "Sin clasificar".</p>
+    </div>
+    <div class="hx-card" id="ventas-origen">
+      <h3 class="hx-h2">De dónde vinieron las ventas</h3>
+      <p class="st-now" data-draw="txt" data-source="dinero" data-field="concentracion" data-row="0">—</p>
+      <div class="hx-bars" data-draw="cbars-din" data-source="ventas_origen"></div>
+    </div>
+    <h3 class="st-sub3">2 · Qué hay en juego: tus oportunidades abiertas</h3>
+    <div class="hx-card" id="opp-etapas">
+      <h3 class="hx-h2">Oportunidades por etapa</h3>
+      <p class="st-now" data-draw="txt" data-source="dinero" data-field="abiertas_frase" data-row="0">—</p>
+      <div class="hx-bars" data-draw="etapas" data-source="opp_etapas"></div>
+      <p class="hx-note">La barra muestra cuántas oportunidades hay en cada etapa. A la derecha, el valor anotado; "sin valor" significa que la oportunidad no tiene valor estimado. Llenarlo es lo que permite saber cuánta plata hay en juego.</p>
+    </div>
+    <h3 class="st-sub3">3 · Cuánto vale tu agenda</h3>
+    <div class="hx-card" id="pipeline">
+      <p class="st-now" data-draw="txt" data-source="pipeline" data-field="frase" data-row="0">—</p>
+      <p class="hx-note">Valor esperado = reuniones × % que se vuelve cliente × ticket promedio. Es una estimación para decidir dónde poner tiempo, no una venta. Las reuniones semanales de la meta valen unos <b data-draw="txt" data-source="dinero" data-field="valor_semana_meta_txt" data-row="0">—</b> esperados por semana.</p>
+    </div>
+    <h3 class="st-sub3">4 · La meta y la palanca</h3>
+    <div class="hx-grid">
+      <div class="vz-g" id="gauge-ticket">
+        <p class="hx-lab">Ticket promedio frente a tu meta de <span data-draw="txt" data-source="ticket_meta" data-field="meta_txt" data-row="0">—</span></p>
+        <div class="vz-gd" data-draw="gauge" data-source="ticket_meta" data-row="0" data-field="ticket" data-goal-field="meta"></div>
+        <p class="hx-note" data-draw="txt" data-source="ticket_meta" data-field="frase" data-row="0">—</p>
+      </div>
+      <div class="hx-card" id="palanca">
+        <h3 class="hx-h2">La palanca: quién firma los proyectos grandes</h3>
+        <p class="st-lead">Un ticket más alto suele ser un proyecto que firma la alta dirección de una empresa grande. Hoy la alta dirección es el <b data-draw="num" data-fmt="int" data-source="audiencia_arquetipo" data-field="porcentaje" data-where="grupo=Alta%20direcci%C3%B3n">—</b> % de tu audiencia y las empresas de más de 1.000 personas, el <b data-draw="num" data-fmt="int" data-source="audiencia_arquetipo" data-field="porcentaje" data-where="grupo=Empresas%20de%20m%C3%A1s%20de%201.000%20personas">—</b> %.</p>
+        <p class="hx-note">Para mover el ticket: contenido pensado para quien decide, conversaciones con la alta dirección y propuestas que resuelvan un problema completo en un solo proyecto, en vez de servicios sueltos.</p>
+      </div>
+    </div>
+    <p class="hx-note">Los datos de ventas se refrescan con cada actualización semanal.</p>
+  </section>
+
+  <section class="st-ch" id="aprendizajes">
+    <span class="st-node" aria-hidden="true">8</span>
+    <p class="st-kick">Capítulo 8 · Qué sigue</p>
+    <h2 class="st-h2">Lo que haces esta semana para mover el número</h2>
+    <div class="vz-action" id="accion">
+      <p class="hx-lab">Tu única acción de la semana del <b data-draw="semana" data-source="semana_ultima" data-field="semana" data-row="0">—</b></p>
+      <p class="vz-act" data-draw="txt" data-source="semana_ultima" data-field="accion_semana" data-row="0">—</p>
+      <p class="hx-note">Sale del análisis semanal. Si haces solo una cosa, que sea esta.</p>
+    </div>
+    <p class="hx-sub" id="estado">Fase <b data-draw="num" data-fmt="int" data-source="resumen" data-field="fase_actual" data-row="0">—</b> · semana <b data-draw="num" data-fmt="int" data-source="resumen" data-field="semana" data-row="0">—</b> desde el arranque</p>
+    <ol class="hx-steps">
+      <li class="hx-step" data-fase="0"><span class="hx-stn">Fase 0</span><span class="hx-stt">Arranque</span><span class="hx-std">Objetivos, perfiles y tiempo</span></li>
+      <li class="hx-step" data-fase="1"><span class="hx-stn">Fase 1</span><span class="hx-stt">Diagnóstico</span><span class="hx-std">Auditoría y perfil</span></li>
+      <li class="hx-step" data-fase="2"><span class="hx-stn">Fase 2</span><span class="hx-stt">Estrategia</span><span class="hx-std">Pilares, cadencia y lista de 10</span></li>
+      <li class="hx-step" data-fase="3"><span class="hx-stn">Fase 3</span><span class="hx-stt">Ritmo</span><span class="hx-std">Rutina diaria de 30 min</span></li>
+      <li class="hx-step" data-fase="4"><span class="hx-stn">Fase 4</span><span class="hx-stt">Revisión</span><span class="hx-std">Cada 4 semanas y al cierre del plan</span></li>
+    </ol>
+    <div class="hx-tiles">
+      <div class="hx-tile">
+        <p class="hx-lab">Meta del plan · reuniones</p>
+        <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span> por semana</p>
+        <p class="hx-note">Línea base: <b data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_sesiones_semana" data-row="0">—</b> por semana al inicio del plan.</p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">Meta del plan · charlas</p>
+        <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_charlas_mes" data-row="0">—</span> por mes</p>
+        <p class="hx-note">Línea base: <b data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_charlas_mes" data-row="0">—</b> por mes que vengan de LinkedIn, al inicio del plan.</p>
+      </div>
+    </div>
+    <div class="hx-two">
+      <div class="hx-card">
+        <h3 class="hx-h2 hx-ok">Hacer más</h3>
+        <ul class="hx-list" data-draw="lista" data-source="semana_ultima" data-field="repetir"></ul>
+      </div>
+      <div class="hx-card">
+        <h3 class="hx-h2 hx-bad">Dejar de hacer</h3>
+        <ul class="hx-list" data-draw="lista" data-source="semana_ultima" data-field="dejar"></ul>
+      </div>
+    </div>
+  </section>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const nf = new Intl.NumberFormat('es', {maximumFractionDigits: 0});
+  const pf = new Intl.NumberFormat('es', {style: 'percent', maximumFractionDigits: 0});
+  const fmt = {
+    int: (v) => nf.format(v),
+    pct: (v) => pf.format(v),
+    signedpct: (v) => (v > 0 ? '+' : v < 0 ? '−' : '') + pf.format(Math.abs(v))
+  };
+  window.hxFmt = fmt;
+  const EMPTY = 'Aún no hay datos: se llena con la primera actualización semanal.';
+  const money = (v, mon) => { if (v === null || v === undefined || !isFinite(v)) return '—'; try { return new Intl.NumberFormat('es', {style: 'currency', currency: mon || 'USD', notation: 'compact', maximumFractionDigits: 1}).format(v); } catch (e) { return fmt.int(v); } };
+  const monOf = () => { const s = dash.data('supuestos'); return (s.status === 'ok' && Array.isArray(s.data) && s.data[0] && s.data[0].moneda) || 'USD'; };
+  const millones = (v) => money(v, monOf());
+  function vacio(el) { const p = document.createElement('p'); p.className = 'hx-empty'; p.textContent = EMPTY; el.replaceChildren(p); }
+
+  const ORDER = ['Mejores del año','Opinión','Invitación a conversar','Historia','Caso de cliente','Agenda y agradecimientos','Repost','Programa','Oferta','Institucional'];
+  const PAL = {perfil: ['var(--tb-1)', 'var(--tb-2)', 'var(--tb-acento)'], pagina: ['var(--tb-pag)', 'var(--tb-acento)', 'var(--tb-gris)']};
+  window.hxPal = PAL;
+  window.hxPalOf = (id) => (String(id).indexOf('pagina') >= 0 ? PAL.pagina : PAL.perfil);
+  window.hxColor = (tipo, pal) => {
+    pal = pal || PAL.perfil;
+    const i = ORDER.indexOf(tipo);
+    if (tipo === 'Mejores del año') return pal[0];
+    if (tipo === 'Agenda y agradecimientos' || tipo === 'Repost' || i > 7) return 'var(--cds-chart-muted)';
+    if (i < 0) return pal[String(tipo).length % pal.length];
+    return pal[i % pal.length];
+  };
+
+  dash.calc('por_tipo', {
+    title: 'Promedio por tipo de post',
+    description: 'Impresiones promedio y número de posts de cada tipo, más el promedio de los últimos 15.',
+    inputs: ['posts_perfil'],
+    fn: (posts_perfil) => {
+      const by = {};
+      posts_perfil.forEach((p) => { (by[p.tipo] = by[p.tipo] || []).push(+p.impresiones); });
+      const out = Object.keys(by).map((t) => ({tipo: t, posts: by[t].length, promedio: Math.round(by[t].reduce((a, b) => a + b, 0) / by[t].length)}));
+      const last = posts_perfil.filter((p) => p.grupo === 'Últimos 15').map((p) => +p.impresiones);
+      if (last.length) out.push({tipo: 'Últimos 15', posts: last.length, promedio: Math.round(last.reduce((a, b) => a + b, 0) / last.length)});
+      return out;
+    }
+  });
+
+  dash.calc('por_tipo_pagina', {
+    title: 'Promedio por tipo de post de la página',
+    description: 'Impresiones promedio y número de posts de cada tipo en la página de empresa.',
+    inputs: ['posts_pagina'],
+    fn: (posts_pagina) => {
+      const by = {};
+      posts_pagina.forEach((p) => { (by[p.tipo] = by[p.tipo] || []).push(+p.impresiones); });
+      return Object.keys(by).map((t) => ({tipo: t, posts: by[t].length, promedio: Math.round(by[t].reduce((a, b) => a + b, 0) / by[t].length)}));
+    }
+  });
+
+  dash.calc('pagina_prom', {
+    title: 'Impresiones por post de la página',
+    description: 'Impresiones totales de la página divididas por los posts publicados.',
+    inputs: ['resumen'],
+    fn: (resumen) => (resumen[0] && Number(resumen[0].posts_pagina) > 0) ? [{impresiones_por_post: Math.round(resumen[0].impresiones_pagina / resumen[0].posts_pagina)}] : []
+  });
+
+  dash.calc('puntaje_total', {
+    title: 'Puntaje del perfil medido',
+    description: 'Por perfil, suma de puntos obtenidos y del máximo de los ítems que ya se pudieron puntuar.',
+    inputs: ['puntaje'],
+    fn: (puntaje) => {
+      const perfiles = [...new Set(puntaje.map((r) => r.perfil))];
+      return perfiles.map((p) => {
+        const m = puntaje.filter((r) => r.perfil === p && r.puntaje !== null && r.puntaje !== undefined && r.puntaje !== '');
+        return {perfil: p, obtenido: m.reduce((a, r) => a + Number(r.puntaje), 0), medible: m.reduce((a, r) => a + Number(r.maximo), 0)};
+      });
+    }
+  });
+
+  dash.onData(() => {
+    const r = dash.data('resumen');
+    const f = r.status === 'ok' && r.data[0] ? Number(r.data[0].fase_actual) : null;
+    document.querySelectorAll('.hx-step').forEach((s) => {
+      const n = Number(s.getAttribute('data-fase'));
+      s.classList.toggle('is-done', f !== null && n < f);
+      s.classList.toggle('is-now', f !== null && n === f);
+    });
+  });
+
+  function pickRow(el, rows) {
+    if (el.hasAttribute('data-row')) return rows[Number(el.getAttribute('data-row'))];
+    const w = el.getAttribute('data-where') || '';
+    const conds = w.split('&').filter(Boolean).map((kv) => kv.split('=').map(decodeURIComponent));
+    return rows.find((row) => conds.every(([k, v]) => String(row[k]) === v));
+  }
+
+  dash.draw('num', (el) => {
+    const d = dash.data(el.getAttribute('data-source'));
+    const rows = d.status === 'ok' ? (Array.isArray(d.data) ? d.data : []) : [];
+    const row = rows.length ? pickRow(el, rows) : null;
+    const v = row ? row[el.getAttribute('data-field')] : null;
+    const f = fmt[el.getAttribute('data-fmt')] || fmt.int;
+    el.textContent = (v === null || v === undefined || v === '') ? '—' : f(Number(v));
+  });
+
+  function fail(el, d) {
+    if (d.status === 'error' || d.status === 'connect') { const p = document.createElement('div'); p.className = 'hx-fail'; p.textContent = 'No se pudo cargar'; el.replaceChildren(p); }
+    else el.replaceChildren(document.createTextNode('—'));
+  }
+
+  function tip(el) {
+    const t = document.createElement('div'); t.className = 'hx-tip'; t.hidden = true; el.appendChild(t);
+    return {
+      show(ev, lines) {
+        t.replaceChildren(...lines.map((l, i) => { const s = document.createElement('div'); if (i === 0) s.className = 'hx-tk'; s.textContent = l; return s; }));
+        t.hidden = false;
+        const b = el.getBoundingClientRect();
+        let x = ev.clientX - b.left + 12, y = ev.clientY - b.top + 12;
+        const w = t.offsetWidth, h = t.offsetHeight;
+        if (x + w > b.width) x = Math.max(0, ev.clientX - b.left - w - 12);
+        if (y + h > b.height) y = Math.max(0, ev.clientY - b.top - h - 12);
+        t.style.left = x + 'px'; t.style.top = y + 'px';
+      },
+      hide() { t.hidden = true; }
+    };
+  }
+
+  function barRow(label, frac, color, value, dashed) {
+    const r = document.createElement('div'); r.className = 'hx-row';
+    const l = document.createElement('div'); l.className = 'hx-rl'; l.textContent = label;
+    const tr = document.createElement('div'); tr.className = 'hx-rt';
+    if (!dashed) { const b = document.createElement('div'); b.className = 'hx-rb'; b.style.width = (Math.max(0, Math.min(1, frac)) * 100) + '%'; b.style.background = color; tr.appendChild(b); }
+    const v = document.createElement('div'); v.className = 'hx-rv'; v.textContent = value;
+    r.append(l, tr, v);
+    return r;
+  }
+
+  dash.draw('tipos', (el) => {
+    const d = dash.data(el.getAttribute('data-source'));
+    if (d.status !== 'ok') return fail(el, d);
+    const skip = el.getAttribute('data-skip');
+    const rows = d.data.filter((r) => r.tipo !== skip).sort((a, b) => b.promedio - a.promedio);
+    if (!rows.length) return vacio(el);
+    const max = d3.max(rows, (r) => r.promedio) || 1;
+    el.replaceChildren();
+    const tt = tip(el);
+    rows.forEach((r) => {
+      const row = barRow(r.tipo + ' (' + r.posts + ')', r.promedio / max, window.hxColor(r.tipo, window.hxPalOf(el.getAttribute('data-source'))), fmt.int(r.promedio));
+      row.addEventListener('mousemove', (ev) => tt.show(ev, [r.tipo, fmt.int(r.promedio) + ' impresiones promedio', r.posts + (r.posts === 1 ? ' post' : ' posts')]));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
+  });
+
+  dash.draw('ranking', (el) => {
+    const id = el.getAttribute('data-source');
+    const d = dash.data(id);
+    if (d.status !== 'ok') return fail(el, d);
+    const rows = d.data.slice().sort((a, b) => b.impresiones - a.impresiones);
+    if (!rows.length) return vacio(el);
+    const max = d3.max(rows, (r) => +r.impresiones) || 1;
+    const tipos = [...new Set(rows.map((r) => r.tipo))];
+    const lg = document.createElement('div'); lg.className = 'hx-legend';
+    tipos.forEach((t) => { const s = document.createElement('span'); const sw = document.createElement('i'); sw.className = 'hx-sw'; sw.style.background = window.hxColor(t, window.hxPalOf(id)); s.append(sw, document.createTextNode(t)); lg.appendChild(s); });
+    el.replaceChildren(lg);
+    const tt = tip(el);
+    rows.forEach((r) => {
+      const row = barRow(r.post, r.impresiones / max, window.hxColor(r.tipo, window.hxPalOf(id)), fmt.int(r.impresiones));
+      const parts = [r.cuando + ' · ' + r.tipo, r.post, fmt.int(r.impresiones) + ' impresiones'];
+      if (r.reacciones !== null && r.reacciones !== undefined) parts.push(fmt.int(r.reacciones) + ' reacciones · ' + fmt.int(r.comentarios) + ' comentarios');
+      else if (r.interacciones !== null && r.interacciones !== undefined) parts.push(fmt.int(r.interacciones) + ' interacciones');
+      if (r.clics !== null && r.clics !== undefined) parts.push(fmt.int(r.clics) + ' clics');
+      row.addEventListener('mousemove', (ev) => tt.show(ev, parts));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
+  });
+
+  dash.draw('score', (el) => {
+    const d = dash.data('puntaje');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    const tt = tip(el);
+    const perfil = el.getAttribute('data-perfil');
+    const prs = d.data.filter((r) => r.perfil === perfil);
+    if (!prs.length) return vacio(el);
+    prs.forEach((r) => {
+      const pend = r.puntaje === null || r.puntaje === undefined || r.puntaje === '';
+      const frac = pend ? 0 : r.puntaje / r.maximo;
+      const sp = perfil === 'Página' ? PAL.pagina : PAL.perfil;
+      const color = pend ? '' : (frac >= 0.8 ? sp[0] : frac >= 0.5 ? (perfil === 'Página' ? sp[2] : sp[1]) : sp === PAL.pagina ? sp[1] : sp[2]);
+      const row = barRow(r.item, frac, color, pend ? 'de ' + fmt.int(r.maximo) : fmt.int(r.puntaje) + '/' + fmt.int(r.maximo), pend);
+      if (pend) row.classList.add('hx-pend');
+      row.addEventListener('mousemove', (ev) => tt.show(ev, [r.item, r.nota]));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
+  });
+  dash.calc('tot_mensual', {
+    title: 'Totales del año por mes',
+    description: 'Suma de los seguidores nuevos de todos los meses del export personal.',
+    inputs: ['personal_mensual'],
+    fn: (personal_mensual) => personal_mensual.length ? [{nuevos_seguidores: personal_mensual.reduce((a, r) => a + Number(r.nuevos_seguidores), 0)}] : []
+  });
+
+  const MF = new Intl.DateTimeFormat('es', {month: 'short', timeZone: 'UTC'});
+  const mesLabel = (m) => MF.format(new Date(m + '-01T00:00:00Z')).replace('.', '');
+  const mesLargo = new Intl.DateTimeFormat('es', {month: 'long', year: 'numeric', timeZone: 'UTC'});
+  function vbars(el, id, key, color, unit) {
+    const d = dash.data(id);
+    if (d.status !== 'ok') return fail(el, d);
+    if (!d.data.length) return vacio(el);
+    el.replaceChildren();
+    const rows = d.data;
+    const W = Math.max(280, el.clientWidth), H = 240;
+    const ys = d3.scaleLinear([0, d3.max(rows, (r) => Number(r[key])) || 1], [H - 26, 10]).nice();
+    const ticks = ys.ticks(4);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img');
+    const probe = svg.append('g').style('font-size', 'var(--cds-font-size-caption)');
+    let wMax = 0;
+    ticks.forEach((t) => { const n = probe.append('text').text(fmt.int(t)); wMax = Math.max(wMax, n.node().getComputedTextLength()); });
+    probe.remove();
+    const L = Math.ceil(wMax) + 10, R = 4;
+    const xs = d3.scaleBand(rows.map((r) => r.mes), [L, W - R]).padding(0.28);
+    const g = svg.append('g').style('font-size', 'var(--cds-font-size-caption)');
+    ticks.forEach((t) => {
+      g.append('line').attr('x1', L).attr('x2', W - R).attr('y1', ys(t)).attr('y2', ys(t)).attr('stroke', 'var(--cds-chart-grid)').attr('stroke-width', 1);
+      g.append('text').attr('x', L - 6).attr('y', ys(t)).attr('dy', '0.32em').attr('text-anchor', 'end').attr('fill', 'var(--color-fg-muted)').text(fmt.int(t));
+    });
+    const step = Math.max(1, Math.ceil(rows.length * 40 / (W - L - R)));
+    rows.forEach((r, i) => { if (i % step) return; g.append('text').attr('x', xs(r.mes) + xs.bandwidth() / 2).attr('y', H - 6).attr('text-anchor', 'middle').attr('fill', 'var(--color-fg-muted)').text(mesLabel(r.mes)); });
+    const tt = tip(el);
+    const bw = Math.min(32, xs.bandwidth());
+    svg.append('g').selectAll('rect').data(rows).join('rect')
+      .attr('x', (r) => xs(r.mes) + (xs.bandwidth() - bw) / 2).attr('width', bw)
+      .attr('y', (r) => ys(Number(r[key]))).attr('height', (r) => Math.max(0, ys(0) - ys(Number(r[key]))))
+      .attr('rx', 3).style('fill', color).attr('fill-opacity', (r, i) => (i === 0 || i === rows.length - 1) ? 0.4 : 1)
+      .on('mousemove', (ev, r) => tt.show(ev, [mesLargo.format(new Date(r.mes + '-01T00:00:00Z')), fmt.int(r[key]) + ' ' + unit]))
+      .on('mouseleave', () => tt.hide());
+    const cuenta = id.indexOf('pagina') >= 0 ? 'Página' : 'Perfil';
+    const hm = d3.group(window.hxHitos().filter((h) => h.cuenta === cuenta || h.cuenta === 'Ambas'), (h) => String(h.fecha).slice(0, 7));
+    rows.forEach((r) => { const hs = hm.get(r.mes); if (!hs) return; const x = xs(r.mes) + xs.bandwidth() / 2, y = Math.max(8, ys(Number(r[key])) - 10);
+      svg.append('path').attr('d', d3.symbol(d3.symbolDiamond, 60)()).attr('transform', 'translate(' + x + ',' + y + ')').style('fill', 'var(--tb-acento)').style('stroke', 'var(--color-bg)')
+        .on('mousemove', (ev) => tt.show(ev, ['Hitos de ' + mesLargo.format(new Date(r.mes + '-01T00:00:00Z'))].concat(hs.map((h) => HF(new Date(h.fecha + 'T00:00:00Z')) + ' · ' + h.evento)))).on('mouseleave', () => tt.hide()); });
+  }
+  dash.draw('mes-imp', (el) => vbars(el, 'personal_mensual', 'impresiones', PAL.perfil[0], 'impresiones'));
+  dash.draw('mes-pag-imp', (el) => vbars(el, 'pagina_mensual', 'impresiones', PAL.pagina[0], 'impresiones'));
+  dash.draw('mes-pag-clics', (el) => vbars(el, 'pagina_mensual', 'clics', PAL.pagina[1], 'clics'));
+  dash.draw('mes-seg', (el) => vbars(el, 'personal_mensual', 'nuevos_seguidores', PAL.perfil[1], 'seguidores nuevos'));
+
+  dash.draw('aud', (el) => {
+    const d = dash.data('audiencia');
+    if (d.status !== 'ok') return fail(el, d);
+    let cat = 'Nivel de responsabilidad';
+  document.querySelectorAll('#hx-cat').forEach((s) => { cat = s.value; });
+    const rows = d.data.filter((r) => r.categoria === cat);
+    if (!rows.length) return vacio(el);
+    const max = d3.max(rows, (r) => Number(r.porcentaje)) || 1;
+    el.replaceChildren();
+    const tt = tip(el);
+    rows.forEach((r) => {
+      const v = Number(r.porcentaje);
+      const row = barRow(r.valor, v / max, PAL.perfil[0], v < 1 ? '< 1 %' : fmt.int(v) + ' %');
+      row.addEventListener('mousemove', (ev) => tt.show(ev, [cat, r.valor]));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
+  });
+
+
+  /* ---- textos desde datos ---- */
+  dash.draw('txt', (el) => {
+    const d = dash.data(el.getAttribute('data-source'));
+    const rows = d.status === 'ok' && Array.isArray(d.data) ? d.data : [];
+    const row = rows.length ? pickRow(el, rows) : null;
+    const v = row ? row[el.getAttribute('data-field')] : null;
+    el.textContent = (v === null || v === undefined || v === '') ? '—' : String(v);
+  });
+  const MESL = new Intl.DateTimeFormat('es', {month: 'long', year: 'numeric', timeZone: 'UTC'});
+  dash.calc('semana_ultima', {
+    title: 'Aprendizajes de la última semana',
+    description: 'La fila más reciente de los aprendizajes semanales.',
+    inputs: ['aprendizajes'],
+    fn: (aprendizajes) => aprendizajes.length ? [aprendizajes.slice().sort((a, b) => String(a.semana).localeCompare(String(b.semana))).pop()] : []
+  });
+  dash.calc('cambios', {
+    title: 'Cambio desde la línea base',
+    description: 'Valor actual menos el valor de la línea base para visitas, búsquedas, seguidores y puntajes.',
+    inputs: ['resumen', 'linea_base', 'puntaje_total'],
+    fn: (resumen, linea_base, puntaje_total) => {
+      const r = resumen[0] || {}, b = linea_base[0] || {};
+      const pt = (p) => { const x = puntaje_total.find((q) => q.perfil === p); return x ? x.obtenido : null; };
+      const act = {visitas_perfil_7d: r.visitas_perfil_7d, busquedas_7d: r.busquedas_7d, seguidores_perfil: r.seguidores_perfil, seguidores_pagina: r.seguidores_pagina, puntaje_perfil: pt('Perfil'), puntaje_pagina: pt('Página')};
+      const bas = {visitas_perfil_7d: b.visitas_perfil_7d, busquedas_7d: b.busquedas_7d, seguidores_perfil: b.seguidores_perfil, seguidores_pagina: b.seguidores_pagina, puntaje_perfil: b.puntaje_perfil, puntaje_pagina: b.puntaje_pagina};
+      return Object.keys(act).filter((k) => act[k] !== null && act[k] !== undefined && bas[k] !== null && bas[k] !== undefined).map((k) => ({campo: k, actual: Number(act[k]), base: Number(bas[k]), diferencia: Number(act[k]) - Number(bas[k])}));
+    }
+  });
+  dash.draw('delta', (el) => {
+    const d = dash.data('cambios');
+    const row = d.status === 'ok' && d.data.length ? pickRow(el, d.data) : null;
+    el.classList.remove('up', 'down');
+    if (!row) { el.textContent = '—'; return; }
+    const v = row.diferencia;
+    if (v > 0) el.classList.add('up'); else if (v < 0) el.classList.add('down');
+    const pct = row.base ? ' (' + (v >= 0 ? '+' : '−') + pf.format(Math.abs(v / row.base)) + ')' : '';
+    el.textContent = v === 0 ? 'igual que la línea base (' + fmt.int(row.base) + ')' : (v > 0 ? '+' : '−') + fmt.int(Math.abs(v)) + pct + ' desde la línea base (' + fmt.int(row.base) + ')';
+  });
+  dash.calc('puntaje_brecha', {
+    title: 'Ítem que más resta por perfil',
+    description: 'Por perfil, el ítem medido con más puntos por ganar.',
+    inputs: ['puntaje'],
+    fn: (puntaje) => [...new Set(puntaje.map((r) => r.perfil))].map((p) => {
+      const m = puntaje.filter((r) => r.perfil === p && r.puntaje !== null && r.puntaje !== undefined && r.puntaje !== '').map((r) => ({item: r.item, faltan: Number(r.maximo) - Number(r.puntaje)})).sort((a, b) => b.faltan - a.faltan);
+      return m.length ? {perfil: p, item: String(m[0].item).toLowerCase(), faltan: m[0].faltan} : {perfil: p, item: null, faltan: null};
+    })
+  });
+  dash.calc('mes_clave', {
+    title: 'Mejor mes y último mes completo',
+    description: 'Mes con más impresiones del perfil y el último mes completo del export.',
+    inputs: ['personal_mensual'],
+    fn: (personal_mensual) => {
+      if (!personal_mensual.length) return [];
+      const full = personal_mensual.slice(1, -1).length ? personal_mensual.slice(1, -1) : personal_mensual;
+      const best = full.slice().sort((a, b) => Number(b.impresiones) - Number(a.impresiones))[0];
+      const last = personal_mensual.length > 1 ? personal_mensual[personal_mensual.length - 2] : personal_mensual[0];
+      const txt = (m) => MESL.format(new Date(m + '-01T00:00:00Z'));
+      return [{cual: 'mejor', mes_txt: txt(best.mes), impresiones: Number(best.impresiones)}, {cual: 'ultimo', mes_txt: txt(last.mes), impresiones: Number(last.impresiones)}];
+    }
+  });
+  dash.calc('tipo_top', {
+    title: 'Tipo de post que más viaja',
+    description: 'El tipo con más impresiones promedio, sin contar los grupos Mejores del año y Últimos 15, y cuántas veces supera al repost.',
+    inputs: ['por_tipo'],
+    fn: (por_tipo) => {
+      const rows = por_tipo.filter((r) => r.tipo !== 'Mejores del año' && r.tipo !== 'Últimos 15').sort((a, b) => b.promedio - a.promedio);
+      if (!rows.length) return [];
+      const rep = por_tipo.find((r) => r.tipo === 'Repost');
+      return [{tipo: rows[0].tipo.toLowerCase(), promedio: rows[0].promedio, veces: rep && rep.promedio ? Math.round(rows[0].promedio / rep.promedio * 10) / 10 : null}];
+    }
+  });
+  dash.calc('post_reciente', {
+    title: 'Mejor post reciente',
+    description: 'El post con más impresiones entre los últimos 15 del perfil.',
+    inputs: ['posts_perfil'],
+    fn: (posts_perfil) => { const r = posts_perfil.filter((p) => p.grupo === 'Últimos 15').sort((a, b) => Number(b.impresiones) - Number(a.impresiones))[0]; return r ? [{post: r.post, tipo: r.tipo, impresiones: Number(r.impresiones), cuando: r.cuando}] : []; }
+  });
+  dash.draw('postsem', (el) => {
+    const s = dash.data('semana_ultima'), pr = dash.data('post_reciente');
+    if (s.status !== 'ok' || pr.status !== 'ok') return fail(el, s.status !== 'ok' ? s : pr);
+    const w = s.data[0];
+    const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; e.textContent = txt; return e; };
+    if (w && w.post_semana) {
+      el.replaceChildren(mk('q', '', w.post_semana), mk('p', 'hx-sub', (w.post_cuenta || '') + ' · semana del ' + semLabel(w.semana)), mk('p', 'hx-take', w.post_por_que || ''));
+    } else {
+      const r = pr.data[0];
+      if (!r) return vacio(el);
+      el.replaceChildren(mk('p', 'hx-note', 'El post de la semana sale del análisis semanal. Mientras, tu mejor post reciente:'), mk('q', '', r ? r.post : '—'), mk('p', 'hx-sub', r ? r.cuando + ' · ' + r.tipo + ' · ' + fmt.int(r.impresiones) + ' impresiones' : ''));
+    }
+  });
+  dash.calc('temas_clientes', {
+    title: 'Temas que piden los clientes',
+    description: 'Cuántas reuniones trajeron cada tema agrupado de "¿Qué te gustaría resolver?".',
+    inputs: ['citas_detalle'],
+    fn: (citas_detalle) => Array.from(d3.rollup(citas_detalle.filter((r) => r.tema), (v) => v.length, (r) => r.tema), ([tema, citas]) => ({tema, citas})).sort((a, b) => b.citas - a.citas)
+  });
+  dash.draw('temas', (el) => {
+    const d = dash.data('temas_clientes'), s = dash.data('semana_ultima');
+    if (d.status !== 'ok') return fail(el, d);
+    if (d.data.length) {
+      el.replaceChildren(); const tt = tip(el); const max = d3.max(d.data, (r) => r.citas) || 1;
+      d.data.slice(0, 6).forEach((r, i) => { const row = barRow(r.tema, r.citas / max, PAL.pagina[i % 3], fmt.int(r.citas)); row.addEventListener('mousemove', (ev) => tt.show(ev, [r.tema, fmt.int(r.citas) + (r.citas === 1 ? ' reunión' : ' reuniones')])); row.addEventListener('mouseleave', () => tt.hide()); el.insertBefore(row, el.querySelector('.hx-tip')); });
+      return;
+    }
+    const w = s.status === 'ok' ? s.data[0] : null;
+    if (w && w.temas) { const ul = document.createElement('ul'); ul.className = 'vz-temas'; String(w.temas).split(';').map((x) => x.trim()).filter(Boolean).forEach((x) => { const li = document.createElement('li'); li.textContent = x; ul.appendChild(li); }); el.replaceChildren(ul); return; }
+    const p = document.createElement('p'); p.className = 'hx-empty'; p.textContent = EMPTY; el.replaceChildren(p);
+  });
+
+  /* ---- hitos ---- */
+  const HF = d3.utcFormat('%d %b');
+  const hcol = (c) => c === 'Página' ? 'var(--tb-pag)' : c === 'Ambas' ? 'var(--tb-acento)' : 'var(--tb-1)';
+  window.hxHitos = () => { const h = dash.data('hitos'); return h.status === 'ok' && Array.isArray(h.data) ? h.data : []; };
+  dash.draw('timeline', (el) => {
+    const d = dash.data('hitos');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    const rows = d.data.slice().sort((a, b) => String(a.fecha).localeCompare(String(b.fecha)));
+    if (!rows.length) return vacio(el);
+    const pd = (s) => new Date(String(s) + 'T00:00:00Z');
+    const W = Math.max(300, el.clientWidth), H = 200, L = 16, R = 16, mid = 100;
+    const today = new Date(Date.UTC(new Date().getUTCFullYear(), new Date().getUTCMonth(), new Date().getUTCDate()));
+    const ext = d3.extent(rows.map((r) => pd(r.fecha)).concat([today]));
+    const xs = d3.scaleUtc([d3.utcDay.offset(ext[0], -2), d3.utcDay.offset(ext[1], 2)], [L, W - R]);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img').attr('aria-label', 'Línea de tiempo de hitos');
+    svg.append('line').attr('x1', L).attr('x2', W - R).attr('y1', mid).attr('y2', mid).style('stroke', 'var(--cds-chart-axis)').attr('stroke-width', 2);
+    svg.append('line').attr('x1', xs(today)).attr('x2', xs(today)).attr('y1', 14).attr('y2', H - 14).style('stroke', 'var(--tb-acento)').attr('stroke-dasharray', '4 3');
+    svg.append('text').attr('x', xs(today)).attr('y', 10).attr('text-anchor', 'middle').style('font-size', '11px').style('fill', 'var(--tb-acento)').text('hoy');
+    const tt = tip(el);
+    const narrow = W < 620;
+    const lastR = {u: -1e9, d: -1e9};
+    rows.forEach((r, i) => {
+      const x = xs(pd(r.fecha)), up = i % 2 === 0, done = r.estado === 'realizado' || pd(r.fecha) <= today;
+      const g = svg.append('g');
+      g.append('line').attr('x1', x).attr('x2', x).attr('y1', mid).attr('y2', up ? mid - 26 : mid + 26).style('stroke', 'var(--cds-chart-grid)');
+      g.append('circle').attr('cx', x).attr('cy', mid).attr('r', 7).style('fill', done ? hcol(r.cuenta) : 'var(--color-bg)').style('stroke', hcol(r.cuenta)).attr('stroke-width', 2)
+        .on('mousemove', (ev) => tt.show(ev, [HF(pd(r.fecha)) + ' · ' + r.cuenta, r.evento, done ? 'Hecho' : 'Planificado']))
+        .on('mouseleave', () => tt.hide());
+      const side = up ? 'u' : 'd';
+      const lbl = g.append('g');
+      const t1 = lbl.append('text').attr('x', x).attr('y', up ? mid - 32 : mid + 40).attr('text-anchor', 'middle').style('font-size', '10px').style('fill', 'var(--color-fg-muted)').text(HF(pd(r.fecha)));
+      let t2 = null;
+      if (!narrow) t2 = lbl.append('text').attr('x', x).attr('y', up ? mid - 46 : mid + 54).attr('text-anchor', 'middle').style('font-size', '11px').style('fill', 'var(--color-fg)').text(String(r.evento).length > 22 ? String(r.evento).slice(0, 21) + '…' : r.evento);
+      const wdt = Math.max(t1.node().getComputedTextLength(), t2 ? t2.node().getComputedTextLength() : 0);
+      const l0 = x - wdt / 2, r0 = x + wdt / 2;
+      if (l0 < lastR[side] + 6 || l0 < 0 || r0 > W) lbl.remove(); else lastR[side] = r0;
+    });
+  });
+  /* ---- Personas: siluetas llenas hasta el porcentaje ---- */
+  const SIL = 'M30 4a10 10 0 1 1 0 20a10 10 0 1 1 0-20Z M16 30c4-3 9-4 14-4s10 1 14 4l4 30h-6l-1 38h-7l-1-34h-2l-1 34h-7l-1-38h-6Z';
+  let silN = 0;
+  function silueta(pct, color) {
+    const id = 'vzc' + (++silN);
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 60 100'); svg.setAttribute('width', '44'); svg.setAttribute('height', '74'); svg.setAttribute('aria-hidden', 'true');
+    const defs = document.createElementNS(ns, 'defs'); const cp = document.createElementNS(ns, 'clipPath'); cp.setAttribute('id', id);
+    const p0 = document.createElementNS(ns, 'path'); p0.setAttribute('d', SIL); cp.appendChild(p0); defs.appendChild(cp); svg.appendChild(defs);
+    const h = Math.max(0, Math.min(100, pct)) * 0.96;
+    const r = document.createElementNS(ns, 'rect'); r.setAttribute('x', '0'); r.setAttribute('width', '60'); r.setAttribute('y', String(98 - h)); r.setAttribute('height', String(h)); r.setAttribute('clip-path', 'url(#' + id + ')'); r.style.fill = color; svg.appendChild(r);
+    const o = document.createElementNS(ns, 'path'); o.setAttribute('d', SIL); o.style.fill = 'none'; o.style.stroke = 'var(--color-fg)'; o.setAttribute('stroke-width', '1.6'); svg.appendChild(o);
+    return svg;
+  }
+  window.hxSilueta = silueta;
+
+  /* ---- Metas: velocímetro ---- */
+  const pcf = new Intl.NumberFormat('es', {style: 'percent', maximumFractionDigits: 0});
+  dash.draw('gauge', (el) => {
+    const d = dash.data(el.getAttribute('data-source'));
+    const gs = el.getAttribute('data-goal-source');
+    const g = gs ? dash.data(gs) : d;
+    if (d.status !== 'ok' || g.status !== 'ok') return fail(el, d.status !== 'ok' ? d : g);
+    const row = d.data.length ? pickRow(el, d.data) : null;
+    const grow = gs ? g.data[0] : row;
+    const val = row ? Number(row[el.getAttribute('data-field')]) : NaN;
+    const goal = el.hasAttribute('data-goal') ? Number(el.getAttribute('data-goal')) : (grow ? Number(grow[el.getAttribute('data-goal-field')]) : NaN);
+    el.replaceChildren();
+    const W = 240, H = 140, cx = 120, cy = 122, R = 100, r0 = 66;
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img');
+    const arc = d3.arc().innerRadius(r0).outerRadius(R);
+    const ang = (f) => -Math.PI / 2 + Math.PI * Math.max(0, Math.min(1, f));
+    const bands = [[0, 0.5, 'var(--cds-chart-status-critical)'], [0.5, 0.8, 'var(--color-warn)'], [0.8, 1, 'var(--color-ok)']];
+    const gg = svg.append('g').attr('transform', 'translate(' + cx + ',' + cy + ')');
+    bands.forEach(([a, b, c]) => gg.append('path').attr('d', arc({startAngle: ang(a), endAngle: ang(b)})).style('fill', c).style('opacity', 0.9));
+    [0, 0.25, 0.5, 0.75, 1].forEach((f) => { const t = ang(f); gg.append('text').attr('x', Math.sin(t) * (R + 9)).attr('y', -Math.cos(t) * (R + 9)).attr('text-anchor', 'middle').attr('dy', '0.32em').style('font-size', '9px').style('fill', 'var(--color-fg-muted)').text(Math.round(f * 100) + '%'); });
+    const ok = isFinite(val) && isFinite(goal) && goal > 0;
+    const f = ok ? val / goal : 0;
+    svg.attr('aria-label', ok ? 'Cumplimiento ' + pcf.format(f) : 'Sin dato todavía');
+    const t = ang(Math.min(f, 1));
+    gg.append('line').attr('x1', 0).attr('y1', 0).attr('x2', Math.sin(t) * (R - 6)).attr('y2', -Math.cos(t) * (R - 6)).style('stroke', 'var(--color-fg)').attr('stroke-width', 3).attr('stroke-linecap', 'round').style('opacity', ok ? 1 : 0.25);
+    gg.append('circle').attr('r', 6).style('fill', 'var(--color-fg)');
+    const lab = document.createElement('span'); lab.className = 'vz-cump';
+    lab.textContent = ok ? 'Cumplimiento = ' + pcf.format(f) : 'Sin dato todavía';
+    const wrap = document.createElement('div'); wrap.appendChild(lab); el.appendChild(wrap);
+  });
+
+  /* ---- Lugares: país de cada ubicación ----
+     Cada fila de audiencia con categoria "Ubicación" puede traer: pais (nombre a mostrar), pais_mapa (nombre del país en mapa_mundo, en inglés),
+     iso2 (código de dos letras, para la bandera), lat y lon (para dibujar el círculo de la ciudad). */
+  window.hxBandera = (iso) => /^[A-Za-z]{2}$/.test(String(iso || '')) ? String.fromCodePoint(...String(iso).toUpperCase().split('').map((c) => 127397 + c.charCodeAt(0))) : '';
+  dash.calc('audiencia_pais', {
+    title: 'Audiencia por país',
+    description: 'Suma del porcentaje de las ubicaciones del export de audiencia, agrupadas por el país anotado en cada fila.',
+    inputs: ['audiencia'],
+    fn: (audiencia) => {
+      const by = {};
+      audiencia.filter((r) => r.categoria === 'Ubicación' && r.pais).forEach((r) => { const p = String(r.pais); by[p] = by[p] || {pais: r.pais_mapa || p, nombre: p, bandera: window.hxBandera(r.iso2), porcentaje: 0}; by[p].porcentaje += Number(r.porcentaje) || 0; });
+      return Object.values(by).map((r) => Object.assign(r, {porcentaje: Math.round(r.porcentaje * 10) / 10})).sort((a, b) => b.porcentaje - a.porcentaje);
+    }
+  });
+  dash.draw('flags', (el) => {
+    const d = dash.data('audiencia_pais');
+    if (d.status !== 'ok') return fail(el, d);
+    if (!d.data.length) return vacio(el);
+    el.replaceChildren(...d.data.map((r) => {
+      const c = document.createElement('div'); c.className = 'vz-flag';
+      const e = document.createElement('span'); e.className = 'vz-fe'; e.textContent = r.bandera; e.setAttribute('aria-hidden', 'true');
+      const p = document.createElement('span'); p.className = 'vz-fp'; p.textContent = (r.porcentaje < 1 ? '< 1' : fmt.int(r.porcentaje)) + ' %';
+      const n = document.createElement('span'); n.className = 'vz-fn'; n.textContent = r.nombre;
+      c.append(e, p, n); return c;
+    }));
+  });
+  dash.draw('mapa', (el) => {
+    const m = dash.data('mapa_mundo'), ap = dash.data('audiencia_pais'), au = dash.data('audiencia');
+    if (m.status !== 'ok' || ap.status !== 'ok' || au.status !== 'ok') return fail(el, m.status !== 'ok' ? m : ap.status !== 'ok' ? ap : au);
+    el.replaceChildren();
+    if (!ap.data.length || !m.data.length) return;
+    const feats = m.data.map((r) => ({type: 'Feature', properties: {pais: r.pais}, geometry: typeof r.geometria === 'string' ? JSON.parse(r.geometria) : r.geometria}));
+    const W = Math.max(280, el.clientWidth), H = Math.round(Math.min(420, Math.max(260, W * 0.62)));
+    const pct = new Map(ap.data.map((r) => [r.pais, r.porcentaje]));
+    const nom = new Map(ap.data.map((r) => [r.pais, r.nombre]));
+    const max = d3.max(ap.data, (r) => r.porcentaje) || 1;
+    const conPub = feats.filter((f) => pct.get(f.properties.pais));
+    const proj = d3.geoMercator().fitExtent([[8, 8], [W - 8, H - 8]], conPub.length ? {type: 'FeatureCollection', features: conPub} : {type: 'Sphere'});
+    const path = d3.geoPath(proj);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img').attr('aria-label', 'Mapa de tu audiencia por país y ciudad');
+    const tt = tip(el);
+    const okFeats = feats.filter((f) => path.area(f) < W * H * 0.5);
+    svg.append('g').selectAll('path').data(okFeats).join('path').attr('d', path)
+      .style('fill', (f) => pct.get(f.properties.pais) ? PAL.perfil[0] : 'var(--cds-chart-grid)').style('fill-opacity', (f) => { const p = pct.get(f.properties.pais); return p ? 0.3 + 0.7 * Math.sqrt(p / max) : 1; }).style('stroke', 'var(--color-bg)').attr('stroke-width', 0.6)
+      .on('mousemove', (ev, f) => { const p = pct.get(f.properties.pais); if (p) tt.show(ev, [nom.get(f.properties.pais) || f.properties.pais, fmt.int(p) + ' % de tu público']); else tt.hide(); })
+      .on('mouseleave', () => tt.hide());
+    const num = (v) => v !== null && v !== undefined && v !== '' && isFinite(Number(v));
+    const ciudades = au.data.filter((r) => r.categoria === 'Ubicación' && num(r.lat) && num(r.lon)).map((r) => ({valor: r.valor, porcentaje: Number(r.porcentaje), ll: [Number(r.lon), Number(r.lat)]}));
+    const rs = d3.scaleSqrt([0, d3.max(ciudades, (r) => r.porcentaje) || 1], [0, 18]);
+    svg.append('g').selectAll('circle').data(ciudades).join('circle')
+      .attr('cx', (r) => proj(r.ll)[0]).attr('cy', (r) => proj(r.ll)[1]).attr('r', (r) => Math.max(3, rs(r.porcentaje)))
+      .style('fill', PAL.perfil[2]).style('fill-opacity', 0.85).style('stroke', 'var(--color-fg)').attr('stroke-width', 0.8)
+      .on('mousemove', (ev, r) => tt.show(ev, [r.valor, (r.porcentaje < 1 ? '< 1' : fmt.int(r.porcentaje)) + ' % de tu público']))
+      .on('mouseleave', () => tt.hide());
+  });
+
+  /* ---- Embudo TOFU / MOFU / BOFU ---- */
+  dash.calc('embudo', {
+    title: 'Embudo de LinkedIn a reunión',
+    description: 'Pasos del embudo por cuenta y el tramo compartido. De la última semana medida cuando la hay; si no, el último mes completo y las visitas de los últimos 7 días.',
+    inputs: ['citas_ultima', 'personal_mensual', 'pagina_mensual', 'resumen'],
+    fn: (citas_ultima, personal_mensual, pagina_mensual, resumen) => {
+      const w = citas_ultima[0] || {};
+      const has = (k) => w[k] !== undefined && w[k] !== null && w[k] !== '';
+      const prev = (arr) => arr.length > 1 ? arr[arr.length - 2] : (arr[0] || {});
+      const pm = prev(personal_mensual), hm = prev(pagina_mensual), r = resumen[0] || {};
+      const pick = (k, fb, fbp) => has(k) ? {valor: Number(w[k]), periodo: 'semana'} : {valor: fb === undefined || fb === null || isNaN(fb) ? null : Number(fb), periodo: fbp};
+      const txt = {semana: 'la última semana', mes: 'el último mes', '7 días': 'los últimos 7 días'};
+      const row = (id, grupo, etapa, paso, detalle, p) => ({id, grupo, etapa, paso, detalle, valor: p.valor, periodo: p.periodo, periodo_txt: txt[p.periodo]});
+      return [
+        row('h1', 'perfil', 'TOFU', 'Te ven', 'impresiones', pick('impresiones', pm.impresiones, 'mes')),
+        row('h2', 'perfil', 'TOFU', 'Interactúan', 'interacciones', pick('interacciones', pm.interacciones, 'mes')),
+        row('h3', 'perfil', 'MOFU', 'Visitan tu perfil', 'visitas', pick('visitas_perfil', r.visitas_perfil_7d, '7 días')),
+        row('e1', 'pagina', 'TOFU', 'Ven la página', 'impresiones', pick('impresiones_pagina', hm.impresiones, 'mes')),
+        row('e2', 'pagina', 'TOFU', 'Hacen clic', 'clics', pick('clics_pagina', hm.clics, 'mes')),
+        row('e3', 'pagina', 'MOFU', 'Interactúan', 'reacciones, comentarios y compartidos', pick('interacciones_pagina', hm.mes ? (Number(hm.reacciones) || 0) + (Number(hm.comentarios) || 0) + (Number(hm.compartidos) || 0) : null, 'mes')),
+        row('b1', 'bofu', 'MOFU', 'Conversan', 'personas con interés', pick('conversaciones', null, 'semana')),
+        row('b2', 'bofu', 'BOFU', 'Responden', 'respuestas a tus mensajes', pick('respuestas', null, 'semana')),
+        row('b3', 'bofu', 'BOFU', 'Agendan', 'reuniones', pick('citas', null, 'semana'))
+      ];
+    }
+  });
+  dash.draw('funnel', (el) => {
+    const d = dash.data('embudo');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    const grupo = el.getAttribute('data-grupo') || 'perfil';
+    const rows = d.data.filter((r) => r.grupo === grupo), n = rows.length;
+    if (rows.every((r) => r.valor === null)) return vacio(el);
+    const pal = grupo === 'pagina' ? PAL.pagina : grupo === 'bofu' ? ['var(--tb-2)', 'var(--tb-acento)', 'var(--tb-acento)'] : PAL.perfil;
+    const W = Math.max(260, el.clientWidth), narrow = W < 420;
+    const rowH = 56, H = n * rowH + 8;
+    const left = narrow ? 4 : 52, right = narrow ? 4 : 96;
+    const fw = W - left - right, cx = left + fw / 2;
+    const start = grupo === 'bofu' ? 0.62 : 1, step = grupo === 'bofu' ? 0.14 : 0.16;
+    const widthAt = (i) => fw * Math.max(0.12, start - i * step);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img').attr('aria-label', 'Embudo: ' + rows.map((r) => r.paso).join(', '));
+    const tt = tip(el);
+    const lab = {mes: 'último mes', '7 días': '7 días', semana: 'última semana'};
+    rows.forEach((r, i) => {
+      const y = 4 + i * rowH, w0 = widthAt(i), w1 = widthAt(i + 1);
+      const g = svg.append('g');
+      const dark = grupo === 'pagina' && i === 0;
+      g.append('path').attr('d', 'M' + (cx - w0 / 2) + ',' + y + 'L' + (cx + w0 / 2) + ',' + y + 'L' + (cx + w1 / 2) + ',' + (y + rowH - 4) + 'L' + (cx - w1 / 2) + ',' + (y + rowH - 4) + 'Z')
+        .style('fill', pal[i % 3]).style('fill-opacity', 0.9).style('stroke', 'var(--color-bg)')
+        .on('mousemove', (ev) => tt.show(ev, [r.etapa + ' · ' + r.paso, (r.valor === null ? 'Sin dato todavía' : fmt.int(r.valor) + ' ' + r.detalle), 'Periodo: ' + lab[r.periodo]]))
+        .on('mouseleave', () => tt.hide());
+      const fg = dark ? 'var(--color-bg)' : (grupo === 'pagina' && i === 2 ? 'var(--color-fg)' : '#ffffff');
+      g.append('text').attr('x', cx).attr('y', y + rowH / 2 - 5).attr('text-anchor', 'middle').style('font-family', 'var(--font-anthropic-serif)').style('font-size', '17px').style('fill', fg).style('pointer-events', 'none').text(r.valor === null ? '—' : fmt.int(r.valor));
+      g.append('text').attr('x', cx).attr('y', y + rowH / 2 + 12).attr('text-anchor', 'middle').style('font-size', '11px').style('fill', fg).style('pointer-events', 'none').text(r.paso);
+      if (!narrow) {
+        if (i === 0 || rows[i - 1].etapa !== r.etapa) g.append('text').attr('class', 'vz-stage').attr('x', 2).attr('y', y + rowH / 2).attr('dy', '0.32em').style('fill', 'var(--color-fg-muted)').text(r.etapa);
+        g.append('text').attr('x', W - right + 8).attr('y', y + rowH / 2 + 12).style('font-size', '10px').style('fill', 'var(--color-fg-muted)').text(lab[r.periodo]);
+        if (i > 0) {
+          const p = rows[i - 1];
+          const same = p.periodo === r.periodo && p.valor && r.valor !== null;
+          g.append('text').attr('x', W - right + 8).attr('y', y + 6).attr('dy', '0.32em').style('font-size', '11px').style('fill', 'var(--color-fg)').text(same ? '↓ ' + pcf.format(r.valor / p.valor) : '');
+        }
+      }
+    });
+  });
+  dash.calc('citas_ultima', {
+    title: 'Última semana medida',
+    description: 'La fila más reciente de las reuniones y conversaciones por semana.',
+    inputs: ['citas_semanas'],
+    fn: (citas_semanas) => citas_semanas.length ? [citas_semanas.slice().sort((a, b) => String(a.semana).localeCompare(String(b.semana))).pop()] : []
+  });
+  dash.calc('citas_acum', {
+    title: 'Reuniones acumuladas',
+    description: 'Suma de las reuniones agendadas de todas las semanas medidas.',
+    inputs: ['citas_semanas'],
+    fn: (citas_semanas) => citas_semanas.length ? [{citas: citas_semanas.reduce((a, r) => a + Number(r.citas || 0), 0)}] : []
+  });
+  dash.calc('citas_por_origen', {
+    title: 'Reuniones por origen',
+    description: 'Cuántas reuniones llegaron por cada respuesta a "¿Dónde nos conociste?".',
+    inputs: ['citas_detalle'],
+    fn: (citas_detalle) => {
+      const by = d3.rollup(citas_detalle, (v) => v.length, (r) => r.origen || 'Sin dato');
+      return Array.from(by, ([origen, citas]) => ({origen, citas})).sort((a, b) => b.citas - a.citas);
+    }
+  });
+  dash.calc('citas_por_arquetipo', {
+    title: 'Reuniones por arquetipo',
+    description: 'Cuántas reuniones fueron con cada arquetipo de decisión, según el cargo.',
+    inputs: ['citas_detalle'],
+    fn: (citas_detalle) => {
+      const by = d3.rollup(citas_detalle, (v) => v.length, (r) => r.arquetipo || 'Otro');
+      return Array.from(by, ([arquetipo, citas]) => ({arquetipo, citas})).sort((a, b) => b.citas - a.citas);
+    }
+  });
+
+
+  const AUD_CAMPOS = [['decisores_pct','Toman decisiones (gerente o superior)'],['alta_direccion_pct','Alta dirección'],['empresas_1000_pct','Empresas de más de 1.000 personas'],['rrhh_pct','Personas y RR. HH.'],['sin_decision_pct','Sin rol de decisión']];
+  window.hxAudCampos = AUD_CAMPOS;
+  dash.calc('audiencia_arquetipo', {
+    title: 'Audiencia por arquetipo, última lectura',
+    description: 'La lectura más reciente de la audiencia por arquetipo, con el valor de la primera lectura para comparar.',
+    inputs: ['audiencia_arquetipos'],
+    fn: (audiencia_arquetipos) => {
+      if (!audiencia_arquetipos.length) return [];
+      const s = audiencia_arquetipos.slice().sort((x, y) => String(x.fecha).localeCompare(String(y.fecha)));
+      const last = s[s.length - 1], first = s[0];
+      return window.hxAudCampos.map(([k, g]) => ({grupo: g, porcentaje: Number(last[k] || 0), inicial: Number(first[k] || 0), fecha: last.fecha, desde: first.fecha}));
+    }
+  });
+  dash.calc('conv_por_arquetipo', {
+    title: 'Conversaciones por arquetipo',
+    description: 'Suma de todas las semanas: personas que conversaron, respondieron y agendaron, por arquetipo.',
+    inputs: ['conv_arquetipo'],
+    fn: (conv_arquetipo) => {
+      const by = d3.rollup(conv_arquetipo, (v) => ({conversaciones: d3.sum(v, (r) => Number(r.conversaciones || 0)), respuestas: d3.sum(v, (r) => Number(r.respuestas || 0)), citas: d3.sum(v, (r) => Number(r.citas || 0))}), (r) => r.arquetipo || 'Otro');
+      return Array.from(by, ([arquetipo, o]) => Object.assign({arquetipo}, o)).sort((a, b) => b.conversaciones - a.conversaciones);
+    }
+  });
+  dash.draw('arq-aud', (el) => {
+    const d = dash.data('audiencia_arquetipo');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    if (!d.data.length) return vacio(el);
+    const tt = tip(el);
+    d.data.forEach((r) => {
+      const muted = r.grupo === 'Sin rol de decisión';
+      const box = document.createElement('div'); box.className = 'vz-p';
+      const c = document.createElement('div'); c.className = 'vz-circ'; c.appendChild(window.hxSilueta(r.porcentaje, muted ? 'var(--cds-chart-muted)' : PAL.perfil[(d.data.indexOf(r)) % 3]));
+      const v = document.createElement('span'); v.className = 'vz-pv'; v.textContent = fmt.int(r.porcentaje) + ' %';
+      const l = document.createElement('span'); l.className = 'vz-pl'; l.textContent = r.grupo;
+      box.append(c, v, l);
+      box.addEventListener('mousemove', (ev) => tt.show(ev, [r.grupo, fmt.int(r.porcentaje) + ' % de tu público (estimado)', r.fecha === r.desde ? 'Primera lectura: ' + semLabel(r.fecha) : 'En la primera lectura (' + semLabel(r.desde) + '): ' + fmt.int(r.inicial) + ' %']));
+      box.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(box, el.querySelector('.hx-tip'));
+    });
+  });
+  dash.draw('conv-arq', (el) => {
+    const d = dash.data('conv_por_arquetipo');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    if (!d.data.length) { const p = document.createElement('p'); p.className = 'hx-note'; p.textContent = EMPTY; el.appendChild(p); return; }
+    const max = d3.max(d.data, (r) => r.conversaciones) || 1;
+    const tt = tip(el);
+    d.data.forEach((r) => {
+      const box = document.createElement('div'); box.className = 'hx-trio';
+      [['conversaciones', 'var(--tb-gris)', 'conversan'], ['respuestas', 'var(--tb-pag)', 'responden'], ['citas', 'var(--tb-acento)', 'agendan']].forEach(([k, c, lab], i) => {
+        const row = barRow(i === 0 ? r.arquetipo : '', r[k] / max, c, fmt.int(r[k]) + ' ' + lab);
+        box.appendChild(row);
+      });
+      box.addEventListener('mousemove', (ev) => tt.show(ev, [r.arquetipo, fmt.int(r.conversaciones) + ' conversan', fmt.int(r.respuestas) + ' responden', fmt.int(r.citas) + ' agendan']));
+      box.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(box, el.querySelector('.hx-tip'));
+    });
+  });
+  dash.onData(() => {
+    const d = dash.data('citas_semanas');
+    const hay = d.status === 'ok' && Array.isArray(d.data) && d.data.length > 0;
+    document.querySelectorAll('#citas-vacio').forEach((p) => { p.hidden = hay; });
+  });
+
+  const SF = d3.utcFormat('%d-%m-%Y');
+  const semLabel = (s) => { const t = new Date(String(s) + 'T00:00:00Z'); return isNaN(t) ? String(s) : SF(t); };
+  dash.draw('semana', (el) => {
+    const d = dash.data(el.getAttribute('data-source'));
+    const row = d.status === 'ok' && Array.isArray(d.data) && d.data[0];
+    el.textContent = row ? semLabel(row[el.getAttribute('data-field')]) : '—';
+  });
+
+  dash.draw('cupos', (el) => {
+    const d = dash.data('citas_ultima'), s = dash.data('supuestos');
+    const row = d.status === 'ok' && Array.isArray(d.data) && d.data[0];
+    const cupos = s.status === 'ok' && Array.isArray(s.data) && s.data[0] ? Number(s.data[0].evento_cupos) : 0;
+    const v = row ? Number(row.inscritos_evento || 0) : 0;
+    const b = document.createElement('i');
+    b.style.width = (cupos > 0 ? Math.max(0, Math.min(1, v / cupos)) * 100 : 0) + '%';
+    el.replaceChildren(b);
+  });
+
+  dash.draw('cbars', (el) => {
+    const d = dash.data(el.getAttribute('data-source'));
+    if (d.status !== 'ok') return fail(el, d);
+    const key = el.getAttribute('data-key');
+    el.replaceChildren();
+    if (!d.data.length) { const p = document.createElement('p'); p.className = 'hx-note'; p.textContent = EMPTY; el.appendChild(p); return; }
+    const max = d3.max(d.data, (r) => r.citas) || 1;
+    const tt = tip(el);
+    d.data.forEach((r, i) => {
+      const row = barRow(r[key], r.citas / max, PAL.pagina[i % 3], fmt.int(r.citas));
+      row.addEventListener('mousemove', (ev) => tt.show(ev, [r[key], fmt.int(r.citas) + (r.citas === 1 ? ' reunión' : ' reuniones')]));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
+  });
+
+  dash.draw('embudo', (el) => {
+    const d = dash.data('citas_ultima');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    const r = d.data[0];
+    if (!r) return vacio(el);
+    const pasos = [['Personas con interés', r.conversaciones], ['Mensajes enviados', r.dms_enviados], ['Respondieron', r.respuestas], ['Reuniones agendadas', r.citas]];
+    const max = d3.max(pasos, (p) => Number(p[1] || 0)) || 1;
+    const tt = tip(el);
+    pasos.forEach(([lab, v], i) => {
+      const n = Number(v || 0);
+      const row = barRow(lab, n / max, i === 3 ? PAL.pagina[1] : PAL.pagina[0], fmt.int(n));
+      row.addEventListener('mousemove', (ev) => tt.show(ev, ['Semana del ' + semLabel(r.semana), lab + ': ' + fmt.int(n)]));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
+  });
+
+  dash.draw('citas-sem', (el) => {
+    const d = dash.data('citas_semanas');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    if (!d.data.length) return vacio(el);
+    const res = dash.data('supuestos');
+    const meta = res.status === 'ok' && res.data[0] ? (Number(res.data[0].meta_reuniones_semana) || null) : null;
+    const rows = d.data.slice().sort((a, b) => String(a.semana).localeCompare(String(b.semana)));
+    const W = Math.max(280, el.clientWidth), H = 240;
+    const top = Math.max(d3.max(rows, (r) => Number(r.citas || 0)) || 0, meta || 0, 1);
+    const ys = d3.scaleLinear([0, top], [H - 26, 10]).nice();
+    const ticks = ys.ticks(4).filter((t) => Number.isInteger(t));
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img').attr('aria-label', 'Reuniones agendadas por semana frente a la meta semanal');
+    const probe = svg.append('g').style('font-size', 'var(--cds-font-size-caption)');
+    let wMax = 0;
+    ticks.forEach((t) => { const n = probe.append('text').text(fmt.int(t)); wMax = Math.max(wMax, n.node().getComputedTextLength()); });
+    probe.remove();
+    const L = Math.ceil(wMax) + 10, R = 4;
+    const xs = d3.scaleBand(rows.map((r) => r.semana), [L, W - R]).padding(0.28);
+    const g = svg.append('g').style('font-size', 'var(--cds-font-size-caption)');
+    ticks.forEach((t) => {
+      g.append('line').attr('x1', L).attr('x2', W - R).attr('y1', ys(t)).attr('y2', ys(t)).attr('stroke', 'var(--cds-chart-grid)');
+      g.append('text').attr('x', L - 6).attr('y', ys(t)).attr('dy', '0.32em').attr('text-anchor', 'end').attr('fill', 'var(--color-fg-muted)').text(fmt.int(t));
+    });
+    const step = Math.max(1, Math.ceil(rows.length * 70 / (W - L - R)));
+    rows.forEach((r, i) => { if (i % step) return; g.append('text').attr('x', xs(r.semana) + xs.bandwidth() / 2).attr('y', H - 6).attr('text-anchor', 'middle').attr('fill', 'var(--color-fg-muted)').text(semLabel(r.semana).slice(0, 5)); });
+    const tt = tip(el);
+    const bw = Math.min(40, xs.bandwidth());
+    svg.append('g').selectAll('rect').data(rows).join('rect')
+      .attr('x', (r) => xs(r.semana) + (xs.bandwidth() - bw) / 2).attr('width', bw)
+      .attr('y', (r) => ys(Number(r.citas || 0))).attr('height', (r) => Math.max(0, ys(0) - ys(Number(r.citas || 0))))
+      .attr('rx', 3).style('fill', (r) => (meta !== null && Number(r.citas || 0) >= meta) ? PAL.pagina[1] : PAL.pagina[0])
+      .on('mousemove', (ev, r) => tt.show(ev, ['Semana del ' + semLabel(r.semana), fmt.int(r.citas || 0) + ' reuniones' + (meta !== null ? ' de ' + fmt.int(meta) : '')]))
+      .on('mouseleave', () => tt.hide());
+    const lun = (s) => { const dt = new Date(String(s) + 'T00:00:00Z'); return d3.utcFormat('%Y-%m-%d')(d3.utcMonday.floor(dt)); };
+    const hw = d3.group(window.hxHitos(), (h) => lun(h.fecha));
+    rows.forEach((r) => { const hs = hw.get(String(r.semana)); if (!hs) return; const x = xs(r.semana) + xs.bandwidth() / 2, y = Math.max(8, ys(Number(r.citas || 0)) - 10);
+      svg.append('path').attr('d', d3.symbol(d3.symbolDiamond, 60)()).attr('transform', 'translate(' + x + ',' + y + ')').style('fill', 'var(--tb-acento)').style('stroke', 'var(--color-bg)')
+        .on('mousemove', (ev) => tt.show(ev, ['Hitos de la semana'].concat(hs.map((h) => h.evento)))).on('mouseleave', () => tt.hide()); });
+    if (meta !== null) svg.append('line').attr('x1', L).attr('x2', W - R).attr('y1', ys(meta)).attr('y2', ys(meta)).attr('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '5 4').attr('stroke-width', 1.5);
+  });
+
+
+  /* ==== ¿Vas en camino? ====
+     El inicio del plan, su duración, la meta de reuniones y el próximo evento salen del dataset supuestos, no del código. */
+  const DIA = 86400000;
+  window.hxPlan = (supuestos, citas_semanas) => {
+    const s = (supuestos && supuestos[0]) || {};
+    let ini = s.plan_inicio ? Date.parse(String(s.plan_inicio) + 'T00:00:00Z') : NaN;
+    if (isNaN(ini) && citas_semanas && citas_semanas.length) ini = d3.min(citas_semanas, (r) => Date.parse(String(r.semana) + 'T00:00:00Z'));
+    const dias = Number(s.plan_dias) > 0 ? Number(s.plan_dias) : 90;
+    return {ini: (ini === undefined || isNaN(ini)) ? null : ini, dias, semanas: Math.ceil(dias / 7),
+      meta: Number(s.meta_reuniones_semana) > 0 ? Number(s.meta_reuniones_semana) : null,
+      evento: s.evento_nombre || '', evento_ms: s.evento_fecha ? Date.parse(String(s.evento_fecha) + 'T00:00:00Z') : NaN,
+      cupos: Number(s.evento_cupos) > 0 ? Number(s.evento_cupos) : null};
+  };
+  const semN = (s, ini) => Math.floor((Date.parse(String(s) + 'T00:00:00Z') - ini) / (7 * DIA)) + 1;
+  const ideal = (n, meta) => Math.min(meta, Math.max(0, n) * meta / 10);
+  const dec = (v) => String(Math.round(v * 10) / 10).replace('.', ',');
+  const hoyUTC = () => { const t = new Date(); return Date.UTC(t.getFullYear(), t.getMonth(), t.getDate()); };
+  const ordSem = (rows) => rows.slice().sort((a, b) => String(a.semana).localeCompare(String(b.semana)));
+  const racha = (rows, ok) => { let n = 0; for (let i = rows.length - 1; i >= 0; i--) { if (ok(rows[i])) n++; else break; } return n; };
+
+  dash.calc('camino', {
+    title: 'Vas en camino',
+    description: 'Semáforo, proyección, cuentas regresivas y rachas, desde las reuniones por semana frente a una rampa ideal que sube parejo hasta la meta en la semana 10. El inicio y la duración del plan, la meta y el evento salen de los supuestos.',
+    inputs: ['citas_semanas', 'supuestos'],
+    fn: (citas_semanas, supuestos) => {
+      const P = window.hxPlan(supuestos, citas_semanas), meta = P.meta;
+      const rows = ordSem(citas_semanas);
+      const hoy = hoyUTC();
+      const dia = P.ini === null ? null : Math.max(1, Math.min(P.dias, Math.floor((hoy - P.ini) / DIA) + 1));
+      const last = rows[rows.length - 1];
+      const inscritos = last && last.inscritos_evento !== null && last.inscritos_evento !== undefined ? Number(last.inscritos_evento) : null;
+      const fl = d3.utcFormat('%d-%m-%Y');
+      const o = {dia, plan_dias: P.dias, plan_semanas: P.semanas, plan_ini: P.ini, meta,
+        plan_txt: P.ini === null ? 'Falta la fecha de inicio del plan en los supuestos.' : 'Empezó el ' + fl(new Date(P.ini)) + ' y termina el ' + fl(new Date(P.ini + (P.dias - 1) * DIA)) + '.',
+        evento_nombre: P.evento || 'sin evento definido', evento_cupos: P.cupos,
+        dias_evento: isNaN(P.evento_ms) ? null : Math.max(0, Math.round((P.evento_ms - hoy) / DIA)),
+        cupos_libres: inscritos === null || P.cupos === null ? null : Math.max(0, P.cupos - inscritos), hay_dato: !!last,
+        racha_plan: racha(rows, (r) => r.posts_plan !== null && r.posts_plan !== undefined && Number(r.posts_publicados || 0) >= Number(r.posts_plan)),
+        racha_rondas: racha(rows, (r) => Number(r.rondas || 0) >= 2),
+        racha_meta: racha(rows, (r) => meta !== null && Number(r.citas || 0) >= meta)};
+      if (!last || meta === null) return [Object.assign(o, {estado: 'sin', estado_txt: 'Sin dato todavía', detalle: !last ? EMPTY : 'Falta la meta de reuniones por semana en los supuestos.', semana_n: null, real: null, ideal: null, proyeccion: null})];
+      const n = semN(last.semana, P.ini);
+      const ult2 = rows.slice(-2);
+      const real = d3.mean(ult2, (r) => Number(r.citas || 0));
+      const idl = d3.mean(ult2, (r) => ideal(semN(r.semana, P.ini), meta));
+      const ratio = idl > 0 ? real / idl : 1;
+      let slope;
+      if (rows.length >= 2) { const xs = rows.map((r) => semN(r.semana, P.ini)), ys = rows.map((r) => Number(r.citas || 0)); const mx = d3.mean(xs), my = d3.mean(ys); const den = d3.sum(xs, (x) => (x - mx) ** 2); slope = den ? d3.sum(xs, (x, i) => (x - mx) * (ys[i] - my)) / den : 0; }
+      else slope = n > 0 ? Number(last.citas || 0) / n : 0;
+      const proy = Math.max(0, Math.round((Number(last.citas || 0) + slope * (P.semanas - n)) * 10) / 10);
+      const estado = ratio >= 0.9 ? 'verde' : ratio >= 0.6 ? 'amarillo' : 'rojo';
+      const estado_txt = {verde: 'En camino', amarillo: 'Atención', rojo: 'Fuera de ritmo'}[estado];
+      const detalle = 'Semana ' + n + ' de ' + P.semanas + ': llevas ' + dec(real) + ' reuniones por semana y el ideal era ' + dec(idl) + '. Si sigues este ritmo, en la semana ' + P.semanas + ' tendrías unas ' + dec(proy) + ' por semana.';
+      return [Object.assign(o, {estado, estado_txt, detalle, semana_n: n, real, ideal: idl, proyeccion: proy, ritmo: slope})];
+    }
+  });
+  dash.calc('rampa', {
+    title: 'Rampa real frente a ideal',
+    description: 'Una fila por semana del plan: reuniones ideales y reales.',
+    inputs: ['citas_semanas', 'supuestos'],
+    fn: (citas_semanas, supuestos) => {
+      const P = window.hxPlan(supuestos, citas_semanas);
+      if (P.ini === null || P.meta === null) return [];
+      const by = new Map(citas_semanas.map((r) => [semN(r.semana, P.ini), Number(r.citas || 0)]));
+      return d3.range(1, P.semanas + 1).map((n) => ({semana_n: n, semana: d3.utcFormat('%Y-%m-%d')(new Date(P.ini + (n - 1) * 7 * DIA)), ideal: ideal(n, P.meta), real: by.has(n) ? by.get(n) : null}));
+    }
+  });
+  dash.calc('vs_semana', {
+    title: 'Frente a la semana anterior',
+    description: 'Valor de la última semana medida, el de la anterior y la diferencia, para cada métrica clave.',
+    inputs: ['citas_semanas'],
+    fn: (citas_semanas) => {
+      const rows = ordSem(citas_semanas);
+      const a = rows[rows.length - 1], b = rows[rows.length - 2];
+      if (!a) return [];
+      return [['citas', 'Reuniones'], ['respuestas', 'Respuestas'], ['dms_enviados', 'Mensajes enviados'], ['conversaciones', 'Personas con interés'], ['visitas_perfil', 'Visitas a tu perfil'], ['impresiones', 'Impresiones'], ['inscritos_evento', 'Inscritos al evento'], ['posts_publicados', 'Posts publicados']]
+        .filter(([k]) => a[k] !== null && a[k] !== undefined)
+        .map(([k, metrica]) => ({campo: k, metrica, actual: Number(a[k]), anterior: b && b[k] !== null && b[k] !== undefined ? Number(b[k]) : null, diferencia: b && b[k] !== null && b[k] !== undefined ? Number(a[k]) - Number(b[k]) : null}));
+    }
+  });
+  const PASOS = [
+    {id: 'interaccion', de: 'impresiones', a: 'interacciones', base: 100, txt: (v) => 'De cada 100 personas que te ven, ' + v + ' reaccionan, comentan o comparten.'},
+    {id: 'visita', de: 'impresiones', a: 'visitas_perfil', base: 1000, txt: (v) => 'De cada 1.000 que te ven, ' + v + ' entran a tu perfil.'},
+    {id: 'respuesta', de: 'dms_enviados', a: 'respuestas', base: 100, txt: (v) => 'De cada 100 mensajes que envías, ' + v + ' reciben respuesta.'},
+    {id: 'agenda', de: 'respuestas', a: 'citas', base: 100, txt: (v) => 'De cada 100 personas que te responden, ' + v + ' agendan una reunión.'}
+  ];
+  dash.calc('pasos', {
+    title: 'De cada 100',
+    description: 'Tasa de cada paso del embudo en la última semana, la semana anterior, el promedio de todas las semanas y cuál es el cuello de botella.',
+    inputs: ['citas_semanas'],
+    fn: (citas_semanas) => {
+      const rows = ordSem(citas_semanas);
+      const a = rows[rows.length - 1], b = rows[rows.length - 2];
+      if (!a) return [];
+      const tasa = (r, p) => (r && Number(r[p.de]) > 0 && r[p.a] !== null && r[p.a] !== undefined) ? Number(r[p.a]) / Number(r[p.de]) : null;
+      const out = PASOS.map((p) => {
+        const sumDe = d3.sum(rows, (r) => Number(r[p.de] || 0)), sumA = d3.sum(rows, (r) => Number(r[p.a] || 0));
+        const t = tasa(a, p), tb = tasa(b, p), prom = sumDe > 0 ? sumA / sumDe : null;
+        return {paso: p.id, base: p.base, de_cada: t === null ? null : Math.round(t * p.base), de_cada_ant: tb === null ? null : Math.round(tb * p.base), frase: t === null ? 'Falta el dato de este paso.' : p.txt(fmt.int(Math.round(t * p.base))), indice: (t !== null && prom) ? t / prom : null, cuello: false};
+      });
+      if (rows.length >= 2) { const c = out.filter((r) => r.indice !== null).sort((x, y) => x.indice - y.indice)[0]; if (c && c.indice < 1) c.cuello = true; }
+      return out;
+    }
+  });
+  dash.calc('meta_reversa', {
+    title: 'La meta al revés',
+    description: 'Respuestas y mensajes que necesitas por semana para llegar a la meta de reuniones, con tus tasas reales de todas las semanas.',
+    inputs: ['citas_semanas', 'supuestos'],
+    fn: (citas_semanas, supuestos) => {
+      const meta = Number((supuestos[0] || {}).meta_reuniones_semana || 0);
+      const rows = ordSem(citas_semanas);
+      const dms = d3.sum(rows, (r) => Number(r.dms_enviados || 0)), resp = d3.sum(rows, (r) => Number(r.respuestas || 0)), cit = d3.sum(rows, (r) => Number(r.citas || 0));
+      const last = rows[rows.length - 1];
+      if (!rows.length || !dms || !resp || !cit || !meta) return [{meta: meta || null, respuestas_necesarias: null, mensajes_necesarios: null, mensajes_reales: last ? Number(last.dms_enviados || 0) : null, frase: rows.length ? 'Todavía no hay suficientes mensajes, respuestas y reuniones para calcular tus tasas. Con la primera reunión que llegue por un mensaje, aquí verás cuántos mensajes necesitas.' : EMPTY + ' Con tus tasas reales verás cuántos mensajes y respuestas necesitas cada semana para llegar a tu meta de reuniones.'}];
+      const rn = Math.ceil(meta / (cit / resp)), mn = Math.ceil(rn / (resp / dms));
+      const mr = Number(last.dms_enviados || 0);
+      return [{meta, respuestas_necesarias: rn, mensajes_necesarios: mn, mensajes_reales: mr, frase: 'Para ' + fmt.int(meta) + ' reuniones necesitas ' + fmt.int(rn) + ' respuestas, y para eso, unos ' + fmt.int(mn) + ' mensajes por semana. La última semana enviaste ' + fmt.int(mr) + (mr >= mn ? ': el volumen alcanza.' : ': te faltan ' + fmt.int(mn - mr) + '.')}];
+    }
+  });
+  dash.calc('habitos', {
+    title: 'Hábitos y resultados',
+    description: 'Lo que depende de ti (posts, mensajes, rondas) frente a lo que llega (respuestas, reuniones, inscritos), en la última semana.',
+    inputs: ['citas_semanas', 'supuestos', 'meta_reversa'],
+    fn: (citas_semanas, supuestos, meta_reversa) => {
+      const r = ordSem(citas_semanas).pop();
+      if (!r) return [];
+      const meta = Number((supuestos[0] || {}).meta_reuniones_semana || 0) || null, mr = meta_reversa[0] || {};
+      const v = (x) => (x === null || x === undefined ? null : Number(x));
+      return [
+        {lado: 'habito', item: 'Posts publicados', valor: v(r.posts_publicados), meta: v(r.posts_plan)},
+        {lado: 'habito', item: 'Mensajes enviados', valor: v(r.dms_enviados), meta: v(mr.mensajes_necesarios)},
+        {lado: 'habito', item: 'Rondas de conversación', valor: v(r.rondas), meta: 2},
+        {lado: 'resultado', item: 'Respuestas', valor: v(r.respuestas), meta: v(mr.respuestas_necesarias)},
+        {lado: 'resultado', item: 'Reuniones', valor: v(r.citas), meta},
+        {lado: 'resultado', item: 'Inscritos al evento', valor: v(r.inscritos_evento), meta: Number((supuestos[0] || {}).evento_cupos || 0) || null}
+      ];
+    }
+  });
+  const ETAPAS = ['encontrada', 'propuesta', 'aceptada', 'dada'];
+  dash.calc('charlas_mes', {
+    title: 'Charlas del mes',
+    description: 'Charlas aceptadas o dadas con fecha en el mes en curso.',
+    inputs: ['charlas'],
+    fn: (charlas) => { const t = new Date(); const m = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0');
+      return [{mes: m, logradas: charlas.filter((c) => String(c.fecha).slice(0, 7) === m && (c.estado === 'aceptada' || c.estado === 'dada')).length}]; }
+  });
+  dash.calc('charlas_embudo', {
+    title: 'Embudo de charlas',
+    description: 'Cuántas charlas llegaron a cada etapa: encontrada, propuesta, aceptada y dada.',
+    inputs: ['charlas'],
+    fn: (charlas) => ETAPAS.map((e, i) => ({etapa: e, charlas: charlas.filter((c) => ETAPAS.indexOf(c.estado) >= i).length}))
+  });
+  dash.calc('pipeline', {
+    title: 'Valor de la agenda',
+    description: 'Reuniones acumuladas por la tasa de cierre y el ticket promedio que indiques en los supuestos.',
+    inputs: ['citas_acum', 'supuestos'],
+    fn: (citas_acum, supuestos) => {
+      const s = supuestos[0] || {}, n = citas_acum[0] ? Number(citas_acum[0].citas) : 0;
+      const tk = s.ticket_promedio === null || s.ticket_promedio === undefined ? null : Number(s.ticket_promedio);
+      const tc = s.tasa_cierre === null || s.tasa_cierre === undefined ? null : Number(s.tasa_cierre);
+      if (tk !== null && tc === null) return [{reuniones: n, valor: null, frase: 'Tu ticket promedio es de ' + new Intl.NumberFormat('es', {style: 'currency', currency: s.moneda || 'USD', maximumFractionDigits: 0}).format(tk) + ' por proyecto, así que tus ' + fmt.int(n) + ' reuniones abren un valor potencial de ' + new Intl.NumberFormat('es', {style: 'currency', currency: s.moneda || 'USD', maximumFractionDigits: 0}).format(n * tk) + ' si todas cerraran. Falta la tasa de cierre (qué porcentaje de las reuniones se vuelve cliente) para calcular el valor esperado.'}];
+      if (tk === null || tc === null) return [{reuniones: n, valor: null, frase: 'Falta un dato: tu ticket promedio por proyecto y qué porcentaje de las reuniones se vuelve cliente. Con esos dos números, aquí verás cuánto vale cada reunión y tu agenda acumulada.'}];
+      const mon = new Intl.NumberFormat('es', {style: 'currency', currency: s.moneda || 'USD', maximumFractionDigits: 0});
+      const v = n * tc * tk;
+      return [{reuniones: n, valor: v, frase: 'Cada reunión vale en promedio ' + mon.format(tc * tk) + '. Tus ' + fmt.int(n) + ' reuniones suman unos ' + mon.format(v) + ' en valor esperado.'}];
+    }
+  });
+  dash.calc('ticket_meta', {
+    title: 'Ticket frente a la meta',
+    description: 'Ticket promedio real frente a la meta por etapas: la primera meta y, al lograrla, la siguiente.',
+    inputs: ['supuestos'],
+    fn: (supuestos) => {
+      const s = supuestos[0] || {};
+      if (s.ticket_promedio === null || s.ticket_promedio === undefined || !s.ticket_meta) return [];
+      const t = Number(s.ticket_promedio), m1 = Number(s.ticket_meta), m2 = Number(s.ticket_meta_siguiente || 0);
+      const meta = (t >= m1 && m2) ? m2 : m1;
+      const mtxt = (v) => money(v, s.moneda);
+      return [{ticket: t, meta, meta_txt: mtxt(meta), frase: 'Hoy tu ticket promedio es de ' + mtxt(t) + '. Para llegar a ' + mtxt(meta) + ' tiene que crecer ' + String(Math.round(meta / t * 10) / 10).replace('.', ',') + ' veces.' + (meta === m1 && m2 ? ' Al lograrlo, la meta sube a ' + mtxt(m2) + '.' : '')}];
+    }
+  });
+  dash.calc('resumen10', {
+    title: 'La versión de 10 segundos',
+    description: 'Dónde estás, qué cambió frente a la semana anterior y qué hacer ahora.',
+    inputs: ['camino', 'vs_semana', 'semana_ultima'],
+    fn: (camino, vs_semana, semana_ultima) => {
+      const c = camino[0] || {};
+      const donde = c.hay_dato ? c.estado_txt + '. ' + c.detalle : (c.dia ? 'Día ' + c.dia + ' de ' + c.plan_dias + '. ' : '') + c.detalle;
+      const con = vs_semana.filter((r) => r.diferencia !== null && r.diferencia !== 0);
+      const top = con.sort((x, y) => Math.abs(y.diferencia / Math.max(1, y.anterior)) - Math.abs(x.diferencia / Math.max(1, x.anterior)))[0];
+      const cambio = top ? top.metrica + ' ' + (top.diferencia > 0 ? 'subió' : 'bajó') + ' de ' + fmt.int(top.anterior) + ' a ' + fmt.int(top.actual) + ' frente a la semana anterior.' : (vs_semana.length ? 'Es la primera semana medida: desde la próxima verás qué subió y qué bajó.' : 'Aún no hay semanas medidas para comparar.');
+      const a = semana_ultima[0];
+      return [{donde, cambio, accion: a && a.accion_semana ? a.accion_semana : 'La acción de la semana sale del análisis semanal.'}];
+    }
+  });
+
+  dash.draw('semaforo', (el) => {
+    const d = dash.data('camino');
+    if (d.status !== 'ok') return fail(el, d);
+    const c = d.data[0] || {};
+    const b = document.createElement('div'); b.className = 'vz-bulbs'; b.setAttribute('role', 'img'); b.setAttribute('aria-label', 'Semáforo: ' + (c.estado_txt || 'sin dato'));
+    [['r', 'rojo'], ['y', 'amarillo'], ['g', 'verde']].forEach(([k, e]) => { const i = document.createElement('i'); i.className = k + (c.estado === e ? ' on' : ''); b.appendChild(i); });
+    const t = document.createElement('div'); t.className = 'vz-lt';
+    const s = document.createElement('p'); s.className = 'vz-ls'; s.textContent = c.estado_txt || '—';
+    const p = document.createElement('p'); p.className = 'st-lead'; p.textContent = c.detalle || '';
+    t.append(s, p);
+    el.replaceChildren(b, t);
+  });
+  dash.draw('avance', (el) => {
+    const d = dash.data('camino');
+    const c = d.status === 'ok' && d.data[0];
+    const i = document.createElement('i'); i.style.width = (c && c.dia ? c.dia / c.plan_dias * 100 : 0) + '%'; i.style.background = 'var(--tb-1)';
+    el.replaceChildren(i);
+  });
+  dash.draw('rampa', (el) => {
+    const d = dash.data('rampa'), cm = dash.data('camino');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    const rows = d.data, c = cm.status === 'ok' ? cm.data[0] || {} : {};
+    if (!rows.length) return vacio(el);
+    const NS = rows.length;
+    const W = Math.max(280, el.clientWidth), H = 240, L = 26, R = 8, T = 10, B = 26;
+    const xs = d3.scaleLinear([1, Math.max(2, NS)], [L + 6, W - R - 6]);
+    const top = Math.max(c.meta || 1, d3.max(rows, (r) => r.real || 0), c.proyeccion || 0);
+    const ys = d3.scaleLinear([0, top], [H - B, T]).nice();
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img').attr('aria-label', 'Reuniones por semana reales frente a la rampa ideal');
+    const g = svg.append('g').style('font-size', 'var(--cds-font-size-caption)');
+    ys.ticks(5).forEach((t) => { g.append('line').attr('x1', L).attr('x2', W - R).attr('y1', ys(t)).attr('y2', ys(t)).attr('stroke', 'var(--cds-chart-grid)'); g.append('text').attr('x', L - 6).attr('y', ys(t)).attr('dy', '0.32em').attr('text-anchor', 'end').attr('fill', 'var(--color-fg-muted)').text(fmt.int(t)); });
+    const step = Math.max(1, Math.ceil(NS * (W < 480 ? 3 : 1) / 13));
+    rows.forEach((r) => { if ((r.semana_n - 1) % step) return; g.append('text').attr('x', xs(r.semana_n)).attr('y', H - 6).attr('text-anchor', 'middle').attr('fill', 'var(--color-fg-muted)').text('S' + r.semana_n); });
+    const hoyN = c.plan_ini ? (hoyUTC() - c.plan_ini) / (7 * DIA) + 1 : 0;
+    if (hoyN >= 1 && hoyN <= NS) { svg.append('line').attr('x1', xs(hoyN)).attr('x2', xs(hoyN)).attr('y1', T).attr('y2', H - B).style('stroke', 'var(--cds-chart-axis)').attr('stroke-dasharray', '2 3'); svg.append('text').attr('x', xs(hoyN) + 4).attr('y', T + 8).style('font-size', '11px').style('fill', 'var(--color-fg-muted)').text('hoy'); }
+    svg.append('path').attr('d', d3.line().x((r) => xs(r.semana_n)).y((r) => ys(r.ideal))(rows)).style('fill', 'none').style('stroke', 'var(--tb-1)').attr('stroke-width', 2).attr('stroke-dasharray', '6 4');
+    const reales = rows.filter((r) => r.real !== null);
+    if (reales.length && c.semana_n && c.proyeccion !== null) {
+      const lr = reales[reales.length - 1];
+      svg.append('line').attr('x1', xs(lr.semana_n)).attr('y1', ys(lr.real)).attr('x2', xs(NS)).attr('y2', ys(c.proyeccion)).style('stroke', 'var(--tb-acento)').attr('stroke-width', 1).attr('stroke-dasharray', '2 3');
+    }
+    if (reales.length > 1) svg.append('path').attr('d', d3.line().x((r) => xs(r.semana_n)).y((r) => ys(r.real))(reales)).style('fill', 'none').style('stroke', 'var(--tb-acento)').attr('stroke-width', 2);
+    const tt = tip(el);
+    svg.append('g').selectAll('circle').data(rows).join('circle').attr('cx', (r) => xs(r.semana_n)).attr('cy', (r) => ys(r.real !== null ? r.real : r.ideal)).attr('r', (r) => r.real !== null ? 5 : 3)
+      .style('fill', (r) => r.real !== null ? 'var(--tb-acento)' : 'var(--color-bg)').style('stroke', (r) => r.real !== null ? 'var(--color-bg)' : 'var(--tb-1)').attr('stroke-width', 1.5)
+      .on('mousemove', (ev, r) => tt.show(ev, ['Semana ' + r.semana_n + ' · desde el ' + semLabel(r.semana), 'Ideal: ' + dec(r.ideal) + ' reuniones', r.real !== null ? 'Real: ' + fmt.int(r.real) : 'Aún sin medir']))
+      .on('mouseleave', () => tt.hide());
+    const lg = document.createElement('div'); lg.className = 'hx-legend';
+    [['var(--tb-1)', 'Ideal'], ['var(--tb-acento)', 'Real'], ['var(--tb-acento)', 'Si sigues igual (punteada)']].forEach(([col, t]) => { const s = document.createElement('span'); const i = document.createElement('i'); i.className = 'hx-sw'; i.style.background = col; s.append(i, document.createTextNode(t)); lg.appendChild(s); });
+    el.appendChild(lg);
+  });
+  dash.draw('vssem', (el) => {
+    const d = dash.data('vs_semana');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    if (!d.data.length) { const li = document.createElement('li'); li.textContent = EMPTY; el.appendChild(li); return; }
+    d.data.forEach((r) => {
+      const li = document.createElement('li');
+      const b = document.createElement('b'); b.textContent = fmt.int(r.actual);
+      const s = document.createElement('span'); s.textContent = r.metrica;
+      const a = document.createElement('span'); a.className = 'vz-arrow' + (r.diferencia > 0 ? ' up' : r.diferencia < 0 ? ' down' : '');
+      a.textContent = r.diferencia === null ? 'sin semana anterior' : r.diferencia === 0 ? '= igual que la anterior' : (r.diferencia > 0 ? '▲ +' : '▼ −') + fmt.int(Math.abs(r.diferencia)) + ' frente a ' + fmt.int(r.anterior);
+      li.append(b, s, a); el.appendChild(li);
+    });
+  });
+  dash.draw('pasos', (el) => {
+    const d = dash.data('pasos');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    if (!d.data.length) { const p = document.createElement('p'); p.className = 'hx-empty'; p.textContent = EMPTY + ' Aquí leerás frases como "de cada 100 mensajes que envías, tantos reciben respuesta".'; el.appendChild(p); return; }
+    d.data.forEach((r) => {
+      const box = document.createElement('div'); box.className = 'vz-paso' + (r.cuello ? ' cuello' : '');
+      const t = document.createElement('p'); t.className = 'vz-pt'; t.textContent = r.frase;
+      const n = document.createElement('p'); n.className = 'vz-pn'; n.textContent = r.de_cada === null ? '—' : fmt.int(r.de_cada) + ' / ' + fmt.int(r.base);
+      const a = document.createElement('span'); const dif = (r.de_cada !== null && r.de_cada_ant !== null) ? r.de_cada - r.de_cada_ant : null;
+      a.className = 'vz-arrow' + (dif > 0 ? ' up' : dif < 0 ? ' down' : '');
+      a.textContent = dif === null ? 'sin semana anterior' : dif === 0 ? '= igual que la semana anterior' : (dif > 0 ? '▲ ' : '▼ ') + fmt.int(Math.abs(dif)) + ' frente a la semana anterior';
+      box.append(t, n, a);
+      if (r.cuello) { const c = document.createElement('span'); c.className = 'vz-tag'; c.textContent = 'Cuello de botella'; box.appendChild(c); }
+      el.appendChild(box);
+    });
+  });
+  dash.draw('hab', (el) => {
+    const d = dash.data('habitos');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    const lado = el.getAttribute('data-lado');
+    const rows = d.data.filter((r) => r.lado === lado);
+    if (!rows.length) { const p = document.createElement('p'); p.className = 'hx-note'; p.textContent = EMPTY; el.appendChild(p); return; }
+    const col = lado === 'habito' ? 'var(--tb-1)' : 'var(--tb-acento)';
+    rows.forEach((r) => {
+      const has = r.valor !== null, hm = r.meta !== null && r.meta > 0;
+      const row = barRow(r.item, hm && has ? r.valor / r.meta : 0, col, !has ? '—' : hm ? fmt.int(r.valor) + ' de ' + fmt.int(r.meta) : fmt.int(r.valor), !hm);
+      el.appendChild(row);
+    });
+  });
+  dash.draw('charlas-emb', (el) => {
+    const d = dash.data('charlas_embudo');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    const max = d3.max(d.data, (r) => r.charlas) || 0;
+    if (!max) { const p = document.createElement('p'); p.className = 'hx-empty'; p.textContent = 'Aún no hay charlas registradas: se llena con la primera actualización semanal.'; el.appendChild(p); }
+    const cols = [PAL.perfil[0], PAL.perfil[1], PAL.perfil[1], PAL.perfil[2]];
+    const lab = {encontrada: 'Encontradas', propuesta: 'Propuestas enviadas', aceptada: 'Aceptadas', dada: 'Dadas'};
+    d.data.forEach((r, i) => el.appendChild(barRow(lab[r.etapa], max ? r.charlas / max : 0, cols[i], fmt.int(r.charlas))));
+  });
+
+  /* ==== El dinero ==== */
+  dash.calc('dinero', {
+    title: 'El dinero en una fila',
+    description: 'Vendido, número de ventas, ticket promedio, mínimo y máximo, perdidas, oportunidades abiertas y valor de cada reunión, desde las oportunidades de venta y los supuestos.',
+    inputs: ['ventas', 'supuestos'],
+    fn: (ventas, supuestos) => {
+      const s = supuestos[0] || {};
+      const won = ventas.filter((r) => r.estado === 'Venta cerrada');
+      const vals = won.map((r) => Number(r.valor)).filter((v) => isFinite(v) && v > 0);
+      const vendido = d3.sum(vals), tk = vals.length ? vendido / vals.length : null;
+      const abiertas = ventas.filter((r) => !String(r.estado).startsWith('Venta'));
+      const conV = abiertas.filter((r) => Number(r.valor) > 0);
+      const valorAb = d3.sum(conV, (r) => Number(r.valor));
+      const tasa = s.tasa_cierre === null || s.tasa_cierre === undefined ? null : Number(s.tasa_cierre);
+      const tki = s.ticket_promedio ? Number(s.ticket_promedio) : tk;
+      const vr = tasa !== null && tki ? tasa * tki : null;
+      const byO = d3.rollup(won, (v) => v.length, (r) => r.origen);
+      const top = Array.from(byO).sort((a, b) => b[1] - a[1])[0];
+      return [{vendido, vendido_txt: millones(vendido), ventas: won.length, perdidas: ventas.filter((r) => r.estado === 'Venta perdida').length,
+        ticket: tk, ticket_txt: millones(tk), min_txt: millones(d3.min(vals)), max_txt: millones(d3.max(vals)),
+        abiertas: abiertas.length, abiertas_con_valor: conV.length, valor_abierto: valorAb,
+        abiertas_frase: !ventas.length ? EMPTY : 'Tienes ' + fmt.int(abiertas.length) + ' oportunidades abiertas, pero solo ' + fmt.int(conV.length) + ' tienen valor anotado (' + millones(valorAb) + '). Si las demás valieran tu ticket promedio, habría unos ' + millones((abiertas.length - conV.length) * (tki || 0) + valorAb) + ' en juego; con tu tasa de cierre, unos ' + millones(((abiertas.length - conV.length) * (tki || 0) + valorAb) * (tasa || 0)) + ' esperados.',
+        valor_reunion: vr, valor_reunion_txt: millones(vr), valor_semana_meta_txt: millones(vr === null ? null : vr * Number(s.meta_reuniones_semana || 0)),
+        concentracion: top ? fmt.int(top[1]) + ' de tus ' + fmt.int(won.length) + ' ventas vinieron de "' + top[0] + '".' : 'Aún no hay ventas cerradas.'}];
+    }
+  });
+  dash.calc('ventas_mes', {
+    title: 'Ventas cerradas por mes',
+    description: 'Monto y número de ventas cerradas según el mes de cierre.',
+    inputs: ['ventas'],
+    fn: (ventas) => {
+      const won = ventas.filter((r) => r.estado === 'Venta cerrada' && r.cierre);
+      const by = d3.rollup(won, (v) => ({monto: d3.sum(v, (r) => Number(r.valor || 0)), ventas: v.length}), (r) => String(r.cierre).slice(0, 7));
+      return Array.from(by, ([mes, o]) => Object.assign({mes}, o)).sort((a, b) => a.mes.localeCompare(b.mes));
+    }
+  });
+  dash.calc('ventas_origen', {
+    title: 'Ventas por origen',
+    description: 'Ventas cerradas según el origen anotado en cada oportunidad, agrupado.',
+    inputs: ['ventas'],
+    fn: (ventas) => {
+      const won = ventas.filter((r) => r.estado === 'Venta cerrada');
+      const by = d3.rollup(won, (v) => ({citas: v.length, monto: d3.sum(v, (r) => Number(r.valor || 0))}), (r) => r.origen || 'Sin dato');
+      return Array.from(by, ([origen, o]) => Object.assign({origen}, o)).sort((a, b) => b.citas - a.citas);
+    }
+  });
+  dash.calc('ventas_linea', {
+    title: 'Ventas por línea de negocio',
+    description: 'Vendido, número de ventas, ticket promedio y oportunidades abiertas por línea de negocio.',
+    inputs: ['ventas'],
+    fn: (ventas) => [...new Set(ventas.map((r) => r.linea || 'Sin clasificar'))].map((l) => {
+      const v = ventas.filter((r) => (r.linea || 'Sin clasificar') === l); const w = v.filter((r) => r.estado === 'Venta cerrada');
+      const ab = v.filter((r) => r.estado !== 'Venta cerrada' && r.estado !== 'Venta perdida');
+      const vendido = d3.sum(w, (r) => Number(r.valor || 0));
+      return {linea: l, vendido, ventas: w.length, ticket: w.length ? vendido / w.length : null, abiertas: ab.length, valor_abierto: d3.sum(ab, (r) => Number(r.valor || 0))};
+    })
+  });
+  dash.calc('ventas_linea_frase', {
+    title: 'Frase de ventas por línea',
+    description: 'Qué línea deja más dinero y cuál tiene el ticket más alto.',
+    inputs: ['ventas_linea', 'supuestos'],
+    fn: (L, supuestos) => {
+      const tot = d3.sum(L, (r) => r.vendido); const top = L.slice().sort((a, b) => b.vendido - a.vendido)[0];
+      const tk = L.filter((r) => r.ticket).sort((a, b) => b.ticket - a.ticket)[0]; const cero = L.filter((r) => !r.ventas).map((r) => r.linea);
+      if (!tot) return [{frase: 'Aún no hay ventas cerradas.'}];
+      return [{frase: top.linea + ' es la línea que más ha dejado: ' + millones(top.vendido) + ', el ' + fmt.int(Math.round(top.vendido / tot * 100)) + ' % de lo vendido' + (tk === top ? ', y también tiene el ticket más alto (' + millones(tk.ticket) + ' por venta).' : '. El ticket más alto está en ' + tk.linea + ' (' + millones(tk.ticket) + ' por venta).') + (cero.length ? ' ' + cero.join(' y ') + (cero.length > 1 ? ' todavía no registran' : ' todavía no registra') + ' ventas.' : '')}];
+    }
+  });
+  dash.calc('opp_etapas', {
+    title: 'Oportunidades por etapa',
+    description: 'Número de oportunidades en cada etapa del embudo de ventas, cuántas tienen valor anotado y la suma de ese valor.',
+    inputs: ['ventas'],
+    fn: (ventas) => [...new Set(ventas.map((r) => r.estado))].sort((a, b) => (String(a).startsWith('Venta') ? 1 : 0) - (String(b).startsWith('Venta') ? 1 : 0)).map((e) => { const v = ventas.filter((r) => r.estado === e); const cv = v.filter((r) => Number(r.valor) > 0);
+      return {etapa: e, oportunidades: v.length, con_valor: cv.length, valor: d3.sum(cv, (r) => Number(r.valor))}; })
+  });
+  dash.draw('ventas-mes', (el) => {
+    const d = dash.data('ventas_mes');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    if (!d.data.length) return vacio(el);
+    const max = d3.max(d.data, (r) => r.monto) || 1;
+    const tt = tip(el);
+    d.data.forEach((r) => {
+      const lab = MESL.format(new Date(r.mes + '-01T00:00:00Z'));
+      const row = barRow(lab.charAt(0).toUpperCase() + lab.slice(1), r.monto / max, 'var(--tb-acento)', millones(r.monto));
+      row.addEventListener('mousemove', (ev) => tt.show(ev, [lab, millones(r.monto), fmt.int(r.ventas) + (r.ventas === 1 ? ' venta' : ' ventas')]));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
+  });
+  dash.draw('tickets', (el) => {
+    const d = dash.data('ventas'), tm = dash.data('ticket_meta');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    const won = d.data.filter((r) => r.estado === 'Venta cerrada' && Number(r.valor) > 0).map((r) => Number(r.valor)).sort((a, b) => a - b);
+    const m = tm.status === 'ok' && tm.data[0] ? tm.data[0] : null;
+    if (!won.length && !m) return vacio(el);
+    const meta = m ? m.meta : null, avg = d3.mean(won);
+    const tope = Math.max(meta || 0, d3.max(won) || 0) || 1;
+    const W = Math.max(280, el.clientWidth), H = 130, L = 10, R = 16, y0 = 62;
+    const xs = d3.scaleLinear([0, tope * 1.05], [L, W - R]);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img').attr('aria-label', 'Monto de cada venta cerrada frente al promedio y la meta de ticket');
+    svg.append('line').attr('x1', L).attr('x2', W - R).attr('y1', y0).attr('y2', y0).style('stroke', 'var(--cds-chart-axis)');
+    const ticks = xs.ticks(W < 480 ? 3 : 5);
+    ticks.forEach((t) => svg.append('text').attr('x', xs(t)).attr('y', H - 8).attr('text-anchor', 'middle').style('font-size', '10px').style('fill', 'var(--color-fg-muted)').text(t ? millones(t) : '0'));
+    const ref = (v, col, txt, up) => { svg.append('line').attr('x1', xs(v)).attr('x2', xs(v)).attr('y1', 14).attr('y2', y0 + 30).style('stroke', col).attr('stroke-width', 2).attr('stroke-dasharray', '5 3');
+      svg.append('text').attr('x', xs(v)).attr('y', 10).attr('text-anchor', xs(v) > W - 80 ? 'end' : 'middle').style('font-size', '11px').style('fill', col).text(txt); };
+    if (avg) ref(avg, 'var(--tb-gris)', 'promedio ' + millones(avg));
+    if (meta) ref(meta, 'var(--tb-acento)', 'meta ' + millones(meta));
+    const tt = tip(el);
+    const seen = {};
+    won.forEach((v) => { const k = Math.round(v / (tope / 60)); seen[k] = (seen[k] || 0) + 1; const dy = (seen[k] - 1) * 12;
+      svg.append('circle').attr('cx', xs(v)).attr('cy', y0 - dy).attr('r', 6).style('fill', 'var(--tb-1)').style('stroke', 'var(--color-bg)').attr('stroke-width', 1.5)
+        .on('mousemove', (ev) => tt.show(ev, ['Venta cerrada', millones(v)])).on('mouseleave', () => tt.hide()); });
+  });
+  dash.draw('cbars-din', (el) => {
+    const d = dash.data('ventas_origen');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    if (!d.data.length) return vacio(el);
+    const max = d3.max(d.data, (r) => r.citas) || 1;
+    const tt = tip(el);
+    d.data.forEach((r, i) => {
+      const row = barRow(r.origen, r.citas / max, PAL.perfil[i % 3], fmt.int(r.citas));
+      row.addEventListener('mousemove', (ev) => tt.show(ev, [r.origen, fmt.int(r.citas) + (r.citas === 1 ? ' venta' : ' ventas'), millones(r.monto)]));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
+  });
+  dash.draw('lineas', (el) => {
+    const d = dash.data('ventas_linea');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    if (!d.data.length) return vacio(el);
+    const max = d3.max(d.data, (r) => r.vendido) || 1;
+    const tt = tip(el);
+    d.data.forEach((r, i) => {
+      const row = barRow(r.linea + ' · ' + fmt.int(r.ventas) + (r.ventas === 1 ? ' venta' : ' ventas'), r.vendido / max, PAL.perfil[i % 3], r.ventas ? millones(r.vendido) + ' · ticket ' + millones(r.ticket) : 'sin ventas');
+      row.addEventListener('mousemove', (ev) => tt.show(ev, [r.linea, 'Vendido: ' + millones(r.vendido), r.ticket ? 'Ticket promedio: ' + millones(r.ticket) : 'Sin ventas cerradas', fmt.int(r.abiertas) + ' oportunidades abiertas' + (r.valor_abierto ? ' (' + millones(r.valor_abierto) + ' anotados)' : '')]));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
+  });
+  dash.draw('etapas', (el) => {
+    const d = dash.data('opp_etapas');
+    if (d.status !== 'ok') return fail(el, d);
+    el.replaceChildren();
+    if (!d.data.length) return vacio(el);
+    const max = d3.max(d.data, (r) => r.oportunidades) || 1;
+    const tt = tip(el);
+    d.data.forEach((r) => {
+      const col = r.etapa === 'Venta cerrada' ? 'var(--tb-acento)' : r.etapa === 'Venta perdida' ? 'var(--cds-chart-muted)' : 'var(--tb-1)';
+      const sv = r.oportunidades - r.con_valor;
+      const row = barRow(r.etapa + ' · ' + fmt.int(r.oportunidades), r.oportunidades / max, col, r.valor ? millones(r.valor) : 'sin valor');
+      row.addEventListener('mousemove', (ev) => tt.show(ev, [r.etapa, fmt.int(r.oportunidades) + ' oportunidades', r.con_valor ? fmt.int(r.con_valor) + ' con valor: ' + millones(r.valor) : 'Ninguna con valor anotado', sv ? fmt.int(sv) + ' sin valor anotado' : '']));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
+  });
+
+  (function(){
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: no-preference)').matches || !('IntersectionObserver' in window)) return;
+    const chs = Array.from(document.querySelectorAll('.st-ch'));
+    chs.forEach((c) => c.classList.add('st-pre'));
+    const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { e.target.classList.remove('st-pre'); io.unobserve(e.target); } }); }, {root: document, rootMargin: '0px 0px -10% 0px'});
+    chs.forEach((c) => io.observe(c));
+  })();
+  dash.draw('lista', (el) => {
+    const d = dash.data(el.getAttribute('data-source'));
+    const row = d.status === 'ok' && Array.isArray(d.data) ? d.data[0] : null;
+    const v = row ? row[el.getAttribute('data-field')] : null;
+    const items = String(v || '').split(' · ').map((x) => x.trim()).filter(Boolean);
+    el.replaceChildren(...(items.length ? items : [EMPTY]).map((x) => { const li = document.createElement('li'); li.textContent = x; return li; }));
+  });
+  dash.draw('fichas', (el) => {
+    const a = dash.data('arquetipos'), au = dash.data('audiencia_arquetipos'), cv = dash.data('conv_por_arquetipo'), ci = dash.data('citas_por_arquetipo');
+    if (a.status !== 'ok') return fail(el, a);
+    if (!a.data.length) return vacio(el);
+    const ok = (x) => x.status === 'ok' && Array.isArray(x.data) ? x.data : [];
+    const ult = ok(au).slice().sort((x, y) => String(x.fecha).localeCompare(String(y.fecha))).pop();
+    const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt !== undefined) e.textContent = txt; return e; };
+    el.replaceChildren(...a.data.map((r, i) => {
+      const card = mk('div', 'hx-card vz-pc'); card.style.borderTopColor = PAL.perfil[i % 3];
+      card.appendChild(mk('h3', 'hx-h2', r.arquetipo));
+      const dl = document.createElement('dl');
+      [['Quién es', r.quien], ['Le duele', r.dolor], ['Busca', r.busca], ['Le ofreces', r.oferta]].forEach(([k, v]) => { if (!v) return; dl.append(mk('dt', '', k), mk('dd', '', v)); });
+      card.appendChild(dl);
+      const campo = r.campo_audiencia;
+      const pub = ult && campo && ult[campo] !== undefined && ult[campo] !== null && ult[campo] !== '' ? fmt.int(Number(ult[campo])) + ' %' : 's/d';
+      const c1 = ok(cv).find((x) => x.arquetipo === r.arquetipo), c2 = ok(ci).find((x) => x.arquetipo === r.arquetipo);
+      const nums = mk('div', 'vz-nums');
+      [[pub, 'de tu público'], [fmt.int(c1 ? c1.conversaciones : 0), 'conversaron'], [fmt.int(c2 ? c2.citas : 0), 'agendaron']].forEach(([v, l]) => { const b = document.createElement('div'); b.append(mk('b', '', v), mk('span', '', l)); nums.appendChild(b); });
+      card.appendChild(nums);
+      return card;
+    }));
+  });
+  document.querySelectorAll('#hx-cat').forEach((s) => s.addEventListener('change', () => dash.draw('aud')));
+})();
+</script>

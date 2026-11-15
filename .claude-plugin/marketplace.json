@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "linkedin-agent-b2b",
+  "description": "linkedin-agent-b2b: LinkedIn para profesionales y empresas B2B en español",
+  "owner": {
+    "name": "[AUTOR]"
+  },
+  "plugins": [
+    {
+      "name": "linkedin-agent-b2b",
+      "description": "LinkedIn de punta a punta para B2B en español: voces, arquetipos, kanban, conversaciones, tablero y humanizador, siempre con tu aprobación.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
