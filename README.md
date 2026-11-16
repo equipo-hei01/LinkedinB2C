@@ -75,7 +75,7 @@ Todo lo tuyo vive en una carpeta de trabajo (por defecto `~/.claude/linkedin/`; 
    **Claude Code**
 
    ```
-   /plugin marketplace add [URL DEL REPOSITORIO]
+   /plugin marketplace add https://github.com/equipo-hei01/LinkedinB2C
    /plugin install linkedin-agent-b2b@linkedin-agent-b2b
    ```
 
@@ -110,7 +110,7 @@ Los cinco chequeos del humanizador son heurísticas locales: corren en tu equipo
 
 ## Atribución y licencia
 
-Este plugin se basa en [linkedin-agent](https://github.com/Jakeschincariol/linkedin-agent-skill) de Jake Schincariol, publicado con licencia MIT. De ahí vienen las fórmulas de gancho, la rúbrica del perfil y el humanizador, que aquí se ampliaron al español.
+**Mejorado por HEI01.** Este plugin se basa en [linkedin-agent](https://github.com/Jakeschincariol/linkedin-agent-skill) de Jake Schincariol, publicado con licencia MIT. De ahí vienen las fórmulas de gancho, la rúbrica del perfil y el humanizador, que aquí se ampliaron al español.
 
 Licencia MIT. Ver `LICENSE`.
 

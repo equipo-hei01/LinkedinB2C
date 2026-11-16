@@ -27,4 +27,4 @@ Primera versión de `linkedin-agent-b2b`: LinkedIn de punta a punta para profesi
 - **Seguridad**: nada se publica ni se envía sin el sí del usuario en el chat; un post al día; máximo 15 DMs al día y 50 invitaciones por semana; todo se detiene ante una advertencia o un captcha; sin correos ni teléfonos en archivos.
 - **Plantillas y ejemplo**: plantillas en `datos/` y un juego completo de una empresa ficticia en `ejemplo/`.
 
-Basado en linkedin-agent de Jake Schincariol (licencia MIT).
+Basado en linkedin-agent de Jake Schincariol (licencia MIT). Mejorado por HEI01.
