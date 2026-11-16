@@ -61,6 +61,19 @@ Solo se tocan los datasets que cambiaron. Por cada uno:
 
 Mientras un dataset esté vacío, su bloque muestra "Aún no hay datos: se llena con la primera actualización semanal" y no reserva el alto del gráfico.
 
+### Frases y fichas sin huecos
+
+Ninguna frase ni ficha del tablero se muestra con un valor faltante en medio. Si falta un valor, se ve la parte de la frase que sí tiene datos o una frase completa de estado vacío ("Aún no hay puntaje de la página: se mide en la auditoría."); en una ficha, la cifra queda en "—" y el pie dice qué falta. Todo el texto está en el HTML de `tablero.html` y un solo bloque del script ("Frases sin huecos") decide qué se ve, con estos atributos:
+
+| Atributo | Qué hace |
+|---|---|
+| `data-fr` | Un trozo de frase completo. Se muestra solo si tienen valor todas las marcas que contiene y lo que pida en `data-pide="fuente.campo fuente.campo@columna=valor"`. Con `data-fr="bloque"` es un contenedor que solo mira `data-pide` y `data-pide-alguno` (basta un valor). |
+| `data-frases` | Agrupa varios `data-fr` y su `data-fr-vacio`. Con `data-frases="una"` se muestra solo el primer `data-fr` completo. |
+| `data-fr-vacio` | La frase de estado vacío del grupo: se muestra cuando no se ve ningún `data-fr`. Se guarda con `hidden`. |
+| `data-fr-falta="fuente.campo"` | Pie que se muestra solo si falta ese valor. Se guarda con `hidden`. |
+
+Al agregar una frase con valores: cada oración va en su propio `data-fr` (para que pueda mostrarse sola), el grupo lleva un `data-fr-vacio` que diga qué falta y de dónde sale, y ningún valor queda suelto fuera de un `data-fr`. El CSS no debe volver transparente el estado `data-dash-source-state=empty`: eso es lo que dejaba los huecos.
+
 ### Qué sembrar al inicio para que el capítulo "Te ven" no quede en "—"
 
 El código lee estas columnas con este nombre exacto. Si falta la fila o la columna, la ficha muestra "—".

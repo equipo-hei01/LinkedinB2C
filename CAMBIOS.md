@@ -1,5 +1,8 @@
 # Cambios
 
+## 1.0.2
+- Tablero: ninguna frase ni ficha queda con huecos cuando falta un dato; se muestra la parte que sí tiene datos o un estado vacío que dice qué falta. Comprobado en un tablero real recién configurado.
+
 ## 1.0.1
 Correcciones después de la primera prueba de punta a punta de `/li-inicio` con una marca ficticia:
 - `/li-inicio`: lee quién interactuó, pregunta todo lo que el tablero necesita (tasa de cierre, reuniones actuales, charlas, inicio del plan), arma un primer entregable, siembra `resumen` y cierra cada paso con un solo sí.

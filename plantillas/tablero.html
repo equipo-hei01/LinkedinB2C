@@ -52,7 +52,7 @@
 .hx-empty{border:1px dashed var(--cds-chart-axis);border-radius:var(--cds-radius);padding:var(--cds-pad-md);margin:0;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
 .hx [hidden]{display:none!important}
 .hx .is-vacio{min-height:0!important}
-[data-dash-source-state=empty]{color:transparent}
+.vz-gv [data-fr-vacio]{font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
 [data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow)}
 
 .st-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--cds-gap-sm);counter-reset:fl}
@@ -163,7 +163,7 @@
 <div class="hx">
   <header class="hx-head">
     <h1 class="hx-title" id="inicio">De que te vean a que te agenden</h1>
-    <p class="hx-take">Tus mejores posts del año promediaron <b data-draw="num" data-fmt="int" data-source="por_tipo" data-field="promedio" data-where="tipo=Mejores del año">—</b> impresiones. Los últimos 15 promediaron <b data-draw="num" data-fmt="int" data-source="por_tipo" data-field="promedio" data-where="tipo=Últimos 15">—</b>. La meta es convertir esa atención en <b><span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span></b> reuniones por semana.</p>
+    <p class="hx-take"><span data-frases><span data-fr>Tus mejores posts del año promediaron <b data-draw="num" data-fmt="int" data-source="por_tipo" data-field="promedio" data-where="tipo=Mejores del año">—</b> impresiones.</span> <span data-fr>Tus últimos 15 posts promediaron <b data-draw="num" data-fmt="int" data-source="por_tipo" data-field="promedio" data-where="tipo=Últimos 15">—</b> impresiones.</span><span data-fr-vacio hidden>Aún no hay posts medidos: aparecen con el primer export de tu perfil.</span></span> <span data-frases><span data-fr>La meta es convertir esa atención en <b data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</b> reuniones por semana.</span><span data-fr-vacio hidden>Falta la meta de reuniones por semana en los supuestos.</span></span></p>
     <p class="hx-sub">Se lee de arriba hacia abajo: cada capítulo es un paso del camino, desde tu vitrina hasta la reunión agendada. Se actualiza una vez por semana.</p>
   </header>
 
@@ -182,34 +182,34 @@
       </div>
       <div class="hx-card" id="rampa">
         <h3 class="hx-h2">Tu ritmo frente al ideal</h3>
-        <p class="hx-sub">La línea punteada es el ideal: subir parejo cada semana hasta llegar a tu meta de reuniones semanales en la semana <span data-draw="num" data-fmt="int" data-source="camino" data-field="rampa_semanas" data-row="0">—</span> y sostenerla hasta el final del plan. Los puntos de acento son tus semanas reales y la línea fina, hacia dónde vas si sigues igual.</p>
+        <p class="hx-sub"><span data-frases><span data-fr>La línea punteada es el ideal: subir parejo cada semana hasta llegar a tu meta de reuniones semanales en la semana <span data-draw="num" data-fmt="int" data-source="camino" data-field="rampa_semanas" data-row="0">—</span> y sostenerla hasta el final del plan.</span><span data-fr-vacio hidden>La línea punteada es el ideal: subir parejo cada semana hasta llegar a tu meta de reuniones semanales y sostenerla hasta el final del plan.</span></span> Los puntos de acento son tus semanas reales y la línea fina, hacia dónde vas si sigues igual.</p>
         <div class="hx-vchart" data-draw="rampa" data-source="rampa camino"></div>
       </div>
     </div>
     <div class="hx-tiles" id="cuentas">
-      <div class="hx-tile"><p class="hx-lab">Tu plan</p><p class="hx-big">Día <span data-draw="num" data-fmt="int" data-source="camino" data-field="dia" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="plan_dias" data-row="0">—</span></p><div class="hx-prog" data-draw="avance" data-source="camino"></div><p class="hx-note" data-draw="txt" data-source="camino" data-field="plan_txt" data-row="0">—</p></div>
-      <div class="hx-tile" id="evento-ficha" data-si="evento"><p class="hx-lab">Próximo evento · <span data-draw="txt" data-source="camino" data-field="evento_nombre" data-row="0">—</span></p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="dias_evento" data-row="0">—</span> días</p><p class="hx-note">Quedan <b data-draw="num" data-fmt="int" data-source="camino" data-field="cupos_libres" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos libres.</p></div>
-      <div class="hx-tile"><p class="hx-lab">Racha · posts según el plan</p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_plan" data-row="0">—</span> semanas</p><p class="hx-note">Semanas seguidas publicando todo lo planificado.</p></div>
-      <div class="hx-tile"><p class="hx-lab">Racha · 2 rondas de conversación</p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_rondas" data-row="0">—</span> semanas</p><p class="hx-note">Semanas seguidas con las dos rondas hechas.</p></div>
-      <div class="hx-tile"><p class="hx-lab">Racha · meta de reuniones</p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_meta" data-row="0">—</span> semanas</p><p class="hx-note">Semanas seguidas cumpliendo la meta de reuniones.</p></div>
+      <div class="hx-tile"><p class="hx-lab">Tu plan</p><p class="hx-big" data-frases><span data-fr>Día <span data-draw="num" data-fmt="int" data-source="camino" data-field="dia" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="plan_dias" data-row="0">—</span></span><span data-fr-vacio hidden>—</span></p><div class="hx-prog" data-draw="avance" data-source="camino"></div><p class="hx-note" data-draw="txt" data-source="camino" data-field="plan_txt" data-row="0">—</p></div>
+      <div class="hx-tile" id="evento-ficha" data-si="evento"><p class="hx-lab" data-frases><span data-fr>Próximo evento · <span data-draw="txt" data-source="camino" data-field="evento_nombre" data-row="0">—</span></span><span data-fr-vacio hidden>Próximo evento</span></p><p class="hx-big" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="camino" data-field="dias_evento" data-row="0">—</span> días</span><span data-fr-vacio hidden>—</span></p><p class="hx-note" data-fr-falta="camino.dias_evento" hidden>Falta la fecha del evento en los supuestos.</p><p class="hx-note" data-frases><span data-fr>Quedan <b data-draw="num" data-fmt="int" data-source="camino" data-field="cupos_libres" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos libres.</span><span data-fr-vacio hidden>Aún no hay cupos o inscritos del evento: los cupos se anotan en los supuestos y los inscritos llegan con la actualización semanal.</span></p></div>
+      <div class="hx-tile"><p class="hx-lab">Racha · posts según el plan</p><p class="hx-big" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_plan" data-row="0">—</span> semanas</span><span data-fr-vacio hidden>—</span></p><p class="hx-note" data-frases="una"><span data-fr data-pide="camino.racha_plan">Semanas seguidas publicando todo lo planificado.</span><span data-fr-vacio hidden>Aún no hay semanas medidas.</span></p></div>
+      <div class="hx-tile"><p class="hx-lab">Racha · 2 rondas de conversación</p><p class="hx-big" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_rondas" data-row="0">—</span> semanas</span><span data-fr-vacio hidden>—</span></p><p class="hx-note" data-frases="una"><span data-fr data-pide="camino.racha_rondas">Semanas seguidas con las dos rondas hechas.</span><span data-fr-vacio hidden>Aún no hay semanas medidas.</span></p></div>
+      <div class="hx-tile"><p class="hx-lab">Racha · meta de reuniones</p><p class="hx-big" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_meta" data-row="0">—</span> semanas</span><span data-fr-vacio hidden>—</span></p><p class="hx-note" data-frases="una"><span data-fr data-pide="camino.racha_meta">Semanas seguidas cumpliendo la meta de reuniones.</span><span data-fr-vacio hidden>Aún no hay semanas medidas.</span></p></div>
     </div>
   </section>
 
   <section class="hx-sec" id="recorrido">
     <h2 class="hx-h2">El embudo: de que te vean a que te agenden</h2>
-    <p class="st-now" id="titular-embudo">En <b data-draw="txt" data-source="embudo" data-field="periodo_txt" data-where="id=h1">—</b>, <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h1">—</b> veces te vieron en el feed, <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h2">—</b> interacciones, <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h3">—</b> visitas a tu perfil y <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=b3">—</b> reuniones agendadas.</p>
+    <p class="st-now" id="titular-embudo" data-frases><span data-fr>En <b data-draw="txt" data-source="embudo" data-field="periodo_txt" data-where="id=h1">—</b> te vieron <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h1">—</b> veces en el feed.</span> <span data-fr>Interacciones: <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h2">—</b>.</span> <span data-fr>Visitas a tu perfil: <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h3">—</b>.</span> <span data-fr>Reuniones agendadas: <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=b3">—</b>.</span><span data-fr-vacio hidden>Aún no hay embudo medido: se llena con la primera actualización semanal.</span></p>
     <p class="hx-sub" data-si="pagina">Arriba, cada cuenta atrae por su lado: tu perfil con sus colores y la página de empresa con los suyos. Abajo se juntan, porque las reuniones llegan a un solo calendario. TOFU es donde te descubren, MOFU donde se interesan y BOFU donde deciden.</p>
     <p class="hx-sub" data-si="sin-pagina" hidden>Arriba, lo que atrae tu perfil. Abajo, las personas que conversan, responden y agendan. TOFU es donde te descubren, MOFU donde se interesan y BOFU donde deciden.</p>
     <div class="vz-y">
       <div class="hx-card" id="embudo-perfil">
         <h3 class="hx-h2 vz-brand"><i class="vz-dot" style="background:var(--tb-1)"></i>Tu perfil</h3>
         <div class="vz-funnel" data-draw="funnel" data-source="embudo" data-grupo="perfil"></div>
-        <p class="hx-note">Reuniones que llegaron por tu perfil, todas las semanas: <b data-draw="num" data-fmt="int" data-source="citas_por_origen" data-field="citas" data-where="origen=Perfil%20de%20LinkedIn">—</b></p>
+        <p class="hx-note" data-frases><span data-fr>Reuniones que llegaron por tu perfil, todas las semanas: <b data-draw="num" data-fmt="int" data-source="citas_por_origen" data-field="citas" data-where="origen=Perfil%20de%20LinkedIn">—</b></span><span data-fr-vacio hidden>Aún no hay reuniones que hayan llegado por tu perfil.</span></p>
       </div>
       <div class="hx-card" id="embudo-pagina" data-si="pagina">
         <h3 class="hx-h2 vz-brand"><i class="vz-dot" style="background:var(--tb-pag)"></i>La página de empresa</h3>
         <div class="vz-funnel" data-draw="funnel" data-source="embudo" data-grupo="pagina"></div>
-        <p class="hx-note">Reuniones que llegaron por la página, todas las semanas: <b data-draw="num" data-fmt="int" data-source="citas_por_origen" data-field="citas" data-where="origen=P%C3%A1gina%20de%20LinkedIn">—</b></p>
+        <p class="hx-note" data-frases><span data-fr>Reuniones que llegaron por la página, todas las semanas: <b data-draw="num" data-fmt="int" data-source="citas_por_origen" data-field="citas" data-where="origen=P%C3%A1gina%20de%20LinkedIn">—</b></span><span data-fr-vacio hidden>Aún no hay reuniones que hayan llegado por la página.</span></p>
       </div>
     </div>
     <svg class="vz-join" data-si="pagina" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><path d="M25 0 C25 24, 50 18, 50 42"></path><path d="M75 0 C75 24, 50 18, 50 42"></path></svg>
@@ -232,31 +232,31 @@
     <span class="st-node" aria-hidden="true">1</span>
     <p class="st-kick">Capítulo 1 · Tu vitrina</p>
     <h2 class="st-h2">Antes de que te vean, la vitrina tiene que convencer</h2>
-    <p class="st-now">Tu perfil suma <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</b> de 100<span data-si="pagina"> y la página <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</b></span>. Lo que más resta en tu perfil es <b data-draw="txt" data-source="puntaje_brecha" data-field="item" data-where="perfil=Perfil">—</b><span data-si="pagina"> y en la página, <b data-draw="txt" data-source="puntaje_brecha" data-field="item" data-where="perfil=P%C3%A1gina">—</b></span>.</p>
+    <p class="st-now"><span data-frases><span data-fr>Tu perfil suma <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</b> de 100.</span><span data-fr-vacio hidden>Aún no hay puntaje de tu perfil: se mide en la auditoría.</span></span> <span data-frases data-si="pagina"><span data-fr>La página suma <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</b> de 100.</span><span data-fr-vacio hidden>Aún no hay puntaje de la página: se mide en la auditoría.</span></span> <span data-frases><span data-fr>Lo que más resta en tu perfil es <b data-draw="txt" data-source="puntaje_brecha" data-field="item" data-where="perfil=Perfil">—</b>.</span></span> <span data-frases data-si="pagina"><span data-fr>En la página, lo que más resta es <b data-draw="txt" data-source="puntaje_brecha" data-field="item" data-where="perfil=P%C3%A1gina">—</b>.</span></span></p>
     <p class="st-lead">Quien llega a tu vitrina decide en segundos si vale la pena escribirte. Este es el puntaje sobre 100. Las barras punteadas son ítems que faltan por medir.</p>
     <div class="vz-gauges">
       <div class="vz-g" id="gauge-perfil">
         <p class="hx-lab">Perfil personal</p>
         <div class="vz-gd" data-draw="gauge" data-source="puntaje_total" data-where="perfil=Perfil" data-field="obtenido" data-goal-field="medible"></div>
-        <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</span> de <span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=Perfil">—</span> puntos</p>
-        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=puntaje_perfil">—</span></p>
+        <p class="vz-gv" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</span> de <span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=Perfil">—</span> puntos</span><span data-fr-vacio hidden>Aún no hay puntaje de tu perfil: se mide en la auditoría.</span></p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="puntaje_total.obtenido@perfil=Perfil"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=puntaje_perfil">—</span></span><span data-fr data-pide="puntaje_total.obtenido@perfil=Perfil">Aún no hay línea base para comparar.</span></p>
       </div>
       <div class="vz-g" id="gauge-pagina" data-si="pagina">
         <p class="hx-lab">Página de empresa</p>
         <div class="vz-gd" data-draw="gauge" data-source="puntaje_total" data-where="perfil=P%C3%A1gina" data-field="obtenido" data-goal-field="medible"></div>
-        <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</span> de <span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=P%C3%A1gina">—</span> puntos</p>
-        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=puntaje_pagina">—</span></p>
+        <p class="vz-gv" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</span> de <span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=P%C3%A1gina">—</span> puntos</span><span data-fr-vacio hidden>Aún no hay puntaje de la página: se mide en la auditoría.</span></p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="puntaje_total.obtenido@perfil=P%C3%A1gina"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=puntaje_pagina">—</span></span><span data-fr data-pide="puntaje_total.obtenido@perfil=P%C3%A1gina">Aún no hay línea base para comparar.</span></p>
       </div>
     </div>
     <div class="hx-grid">
       <div class="hx-card" id="puntaje-perfil">
         <h3 class="hx-h2">Perfil personal</h3>
-        <p class="hx-take">Llevas <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</b> de <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=Perfil">—</b> puntos en lo que ya está medido.</p>
+        <p class="hx-take" data-fr>Llevas <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</b> de <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=Perfil">—</b> puntos en lo que ya está medido.</p>
         <div class="hx-bars hx-score" data-draw="score" data-source="puntaje" data-perfil="Perfil"></div>
       </div>
       <div class="hx-card" id="puntaje-pagina" data-si="pagina">
         <h3 class="hx-h2">Página de empresa</h3>
-        <p class="hx-take">Lleva <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</b> de <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=P%C3%A1gina">—</b> puntos en lo que ya está medido.</p>
+        <p class="hx-take" data-fr>Lleva <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</b> de <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=P%C3%A1gina">—</b> puntos en lo que ya está medido.</p>
         <div class="hx-bars hx-score" data-draw="score" data-source="puntaje" data-perfil="Página"></div>
       </div>
     </div>
@@ -266,33 +266,34 @@
     <span class="st-node" aria-hidden="true">2</span>
     <p class="st-kick">Capítulo 2 · Te ven</p>
     <h2 class="st-h2">La gente ya llega a tu perfil. Falta que se quede</h2>
-    <p class="st-now">Tu mejor mes fue <b data-draw="txt" data-source="mes_clave" data-field="mes_txt" data-where="cual=mejor">—</b>, con <b data-draw="num" data-fmt="int" data-source="mes_clave" data-field="impresiones" data-where="cual=mejor">—</b> impresiones. El último mes completo, <b data-draw="txt" data-source="mes_clave" data-field="mes_txt" data-where="cual=ultimo">—</b>, tuvo <b data-draw="num" data-fmt="int" data-source="mes_clave" data-field="impresiones" data-where="cual=ultimo">—</b>. Hoy te visitan <b data-draw="num" data-fmt="int" data-source="resumen" data-field="visitas_perfil_7d" data-row="0">—</b> personas por semana.</p>
+    <p class="st-now"><span data-frases><span data-fr>Tu mejor mes fue <b data-draw="txt" data-source="mes_clave" data-field="mes_txt" data-where="cual=mejor">—</b>, con <b data-draw="num" data-fmt="int" data-source="mes_clave" data-field="impresiones" data-where="cual=mejor">—</b> impresiones.</span> <span data-fr>El último mes completo, <b data-draw="txt" data-source="mes_clave" data-field="mes_txt" data-where="cual=ultimo">—</b>, tuvo <b data-draw="num" data-fmt="int" data-source="mes_clave" data-field="impresiones" data-where="cual=ultimo">—</b> impresiones.</span><span data-fr-vacio hidden>Aún no hay meses medidos: aparecen con la primera actualización semanal.</span></span> <span data-frases><span data-fr>Hoy te visitan <b data-draw="num" data-fmt="int" data-source="resumen" data-field="visitas_perfil_7d" data-row="0">—</b> personas por semana.</span><span data-fr-vacio hidden>Aún no hay visitas a tu perfil medidas.</span></span></p>
     <p class="st-lead">Cuántas veces aparecieron tus posts en el feed y cuántas personas nuevas sumaste.</p>
     <div class="hx-tiles" id="perfil">
       <div class="hx-tile">
         <p class="hx-lab">Impresiones · 365 días</p>
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="impresiones_perfil_365d" data-row="0">—</p>
-        <p class="hx-note"><span data-draw="num" data-fmt="signedpct" data-source="resumen" data-field="variacion_impresiones" data-row="0">—</span> frente a los 365 días anteriores</p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="resumen.impresiones_perfil_365d"><span data-draw="num" data-fmt="signedpct" data-source="resumen" data-field="variacion_impresiones" data-row="0">—</span> frente a los 365 días anteriores</span><span data-fr data-pide="resumen.impresiones_perfil_365d">Aún no hay comparación con los 365 días anteriores.</span><span data-fr-vacio hidden>Aún no hay dato: se llena con la primera actualización semanal.</span></p>
       </div>
       <div class="hx-tile">
         <p class="hx-lab">Visitas al perfil · últimos 7 días</p>
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="visitas_perfil_7d" data-row="0">—</p>
-        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=visitas_perfil_7d">—</span></p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="resumen.visitas_perfil_7d"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=visitas_perfil_7d">—</span></span><span data-fr data-pide="resumen.visitas_perfil_7d">Aún no hay línea base para comparar.</span><span data-fr-vacio hidden>Aún no hay dato: se llena con la primera actualización semanal.</span></p>
       </div>
       <div class="hx-tile">
         <p class="hx-lab">Seguidores</p>
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="seguidores_perfil" data-row="0">—</p>
-        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=seguidores_perfil">—</span> · <span data-draw="num" data-fmt="int" data-source="resumen" data-field="miembros_alcanzados" data-row="0">—</span> personas alcanzadas en el año</p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="resumen.seguidores_perfil"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=seguidores_perfil">—</span></span><span data-fr data-pide="resumen.seguidores_perfil">Aún no hay línea base para comparar.</span><span data-fr-vacio hidden>Aún no hay dato: se llena con la primera actualización semanal.</span></p>
+        <p class="hx-note" data-fr><span data-draw="num" data-fmt="int" data-source="resumen" data-field="miembros_alcanzados" data-row="0">—</span> personas alcanzadas en el año</p>
       </div>
       <div class="hx-tile">
         <p class="hx-lab">Apariciones en búsquedas · 7 días</p>
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="busquedas_7d" data-row="0">—</p>
-        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=busquedas_7d">—</span></p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="resumen.busquedas_7d"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=busquedas_7d">—</span></span><span data-fr data-pide="resumen.busquedas_7d">Aún no hay línea base para comparar.</span><span data-fr-vacio hidden>Aún no hay dato: se llena con la primera actualización semanal.</span></p>
       </div>
       <div class="hx-tile">
         <p class="hx-lab">Impresiones fuera de tu red</p>
         <p class="hx-big" data-draw="num" data-fmt="pct" data-source="resumen" data-field="fuera_de_red" data-row="0">—</p>
-        <p class="hx-note">El resto lo ve gente que ya te sigue</p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="resumen.fuera_de_red">El resto lo ve gente que ya te sigue</span><span data-fr-vacio hidden>Aún no hay dato: se llena con la primera actualización semanal.</span></p>
       </div>
     </div>
     <div class="hx-grid">
@@ -303,34 +304,38 @@
       </div>
       <div class="hx-card" id="seguidores-mes">
         <h3 class="hx-h2">Seguidores nuevos por mes</h3>
-        <p class="hx-sub">Sumaste <b data-draw="num" data-fmt="int" data-source="tot_mensual" data-field="nuevos_seguidores" data-row="0">—</b> seguidores en el año.</p>
+        <p class="hx-sub" data-fr>Sumaste <b data-draw="num" data-fmt="int" data-source="tot_mensual" data-field="nuevos_seguidores" data-row="0">—</b> seguidores en el año.</p>
         <div class="hx-vchart" data-draw="mes-seg" data-source="personal_mensual hitos"></div>
       </div>
     </div>
-    <div class="hx-sec" data-si="pagina">
+    <div class="hx-sec" data-si="pagina" data-frases>
     <h3 class="st-sub3" id="pagina">Y la página de empresa</h3>
-    <div class="hx-tiles">
+    <p class="hx-empty" data-fr-vacio hidden>Aún no hay datos de la página de empresa: llegan con el primer export de la página y con la actualización semanal.</p>
+    <div class="hx-tiles" data-fr="bloque" data-pide-alguno="resumen.posts_pagina resumen.impresiones_pagina resumen.seguidores_pagina resumen.comentarios_pagina resumen.clics_pagina resumen.reacciones_pagina pagina_mensual.mes">
       <div class="hx-tile">
         <p class="hx-lab">Posts publicados en el periodo</p>
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="posts_pagina" data-row="0">—</p>
+        <p class="hx-note" data-fr-falta="resumen.posts_pagina" hidden>Aún no hay dato: se llena con la primera actualización semanal.</p>
       </div>
       <div class="hx-tile">
         <p class="hx-lab">Impresiones por post</p>
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="pagina_prom" data-field="impresiones_por_post" data-row="0">—</p>
-        <p class="hx-note"><span data-draw="num" data-fmt="int" data-source="resumen" data-field="impresiones_pagina" data-row="0">—</span> en total</p>
+        <p class="hx-note" data-fr><span data-draw="num" data-fmt="int" data-source="resumen" data-field="impresiones_pagina" data-row="0">—</span> en total</p>
+        <p class="hx-note" data-fr-falta="pagina_prom.impresiones_por_post" hidden>Aún no hay posts de la página en el periodo.</p>
       </div>
       <div class="hx-tile">
         <p class="hx-lab">Seguidores de la página</p>
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="seguidores_pagina" data-row="0">—</p>
-        <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=seguidores_pagina">—</span></p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="resumen.seguidores_pagina"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=seguidores_pagina">—</span></span><span data-fr data-pide="resumen.seguidores_pagina">Aún no hay línea base para comparar.</span><span data-fr-vacio hidden>Aún no hay dato: se llena con la primera actualización semanal.</span></p>
       </div>
       <div class="hx-tile">
         <p class="hx-lab">Comentarios en el periodo</p>
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="resumen" data-field="comentarios_pagina" data-row="0">—</p>
-        <p class="hx-note"><span data-draw="num" data-fmt="int" data-source="resumen" data-field="clics_pagina" data-row="0">—</span> clics y <span data-draw="num" data-fmt="int" data-source="resumen" data-field="reacciones_pagina" data-row="0">—</span> reacciones</p>
+        <p class="hx-note" data-fr><span data-draw="num" data-fmt="int" data-source="resumen" data-field="clics_pagina" data-row="0">—</span> clics y <span data-draw="num" data-fmt="int" data-source="resumen" data-field="reacciones_pagina" data-row="0">—</span> reacciones</p>
+        <p class="hx-note" data-fr-falta="resumen.comentarios_pagina" hidden>Aún no hay dato: se llena con la primera actualización semanal.</p>
       </div>
     </div>
-    <div class="hx-grid">
+    <div class="hx-grid" data-fr="bloque" data-pide-alguno="resumen.posts_pagina resumen.impresiones_pagina resumen.seguidores_pagina resumen.comentarios_pagina resumen.clics_pagina resumen.reacciones_pagina pagina_mensual.mes">
       <div class="hx-card" id="impresiones-mes-pagina">
         <h3 class="hx-h2">Impresiones por mes · página</h3>
         <p class="hx-sub">Los meses de los extremos están incompletos y van más claros.</p>
@@ -349,7 +354,7 @@
     <span class="st-node" aria-hidden="true">3</span>
     <p class="st-kick">Capítulo 3 · Quién te lee</p>
     <h2 class="st-h2">¿Te está leyendo quien te puede contratar?</h2>
-    <p class="st-now"><b data-draw="num" data-fmt="int" data-source="audiencia_pais" data-field="porcentaje" data-row="0">—</b> % de tu público está en <b data-draw="txt" data-source="audiencia_pais" data-field="nombre" data-row="0">—</b>. El <b data-draw="num" data-fmt="int" data-source="audiencia_resumen" data-field="en_publico" data-row="0">—</b> % calza con alguno de tus arquetipos y el <b data-draw="num" data-fmt="int" data-source="audiencia_resumen" data-field="fuera" data-row="0">—</b> % queda fuera de tu público: te lee, pero no es a quien le vendes.</p>
+    <p class="st-now"><span data-frases><span data-fr><b data-draw="num" data-fmt="int" data-source="audiencia_pais" data-field="porcentaje" data-row="0">—</b> % de tu público está en <b data-draw="txt" data-source="audiencia_pais" data-field="nombre" data-row="0">—</b>.</span><span data-fr-vacio hidden>Aún no hay audiencia por ubicación: llega con el export de tu perfil.</span></span> <span data-frases><span data-fr>El <b data-draw="num" data-fmt="int" data-source="audiencia_resumen" data-field="en_publico" data-row="0">—</b> % calza con alguno de tus arquetipos y el <b data-draw="num" data-fmt="int" data-source="audiencia_resumen" data-field="fuera" data-row="0">—</b> % queda fuera de tu público: te lee, pero no es a quien le vendes.</span><span data-fr-vacio hidden>Aún no hay lectura de tu audiencia por arquetipo: se estima con el export de tu perfil.</span></span></p>
     <p class="st-lead">Dónde está tu público, quiénes son por arquetipo y cómo se reparte por nivel, sector y tamaño de empresa, según el export de tu perfil.</p>
     <div class="hx-card" id="donde">
       <h3 class="hx-h2">Dónde están</h3>
@@ -391,7 +396,7 @@
     <span class="st-node" aria-hidden="true">4</span>
     <p class="st-kick">Capítulo 4 · Qué los engancha</p>
     <h2 class="st-h2">Qué tipo de post viaja más</h2>
-    <p class="st-now">Tus mejores posts del año promediaron <b data-draw="num" data-fmt="int" data-source="por_tipo" data-field="promedio" data-where="tipo=Mejores del año">—</b> impresiones. De lo reciente, lo que más se ve es <b data-draw="txt" data-source="tipo_top" data-field="tipo" data-row="0">—</b>, con <b data-draw="num" data-fmt="int" data-source="tipo_top" data-field="promedio" data-row="0">—</b>. La distancia entre esos dos números es lo que hay que recuperar.</p>
+    <p class="st-now" data-frases><span data-fr>Tus mejores posts del año promediaron <b data-draw="num" data-fmt="int" data-source="por_tipo" data-field="promedio" data-where="tipo=Mejores del año">—</b> impresiones.</span> <span data-fr>De lo reciente, lo que más se ve es <b data-draw="txt" data-source="tipo_top" data-field="tipo" data-row="0">—</b>, con <b data-draw="num" data-fmt="int" data-source="tipo_top" data-field="promedio" data-row="0">—</b> impresiones en promedio.</span> <span data-fr data-pide="por_tipo.promedio@tipo=Mejores%20del%20a%C3%B1o tipo_top.promedio">La distancia entre esos dos números es lo que hay que recuperar.</span><span data-fr-vacio hidden>Aún no hay posts medidos: aparecen con el primer export de tu perfil.</span></p>
     <div class="hx-card" id="post-semana">
       <h3 class="hx-h2">El post de la semana</h3>
       <div class="vz-post" data-draw="postsem" data-source="semana_ultima post_reciente"></div>
@@ -427,12 +432,12 @@
     <span class="st-node" aria-hidden="true">5</span>
     <p class="st-kick">Capítulo 5 · Conversan contigo</p>
     <h2 class="st-h2">Del comentario al mensaje, y del mensaje a la respuesta</h2>
-    <p class="st-now">La semana del <b data-draw="semana" data-source="citas_ultima" data-field="semana" data-row="0">—</b>, <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="conversaciones" data-row="0">—</b> personas mostraron interés, <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="respuestas" data-row="0">—</b> respondieron y <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</b> agendaron.</p>
+    <p class="st-now" data-frases="una"><span data-fr>La semana del <b data-draw="semana" data-source="citas_ultima" data-field="semana" data-row="0">—</b>, <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="conversaciones" data-row="0">—</b> personas mostraron interés, <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="respuestas" data-row="0">—</b> respondieron y <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</b> agendaron.</span><span data-fr>En la semana del <b data-draw="semana" data-source="citas_ultima" data-field="semana" data-row="0">—</b> faltan por medir las conversaciones, las respuestas o las reuniones.</span><span data-fr-vacio hidden>Aún no hay semanas medidas.</span></p>
     <p class="st-lead">Cada semana cuenta cuántas personas mostraron interés, a cuántas les escribiste, cuántas respondieron y cuántas terminaron agendando.</p>
     <p class="hx-empty" id="citas-vacio">Aún no hay datos: se llena con la primera actualización semanal. Desde ahí verás aquí cada semana cuántas reuniones llegan, de dónde vienen y con quién.</p>
     <div class="hx-card" id="citas-embudo">
       <h3 class="hx-h2">De la conversación a la reunión · última semana</h3>
-      <p class="hx-sub">Semana del <span data-draw="semana" data-source="citas_ultima" data-field="semana" data-row="0">—</span></p>
+      <p class="hx-sub" data-fr>Semana del <span data-draw="semana" data-source="citas_ultima" data-field="semana" data-row="0">—</span></p>
       <div class="hx-bars" data-draw="embudo" data-source="citas_ultima"></div>
     </div>
     <div class="hx-card" id="de-cada-100">
@@ -451,42 +456,43 @@
   <section class="st-ch is-goal" id="citas">
     <span class="st-node" aria-hidden="true">6</span>
     <p class="st-kick">Capítulo 6 · Agendan</p>
-    <h2 class="st-h2">La meta: <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span> reuniones por semana</h2>
-    <p class="st-now">Llevas <b data-draw="num" data-fmt="int" data-source="citas_acum" data-field="citas" data-row="0">—</b> reuniones desde que empezó el plan. La última semana fueron <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</b> de <b data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</b><span data-si="evento">, y tu próximo evento tiene <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos tomados</span>.</p>
+    <h2 class="st-h2" data-frases><span data-fr>La meta: <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span> reuniones por semana</span><span data-fr-vacio hidden>La meta de reuniones por semana</span></h2>
+    <p class="st-now"><span data-frases><span data-fr>Llevas <b data-draw="num" data-fmt="int" data-source="citas_acum" data-field="citas" data-row="0">—</b> reuniones desde que empezó el plan.</span> <span data-fr>La última semana fueron <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</b> de <b data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</b>.</span><span data-fr-vacio hidden>Aún no hay reuniones medidas: se llena con la primera actualización semanal.</span></span> <span data-frases data-si="evento"><span data-fr>Tu próximo evento tiene <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos tomados.</span><span data-fr-vacio hidden>Aún no hay inscritos medidos para tu próximo evento.</span></span></p>
     <p class="st-lead">Reuniones de tu página de reservas, sin nombres, correos ni teléfonos. La barra se pone verde la semana que llegas a la meta.</p>
     <div class="vz-gauges">
       <div class="vz-g" id="gauge-reuniones">
         <p class="hx-lab">Reuniones · última semana</p>
         <div class="vz-gd" data-draw="gauge" data-source="citas_ultima" data-row="0" data-field="citas" data-goal-source="supuestos" data-goal-field="meta_reuniones_semana"></div>
-        <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span></p>
+        <p class="vz-gv" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span></span><span data-fr-vacio hidden>Aún no hay semanas medidas.</span></p>
       </div>
       <div class="vz-g" id="gauge-cupos" data-si="evento">
         <p class="hx-lab">Próximo evento · inscritos</p>
         <div class="vz-gd" data-draw="gauge" data-source="citas_ultima" data-row="0" data-field="inscritos_evento" data-goal-source="supuestos" data-goal-field="evento_cupos"></div>
-        <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos</p>
+        <p class="vz-gv" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos</span><span data-fr-vacio hidden>Aún no hay inscritos o cupos del evento.</span></p>
       </div>
       <div class="vz-g" id="gauge-charlas" data-si="charlas">
         <p class="hx-lab">Charlas aceptadas o dadas · este mes</p>
         <div class="vz-gd" data-draw="gauge" data-source="charlas_mes" data-row="0" data-field="logradas" data-goal-source="supuestos" data-goal-field="meta_charlas_mes"></div>
-        <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="charlas_mes" data-field="logradas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_charlas_mes" data-row="0">—</span></p>
+        <p class="vz-gv" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="charlas_mes" data-field="logradas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_charlas_mes" data-row="0">—</span></span><span data-fr-vacio hidden>Falta la meta de charlas por mes en los supuestos.</span></p>
       </div>
     </div>
     <div class="hx-tiles">
       <div class="hx-tile" id="citas-ultima">
         <p class="hx-lab">Reuniones · última semana medida</p>
-        <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span></p>
-        <p class="hx-note">Hoy la línea base es <span data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_sesiones_semana" data-row="0">—</span> por semana</p>
+        <p class="hx-big" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span></span><span data-fr-vacio hidden>—</span></p>
+        <p class="hx-note" data-fr-falta="citas_ultima.citas supuestos.meta_reuniones_semana" hidden>Aún no hay semanas medidas o falta la meta de reuniones en los supuestos.</p>
+        <p class="hx-note" data-fr>Hoy la línea base es <span data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_sesiones_semana" data-row="0">—</span> por semana</p>
       </div>
       <div class="hx-tile" id="citas-total">
         <p class="hx-lab">Reuniones agendadas · desde el inicio del plan</p>
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="citas_acum" data-field="citas" data-row="0">—</p>
-        <p class="hx-note">Suma de todas las semanas medidas</p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="citas_acum.citas">Suma de todas las semanas medidas</span><span data-fr-vacio hidden>Aún no hay semanas medidas.</span></p>
       </div>
       <div class="hx-tile" id="inscritos-evento" data-si="evento">
-        <p class="hx-lab">Próximo evento · <span data-draw="txt" data-source="camino" data-field="evento_nombre" data-row="0">—</span></p>
-        <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos</p>
+        <p class="hx-lab" data-frases><span data-fr>Próximo evento · <span data-draw="txt" data-source="camino" data-field="evento_nombre" data-row="0">—</span></span><span data-fr-vacio hidden>Próximo evento</span></p>
+        <p class="hx-big" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos</span><span data-fr-vacio hidden>—</span></p>
         <div class="hx-prog" data-draw="cupos" data-source="citas_ultima supuestos"></div>
-        <p class="hx-note">Inscritos confirmados hasta la fecha del evento.</p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="citas_ultima.inscritos_evento camino.evento_cupos">Inscritos confirmados hasta la fecha del evento.</span><span data-fr-vacio hidden>Aún no hay inscritos o cupos del evento.</span></p>
       </div>
     </div>
     <div class="hx-card" id="vs-semana">
@@ -551,9 +557,9 @@
     <p class="st-now" data-draw="txt" data-source="dinero" data-field="intro" data-row="0">—</p>
     <p class="st-lead">Todo sale de tu tablero de ventas o CRM, sin nombres de clientes. Se lee como el resto: dónde estás, qué hay en juego, cuánto vale tu agenda, dónde está la meta y qué palanca la mueve.</p>
     <div class="hx-tiles">
-      <div class="hx-tile"><p class="hx-lab">Vendido</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="vendido_txt" data-row="0">—</p><p class="hx-note">Ventas cerradas: <span data-draw="num" data-fmt="int" data-source="dinero" data-field="ventas" data-row="0">—</span> · perdidas: <span data-draw="num" data-fmt="int" data-source="dinero" data-field="perdidas" data-row="0">—</span></p></div>
+      <div class="hx-tile"><p class="hx-lab">Vendido</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="vendido_txt" data-row="0">—</p><p class="hx-note" data-frases><span data-fr>Ventas cerradas: <span data-draw="num" data-fmt="int" data-source="dinero" data-field="ventas" data-row="0">—</span> · perdidas: <span data-draw="num" data-fmt="int" data-source="dinero" data-field="perdidas" data-row="0">—</span></span><span data-fr-vacio hidden>Aún no hay datos de ventas.</span></p></div>
       <div class="hx-tile" id="ticket-ficha"><p class="hx-lab" data-draw="txt" data-source="dinero" data-field="ticket_etiqueta" data-row="0">Ticket promedio</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="ticket_txt" data-row="0">—</p><p class="hx-note" data-draw="txt" data-source="dinero" data-field="ticket_nota" data-row="0">—</p></div>
-      <div class="hx-tile"><p class="hx-lab">Tasa de cierre</p><p class="hx-big"><span data-draw="num" data-fmt="pct" data-source="supuestos" data-field="tasa_cierre" data-row="0">—</span></p><p class="hx-note">Qué parte de las oportunidades termina en venta</p></div>
+      <div class="hx-tile"><p class="hx-lab">Tasa de cierre</p><p class="hx-big" data-draw="num" data-fmt="pct" data-source="supuestos" data-field="tasa_cierre" data-row="0">—</p><p class="hx-note" data-frases="una"><span data-fr data-pide="supuestos.tasa_cierre">Qué parte de las oportunidades termina en venta</span><span data-fr-vacio hidden>Falta la tasa de cierre en los supuestos.</span></p></div>
       <div class="hx-tile" id="valor-reunion"><p class="hx-lab">Valor de cada reunión</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="valor_reunion_txt" data-row="0">—</p><p class="hx-note" data-draw="txt" data-source="dinero" data-field="valor_reunion_nota" data-row="0">Ticket × tasa de cierre</p></div>
     </div>
     <h3 class="st-sub3">1 · Dónde estás: lo que ya vendiste</h3>
@@ -590,7 +596,7 @@
     <h3 class="st-sub3">3 · Cuánto vale tu agenda</h3>
     <div class="hx-card" id="pipeline">
       <p class="st-now" data-draw="txt" data-source="pipeline" data-field="frase" data-row="0">—</p>
-      <p class="hx-note">Valor esperado = reuniones × % que se vuelve cliente × ticket. Es una estimación para decidir dónde poner tiempo, no una venta. <span data-draw="txt" data-source="dinero" data-field="semana_meta_frase" data-row="0">—</span></p>
+      <p class="hx-note">Valor esperado = reuniones × tasa de cierre × ticket. Es una estimación para decidir dónde poner tiempo, no una venta. <span data-fr data-draw="txt" data-source="dinero" data-field="semana_meta_frase" data-row="0">—</span></p>
     </div>
     <h3 class="st-sub3">4 · La meta y la palanca</h3>
     <div class="hx-grid">
@@ -613,12 +619,13 @@
     <span class="st-node" aria-hidden="true">8</span>
     <p class="st-kick">Capítulo 8 · Qué sigue</p>
     <h2 class="st-h2">Lo que haces esta semana para mover el número</h2>
-    <div class="vz-action" id="accion">
-      <p class="hx-lab">Tu única acción de la semana del <b data-draw="semana" data-source="semana_ultima" data-field="semana" data-row="0">—</b></p>
-      <p class="vz-act" data-draw="txt" data-source="semana_ultima" data-field="accion_semana" data-row="0">—</p>
+    <div class="vz-action" id="accion" data-frases>
+      <p class="hx-lab" data-frases><span data-fr>Tu única acción de la semana del <b data-draw="semana" data-source="semana_ultima" data-field="semana" data-row="0">—</b></span><span data-fr-vacio hidden>Tu única acción de la semana</span></p>
+      <p class="vz-act" data-fr data-draw="txt" data-source="semana_ultima" data-field="accion_semana" data-row="0">—</p>
+      <p class="vz-act" data-fr-vacio hidden>Aún no hay acción de la semana: aparece con el primer análisis semanal.</p>
       <p class="hx-note">Sale del análisis semanal. Si haces solo una cosa, que sea esta.</p>
     </div>
-    <p class="hx-sub" id="estado">Fase <b data-draw="num" data-fmt="int" data-source="resumen" data-field="fase_actual" data-row="0">—</b> · semana <b data-draw="num" data-fmt="int" data-source="resumen" data-field="semana" data-row="0">—</b> desde el arranque</p>
+    <p class="hx-sub" id="estado" data-frases="una"><span data-fr>Fase <b data-draw="num" data-fmt="int" data-source="resumen" data-field="fase_actual" data-row="0">—</b> · semana <b data-draw="num" data-fmt="int" data-source="resumen" data-field="semana" data-row="0">—</b> desde el arranque</span><span data-fr>Fase <b data-draw="num" data-fmt="int" data-source="resumen" data-field="fase_actual" data-row="0">—</b></span><span data-fr-vacio hidden>Aún no hay fase registrada: se anota al arrancar el plan.</span></p>
     <ol class="hx-steps">
       <li class="hx-step" data-fase="0"><span class="hx-stn">Fase 0</span><span class="hx-stt">Arranque</span><span class="hx-std">Objetivos, perfiles y tiempo</span></li>
       <li class="hx-step" data-fase="1"><span class="hx-stn">Fase 1</span><span class="hx-stt">Diagnóstico</span><span class="hx-std">Auditoría y perfil</span></li>
@@ -629,13 +636,15 @@
     <div class="hx-tiles">
       <div class="hx-tile">
         <p class="hx-lab">Meta del plan · reuniones</p>
-        <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span> por semana</p>
-        <p class="hx-note">Línea base: <b data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_sesiones_semana" data-row="0">—</b> por semana al inicio del plan.</p>
+        <p class="hx-big" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span> por semana</span><span data-fr-vacio hidden>—</span></p>
+        <p class="hx-note" data-fr-falta="supuestos.meta_reuniones_semana" hidden>Falta la meta de reuniones por semana en los supuestos.</p>
+        <p class="hx-note" data-frases><span data-fr>Línea base: <b data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_sesiones_semana" data-row="0">—</b> por semana al inicio del plan.</span><span data-fr-vacio hidden>Aún no hay línea base registrada.</span></p>
       </div>
       <div class="hx-tile" data-si="charlas">
         <p class="hx-lab">Meta del plan · charlas</p>
-        <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_charlas_mes" data-row="0">—</span> por mes</p>
-        <p class="hx-note">Línea base: <b data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_charlas_mes" data-row="0">—</b> por mes que vengan de LinkedIn, al inicio del plan.</p>
+        <p class="hx-big" data-frases><span data-fr><span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_charlas_mes" data-row="0">—</span> por mes</span><span data-fr-vacio hidden>—</span></p>
+        <p class="hx-note" data-fr-falta="supuestos.meta_charlas_mes" hidden>Falta la meta de charlas por mes en los supuestos.</p>
+        <p class="hx-note" data-frases><span data-fr>Línea base: <b data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_charlas_mes" data-row="0">—</b> por mes que vengan de LinkedIn, al inicio del plan.</span><span data-fr-vacio hidden>Aún no hay línea base registrada.</span></p>
       </div>
     </div>
     <div class="hx-two">
@@ -723,7 +732,7 @@
     title: 'Impresiones por post de la página',
     description: 'Impresiones totales de la página divididas por los posts publicados.',
     inputs: ['resumen'],
-    fn: (resumen) => (resumen[0] && Number(resumen[0].posts_pagina) > 0) ? [{impresiones_por_post: Math.round(resumen[0].impresiones_pagina / resumen[0].posts_pagina)}] : []
+    fn: (resumen) => (resumen[0] && Number(resumen[0].posts_pagina) > 0 && numO(resumen[0].impresiones_pagina) !== null) ? [{impresiones_por_post: Math.round(resumen[0].impresiones_pagina / resumen[0].posts_pagina)}] : []
   });
 
   dash.calc('puntaje_total', {
@@ -734,7 +743,7 @@
       const perfiles = [...new Set(puntaje.map((r) => r.perfil))];
       return perfiles.map((p) => {
         const m = puntaje.filter((r) => r.perfil === p && r.puntaje !== null && r.puntaje !== undefined && r.puntaje !== '');
-        return {perfil: p, obtenido: m.reduce((a, r) => a + Number(r.puntaje), 0), medible: m.reduce((a, r) => a + Number(r.maximo), 0)};
+        return {perfil: p, obtenido: m.length ? m.reduce((a, r) => a + Number(r.puntaje), 0) : null, medible: m.length ? m.reduce((a, r) => a + Number(r.maximo), 0) : null};
       });
     }
   });
@@ -749,20 +758,32 @@
     });
   });
 
-  function pickRow(el, rows) {
-    if (el.hasAttribute('data-row')) return rows[Number(el.getAttribute('data-row'))];
-    const w = el.getAttribute('data-where') || '';
-    const conds = w.split('&').filter(Boolean).map((kv) => kv.split('=').map(decodeURIComponent));
-    return rows.find((row) => conds.every(([k, v]) => String(row[k]) === v));
+  /* ---- Valores de las marcas ----
+     Una marca es el elemento más chico que muestra un valor (data-draw num, txt, semana o delta, con data-source, data-field y data-row o data-where).
+     leer() es el único lector: lo usan los dibujos de las marcas y las frases (más abajo, "Frases sin huecos").
+     Devuelve {v} con el valor, {v: null} si falta (sin fila, celda vacía, "—" o un número que no es número) y {pend: true} mientras la fuente carga. */
+  const sinValor = (v) => v === null || v === undefined || (typeof v === 'number' && !isFinite(v)) || String(v).trim() === '' || String(v).trim() === '—';
+  function filaDe(rows, row, where) {
+    if (row !== null && row !== undefined) return rows[Number(row)];
+    const conds = String(where || '').split('&').filter(Boolean).map((kv) => kv.split('=').map(decodeURIComponent));
+    return rows.find((r) => conds.every(([k, v]) => String(r[k]) === v));
   }
+  const pickRow = (el, rows) => filaDe(rows, el.getAttribute('data-row'), el.getAttribute('data-where'));
+  function leer(src, field, row, where, num) {
+    const d = dash.data(src);
+    if (d.status === 'loading') return {pend: true, v: null};
+    const rows = d.status === 'ok' && Array.isArray(d.data) ? d.data : [];
+    const r = rows.length ? filaDe(rows, row, where) : null;
+    const v = r ? r[field] : null;
+    return {v: (sinValor(v) || (num && !isFinite(Number(v)))) ? null : v};
+  }
+  const MARCA = '[data-draw="num"],[data-draw="txt"],[data-draw="semana"],[data-draw="delta"]';
+  const leerMarca = (el) => { const k = el.getAttribute('data-draw'); return leer(el.getAttribute('data-source'), el.getAttribute('data-field'), el.getAttribute('data-row'), el.getAttribute('data-where'), k === 'num' || k === 'delta'); };
 
   reg('num', (el) => {
-    const d = dash.data(el.getAttribute('data-source'));
-    const rows = d.status === 'ok' ? (Array.isArray(d.data) ? d.data : []) : [];
-    const row = rows.length ? pickRow(el, rows) : null;
-    const v = row ? row[el.getAttribute('data-field')] : null;
+    const v = leerMarca(el).v;
     const f = fmt[el.getAttribute('data-fmt')] || fmt.int;
-    el.textContent = (v === null || v === undefined || v === '') ? '—' : f(Number(v));
+    el.textContent = v === null ? '—' : f(Number(v));
   });
 
   function fail(el, d) {
@@ -845,7 +866,7 @@
     const tt = tip(el);
     const perfil = el.getAttribute('data-perfil');
     const prs = d.data.filter((r) => r.perfil === perfil);
-    if (!prs.length) return vacio(el);
+    if (!prs.length) return vacio(el, 'Aún no hay ítems puntuados: se miden en la auditoría.');
     prs.forEach((r) => {
       const pend = r.puntaje === null || r.puntaje === undefined || r.puntaje === '';
       const frac = pend ? 0 : r.puntaje / r.maximo;
@@ -932,11 +953,8 @@
 
   /* ---- textos desde datos ---- */
   reg('txt', (el) => {
-    const d = dash.data(el.getAttribute('data-source'));
-    const rows = d.status === 'ok' && Array.isArray(d.data) ? d.data : [];
-    const row = rows.length ? pickRow(el, rows) : null;
-    const v = row ? row[el.getAttribute('data-field')] : null;
-    el.textContent = (v === null || v === undefined || v === '') ? '—' : String(v);
+    const v = leerMarca(el).v;
+    el.textContent = v === null ? '—' : String(v);
   });
   const MESL = new Intl.DateTimeFormat('es', {month: 'long', year: 'numeric', timeZone: 'UTC'});
   dash.calc('semana_ultima', {
@@ -1397,9 +1415,8 @@
   const SF = d3.utcFormat('%d-%m-%Y');
   const semLabel = (s) => { const t = new Date(String(s) + 'T00:00:00Z'); return isNaN(t) ? String(s) : SF(t); };
   reg('semana', (el) => {
-    const d = dash.data(el.getAttribute('data-source'));
-    const row = d.status === 'ok' && Array.isArray(d.data) && d.data[0];
-    el.textContent = row ? semLabel(row[el.getAttribute('data-field')]) : '—';
+    const v = leerMarca(el).v;
+    el.textContent = v === null ? '—' : semLabel(v);
   });
 
   reg('cupos', (el) => {
@@ -2038,6 +2055,35 @@
       return li(n + ': ' + (x && x.porcentaje !== null ? fmt.int(x.porcentaje) + ' % de tu audiencia' : 'sin dato de audiencia') + ' · ' + fmt.int(k) + (k === 1 ? ' reunión agendada' : ' reuniones agendadas'));
     }));
   });
+  /* ==== Frases sin huecos ====
+     Ninguna frase ni ficha se muestra con un valor faltante en medio. Todo el texto está en el HTML; aquí solo se decide qué se ve (atributo hidden).
+     - data-fr: un trozo de frase completo. Se muestra solo si tienen valor todas sus marcas (las que no están dentro de otro data-fr)
+       y todo lo que pida en data-pide="fuente.campo fuente.campo@columna=valor" (fila 0 si no hay @; el valor va codificado como en data-where).
+       data-fr="bloque" es un contenedor: no mira las marcas de adentro, solo data-pide y data-pide-alguno (basta con que uno tenga valor).
+     - data-frases: agrupa los data-fr y su data-fr-vacio, la frase de estado vacío que se muestra cuando no se ve ninguno.
+       Con data-frases="una" se muestra solo el primer data-fr completo (alternativas, de más a menos datos).
+     - data-fr-falta="fuente.campo ...": pie que se muestra solo si falta alguno de esos valores (dice qué falta bajo una cifra en "—").
+     Un data-fr sin grupo se oculta si le falta algo. Mientras una fuente carga, la frase queda como está guardada. */
+  const pedidos = (txt) => String(txt || '').split(/\s+/).filter(Boolean).map((p) => { const m = /^([\w-]+)\.([\w-]+)(?:@(.+))?$/.exec(p); return m ? leer(m[1], m[2], m[3] ? null : 0, m[3] || null, false) : {v: null}; });
+  function estadoFr(el) {
+    const marcas = el.getAttribute('data-fr') === 'bloque' ? [] : (el.matches(MARCA) ? [el] : []).concat(Array.from(el.querySelectorAll(MARCA)).filter((m) => m.closest('[data-fr],[data-fr-vacio],[data-fr-falta]') === el));
+    const req = marcas.map(leerMarca).concat(pedidos(el.getAttribute('data-pide'))), alguno = pedidos(el.getAttribute('data-pide-alguno'));
+    if (req.concat(alguno).some((x) => x.pend)) return 'pend';
+    if (req.some((x) => x.v === null) || (alguno.length && alguno.every((x) => x.v === null))) return 'falta';
+    return 'ok';
+  }
+  dash.onData(() => {
+    const del = (g, sel) => Array.from(g.querySelectorAll(sel)).filter((e) => e.parentElement && e.parentElement.closest('[data-frases]') === g);
+    document.querySelectorAll('.hx [data-frases]').forEach((g) => {
+      const una = g.getAttribute('data-frases') === 'una';
+      let vistas = 0;
+      del(g, '[data-fr]').forEach((f) => { const ok = estadoFr(f) !== 'falta' && !(una && vistas > 0); f.hidden = !ok; if (ok) vistas++; });
+      del(g, '[data-fr-vacio]').forEach((v) => { v.hidden = vistas > 0; });
+    });
+    document.querySelectorAll('.hx [data-fr]').forEach((f) => { if (!f.closest('[data-frases]')) f.hidden = estadoFr(f) === 'falta'; });
+    document.querySelectorAll('.hx [data-fr-falta]').forEach((e) => { const r = pedidos(e.getAttribute('data-fr-falta')); e.hidden = r.some((x) => x.pend) || !r.some((x) => x.v === null); });
+  });
+
   document.querySelectorAll('#hx-cat').forEach((s) => s.addEventListener('change', () => dash.draw('aud')));
 })();
 </script>
