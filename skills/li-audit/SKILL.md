@@ -50,10 +50,19 @@ instead, and show the working:
 | **Engagement rate** | (reactions + comments + reposts) / impressions | whether the post earned its reach |
 | **Comment ratio** | comments / reactions | whether it started something or just got a nod |
 | **Reach multiple** | impressions / follower count | whether it travelled past the existing audience |
+| **Median multiple** | impressions / the median impressions of the posts in the audit | how far the post beat this account's normal post; this is the ranking key |
 | **Save/send rate** | if available | the strongest single predictor of future reach |
 
-Rank by engagement rate and reach multiple, not impressions. A post with 900
-impressions and 40 comments beat the one with 12,000 impressions and 6.
+Rank by the **median multiple**, and show the engagement rate beside it on the
+same line. Do not rank by engagement rate alone: it puts first a team photo
+with 150 impressions and a dozen reactions from colleagues. Do not rank by raw
+impressions either: the multiple already says how far a post went for this
+account, and the rate beside it says whether it earned that reach (a post at
+6x with a 0.4% rate travelled and started nothing).
+
+**Floor to enter the ranking: half the median impressions.** A post under
+that floor is not ranked, neither top nor bottom: list it apart ("under the
+floor") with its rate, because a rate over so few impressions is noise.
 
 ## Then find the pattern
 
@@ -75,16 +84,20 @@ say that instead of inventing one.
 ## Output
 
 ```
-AUDIT  ·  31 posts  ·  Jun 12 - Sep 5
+AUDIT  ·  31 posts  ·  Jun 12 - Sep 5  ·  median 1,800 imp  ·  floor 900 imp
 
-TOP 5 BY ENGAGEMENT RATE
-  8.1%  #3  Mistake      "$18,000 is what no contract cost me"      1,940 imp
-  6.4%  #20 Walk-Away    "I fired my highest-paying client"         2,210 imp
+TOP 5 BY MEDIAN MULTIPLE  (engagement rate beside it)
+  6.3x  0.4%  #5  List         "7 tools every founder needs"            11,400 imp
+  1.2x  6.4%  #20 Walk-Away    "I fired my highest-paying client"        2,210 imp
+  1.1x  8.1%  #3  Mistake      "$18,000 is what no contract cost me"     1,940 imp
   ...
 
 BOTTOM 5
-  0.4%  #5  List         "7 tools every founder needs"             11,400 imp
+  0.6x  0.9%  #14 Question     "What is your biggest challenge?"         1,050 imp
   ...
+
+UNDER THE FLOOR  (not ranked)
+  0.1x  9.3%  -   Team photo   "Great offsite with the team"               150 imp
 
 WHAT THE DATA SAYS
 1. Posts where you were the one who looked bad: mean 6.2% vs 1.1% for

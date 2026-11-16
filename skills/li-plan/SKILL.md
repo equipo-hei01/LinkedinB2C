@@ -74,6 +74,8 @@ timezone, Tuesday to Thursday, 7:30-9:30am local, is the working default, with
 Monday afternoon and Friday morning as the second tier. Weekends are for
 personal-story posts or nothing.
 
+> **Regla de la casa: el plan no lleva día ni hora.** No hay calendario (`kanban.md`): el plan da el **orden** y el **tipo** de cada pieza, y cada día sale la primera de "Lista para publicar". Lo de arriba sirve solo para aconsejar al usuario a qué hora le conviene publicar, si pregunta. Solo las piezas con fecha fija real (📌) llevan fecha.
+
 But state this plainly: **the day and hour matter far less than whether the
 first line is good.** If the user is optimising posting times before their
 hooks work, they are polishing the wrong thing, and you should say so.
@@ -97,21 +99,19 @@ are what makes the user's own post land.
 ## Output
 
 ```
-WEEK OF SEP 8
+WEEK OF SEP 8  (order and type; no day, no time)
 
-MON  engage only  (20 min, list below)
-TUE  8:15am  PROOF    #17 Time Anchor   - the 5hr -> 20min proposal rebuild
-WED  engage only
-THU  8:00am  OPINION  #1  Contrarian    - why we killed the discovery call
-FRI  8:30am  TEACH    #21 Direct Value  - the 4-line reopen email, given away
-SAT  -
-SUN  4:00pm  STORY    #9  Cold Open     - the "going with someone cheaper" email
+1  PROOF    #17 Time Anchor   - the 5hr -> 20min proposal rebuild
+2  OPINION  #1  Contrarian    - why we killed the discovery call
+3  TEACH    #21 Direct Value  - the 4-line reopen email, given away
+4  STORY    #9  Cold Open     - the "going with someone cheaper" email
+Engage every working day (20 min, list below)
 
 ENGAGE  (5 reach / 3 peers / 2 buyers)
   ...
 
-Say "write Tuesday" and I will draft it.
+Say "write 1" and I will draft it.
 ```
 
-Write the plan to `plan.md` in the working folder (see `../../datos/LEEME.md`) so the other skills can read it.
+Write the plan to `borradores/plan_<AAAA-MM-DD>.md` (the date of that week's Monday) in the working folder (see `../../datos/LEEME.md`) so the other skills can read it. It is the only plan file: there is no `plan.md`.
 Nothing is scheduled or posted anywhere - this is a plan, and the user runs it.

@@ -4,40 +4,43 @@
   "datasets": {
     "supuestos": {
       "title": "Supuestos y metas",
-      "description": "Configuración del tablero en una sola fila: metas, plan, próximo evento, ticket, tasa de cierre y moneda.",
+      "description": "Configuración del tablero en una sola fila: metas, plan, rampa, próximo evento (opcional), ticket, tasa de cierre, moneda, si hay página de empresa y colores de la marca (opcionales).",
       "columnas": {
         "meta_reuniones_semana": "meta de reuniones agendadas por semana (número)",
-        "meta_charlas_mes": "meta de charlas aceptadas o dadas por mes (número)",
+        "meta_charlas_mes": "meta de charlas aceptadas o dadas por mes (número, opcional); vacío o 0 y sin filas en charlas = el tablero oculta los bloques de charlas",
         "plan_inicio": "fecha de inicio del plan, AAAA-MM-DD (lunes)",
-        "plan_dias": "duración del plan en días (90 por defecto)",
-        "evento_nombre": "nombre del próximo evento o formación con cupos (texto, opcional)",
+        "plan_dias": "duración del plan en días (90 por defecto); de aquí salen las semanas del plan",
+        "rampa_semanas": "semana del plan en que la rampa ideal llega a la meta de reuniones (10 por defecto; nunca más que las semanas del plan)",
+        "evento_nombre": "nombre del próximo evento o formación con cupos (texto, opcional); vacío = el tablero oculta todo lo del evento",
         "evento_fecha": "fecha del evento, AAAA-MM-DD (opcional)",
         "evento_cupos": "cupos del evento (número, opcional)",
-        "ticket_promedio": "ticket promedio por proyecto, en la moneda indicada",
-        "tasa_cierre": "parte de las reuniones u oportunidades que termina en venta, de 0 a 1",
+        "ticket_promedio": "ticket promedio por proyecto, en la moneda indicada; si es null se usa el promedio de las ventas cerradas y, si tampoco hay, ticket_meta como 'ticket de referencia'",
+        "tasa_cierre": "parte de las reuniones u oportunidades que termina en venta, de 0 a 1; si es null el tablero no calcula dinero por reunión y dice que falta",
         "moneda": "código ISO de la moneda (USD, EUR, CLP, MXN...)",
         "ticket_meta": "meta de ticket promedio",
-        "ticket_meta_siguiente": "meta de ticket que sigue al lograr la primera (opcional)"
+        "ticket_meta_siguiente": "meta de ticket que sigue al lograr la primera (opcional)",
+        "sin_pagina": "true si no hay página de empresa; con true, y sin datos de página en ningún dataset, el tablero oculta los bloques de la página",
+        "color_acento": "color de acento de la marca, hex (#rrggbb), opcional; reemplaza el acento de la paleta neutra",
+        "color_acento2": "segundo color de la marca, hex (#rrggbb), opcional; reemplaza el color principal de las series del perfil"
       },
       "rows": [
-        { "meta_reuniones_semana": null, "meta_charlas_mes": null, "plan_inicio": "", "plan_dias": 90, "evento_nombre": "", "evento_fecha": "", "evento_cupos": null, "ticket_promedio": null, "tasa_cierre": null, "moneda": "USD", "ticket_meta": null, "ticket_meta_siguiente": null }
+        { "meta_reuniones_semana": null, "meta_charlas_mes": null, "plan_inicio": "", "plan_dias": 90, "rampa_semanas": 10, "evento_nombre": "", "evento_fecha": "", "evento_cupos": null, "ticket_promedio": null, "tasa_cierre": null, "moneda": "USD", "ticket_meta": null, "ticket_meta_siguiente": null, "sin_pagina": false, "color_acento": "", "color_acento2": "" }
       ]
     },
     "arquetipos": {
       "title": "Arquetipos de cliente",
       "description": "Una fila por arquetipo de decisión: quién es, qué le duele, qué busca y qué se le ofrece.",
       "columnas": {
-        "arquetipo": "nombre del arquetipo; debe coincidir con el usado en conv_arquetipo, citas_detalle y en la configuración del kanban",
+        "arquetipo": "nombre del arquetipo; debe coincidir con el usado en audiencia_arquetipos, conv_arquetipo, citas_detalle y en la configuración del kanban",
         "quien": "quién es (cargo y tipo de empresa)",
         "dolor": "qué le duele",
         "busca": "qué busca",
-        "oferta": "qué se le ofrece",
-        "campo_audiencia": "columna de audiencia_arquetipos que mide su peso en el público (por ejemplo alta_direccion_pct); vacío = s/d"
+        "oferta": "qué se le ofrece"
       },
       "rows": [
-        { "arquetipo": "Arquetipo A", "quien": "", "dolor": "", "busca": "", "oferta": "", "campo_audiencia": "" },
-        { "arquetipo": "Arquetipo B", "quien": "", "dolor": "", "busca": "", "oferta": "", "campo_audiencia": "" },
-        { "arquetipo": "Arquetipo C", "quien": "", "dolor": "", "busca": "", "oferta": "", "campo_audiencia": "" }
+        { "arquetipo": "Arquetipo A", "quien": "", "dolor": "", "busca": "", "oferta": "" },
+        { "arquetipo": "Arquetipo B", "quien": "", "dolor": "", "busca": "", "oferta": "" },
+        { "arquetipo": "Arquetipo C", "quien": "", "dolor": "", "busca": "", "oferta": "" }
       ]
     },
     "resumen": {
@@ -181,16 +184,16 @@
     },
     "posts_perfil": {
       "title": "Posts del perfil",
-      "description": "Los mejores posts del año y los últimos 15 del perfil personal, con su tipo.",
+      "description": "Los mejores posts del año y los últimos 15 del perfil personal, cada uno con su tipo.",
       "fixed": true,
-      "columnas": { "post": "primeras palabras del post", "grupo": "'Mejores del año' o 'Últimos 15'", "cuando": "fecha corta (por ejemplo '2 may')", "tipo": "tipo de post (Opinión, Historia, Caso de cliente, Invitación a conversar, Repost...; los mejores del año llevan tipo 'Mejores del año')", "impresiones": "impresiones", "interacciones": "interacciones (o null)", "reacciones": "reacciones (o null)", "comentarios": "comentarios (o null)", "reposts": "reposts (o null)" },
+      "columnas": { "post": "primeras palabras del post", "grupo": "'Mejores del año' o 'Últimos 15'; el promedio por tipo se calcula sin los del grupo 'Mejores del año', que quedan como referencia", "cuando": "fecha corta (por ejemplo '2 may')", "tipo": "tipo de post, con los mismos valores que usa el resto del plugin: contrario, noticia, lección, marco, caso o relación; el tablero muestra el valor que venga y deja cualquier otro al final", "impresiones": "impresiones", "interacciones": "interacciones (o null)", "reacciones": "reacciones (o null)", "comentarios": "comentarios (o null)", "reposts": "reposts (o null)" },
       "rows": []
     },
     "posts_pagina": {
       "title": "Posts de la página",
       "description": "Posts de la página de empresa del export de contenido, con su tipo.",
       "fixed": true,
-      "columnas": { "post": "primeras palabras del post", "cuando": "fecha corta", "tipo": "tipo de post", "impresiones": "impresiones", "clics": "clics", "reacciones": "reacciones", "comentarios": "comentarios", "compartidos": "compartidos" },
+      "columnas": { "post": "primeras palabras del post", "cuando": "fecha corta", "tipo": "tipo de post: contrario, noticia, lección, marco, caso, relación u otro; se muestra el valor que venga", "impresiones": "impresiones", "clics": "clics", "reacciones": "reacciones", "comentarios": "comentarios", "compartidos": "compartidos" },
       "rows": []
     },
     "audiencia": {
@@ -211,8 +214,8 @@
     },
     "audiencia_arquetipos": {
       "title": "Audiencia por arquetipo",
-      "description": "Por fecha de export, porcentaje estimado del público en cada grupo de decisión.",
-      "columnas": { "fecha": "fecha del export, AAAA-MM-DD", "decisores_pct": "% que toma decisiones (gerente o superior)", "alta_direccion_pct": "% de alta dirección", "empresas_1000_pct": "% en empresas de más de 1.000 personas", "rrhh_pct": "% de personas y RR. HH.", "sin_decision_pct": "% sin rol de decisión" },
+      "description": "Por fecha de export, una fila por arquetipo: qué porcentaje estimado del público calza con cada arquetipo del dataset arquetipos, más una fila 'Fuera del público'.",
+      "columnas": { "fecha": "fecha del export, AAAA-MM-DD", "arquetipo": "nombre del arquetipo, igual que en el dataset arquetipos, o exactamente 'Fuera del público' para quien no calza con ninguno", "porcentaje": "porcentaje estimado del público (número, 35 = 35 %); idealmente las filas de una misma fecha suman 100" },
       "rows": []
     },
     "ventas": {

@@ -30,9 +30,9 @@ posted it.
 
 Lee de la carpeta de trabajo: `marca.md`, `arquetipos.md`, la voz que corresponda (`voz-persona.md` o `voz-empresa.md`), `ofertas.md`, `pruebas.md` y `entregables.md`.
 
-- **Pieza:** búscala en la fila del kanban (reglas en `kanban.md` de la carpeta de trabajo; plantilla en `../../datos/kanban.md`). Si no existe, créala en "Ideas" o "En preparación" con su puntaje. No hay fechas, salvo las 📌 reales.
+- **Pieza:** búscala en la fila del kanban (reglas en `kanban.md` de la carpeta de trabajo; plantilla en `../../datos/kanban.md`). Si no existe, créala en "Ideas" o "En preparación" con su puntaje. No hay fechas ni horas de publicación, salvo las 📌 reales: el plan da el orden y el tipo de cada pieza.
 - **Prueba:** usa solo lo que está en `pruebas.md`. Las citas van textuales. Si falta una prueba, pídela; nunca la inventes.
-- **Palabra clave por arquetipo:** si el llamado es comentar, usa la palabra clave del arquetipo en `entregables.md` (en los ejemplos, `PALABRA`). Anota la palabra clave en el campo `cta` de la pieza del kanban.
+- **Palabra clave por arquetipo:** si el llamado es comentar, usa la palabra clave del arquetipo en `entregables.md` (en los ejemplos, `PALABRA`). Anota la palabra clave en el campo `cta` de la pieza del kanban. **Mientras el entregable de ese arquetipo esté "Por armar" en `entregables.md`, el post no lleva palabra clave: cierra con una pregunta** (y `cta` lleva esa pregunta). La palabra clave vuelve cuando el entregable esté "Listo".
 - **Lo que rinde afuera:** lee solo la sección "Esta semana" de `radar.md` (la escribe `radar-nicho-li` los lunes) y prefiere un formato y una fórmula que estén rindiendo, si calzan con la idea.
 - **Oferta:** como máximo una de `ofertas.md`, la del arquetipo elegido y no vencida. El link va en el primer comentario, nunca en el texto, con UTM: `?utm_source=linkedin&utm_medium=<perfil|pagina>&utm_content=<AAAA-MM-DD-tema>`.
 - **Firma de contraste:** si `voz-persona.md` dice que el usuario usa el contraste como recurso propio ("No dice X. Dice Y.", "No fue X. Fue Y."), puede ir una vez por post. El humanizador lo permite una vez; desde la segunda, reescribe.
@@ -71,7 +71,7 @@ Lee de la carpeta de trabajo: `marca.md`, `arquetipos.md`, la voz que correspond
 
 ## Gancho con script (ahorra tokens)
 
-Antes de elegir entre los tres ganchos, córrelos por `hookscore.py` de esta carpeta (un gancho por línea en un archivo, o `--hook "..."`; en Windows, `python -X utf8`). Mide largo (5 a 12 palabras, sin punto final, menos de 140 caracteres), algo concreto, tensión, la palabra fuerte adelante y a quién le habla. El script no predice alcance.
+Antes de elegir entre los tres ganchos, córrelos por `hookscore.py` de esta carpeta: `python -X utf8 <base de esta skill>/hookscore.py ganchos.txt` (un gancho por línea) o `python -X utf8 <base de esta skill>/hookscore.py --hook "..."`. Mide largo (5 a 12 palabras, sin punto final, menos de 140 caracteres), algo concreto, tensión, la palabra fuerte adelante y a quién le habla. El script no predice alcance.
 
 **El script avisa, no decide.** Está calibrado para LinkedIn B2B en español: reconoce el contraste ("No fue innovación. Fue tranquilidad" sale STRONG), cargos y escenas de empresa, el tuteo y las negritas Unicode. Si en la carpeta de trabajo hay un archivo `nicho.txt` (una palabra o frase por línea: cargos, escenas y términos del nicho del usuario), pásalo con `--nicho <ruta>` para que también los cuente como concretos. Pero no sabe si una frase tiene sentido: un gancho absurdo con una cifra puede sacar más que uno bueno. Úsalo así:
 - Lo que vale siempre del script: largo, punto final, aperturas de relleno ("Hoy quiero compartir", "Estoy feliz de"), saludo, hashtag o emoji en la línea 1. Eso se corrige siempre.
@@ -92,7 +92,7 @@ The turn   one line that reframes what came before.
 Close      one specific question, or one instruction. Never both.
 ```
 
-> **Regla de la casa: forma que suma alcance y confianza** (10 videos de LinkedIn, nov 2026)
+> **Regla de la casa: forma que suma alcance y confianza**
 > - **Una idea por post.** Si caben dos, son dos posts.
 > - **Gancho de una sola línea en el celular, y re-gancho en la línea 2.** LinkedIn muestra unas 3 líneas, contando la línea en blanco: si el gancho ocupa 2 líneas, el re-gancho queda bajo el "ver más". En español las frases son más largas, así que cuenta en el celular.
 > - **Señal de credibilidad:** media frase que diga cómo lo sabe el usuario (años en el oficio, trabajos hechos, el tipo de cliente), cerca del gancho y una o dos veces en el cuerpo. Solo datos de `marca.md` o `pruebas.md`.
@@ -110,17 +110,20 @@ Close      one specific question, or one instruction. Never both.
 > | Marco | valor | nombre recordable → 3 a 5 pasos → una línea por paso. Es el que más se guarda |
 > | Relación | conversación | una postura → una pregunta real que revele un problema que la marca resuelve, o "trabajo con [cargo], ¿te pasa esto?" |
 
-Length: 900-1,300 characters is the working range for a text post. Under 400
-reads as a thought, not a post. Over 2,000 needs to earn every line, and the
-"see more" tap has to be paid for by line 2.
+**Length (la única regla de largo del plugin; las voces, los agentes y las
+tareas remiten a esta):** 900 to 1,300 characters, about 150 to 220 words, for
+a text post, on the profile and on the page. Under 400 characters reads as a
+thought, not a post. Go over 1,300 only when the user asks for it, and then
+every line has to earn its place and the "see more" tap has to be paid for by
+line 2.
 
 ## Post de método (cuando el usuario comparte un proceso suyo)
 
-Para un post de pasos (fuente: post de David Ibáñez, nov 2026):
+Para un post de pasos:
 - **Solo los pasos que el usuario dio.** No agregues, no inventes ni completes pasos; si falta uno, pregúntalo.
 - **Entrada de 2 líneas** con el problema dicho como lo diría el cliente ideal (sus palabras, no las del usuario).
 - **Cada paso empieza con un verbo** y se puede aplicar en las próximas 24 horas.
-- **Máximo 250 palabras**, y un solo llamado: guardarlo, seguir al usuario o la palabra clave, no varios.
+- **El largo de la regla general** (900 a 1.300 caracteres), y un solo llamado: guardarlo, seguir al usuario o la palabra clave, no varios.
 
 ## The loop
 
@@ -142,7 +145,7 @@ y conviértelo **después** de `/li-human`, porque el detector mide el texto
 plano:
 
 ```
-python3 <base de esta skill>/bold.py borrador.txt -o listo.txt
+python -X utf8 <base de esta skill>/bold.py borrador.txt -o listo.txt
 ```
 
 Reglas para que sume y no reste:
@@ -152,7 +155,7 @@ Reglas para que sume y no reste:
 - **Cursiva** solo para una palabra irónica o un término en inglés, como mucho una vez.
 - Tildes y ñ quedan como letra en negrita + tilde combinada (á = 𝗮 + ´). Se ven bien en web, iOS y Android; igual revisa la vista previa de LinkedIn antes de programar.
 - Comentarios, respuestas y DMs van **sin** negritas Unicode.
-- Para quitar el formato: `bold.py listo.txt --plain`.
+- Para quitar el formato: `python -X utf8 <base de esta skill>/bold.py listo.txt --plain`.
 
 **3c. Puntúa (siempre).** Lee `../../puntaje.md` y puntúa el borrador:
 hook, viralidad y alcance para cada arquetipo de `arquetipos.md` (0-10 cada
@@ -171,7 +174,7 @@ arquetipo: Decisor
 length:    1,140 characters
 humanizer: 6 artefacts stripped, human score 84 PASS
 formato:   2 resaltados Unicode (gancho y giro)
-post at:   Tuesday 8:15am (from your plan)
+orden:     2 de 4 en el plan de la semana (sin día ni hora: sale cuando sea la primera en "Lista para publicar")
 
 PUNTAJE (estimación, no predicción)
 hook:      8/10  específico 2 · tensión 2 · corto 2 · para alguien 1 · se entiende 1
@@ -202,7 +205,8 @@ estimated scores (hook, viralidad, alcance por arquetipo), so `/li-audit` has a 
   links. Put the link in the first comment and say so in the receipt.
 - **Never fabricate.** No invented metrics, clients, revenue figures or
   outcomes under the user's name, even as a placeholder. If a number is
-  needed and unknown, leave `{{your number}}` in the draft and flag it.
+  needed and unknown, leave `[TU DATO]` in the draft and flag it (the two markers are defined in
+  `../../datos/LEEME.md`).
 - **Never mix brands.** Nothing from the `marcas_que_no_se_mezclan` in
   `marca.md` goes into this content.
 

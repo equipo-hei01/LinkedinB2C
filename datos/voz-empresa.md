@@ -24,7 +24,7 @@ Hay un ejemplo lleno en `ejemplo/voz-empresa.md` (empresa ficticia).
 - **Humor:** por defecto, ninguno en la página (ver el campo `humor` de `marca.md`).
 - **Emoji:** [nunca / uno, rara vez]
 
-Regla general: evidencia antes que adjetivos. Cada afirmación fuerte lleva una cifra o un caso de `pruebas.md`, o un `{{tu cifra}}` para completar.
+Regla general: evidencia antes que adjetivos. Cada afirmación fuerte lleva una cifra o un caso de `pruebas.md`, o un `[TU DATO]` para completar.
 
 ## 3. Largo de frases y ritmo (reglas generales)
 
@@ -45,7 +45,7 @@ Regla general: evidencia antes que adjetivos. Cada afirmación fuerte lleva una 
 
 ## 5. Formato del post (reglas generales)
 
-- **Largo:** 150 a 250 palabras (900 a 1.300 caracteres). Una sola idea.
+- **Largo:** 900 a 1.300 caracteres, unas 150 a 220 palabras (la regla de largo de `/li-post`, que es la única). Una sola idea.
 - **Gancho:** primera línea de máximo 12 palabras, sin punto final, que se entiende sola.
 - **Párrafos:** máximo 3 líneas seguidas, con aire entre párrafos. Viñetas solo en posts didácticos o de lista.
 - **Negritas Unicode:** solo si `negritas_unicode` de `marca.md` es "sí": hasta 3 resaltados por post, con `skills/li-post/bold.py`. Nunca en nombres, empresas, hashtags, firma ni en la palabra clave a comentar.
@@ -87,7 +87,7 @@ Lo que hace: [gancho · estructura · prueba · cierre]
 - [ ] ¿Está en "nosotros" y con el `tratamiento` correcto?
 - [ ] ¿El cliente es el protagonista y la marca quien acompaña?
 - [ ] ¿Ordena el problema o solo lo describe?
-- [ ] ¿Cada afirmación fuerte tiene su prueba de `pruebas.md` o un `{{tu cifra}}`?
+- [ ] ¿Cada afirmación fuerte tiene su prueba de `pruebas.md` o un `[TU DATO]`?
 - [ ] ¿Evita las palabras que nunca usa, la urgencia falsa y los conectores de manual?
 - [ ] ¿Una sola idea, un solo llamado, sin humor?
 - [ ] Si es post: ¿termina con la `firma_empresa` y los `hashtags` de `marca.md`?

@@ -1,6 +1,6 @@
 # Banco de pruebas
 
-Solo evidencia real y autorizada. Las citas se copian **textuales**: no se resumen ni se "mejoran". Si una prueba no está aquí, no se usa: en el borrador va `{{tu cifra}}` o `[caso real: …]` y se le pide al usuario.
+Solo evidencia real y autorizada. Las citas se copian **textuales**: no se resumen ni se "mejoran". Si una prueba no está aquí, no se usa: en el borrador va `[TU DATO]` (una cifra) o `[verificar: …]` (un caso) y se le pide al usuario.
 
 ## Hechos que el usuario puede firmar
 

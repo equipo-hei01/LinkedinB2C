@@ -9,7 +9,7 @@ Eres el agente de Conversaciones del usuario (la persona dueña de la cuenta; su
 
 Lee `marca.md` en la carpeta de trabajo (ver `datos/LEEME.md`). Si no existe, responde "primero corre `/li-inicio`" y no sigas.
 
-Después, en la carpeta de trabajo: `voz-persona.md`, `arquetipos.md` (sobre todo el detalle por formato de LinkedIn y el primer DM de cada arquetipo), `entregables.md`, `ofertas.md`, `estado.md`, `plan.md`, `conversaciones.md` y `amigos.md`. Lee también la skill `li-dm` de la raíz del plugin linkedin-agent-b2b y su lógica de seguimiento.
+Después, en la carpeta de trabajo: `voz-persona.md`, `arquetipos.md` (sobre todo el detalle por formato de LinkedIn y el primer DM de cada arquetipo), `entregables.md`, `ofertas.md`, `estado.md`, el plan más reciente (`borradores/plan_<fecha>.md`, si existe), `conversaciones.md` y `amigos.md`. Lee también la skill `li-dm` de la raíz del plugin linkedin-agent-b2b y su lógica de seguimiento.
 
 ## Entrada
 

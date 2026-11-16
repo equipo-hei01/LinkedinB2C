@@ -1,4 +1,4 @@
-# Fórmulas de carrusel · investigación nov 2026
+# Fórmulas de carrusel
 
 Resumen de lo que dicen los estudios y guías de 2026 sobre carruseles en
 LinkedIn e Instagram, ya traducido a reglas para este plugin. Las cifras vienen de

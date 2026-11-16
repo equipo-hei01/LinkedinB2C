@@ -13,8 +13,8 @@ La copia viva está en la carpeta de trabajo (ver `LEEME.md`). Esta es la planti
 | `que_hace` | Una frase: a quién ayuda, a lograr qué, con qué método |
 | `metodo` | Nombre y pasos del método propio, en orden (si lo hay) |
 | `pais` | País o países donde vende |
-| `zona_horaria` | Por ejemplo `America/Santiago` |
-| `idioma` | Español (variante: Chile, México, España, neutro…) |
+| `zona_horaria` | Nombre IANA, por ejemplo `America/Bogota` o `Europe/Madrid` |
+| `idioma` | Español (variante: la del país del usuario, o neutro) |
 | `perfil_url` | URL del perfil personal de LinkedIn |
 | `pagina_url` | URL de la página de empresa (vacío si no hay) |
 | `sitio_web` | URL |
@@ -52,8 +52,13 @@ Los arquetipos (1 a 4 tipos de cliente) viven en `arquetipos.md`: nombre, cargos
 | Campo | Valor |
 | --- | --- |
 | `meta_reuniones_semana` | Reuniones por semana que quiere desde LinkedIn |
-| `ticket_meta` | Valor de una venta típica (con moneda) |
-| `moneda` | CLP, MXN, USD, EUR… |
+| `reuniones_hoy_semana` | Reuniones por semana que tiene hoy desde LinkedIn (la línea base; 0 si ninguna) |
+| `tasa_cierre` | Aproximada: de cada 10 reuniones, cuántas terminan en venta (por ejemplo "2 de 10") |
+| `ticket_meta` | Valor de una venta típica de las que quiere lograr (con moneda) |
+| `ticket_promedio` | Valor promedio de sus ventas actuales, si lo sabe (con moneda); si no, `[verificar]` |
+| `moneda` | USD, EUR, MXN, COP, CLP, PEN, ARS… |
+| `meta_charlas_mes` | Charlas por mes que quiere dar (0 si no aplica) |
+| `plan_inicio` | Fecha de inicio del plan, `AAAA-MM-DD` (por defecto, el lunes siguiente al inicio). Desde aquí se cuenta la "semana N" |
 | `cadencia` | Posts por semana en el perfil y en la página |
 | `minutos_dia` | Tiempo diario que el usuario le dedica |
 

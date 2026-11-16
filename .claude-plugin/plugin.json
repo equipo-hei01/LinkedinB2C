@@ -1,7 +1,7 @@
 {
   "name": "linkedin-agent-b2b",
   "description": "LinkedIn de punta a punta para profesionales y empresas B2B en español: inicio guiado (/li-inicio), estratega diario (/li-estratega), rutina programada (/li-rutina), dos voces (perfil y página), arquetipos de cliente propios, kanban de contenido, radar del nicho, conversaciones y cierre de reuniones, tablero semanal y humanizador. Nada se publica ni se envía sin tu aprobación.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "[AUTOR]"
   },

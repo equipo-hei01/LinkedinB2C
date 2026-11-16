@@ -22,7 +22,7 @@ Reglas:
 
 ## DM de entrega (voz del perfil, una base por palabra clave; cambia el nombre y una frase para que ninguno sea igual)
 
-Forma de todo DM de entrega: el `saludo_dm` de `marca.md`, **primero el link**, después **una sola pregunta diagnóstica**; máximo 3 líneas; sin propuesta de llamada, sin hablar de los servicios y sin cerrar con "cualquier cosa me dices", "quedo atenta" ni parecidos.
+Forma de todo DM de entrega: el `saludo_dm` de `marca.md`, **primero el link**, después **una sola pregunta diagnóstica**; máximo 3 líneas; sin propuesta de llamada, sin hablar de los servicios y sin cerrar con "cualquier cosa me dices", "quedo pendiente" ni parecidos.
 
 **EJEMPLO · GUIA** (bórralo y escribe una base por cada palabra clave)
 > Hola [nombre], gracias por comentar. Aquí van las 5 señales de que un proceso depende de una sola persona: [link]

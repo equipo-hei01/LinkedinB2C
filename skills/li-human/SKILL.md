@@ -9,9 +9,9 @@ Two tools live in this folder and they both actually run. Use them. Do not
 eyeball this.
 
 ```bash
-python3 humanize.py draft.txt --report        # clean it, show what changed
-python3 detect.py draft.txt                    # score it, five checks
-python3 detect.py before.txt after.txt         # prove the delta
+python -X utf8 humanize.py draft.txt --report        # clean it, show what changed
+python -X utf8 detect.py draft.txt                    # score it, five checks
+python -X utf8 detect.py before.txt after.txt         # prove the delta
 ```
 
 Both read `slop.json`, which is the lexicon: 100+ stock words and phrases with
@@ -44,7 +44,7 @@ words per sentence, max 1-2 connectives per paragraph, at least one short
 sentence per paragraph.
 
 Run the scripts with the full path, from any folder:
-`python3 <this skill's base directory>/humanize.py draft.txt --report`.
+`python -X utf8 <this skill's base directory>/humanize.py draft.txt --report`.
 
 ## What gets fixed automatically
 
@@ -110,9 +110,9 @@ behalf, and do not tell a user their text is undetectable.
 
 ## Order of operations
 
-1. `humanize.py draft.txt -o clean.txt --report`
+1. `python -X utf8 humanize.py draft.txt -o clean.txt --report`
 2. Read the structural flags. Rewrite those lines yourself.
-3. `detect.py draft.txt clean.txt` to show the before and after.
+3. `python -X utf8 detect.py draft.txt clean.txt` to show the before and after.
 4. If the verdict is not PASS, fix the weakest check named in the output and
    go again. Two rounds is normal. Five means the draft was written by
    formula, and the fix is a different draft, not more passes.

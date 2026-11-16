@@ -96,7 +96,7 @@ LinkedIn restringe las cuentas con actividad automatizada. Por eso el plugin sig
 - **Lectura mínima:** una visita de solo lectura a LinkedIn por tarea, sin recorrer perfiles en serie.
 - **Si aparece una advertencia o un captcha, todo se detiene** y se te avisa.
 - **Sin correos ni teléfonos** de otras personas en archivos, tableros ni planillas.
-- **Nada inventado:** ningún caso, cifra, cliente ni testimonio que no esté en tu `pruebas.md`. Si falta un dato, el borrador vuelve con `{{tu cifra}}` y una pregunta.
+- **Nada inventado:** ningún caso, cifra, cliente ni testimonio que no esté en tu `pruebas.md`. Si falta un dato, el borrador vuelve con `[TU DATO]` y una pregunta.
 - **Amigos y cercanos** reciben un mensaje cercano, no el comercial.
 
 Los cinco chequeos del humanizador son heurísticas locales: corren en tu equipo, no llaman a ningún detector y no prometen el veredicto de ninguno.
@@ -113,3 +113,7 @@ Los cinco chequeos del humanizador son heurísticas locales: corren en tu equipo
 Este plugin se basa en [linkedin-agent](https://github.com/Jakeschincariol/linkedin-agent-skill) de Jake Schincariol, publicado con licencia MIT. De ahí vienen las fórmulas de gancho, la rúbrica del perfil y el humanizador, que aquí se ampliaron al español.
 
 Licencia MIT. Ver `LICENSE`.
+
+## Referencias
+
+Algunas reglas de la casa (el titular, los destacados, la experiencia y el banner del perfil, los mensajes y sus seguimientos, y la forma de los posts) se inspiran en publicaciones de David Ibáñez y Luis Garau sobre LinkedIn para B2B en español, y en videos públicos de otros creadores que enseñan LinkedIn. Aquí están reescritas y adaptadas: lo que diga este plugin es responsabilidad del plugin, no de esas personas.

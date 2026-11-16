@@ -58,7 +58,7 @@ Pick by what the post actually is. Never default to type 1.
 ## Rules
 
 - **2 to 4 sentences.** Longer reads as a hijack. Shorter reads as filler.
-- **Regla de la casa, método 1 + 3** (10 videos de LinkedIn, nov 2026): además del comentario principal, hasta 3 respuestas cortas a clientes ideales que ya comentaron en ese post.
+- **Regla de la casa, método 1 + 3**: además del comentario principal, hasta 3 respuestas cortas a clientes ideales que ya comentaron en ese post.
 - **Never open with "Great post"**, "Love this", "So true", "Couldn't agree
   more", "This resonates", or the author's first name followed by an
   exclamation mark. All six are invisible.

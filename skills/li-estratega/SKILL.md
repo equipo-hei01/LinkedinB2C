@@ -147,7 +147,8 @@ Todo el sistema vive en **una sola** carpeta de trabajo, la que define `../../da
    `ESTADO` completo en un bloque de código y pide al usuario que lo pegue al
    comenzar la próxima sesión.
 
-Archivos: `estado.md` (este coordinador), `plan.md` (`/li-plan`), `log.md`
+Archivos: `estado.md` (este coordinador), `borradores/plan_<fecha>.md` (el plan
+de la semana; vale el más reciente), `log.md`
 (`/li-post`). Al empezar cualquier sesión, lee los que existan. Formato de
 `estado.md`:
 
@@ -160,7 +161,7 @@ perfiles: perfil personal / página de empresa
 tiempo_diario: N minutos
 ultimo_audit: AAAA-MM-DD
 ultimo_profile: AAAA-MM-DD (puntaje personal / página)
-lista_engage: (10 personas, ver plan.md)
+lista_engage: (10 personas, ver el plan más reciente en borradores/)
 hecho_hoy: ...
 siguiente_paso: ...
 aprendizajes: (lo que el audit dice que funciona y lo que hay que dejar)
@@ -168,7 +169,7 @@ aprendizajes: (lo que el audit dice que funciona y lo que hay que dejar)
 
 ## Al abrir cada sesión
 
-1. Lee `marca.md`, `estado.md`, `plan.md` y `log.md` si existen. Mira la fecha y el día de la semana de hoy.
+1. Lee `marca.md`, `estado.md`, el plan más reciente (`borradores/plan_<fecha>.md`) y `log.md` si existen. Mira la fecha y el día de la semana de hoy.
 2. Saluda en una línea y di dónde está el usuario: fase, semana y qué quedó pendiente.
 3. Muestra **la agenda de hoy** (de la rutina de abajo), con minutos estimados y la voz de cada paso, en este formato (ejemplo):
 
@@ -177,8 +178,8 @@ aprendizajes: (lo que el audit dice que funciona y lo que hay que dejar)
 
    1. Qué enviaste o publicaste ayer (2 min) · actualizo embudo y kanban
    2. Pegar los 6 comentarios de comentarista-li (10 min) · voz-persona
-   3. Publicar el post de opinión, 8:30 (ya está escrito) · voz-persona
-   4. Aprobar las respuestas que deje respuestas-li a las 9:15 · voz-persona
+   3. Publicar el post de opinión, el primero de "Lista para publicar" (ya está escrito) · voz-persona
+   4. Aprobar las respuestas que deje respuestas-li 45 minutos después de publicar · voz-persona
 
    ¿Partimos por el 1?
    ```
@@ -201,7 +202,7 @@ Sin ese inicio completo, el estratega deriva a `/li-inicio` (ver "Antes de nada"
 Primero la evidencia, después la estrategia. Si `/li-inicio` ya dejó hechos la auditoría o el puntaje del perfil, no los repitas: léelos y pasa a lo que falte.
 
 1. **`/li-audit`** del perfil personal, y de la página si existe. Con el export o con los posts pegados. Si el usuario no tiene historial, dilo y salta al paso 2: el audit se hará cuando haya cuatro semanas de datos propios.
-2. **`/li-profile`** del perfil personal (titular, acerca de, destacados), con `voz-persona`. Si hay página de empresa, revisa su descripción con `voz-empresa` usando la misma rúbrica, adaptada.
+2. **`/li-profile`** del perfil personal (titular, acerca de, destacados), con `voz-persona`. Si hay página de empresa, puntúala con la rúbrica de página (`../li-profile/rubric-pagina.json`, 100 puntos; ver "Página de empresa" en `/li-profile`) y reescribe su eslogan y su descripción con `voz-empresa`.
 3. Cierra la fase con un resumen de 6 líneas en `estado.md`, campo `aprendizajes`: 3 cosas para hacer más y 3 para dejar de hacer, cada una con la evidencia del audit.
 
 ### Fase 2 · Estrategia
@@ -245,7 +246,7 @@ Cada post publicado se anota en `log.md` con su voz.
 
 ### Fase 4 · Revisión (cada 4 semanas y cada 90 días)
 
-- **Cada 4 semanas:** la hace `auditor-li` (primer lunes del mes). En vivo, el estratega solo lee su resultado con el usuario y decide con él o ella qué cambiar en la cadencia, los temas y la lista de cuentas objetivo. Escribe en `aprendizajes` qué cambió y por qué.
+- **Cada 4 semanas:** la hace `auditor-li` (primer lunes del mes). En vivo, el estratega solo lee su resultado con el usuario y decide con el usuario qué cambiar en la cadencia, los temas y la lista de cuentas objetivo. Escribe en `aprendizajes` qué cambió y por qué.
 - **Cada 90 días:** contrasta con las metas de `marca.md`. Si la meta eran reuniones, cuenta cuántas salieron de LinkedIn. Propón seguir, ajustar o cambiar de foco, con una recomendación clara. Si la meta cambia, se corrige en `marca.md` con el sí del usuario.
 
 ## Cómo acompaña

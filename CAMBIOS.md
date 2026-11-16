@@ -1,5 +1,14 @@
 # Cambios
 
+## 1.0.1
+Correcciones después de la primera prueba de punta a punta de `/li-inicio` con una marca ficticia:
+- `/li-inicio`: lee quién interactuó, pregunta todo lo que el tablero necesita (tasa de cierre, reuniones actuales, charlas, inicio del plan), arma un primer entregable, siembra `resumen` y cierra cada paso con un solo sí.
+- Tablero: audiencia por los arquetipos de cada usuario, ticket de referencia, rampa configurable, secciones de evento, charlas y página opcionales, colores de la marca, paneles vacíos compactos y siembra en 7 llamadas.
+- Rúbrica nueva para la página de empresa (`rubric-pagina.json`) y nombres en español de la rúbrica del perfil.
+- Una sola regla de largo del post; sin días ni horas fijas de publicación; un solo archivo de plan; dos marcadores de dato faltante (`[verificar]` y `[TU DATO]`).
+- Los scripts ya no fallan con tildes en Windows; `hookscore.py` sin modismos de un solo país.
+- Mientras un entregable esté "Por armar", el post de ese arquetipo cierra con una pregunta. Las ideas del inicio no cuentan para el límite semanal.
+
 ## 1.0.0
 
 Primera versión de `linkedin-agent-b2b`: LinkedIn de punta a punta para profesionales y empresas B2B de habla hispana, configurable con los datos de cada usuario.

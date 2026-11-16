@@ -87,8 +87,13 @@ Los arquetipos (Decisor, Implementador y Cuidador) viven en `arquetipos.md`. Las
 | Campo | Valor |
 | --- | --- |
 | `meta_reuniones_semana` | 4 |
-| `ticket_meta` | 350,000 MXN por proyecto |
+| `reuniones_hoy_semana` | 1 |
+| `tasa_cierre` | 2 de 10 |
+| `ticket_meta` | 350,000 MXN por proyecto (el valor de una venta típica de las que quiere lograr) |
+| `ticket_promedio` | 210,000 MXN por proyecto (el promedio de sus ventas de los últimos 12 meses) |
 | `moneda` | MXN |
+| `meta_charlas_mes` | 1 |
+| `plan_inicio` | 2025-03-10 (el lunes siguiente al inicio) |
 | `cadencia` | 3 posts por semana en el perfil y 1 en la página |
 | `minutos_dia` | 30 |
 

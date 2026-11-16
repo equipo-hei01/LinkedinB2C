@@ -9,7 +9,7 @@ Lo leen todas las skills de escritura **antes** de escribir, junto con `marca.md
 1. **Un arquetipo por pieza.** Si Ana no lo dice, infiérelo del tema o del cargo del lector y dilo como supuesto.
 2. **El cliente es el héroe; Norte Consultores es el mentor** que da el mapa. Nunca la marca como protagonista.
 3. **Reparto vigente:** ver "Reparto del contenido". Si cambia, se cambia solo ahí.
-4. **Nunca inventes** casos, métricas, nombres ni testimonios. Si falta evidencia, usa los datos de mercado con fuente o deja `[caso real: …]`.
+4. **Nunca inventes** casos, métricas, nombres ni testimonios. Si falta evidencia, usa los datos de mercado con fuente o deja `[verificar: …]`.
 5. Al entregar, nombra el arquetipo en el recibo (`arquetipo: Decisor`).
 6. Los valores del campo `arq` del kanban son `Decisor`, `Implementador`, `Cuidador` y `Pares`.
 

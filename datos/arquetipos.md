@@ -11,7 +11,7 @@ Hay un ejemplo lleno en `ejemplo/arquetipos.md` (empresa ficticia, con los arque
 1. **Un arquetipo por pieza.** Si el usuario no lo dice, infiérelo del tema o del cargo del lector y dilo como supuesto. Un mensaje para todos no le habla a nadie.
 2. **El cliente es el héroe; la marca es el mentor** que da el mapa. Nunca la marca como protagonista.
 3. **Reparto vigente (la única fuente; los demás archivos citan esta línea):** ver la sección "Reparto del contenido" de abajo. Si cambia, se cambia solo ahí.
-4. **Nunca inventes** casos, métricas, nombres ni testimonios. Si falta evidencia, usa los datos de mercado con fuente (al final de este archivo o en `pruebas.md`) o deja `[caso real: …]`.
+4. **Nunca inventes** casos, métricas, nombres ni testimonios. Si falta evidencia, usa los datos de mercado con fuente (al final de este archivo o en `pruebas.md`) o deja `[verificar: …]`.
 5. Al entregar, nombra el arquetipo en el recibo (`arquetipo: <nombre>`).
 6. Los nombres de los arquetipos son los que el usuario puso aquí. Son los valores del campo `arq` del kanban, más `Pares`.
 

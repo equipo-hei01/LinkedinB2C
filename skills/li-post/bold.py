@@ -2,10 +2,10 @@
 """Negritas y cursivas Unicode para LinkedIn (LinkedIn no tiene formato propio).
 
 Uso:
-  python3 bold.py post.txt                # convierte **texto** a negrita y *texto* a cursiva
-  python3 bold.py post.txt -o listo.txt
-  python3 bold.py --text "Texto suelto" --style bold
-  python3 bold.py post.txt --plain        # quita el formato (vuelve a letras normales)
+  python -X utf8 bold.py post.txt                # convierte **texto** a negrita y *texto* a cursiva
+  python -X utf8 bold.py post.txt -o listo.txt
+  python -X utf8 bold.py --text "Texto suelto" --style bold
+  python -X utf8 bold.py post.txt --plain        # quita el formato (vuelve a letras normales)
 
 Estilos: bold (sans negrita), italic (sans cursiva), bolditalic.
 Tildes y ñ: la letra base va en negrita y la tilde se agrega como marca
@@ -14,6 +14,14 @@ pero conviene revisar la vista previa antes de publicar.
 Correr SIEMPRE después de /li-human: el detector de IA mide el texto plano.
 """
 import argparse, re, sys, unicodedata
+
+# Windows: la consola no siempre es UTF-8. Sin esto, las tildes salen rotas o
+# el script cae con UnicodeEncodeError si se corre sin `-X utf8`.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 BASES = {  # (mayúscula A, minúscula a, dígito 0 o None)
     "bold": (0x1D5D4, 0x1D5EE, 0x1D7EC),
@@ -61,7 +69,7 @@ def main():
     if a.plain: res = plain(src)
     elif a.text is not None: res = stylize(src, a.style)
     else: res = convert(src)
-    if a.out: open(a.out, "w", encoding="utf-8").write(res); print("wrote", a.out)
+    if a.out: open(a.out, "w", encoding="utf-8", newline="\n").write(res); print("wrote", a.out)
     else: sys.stdout.write(res)
 
 if __name__ == "__main__":

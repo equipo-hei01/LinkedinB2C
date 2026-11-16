@@ -23,7 +23,7 @@ Ana Pérez hablando como persona, desde su perfil personal ("yo"). Se lee despu�
 - **Emoji:** casi nunca; como mucho uno, y nunca cohetes ni fuego.
 - **Groserías:** no.
 
-Si falta la anécdota, deja `[anécdota real: dónde/con quién/qué pasó]` y pídesela a Ana.
+Si falta la anécdota, deja `[verificar: anécdota real, dónde, con quién y qué pasó]` y pídesela a Ana.
 
 ## 3. Humor
 
@@ -56,7 +56,7 @@ Reglas:
 
 ## 5. Formato del post
 
-- **Largo:** 150 a 250 palabras. Una sola idea y una tesis.
+- **Largo:** 900 a 1.300 caracteres, unas 150 a 220 palabras (la regla de largo de `/li-post`). Una sola idea y una tesis.
 - **Gancho:** primera línea de máximo 12 palabras, sin punto final.
 - **Cuerpo:** realidad del lector → el problema real → el cambio de enfoque → qué hice o qué resultado hubo → una pregunta específica.
 - **Párrafos:** máximo 3 líneas seguidas, con aire. Viñetas solo en posts de lista.

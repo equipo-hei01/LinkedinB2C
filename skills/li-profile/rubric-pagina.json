@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "total": 100,
+  "note": "Rúbrica de la página de empresa. Diez ítems, 100 puntos. Puntúa con honestidad: un puntaje generoso no le sirve a nadie. Si un dato no se pudo leer, el ítem queda [verificar] y sin puntos inventados. El campo nombre es el que se muestra al usuario y el que va en el tablero.",
+  "items": [
+    {
+      "id": "nombre_eslogan",
+      "nombre": "Nombre y eslogan",
+      "points": 12,
+      "full_marks": "El nombre es el de la marca, sin palabras de relleno. El eslogan dice a quién ayuda y qué cambia para esa persona, con las palabras con que el cliente lo buscaría; no es un lema interno ni una lista de servicios."
+    },
+    {
+      "id": "descripcion",
+      "nombre": "Descripción (a quién ayuda)",
+      "points": 16,
+      "full_marks": "Las dos primeras líneas nombran a quién ayuda y qué problema resuelve. Después: qué hace, una prueba con una cifra o un caso de pruebas.md y cómo empezar. Escrita para el cliente, no como historia de la empresa."
+    },
+    {
+      "id": "boton_llamado",
+      "nombre": "Botón o llamado",
+      "points": 10,
+      "full_marks": "El botón de la página lleva a un solo paso claro (agendar, escribir o visitar el sitio) con un link que funciona, el mismo llamado de ofertas.md."
+    },
+    {
+      "id": "logo_portada",
+      "nombre": "Logo y portada",
+      "points": 10,
+      "full_marks": "El logo se lee en tamaño pequeño. La portada lleva una frase de posicionamiento y una forma de contacto, con los colores de la marca; no es la imagen por defecto ni una foto de archivo."
+    },
+    {
+      "id": "datos_pagina",
+      "nombre": "Datos de la página",
+      "points": 8,
+      "full_marks": "Sitio web, sector, tamaño, ubicación y especialidades completos, y las especialidades usan las palabras que busca el público objetivo."
+    },
+    {
+      "id": "publicaciones",
+      "nombre": "Publicaciones recientes y regulares",
+      "points": 16,
+      "full_marks": "Al menos una publicación por semana en las últimas cuatro semanas y la última en los últimos siete días, con la cadencia de marca.md. Una página sin publicaciones recientes se lee como abandonada."
+    },
+    {
+      "id": "conversacion",
+      "nombre": "Conversación en las publicaciones",
+      "points": 8,
+      "full_marks": "Las últimas publicaciones tienen comentarios y la página los responde. Publicaciones sin ninguna respuesta de la página no suman."
+    },
+    {
+      "id": "seguidores_publico",
+      "nombre": "Seguidores del público objetivo",
+      "points": 10,
+      "full_marks": "Los cargos, sectores y tamaños de empresa de los seguidores (estadísticas de la página) calzan con los arquetipos de arquetipos.md. Muchos seguidores que no son clientes posibles no suman."
+    },
+    {
+      "id": "empleados",
+      "nombre": "Empleados asociados",
+      "points": 6,
+      "full_marks": "El usuario y su equipo tienen la página en su experiencia actual, de modo que aparecen como personas de la empresa y sus perfiles llevan a la página."
+    },
+    {
+      "id": "coherencia_perfil",
+      "nombre": "Coherencia con el perfil personal",
+      "points": 4,
+      "full_marks": "La página y el perfil del usuario dicen lo mismo sobre a quién ayudan y cómo empezar, y usan la misma identidad visual."
+    }
+  ]
+}

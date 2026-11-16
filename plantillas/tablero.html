@@ -50,6 +50,8 @@
 .hx-prog{height:12px;background:var(--cds-chart-grid);border-radius:6px;overflow:hidden;position:relative}
 .hx-prog i{position:absolute;inset:0 auto 0 0;border-radius:6px;background:var(--tb-acento)}
 .hx-empty{border:1px dashed var(--cds-chart-axis);border-radius:var(--cds-radius);padding:var(--cds-pad-md);margin:0;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption)}
+.hx [hidden]{display:none!important}
+.hx .is-vacio{min-height:0!important}
 [data-dash-source-state=empty]{color:transparent}
 [data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow)}
 
@@ -99,7 +101,8 @@
 .vz-funnel{position:relative;min-height:22rem}
 .vz-stage{font-size:var(--cds-font-size-caption);letter-spacing:.08em;font-weight:600}
 
-/* Paleta neutra. Para usar los colores de tu marca, cambia solo estas variables (claro y oscuro). */
+/* Paleta neutra. Para usar los colores de tu marca sin tocar este archivo, llena supuestos.color_acento (reemplaza --tb-acento)
+   y supuestos.color_acento2 (reemplaza --tb-1) con un color hex. Para cambiar toda la paleta, edita estas variables (claro y oscuro). */
 .hx{--tb-1:#2f5d8a;--tb-2:#3a7d7b;--tb-acento:#c2622d;--tb-pag:#3d4451;--tb-gris:#7d8590}
 @media (prefers-color-scheme:dark){.hx{--tb-1:#5b8fc7;--tb-2:#5fb0a8;--tb-acento:#e08a4f;--tb-pag:#9aa4b2;--tb-gris:#8b949e}}
 [data-theme="dark"] .hx{--tb-1:#5b8fc7;--tb-2:#5fb0a8;--tb-acento:#e08a4f;--tb-pag:#9aa4b2;--tb-gris:#8b949e}
@@ -107,6 +110,7 @@
 
 .vz-y{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--cds-gap-md)}
 @media (max-width:640px){.vz-y{grid-template-columns:minmax(0,1fr)}}
+.vz-y.is-una{grid-template-columns:minmax(0,1fr)}
 .vz-join{display:block;width:100%;height:42px}
 .vz-join path{fill:none;stroke:var(--cds-chart-axis);stroke-width:2}
 .vz-brand{display:flex;align-items:center;gap:8px}
@@ -178,13 +182,13 @@
       </div>
       <div class="hx-card" id="rampa">
         <h3 class="hx-h2">Tu ritmo frente al ideal</h3>
-        <p class="hx-sub">La línea punteada es el ideal: subir parejo cada semana hasta llegar a tu meta de reuniones semanales en la semana 10 y sostenerla hasta el final del plan. Los puntos de acento son tus semanas reales y la línea fina, hacia dónde vas si sigues igual.</p>
+        <p class="hx-sub">La línea punteada es el ideal: subir parejo cada semana hasta llegar a tu meta de reuniones semanales en la semana <span data-draw="num" data-fmt="int" data-source="camino" data-field="rampa_semanas" data-row="0">—</span> y sostenerla hasta el final del plan. Los puntos de acento son tus semanas reales y la línea fina, hacia dónde vas si sigues igual.</p>
         <div class="hx-vchart" data-draw="rampa" data-source="rampa camino"></div>
       </div>
     </div>
     <div class="hx-tiles" id="cuentas">
       <div class="hx-tile"><p class="hx-lab">Tu plan</p><p class="hx-big">Día <span data-draw="num" data-fmt="int" data-source="camino" data-field="dia" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="plan_dias" data-row="0">—</span></p><div class="hx-prog" data-draw="avance" data-source="camino"></div><p class="hx-note" data-draw="txt" data-source="camino" data-field="plan_txt" data-row="0">—</p></div>
-      <div class="hx-tile"><p class="hx-lab">Próximo evento · <span data-draw="txt" data-source="camino" data-field="evento_nombre" data-row="0">—</span></p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="dias_evento" data-row="0">—</span> días</p><p class="hx-note">Quedan <b data-draw="num" data-fmt="int" data-source="camino" data-field="cupos_libres" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos libres.</p></div>
+      <div class="hx-tile" id="evento-ficha" data-si="evento"><p class="hx-lab">Próximo evento · <span data-draw="txt" data-source="camino" data-field="evento_nombre" data-row="0">—</span></p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="dias_evento" data-row="0">—</span> días</p><p class="hx-note">Quedan <b data-draw="num" data-fmt="int" data-source="camino" data-field="cupos_libres" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos libres.</p></div>
       <div class="hx-tile"><p class="hx-lab">Racha · posts según el plan</p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_plan" data-row="0">—</span> semanas</p><p class="hx-note">Semanas seguidas publicando todo lo planificado.</p></div>
       <div class="hx-tile"><p class="hx-lab">Racha · 2 rondas de conversación</p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_rondas" data-row="0">—</span> semanas</p><p class="hx-note">Semanas seguidas con las dos rondas hechas.</p></div>
       <div class="hx-tile"><p class="hx-lab">Racha · meta de reuniones</p><p class="hx-big"><span data-draw="num" data-fmt="int" data-source="camino" data-field="racha_meta" data-row="0">—</span> semanas</p><p class="hx-note">Semanas seguidas cumpliendo la meta de reuniones.</p></div>
@@ -194,22 +198,23 @@
   <section class="hx-sec" id="recorrido">
     <h2 class="hx-h2">El embudo: de que te vean a que te agenden</h2>
     <p class="st-now" id="titular-embudo">En <b data-draw="txt" data-source="embudo" data-field="periodo_txt" data-where="id=h1">—</b>, <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h1">—</b> veces te vieron en el feed, <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h2">—</b> interacciones, <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=h3">—</b> visitas a tu perfil y <b data-draw="num" data-fmt="int" data-source="embudo" data-field="valor" data-where="id=b3">—</b> reuniones agendadas.</p>
-    <p class="hx-sub">Arriba, cada cuenta atrae por su lado: tu perfil con sus colores y la página de empresa con los suyos. Abajo se juntan, porque las reuniones llegan a un solo calendario. TOFU es donde te descubren, MOFU donde se interesan y BOFU donde deciden.</p>
+    <p class="hx-sub" data-si="pagina">Arriba, cada cuenta atrae por su lado: tu perfil con sus colores y la página de empresa con los suyos. Abajo se juntan, porque las reuniones llegan a un solo calendario. TOFU es donde te descubren, MOFU donde se interesan y BOFU donde deciden.</p>
+    <p class="hx-sub" data-si="sin-pagina" hidden>Arriba, lo que atrae tu perfil. Abajo, las personas que conversan, responden y agendan. TOFU es donde te descubren, MOFU donde se interesan y BOFU donde deciden.</p>
     <div class="vz-y">
       <div class="hx-card" id="embudo-perfil">
         <h3 class="hx-h2 vz-brand"><i class="vz-dot" style="background:var(--tb-1)"></i>Tu perfil</h3>
         <div class="vz-funnel" data-draw="funnel" data-source="embudo" data-grupo="perfil"></div>
         <p class="hx-note">Reuniones que llegaron por tu perfil, todas las semanas: <b data-draw="num" data-fmt="int" data-source="citas_por_origen" data-field="citas" data-where="origen=Perfil%20de%20LinkedIn">—</b></p>
       </div>
-      <div class="hx-card" id="embudo-pagina">
+      <div class="hx-card" id="embudo-pagina" data-si="pagina">
         <h3 class="hx-h2 vz-brand"><i class="vz-dot" style="background:var(--tb-pag)"></i>La página de empresa</h3>
         <div class="vz-funnel" data-draw="funnel" data-source="embudo" data-grupo="pagina"></div>
         <p class="hx-note">Reuniones que llegaron por la página, todas las semanas: <b data-draw="num" data-fmt="int" data-source="citas_por_origen" data-field="citas" data-where="origen=P%C3%A1gina%20de%20LinkedIn">—</b></p>
       </div>
     </div>
-    <svg class="vz-join" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><path d="M25 0 C25 24, 50 18, 50 42"></path><path d="M75 0 C75 24, 50 18, 50 42"></path></svg>
+    <svg class="vz-join" data-si="pagina" viewBox="0 0 100 42" preserveAspectRatio="none" aria-hidden="true"><path d="M25 0 C25 24, 50 18, 50 42"></path><path d="M75 0 C75 24, 50 18, 50 42"></path></svg>
     <div class="hx-card" id="embudo-juntos">
-      <h3 class="hx-h2 vz-brand"><i class="vz-dot" style="background:var(--tb-acento)"></i>Juntos · conversan, responden y agendan</h3>
+      <h3 class="hx-h2 vz-brand"><i class="vz-dot" style="background:var(--tb-acento)"></i><span data-si="pagina">Juntos · </span>Conversan, responden y agendan</h3>
       <div class="vz-funnel" data-draw="funnel" data-source="embudo" data-grupo="bofu"></div>
     </div>
     <p class="hx-note">Con la primera actualización semanal todos los pasos miden la misma semana. Antes de eso, la parte alta usa el último mes completo y las visitas, los últimos 7 días. Cada reunión se asigna a una cuenta según la respuesta a "¿Dónde nos conociste?" del formulario de reservas.</p>
@@ -227,8 +232,8 @@
     <span class="st-node" aria-hidden="true">1</span>
     <p class="st-kick">Capítulo 1 · Tu vitrina</p>
     <h2 class="st-h2">Antes de que te vean, la vitrina tiene que convencer</h2>
-    <p class="st-now">Tu perfil suma <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</b> de 100 y la página <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</b>. Lo que más resta en tu perfil es <b data-draw="txt" data-source="puntaje_brecha" data-field="item" data-where="perfil=Perfil">—</b> y en la página, <b data-draw="txt" data-source="puntaje_brecha" data-field="item" data-where="perfil=P%C3%A1gina">—</b>.</p>
-    <p class="st-lead">Quien llega a tu perfil o a la página decide en segundos si vale la pena escribirte. Este es el puntaje de 100 de cada uno. Las barras punteadas son ítems que faltan por medir.</p>
+    <p class="st-now">Tu perfil suma <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</b> de 100<span data-si="pagina"> y la página <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</b></span>. Lo que más resta en tu perfil es <b data-draw="txt" data-source="puntaje_brecha" data-field="item" data-where="perfil=Perfil">—</b><span data-si="pagina"> y en la página, <b data-draw="txt" data-source="puntaje_brecha" data-field="item" data-where="perfil=P%C3%A1gina">—</b></span>.</p>
+    <p class="st-lead">Quien llega a tu vitrina decide en segundos si vale la pena escribirte. Este es el puntaje sobre 100. Las barras punteadas son ítems que faltan por medir.</p>
     <div class="vz-gauges">
       <div class="vz-g" id="gauge-perfil">
         <p class="hx-lab">Perfil personal</p>
@@ -236,7 +241,7 @@
         <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</span> de <span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=Perfil">—</span> puntos</p>
         <p class="hx-note"><span class="vz-delta" data-draw="delta" data-source="cambios" data-field="diferencia" data-where="campo=puntaje_perfil">—</span></p>
       </div>
-      <div class="vz-g" id="gauge-pagina">
+      <div class="vz-g" id="gauge-pagina" data-si="pagina">
         <p class="hx-lab">Página de empresa</p>
         <div class="vz-gd" data-draw="gauge" data-source="puntaje_total" data-where="perfil=P%C3%A1gina" data-field="obtenido" data-goal-field="medible"></div>
         <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</span> de <span data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=P%C3%A1gina">—</span> puntos</p>
@@ -249,7 +254,7 @@
         <p class="hx-take">Llevas <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=Perfil">—</b> de <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=Perfil">—</b> puntos en lo que ya está medido.</p>
         <div class="hx-bars hx-score" data-draw="score" data-source="puntaje" data-perfil="Perfil"></div>
       </div>
-      <div class="hx-card" id="puntaje-pagina">
+      <div class="hx-card" id="puntaje-pagina" data-si="pagina">
         <h3 class="hx-h2">Página de empresa</h3>
         <p class="hx-take">Lleva <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="obtenido" data-where="perfil=P%C3%A1gina">—</b> de <b data-draw="num" data-fmt="int" data-source="puntaje_total" data-field="medible" data-where="perfil=P%C3%A1gina">—</b> puntos en lo que ya está medido.</p>
         <div class="hx-bars hx-score" data-draw="score" data-source="puntaje" data-perfil="Página"></div>
@@ -302,6 +307,7 @@
         <div class="hx-vchart" data-draw="mes-seg" data-source="personal_mensual hitos"></div>
       </div>
     </div>
+    <div class="hx-sec" data-si="pagina">
     <h3 class="st-sub3" id="pagina">Y la página de empresa</h3>
     <div class="hx-tiles">
       <div class="hx-tile">
@@ -336,13 +342,14 @@
         <div class="hx-vchart" data-draw="mes-pag-clics" data-source="pagina_mensual hitos"></div>
       </div>
     </div>
+    </div>
   </section>
 
   <section class="st-ch" id="audiencia">
     <span class="st-node" aria-hidden="true">3</span>
     <p class="st-kick">Capítulo 3 · Quién te lee</p>
     <h2 class="st-h2">¿Te está leyendo quien te puede contratar?</h2>
-    <p class="st-now"><b data-draw="num" data-fmt="int" data-source="audiencia_pais" data-field="porcentaje" data-row="0">—</b> % de tu público está en <b data-draw="txt" data-source="audiencia_pais" data-field="nombre" data-row="0">—</b> y <b data-draw="num" data-fmt="int" data-source="audiencia_arquetipo" data-field="porcentaje" data-where="grupo=Toman%20decisiones%20(gerente%20o%20superior)">—</b> % toma decisiones. El <b data-draw="num" data-fmt="int" data-source="audiencia_arquetipo" data-field="porcentaje" data-where="grupo=Sin%20rol%20de%20decisi%C3%B3n">—</b> % aprende de ti pero no decide: ahí está el espacio para la publicidad por arquetipo.</p>
+    <p class="st-now"><b data-draw="num" data-fmt="int" data-source="audiencia_pais" data-field="porcentaje" data-row="0">—</b> % de tu público está en <b data-draw="txt" data-source="audiencia_pais" data-field="nombre" data-row="0">—</b>. El <b data-draw="num" data-fmt="int" data-source="audiencia_resumen" data-field="en_publico" data-row="0">—</b> % calza con alguno de tus arquetipos y el <b data-draw="num" data-fmt="int" data-source="audiencia_resumen" data-field="fuera" data-row="0">—</b> % queda fuera de tu público: te lee, pero no es a quien le vendes.</p>
     <p class="st-lead">Dónde está tu público, quiénes son por arquetipo y cómo se reparte por nivel, sector y tamaño de empresa, según el export de tu perfil.</p>
     <div class="hx-card" id="donde">
       <h3 class="hx-h2">Dónde están</h3>
@@ -365,19 +372,19 @@
     <div class="hx-grid">
       <div class="hx-card" id="audiencia-arquetipo">
         <h3 class="hx-h2">Tu audiencia por arquetipo · estimado</h3>
-        <p class="hx-sub">Porcentaje de tu público en cada grupo, desde el export de cada semana. Es una estimación: el export trae el nivel de responsabilidad completo, pero solo los 10 cargos más comunes. Los grupos se cruzan, así que no suman 100 %. Pasa el cursor para comparar con la primera lectura.</p>
+        <p class="hx-sub">Qué parte de tu público calza con cada uno de tus arquetipos y qué parte queda fuera, según la lectura más reciente del export. Es una estimación: el export trae el nivel de responsabilidad, el sector y el tamaño de empresa completos, pero solo los 10 cargos más comunes. Pasa el cursor para comparar con la primera lectura.</p>
         <div class="vz-people" data-draw="arq-aud" data-source="audiencia_arquetipo"></div>
-        <p class="hx-note">Un grupo en 0 % significa que no aparece entre tus 10 cargos más comunes.</p>
+        <p class="hx-note">"s/d" significa que la última lectura no trae ese arquetipo.</p>
       </div>
       <div class="hx-card" id="audiencia-vs-citas">
         <h3 class="hx-h2">Y quién termina agendando</h3>
-        <p class="hx-sub">Reuniones por arquetipo, todas las semanas. Si tu público decide poco pero agenda mucho un arquetipo, ahí conviene invertir en publicidad.</p>
+        <p class="hx-sub">Reuniones por arquetipo, todas las semanas. Si un arquetipo pesa poco en tu público pero agenda mucho, ahí conviene poner más contenido y más conversaciones.</p>
         <div class="hx-bars" data-draw="cbars" data-source="citas_por_arquetipo" data-key="arquetipo"></div>
       </div>
     </div>
     <h3 class="st-sub3" id="fichas">Tus arquetipos</h3>
-    <p class="hx-sub">Quién es cada arquetipo, qué le duele y qué busca, con cuánto pesa en tu público y cuántos ya conversaron o agendaron. Si un arquetipo no tiene medida directa en el export, aparece como "s/d".</p>
-    <div class="vz-cards" data-draw="fichas" data-source="arquetipos audiencia_arquetipos conv_por_arquetipo citas_por_arquetipo"></div>
+    <p class="hx-sub">Quién es cada arquetipo, qué le duele y qué busca, con cuánto pesa en tu público y cuántos ya conversaron o agendaron. Si la última lectura de audiencia no trae un arquetipo, aparece como "s/d".</p>
+    <div class="vz-cards" data-draw="fichas" data-source="arquetipos audiencia_arquetipo conv_por_arquetipo citas_por_arquetipo"></div>
   </section>
 
   <section class="st-ch" id="engancha">
@@ -402,7 +409,7 @@
         <div class="hx-bars" data-draw="ranking" data-source="posts_perfil"></div>
       </div>
     </div>
-    <div class="hx-grid">
+    <div class="hx-grid" data-si="pagina">
       <div class="hx-card" id="tipos-pagina">
         <h3 class="hx-h2">Cuánto viaja cada tipo · página</h3>
         <p class="hx-sub">Entre paréntesis, cuántos posts hay de cada tipo.</p>
@@ -445,7 +452,7 @@
     <span class="st-node" aria-hidden="true">6</span>
     <p class="st-kick">Capítulo 6 · Agendan</p>
     <h2 class="st-h2">La meta: <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span> reuniones por semana</h2>
-    <p class="st-now">Llevas <b data-draw="num" data-fmt="int" data-source="citas_acum" data-field="citas" data-row="0">—</b> reuniones desde que empezó el plan. La última semana fueron <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</b> de <b data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</b>, y tu próximo evento tiene <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos tomados.</p>
+    <p class="st-now">Llevas <b data-draw="num" data-fmt="int" data-source="citas_acum" data-field="citas" data-row="0">—</b> reuniones desde que empezó el plan. La última semana fueron <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</b> de <b data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</b><span data-si="evento">, y tu próximo evento tiene <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos tomados</span>.</p>
     <p class="st-lead">Reuniones de tu página de reservas, sin nombres, correos ni teléfonos. La barra se pone verde la semana que llegas a la meta.</p>
     <div class="vz-gauges">
       <div class="vz-g" id="gauge-reuniones">
@@ -453,12 +460,12 @@
         <div class="vz-gd" data-draw="gauge" data-source="citas_ultima" data-row="0" data-field="citas" data-goal-source="supuestos" data-goal-field="meta_reuniones_semana"></div>
         <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span></p>
       </div>
-      <div class="vz-g" id="gauge-cupos">
+      <div class="vz-g" id="gauge-cupos" data-si="evento">
         <p class="hx-lab">Próximo evento · inscritos</p>
         <div class="vz-gd" data-draw="gauge" data-source="citas_ultima" data-row="0" data-field="inscritos_evento" data-goal-source="supuestos" data-goal-field="evento_cupos"></div>
         <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos</p>
       </div>
-      <div class="vz-g" id="gauge-charlas">
+      <div class="vz-g" id="gauge-charlas" data-si="charlas">
         <p class="hx-lab">Charlas aceptadas o dadas · este mes</p>
         <div class="vz-gd" data-draw="gauge" data-source="charlas_mes" data-row="0" data-field="logradas" data-goal-source="supuestos" data-goal-field="meta_charlas_mes"></div>
         <p class="vz-gv"><span data-draw="num" data-fmt="int" data-source="charlas_mes" data-field="logradas" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_charlas_mes" data-row="0">—</span></p>
@@ -475,7 +482,7 @@
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="citas_acum" data-field="citas" data-row="0">—</p>
         <p class="hx-note">Suma de todas las semanas medidas</p>
       </div>
-      <div class="hx-tile" id="inscritos-claude">
+      <div class="hx-tile" id="inscritos-evento" data-si="evento">
         <p class="hx-lab">Próximo evento · <span data-draw="txt" data-source="camino" data-field="evento_nombre" data-row="0">—</span></p>
         <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</span> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos</p>
         <div class="hx-prog" data-draw="cupos" data-source="citas_ultima supuestos"></div>
@@ -506,7 +513,7 @@
         <div><h4>Los resultados</h4><div class="vz-col" data-draw="hab" data-source="habitos" data-lado="resultado"></div></div>
       </div>
     </div>
-    <div class="hx-grid">
+    <div class="hx-grid" data-si="charlas">
       <div class="hx-card" id="charlas-embudo">
         <h3 class="hx-h2">Charlas: de encontrada a dada</h3>
         <p class="hx-sub">Todas las charlas registradas. Una charla dada también pasó por las etapas anteriores.</p>
@@ -541,13 +548,13 @@
     <span class="st-node" aria-hidden="true">7</span>
     <p class="st-kick">Capítulo 7 · El dinero</p>
     <h2 class="st-h2">De reunión a proyecto: cuánto vale tu agenda</h2>
-    <p class="st-now">Hasta ahora cerraste <b data-draw="num" data-fmt="int" data-source="dinero" data-field="ventas" data-row="0">—</b> ventas por <b data-draw="txt" data-source="dinero" data-field="vendido_txt" data-row="0">—</b>. Tu ticket promedio es de <b data-draw="txt" data-source="dinero" data-field="ticket_txt" data-row="0">—</b> y tu próxima meta, <b data-draw="txt" data-source="ticket_meta" data-field="meta_txt" data-row="0">—</b>. Hoy cada reunión vale unos <b data-draw="txt" data-source="dinero" data-field="valor_reunion_txt" data-row="0">—</b> esperados.</p>
+    <p class="st-now" data-draw="txt" data-source="dinero" data-field="intro" data-row="0">—</p>
     <p class="st-lead">Todo sale de tu tablero de ventas o CRM, sin nombres de clientes. Se lee como el resto: dónde estás, qué hay en juego, cuánto vale tu agenda, dónde está la meta y qué palanca la mueve.</p>
     <div class="hx-tiles">
-      <div class="hx-tile"><p class="hx-lab">Vendido</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="vendido_txt" data-row="0">—</p><p class="hx-note"><span data-draw="num" data-fmt="int" data-source="dinero" data-field="ventas" data-row="0">—</span> ventas cerradas y <span data-draw="num" data-fmt="int" data-source="dinero" data-field="perdidas" data-row="0">—</span> perdidas</p></div>
-      <div class="hx-tile"><p class="hx-lab">Ticket promedio</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="ticket_txt" data-row="0">—</p><p class="hx-note">Van de <span data-draw="txt" data-source="dinero" data-field="min_txt" data-row="0">—</span> a <span data-draw="txt" data-source="dinero" data-field="max_txt" data-row="0">—</span></p></div>
+      <div class="hx-tile"><p class="hx-lab">Vendido</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="vendido_txt" data-row="0">—</p><p class="hx-note">Ventas cerradas: <span data-draw="num" data-fmt="int" data-source="dinero" data-field="ventas" data-row="0">—</span> · perdidas: <span data-draw="num" data-fmt="int" data-source="dinero" data-field="perdidas" data-row="0">—</span></p></div>
+      <div class="hx-tile" id="ticket-ficha"><p class="hx-lab" data-draw="txt" data-source="dinero" data-field="ticket_etiqueta" data-row="0">Ticket promedio</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="ticket_txt" data-row="0">—</p><p class="hx-note" data-draw="txt" data-source="dinero" data-field="ticket_nota" data-row="0">—</p></div>
       <div class="hx-tile"><p class="hx-lab">Tasa de cierre</p><p class="hx-big"><span data-draw="num" data-fmt="pct" data-source="supuestos" data-field="tasa_cierre" data-row="0">—</span></p><p class="hx-note">Qué parte de las oportunidades termina en venta</p></div>
-      <div class="hx-tile"><p class="hx-lab">Valor de cada reunión</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="valor_reunion_txt" data-row="0">—</p><p class="hx-note">Ticket × tasa de cierre</p></div>
+      <div class="hx-tile" id="valor-reunion"><p class="hx-lab">Valor de cada reunión</p><p class="hx-big" data-draw="txt" data-source="dinero" data-field="valor_reunion_txt" data-row="0">—</p><p class="hx-note" data-draw="txt" data-source="dinero" data-field="valor_reunion_nota" data-row="0">Ticket × tasa de cierre</p></div>
     </div>
     <h3 class="st-sub3">1 · Dónde estás: lo que ya vendiste</h3>
     <div class="hx-grid">
@@ -583,19 +590,20 @@
     <h3 class="st-sub3">3 · Cuánto vale tu agenda</h3>
     <div class="hx-card" id="pipeline">
       <p class="st-now" data-draw="txt" data-source="pipeline" data-field="frase" data-row="0">—</p>
-      <p class="hx-note">Valor esperado = reuniones × % que se vuelve cliente × ticket promedio. Es una estimación para decidir dónde poner tiempo, no una venta. Las reuniones semanales de la meta valen unos <b data-draw="txt" data-source="dinero" data-field="valor_semana_meta_txt" data-row="0">—</b> esperados por semana.</p>
+      <p class="hx-note">Valor esperado = reuniones × % que se vuelve cliente × ticket. Es una estimación para decidir dónde poner tiempo, no una venta. <span data-draw="txt" data-source="dinero" data-field="semana_meta_frase" data-row="0">—</span></p>
     </div>
     <h3 class="st-sub3">4 · La meta y la palanca</h3>
     <div class="hx-grid">
       <div class="vz-g" id="gauge-ticket">
-        <p class="hx-lab">Ticket promedio frente a tu meta de <span data-draw="txt" data-source="ticket_meta" data-field="meta_txt" data-row="0">—</span></p>
+        <p class="hx-lab" data-draw="txt" data-source="ticket_meta" data-field="titulo" data-row="0">Ticket promedio frente a tu meta</p>
         <div class="vz-gd" data-draw="gauge" data-source="ticket_meta" data-row="0" data-field="ticket" data-goal-field="meta"></div>
         <p class="hx-note" data-draw="txt" data-source="ticket_meta" data-field="frase" data-row="0">—</p>
       </div>
       <div class="hx-card" id="palanca">
-        <h3 class="hx-h2">La palanca: quién firma los proyectos grandes</h3>
-        <p class="st-lead">Un ticket más alto suele ser un proyecto que firma la alta dirección de una empresa grande. Hoy la alta dirección es el <b data-draw="num" data-fmt="int" data-source="audiencia_arquetipo" data-field="porcentaje" data-where="grupo=Alta%20direcci%C3%B3n">—</b> % de tu audiencia y las empresas de más de 1.000 personas, el <b data-draw="num" data-fmt="int" data-source="audiencia_arquetipo" data-field="porcentaje" data-where="grupo=Empresas%20de%20m%C3%A1s%20de%201.000%20personas">—</b> %.</p>
-        <p class="hx-note">Para mover el ticket: contenido pensado para quien decide, conversaciones con la alta dirección y propuestas que resuelvan un problema completo en un solo proyecto, en vez de servicios sueltos.</p>
+        <h3 class="hx-h2">La palanca: a qué arquetipo le vendes</h3>
+        <p class="st-lead">El ticket depende sobre todo de a qué arquetipo le vendes y de qué problema le resuelves. Compara cuánto pesa cada arquetipo en tu audiencia con cuántas reuniones trae: si el arquetipo que compra los proyectos de mayor valor es una parte chica de tu público, ahí está la palanca.</p>
+        <ul class="hx-list" data-draw="palanca" data-source="arquetipos audiencia_arquetipo citas_por_arquetipo"></ul>
+        <p class="hx-note">Para mover el ticket: contenido pensado para el arquetipo que decide la compra, conversaciones con esas personas y propuestas que resuelvan un problema completo en un solo proyecto, en vez de servicios sueltos.</p>
       </div>
     </div>
     <p class="hx-note">Los datos de ventas se refrescan con cada actualización semanal.</p>
@@ -624,7 +632,7 @@
         <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span> por semana</p>
         <p class="hx-note">Línea base: <b data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_sesiones_semana" data-row="0">—</b> por semana al inicio del plan.</p>
       </div>
-      <div class="hx-tile">
+      <div class="hx-tile" data-si="charlas">
         <p class="hx-lab">Meta del plan · charlas</p>
         <p class="hx-big"><span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_charlas_mes" data-row="0">—</span> por mes</p>
         <p class="hx-note">Línea base: <b data-draw="num" data-fmt="int" data-source="resumen" data-field="linea_base_charlas_mes" data-row="0">—</b> por mes que vengan de LinkedIn, al inicio del plan.</p>
@@ -659,31 +667,47 @@
   const money = (v, mon) => { if (v === null || v === undefined || !isFinite(v)) return '—'; try { return new Intl.NumberFormat('es', {style: 'currency', currency: mon || 'USD', notation: 'compact', maximumFractionDigits: 1}).format(v); } catch (e) { return fmt.int(v); } };
   const monOf = () => { const s = dash.data('supuestos'); return (s.status === 'ok' && Array.isArray(s.data) && s.data[0] && s.data[0].moneda) || 'USD'; };
   const millones = (v) => money(v, monOf());
-  function vacio(el) { const p = document.createElement('p'); p.className = 'hx-empty'; p.textContent = EMPTY; el.replaceChildren(p); }
+  /* Un bloque sin datos no reserva el alto del gráfico: is-vacio anula el min-height y se quita al volver a dibujar. */
+  function vacio(el, txt) { const p = document.createElement('p'); p.className = 'hx-empty'; p.textContent = txt || EMPTY; el.replaceChildren(p); el.classList.add('is-vacio'); }
+  const reg = (name, fn) => dash.draw(name, (el) => { el.classList.remove('is-vacio'); return fn(el); });
+  const filasDe = (id) => { const d = dash.data(id); return d && d.status === 'ok' && Array.isArray(d.data) ? d.data : []; };
+  const tiene = (v) => v !== null && v !== undefined && String(v).trim() !== '';
+  const numO = (v) => (tiene(v) && isFinite(Number(v))) ? Number(v) : null;
+  const norm = (t) => String(t === null || t === undefined ? '' : t).trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-  const ORDER = ['Mejores del año','Opinión','Invitación a conversar','Historia','Caso de cliente','Agenda y agradecimientos','Repost','Programa','Oferta','Institucional'];
+  /* Tipos de post: se usan los valores que traigan los datos (posts_perfil.tipo y posts_pagina.tipo).
+     ORDER solo da el orden de referencia y un color estable; cualquier otro tipo va al final. */
+  const ORDER = ['contrario', 'noticia', 'lección', 'marco', 'caso', 'relación'];
+  const ORDER_N = ORDER.map(norm);
+  const GRUPO_TOP = 'Mejores del año', GRUPO_ULT = 'Últimos 15', SIN_TIPO = 'Sin tipo';
+  const otrosTipos = [];
+  const tipoDe = (p) => tiene(p && p.tipo) ? String(p.tipo).trim() : SIN_TIPO;
+  const tipoIdx = (t) => { const k = norm(t); let i = ORDER_N.indexOf(k); if (i >= 0) return i; i = otrosTipos.indexOf(k); if (i < 0) { otrosTipos.push(k); i = otrosTipos.length - 1; } return ORDER_N.length + i; };
+  const tipoOrden = (a, b) => { const i = ORDER_N.indexOf(norm(a)), j = ORDER_N.indexOf(norm(b)); if (i >= 0 || j >= 0) return (i < 0 ? 99 : i) - (j < 0 ? 99 : j); return String(a).localeCompare(String(b), 'es'); };
+  window.hxTipoOrden = tipoOrden;
+  const porTipo = (posts) => {
+    const by = new Map();
+    posts.forEach((p) => { const t = tipoDe(p); if (t === GRUPO_TOP) return; const k = norm(t); if (!by.has(k)) by.set(k, {tipo: t, v: []}); by.get(k).v.push(Number(p.impresiones) || 0); });
+    return Array.from(by.values()).map((o) => ({tipo: o.tipo, posts: o.v.length, promedio: Math.round(o.v.reduce((a, b) => a + b, 0) / o.v.length)})).sort((a, b) => tipoOrden(a.tipo, b.tipo));
+  };
   const PAL = {perfil: ['var(--tb-1)', 'var(--tb-2)', 'var(--tb-acento)'], pagina: ['var(--tb-pag)', 'var(--tb-acento)', 'var(--tb-gris)']};
   window.hxPal = PAL;
   window.hxPalOf = (id) => (String(id).indexOf('pagina') >= 0 ? PAL.pagina : PAL.perfil);
+  const TIPO_COLS = {perfil: ['var(--tb-1)', 'var(--tb-2)', 'var(--tb-acento)', 'var(--tb-pag)', 'var(--tb-gris)'], pagina: ['var(--tb-pag)', 'var(--tb-acento)', 'var(--tb-gris)', 'var(--tb-1)', 'var(--tb-2)']};
   window.hxColor = (tipo, pal) => {
-    pal = pal || PAL.perfil;
-    const i = ORDER.indexOf(tipo);
-    if (tipo === 'Mejores del año') return pal[0];
-    if (tipo === 'Agenda y agradecimientos' || tipo === 'Repost' || i > 7) return 'var(--cds-chart-muted)';
-    if (i < 0) return pal[String(tipo).length % pal.length];
-    return pal[i % pal.length];
+    if (tipo === GRUPO_TOP || tipo === GRUPO_ULT || tipo === SIN_TIPO) return 'var(--cds-chart-muted)';
+    const cols = pal === PAL.pagina ? TIPO_COLS.pagina : TIPO_COLS.perfil;
+    return cols[tipoIdx(tipo) % cols.length];
   };
 
   dash.calc('por_tipo', {
     title: 'Promedio por tipo de post',
-    description: 'Impresiones promedio y número de posts de cada tipo, más el promedio de los últimos 15.',
+    description: 'Impresiones promedio y número de posts de cada tipo que traigan los datos (sin contar los del grupo Mejores del año), más dos filas de referencia: Mejores del año y Últimos 15, según la columna grupo.',
     inputs: ['posts_perfil'],
     fn: (posts_perfil) => {
-      const by = {};
-      posts_perfil.forEach((p) => { (by[p.tipo] = by[p.tipo] || []).push(+p.impresiones); });
-      const out = Object.keys(by).map((t) => ({tipo: t, posts: by[t].length, promedio: Math.round(by[t].reduce((a, b) => a + b, 0) / by[t].length)}));
-      const last = posts_perfil.filter((p) => p.grupo === 'Últimos 15').map((p) => +p.impresiones);
-      if (last.length) out.push({tipo: 'Últimos 15', posts: last.length, promedio: Math.round(last.reduce((a, b) => a + b, 0) / last.length)});
+      const out = porTipo(posts_perfil.filter((p) => p.grupo !== GRUPO_TOP));
+      const grupo = (g) => posts_perfil.filter((p) => p.grupo === g || (g === GRUPO_TOP && p.tipo === g)).map((p) => Number(p.impresiones) || 0);
+      [GRUPO_TOP, GRUPO_ULT].forEach((g) => { const v = grupo(g); if (v.length) out.push({tipo: g, posts: v.length, promedio: Math.round(v.reduce((a, b) => a + b, 0) / v.length)}); });
       return out;
     }
   });
@@ -692,11 +716,7 @@
     title: 'Promedio por tipo de post de la página',
     description: 'Impresiones promedio y número de posts de cada tipo en la página de empresa.',
     inputs: ['posts_pagina'],
-    fn: (posts_pagina) => {
-      const by = {};
-      posts_pagina.forEach((p) => { (by[p.tipo] = by[p.tipo] || []).push(+p.impresiones); });
-      return Object.keys(by).map((t) => ({tipo: t, posts: by[t].length, promedio: Math.round(by[t].reduce((a, b) => a + b, 0) / by[t].length)}));
-    }
+    fn: (posts_pagina) => porTipo(posts_pagina)
   });
 
   dash.calc('pagina_prom', {
@@ -736,7 +756,7 @@
     return rows.find((row) => conds.every(([k, v]) => String(row[k]) === v));
   }
 
-  dash.draw('num', (el) => {
+  reg('num', (el) => {
     const d = dash.data(el.getAttribute('data-source'));
     const rows = d.status === 'ok' ? (Array.isArray(d.data) ? d.data : []) : [];
     const row = rows.length ? pickRow(el, rows) : null;
@@ -777,7 +797,7 @@
     return r;
   }
 
-  dash.draw('tipos', (el) => {
+  reg('tipos', (el) => {
     const d = dash.data(el.getAttribute('data-source'));
     if (d.status !== 'ok') return fail(el, d);
     const skip = el.getAttribute('data-skip');
@@ -794,22 +814,22 @@
     });
   });
 
-  dash.draw('ranking', (el) => {
+  reg('ranking', (el) => {
     const id = el.getAttribute('data-source');
     const d = dash.data(id);
     if (d.status !== 'ok') return fail(el, d);
     const rows = d.data.slice().sort((a, b) => b.impresiones - a.impresiones);
     if (!rows.length) return vacio(el);
     const max = d3.max(rows, (r) => +r.impresiones) || 1;
-    const tipos = [...new Set(rows.map((r) => r.tipo))];
+    const tipos = [...new Set(rows.map((r) => tipoDe(r)))].sort(tipoOrden);
     const lg = document.createElement('div'); lg.className = 'hx-legend';
     tipos.forEach((t) => { const s = document.createElement('span'); const sw = document.createElement('i'); sw.className = 'hx-sw'; sw.style.background = window.hxColor(t, window.hxPalOf(id)); s.append(sw, document.createTextNode(t)); lg.appendChild(s); });
     el.replaceChildren(lg);
     const tt = tip(el);
     rows.forEach((r) => {
-      const row = barRow(r.post, r.impresiones / max, window.hxColor(r.tipo, window.hxPalOf(id)), fmt.int(r.impresiones));
-      const parts = [r.cuando + ' · ' + r.tipo, r.post, fmt.int(r.impresiones) + ' impresiones'];
-      if (r.reacciones !== null && r.reacciones !== undefined) parts.push(fmt.int(r.reacciones) + ' reacciones · ' + fmt.int(r.comentarios) + ' comentarios');
+      const row = barRow(r.post, r.impresiones / max, window.hxColor(tipoDe(r), window.hxPalOf(id)), fmt.int(r.impresiones));
+      const parts = [[r.cuando, tipoDe(r)].filter(tiene).join(' · '), r.post, fmt.int(r.impresiones) + ' impresiones'];
+      if (r.reacciones !== null && r.reacciones !== undefined) parts.push(fmt.int(r.reacciones) + ' reacciones · ' + fmt.int(r.comentarios || 0) + ' comentarios');
       else if (r.interacciones !== null && r.interacciones !== undefined) parts.push(fmt.int(r.interacciones) + ' interacciones');
       if (r.clics !== null && r.clics !== undefined) parts.push(fmt.int(r.clics) + ' clics');
       row.addEventListener('mousemove', (ev) => tt.show(ev, parts));
@@ -818,7 +838,7 @@
     });
   });
 
-  dash.draw('score', (el) => {
+  reg('score', (el) => {
     const d = dash.data('puntaje');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -885,12 +905,12 @@
       svg.append('path').attr('d', d3.symbol(d3.symbolDiamond, 60)()).attr('transform', 'translate(' + x + ',' + y + ')').style('fill', 'var(--tb-acento)').style('stroke', 'var(--color-bg)')
         .on('mousemove', (ev) => tt.show(ev, ['Hitos de ' + mesLargo.format(new Date(r.mes + '-01T00:00:00Z'))].concat(hs.map((h) => HF(new Date(h.fecha + 'T00:00:00Z')) + ' · ' + h.evento)))).on('mouseleave', () => tt.hide()); });
   }
-  dash.draw('mes-imp', (el) => vbars(el, 'personal_mensual', 'impresiones', PAL.perfil[0], 'impresiones'));
-  dash.draw('mes-pag-imp', (el) => vbars(el, 'pagina_mensual', 'impresiones', PAL.pagina[0], 'impresiones'));
-  dash.draw('mes-pag-clics', (el) => vbars(el, 'pagina_mensual', 'clics', PAL.pagina[1], 'clics'));
-  dash.draw('mes-seg', (el) => vbars(el, 'personal_mensual', 'nuevos_seguidores', PAL.perfil[1], 'seguidores nuevos'));
+  reg('mes-imp', (el) => vbars(el, 'personal_mensual', 'impresiones', PAL.perfil[0], 'impresiones'));
+  reg('mes-pag-imp', (el) => vbars(el, 'pagina_mensual', 'impresiones', PAL.pagina[0], 'impresiones'));
+  reg('mes-pag-clics', (el) => vbars(el, 'pagina_mensual', 'clics', PAL.pagina[1], 'clics'));
+  reg('mes-seg', (el) => vbars(el, 'personal_mensual', 'nuevos_seguidores', PAL.perfil[1], 'seguidores nuevos'));
 
-  dash.draw('aud', (el) => {
+  reg('aud', (el) => {
     const d = dash.data('audiencia');
     if (d.status !== 'ok') return fail(el, d);
     let cat = 'Nivel de responsabilidad';
@@ -911,7 +931,7 @@
 
 
   /* ---- textos desde datos ---- */
-  dash.draw('txt', (el) => {
+  reg('txt', (el) => {
     const d = dash.data(el.getAttribute('data-source'));
     const rows = d.status === 'ok' && Array.isArray(d.data) ? d.data : [];
     const row = rows.length ? pickRow(el, rows) : null;
@@ -937,7 +957,7 @@
       return Object.keys(act).filter((k) => act[k] !== null && act[k] !== undefined && bas[k] !== null && bas[k] !== undefined).map((k) => ({campo: k, actual: Number(act[k]), base: Number(bas[k]), diferencia: Number(act[k]) - Number(bas[k])}));
     }
   });
-  dash.draw('delta', (el) => {
+  reg('delta', (el) => {
     const d = dash.data('cambios');
     const row = d.status === 'ok' && d.data.length ? pickRow(el, d.data) : null;
     el.classList.remove('up', 'down');
@@ -971,32 +991,31 @@
   });
   dash.calc('tipo_top', {
     title: 'Tipo de post que más viaja',
-    description: 'El tipo con más impresiones promedio, sin contar los grupos Mejores del año y Últimos 15, y cuántas veces supera al repost.',
+    description: 'El tipo con más impresiones promedio, sin contar las filas de referencia Mejores del año y Últimos 15.',
     inputs: ['por_tipo'],
     fn: (por_tipo) => {
-      const rows = por_tipo.filter((r) => r.tipo !== 'Mejores del año' && r.tipo !== 'Últimos 15').sort((a, b) => b.promedio - a.promedio);
+      const rows = por_tipo.filter((r) => r.tipo !== GRUPO_TOP && r.tipo !== GRUPO_ULT).sort((a, b) => b.promedio - a.promedio);
       if (!rows.length) return [];
-      const rep = por_tipo.find((r) => r.tipo === 'Repost');
-      return [{tipo: rows[0].tipo.toLowerCase(), promedio: rows[0].promedio, veces: rep && rep.promedio ? Math.round(rows[0].promedio / rep.promedio * 10) / 10 : null}];
+      return [{tipo: String(rows[0].tipo).toLowerCase(), promedio: rows[0].promedio, posts: rows[0].posts}];
     }
   });
   dash.calc('post_reciente', {
     title: 'Mejor post reciente',
-    description: 'El post con más impresiones entre los últimos 15 del perfil.',
+    description: 'El post con más impresiones entre los últimos 15 del perfil (o entre todos, si ninguno trae ese grupo).',
     inputs: ['posts_perfil'],
-    fn: (posts_perfil) => { const r = posts_perfil.filter((p) => p.grupo === 'Últimos 15').sort((a, b) => Number(b.impresiones) - Number(a.impresiones))[0]; return r ? [{post: r.post, tipo: r.tipo, impresiones: Number(r.impresiones), cuando: r.cuando}] : []; }
+    fn: (posts_perfil) => { const ult = posts_perfil.filter((p) => p.grupo === GRUPO_ULT); const r = (ult.length ? ult : posts_perfil.slice()).sort((a, b) => Number(b.impresiones) - Number(a.impresiones))[0]; return r ? [{post: r.post, tipo: tipoDe(r), impresiones: Number(r.impresiones) || 0, cuando: r.cuando}] : []; }
   });
-  dash.draw('postsem', (el) => {
+  reg('postsem', (el) => {
     const s = dash.data('semana_ultima'), pr = dash.data('post_reciente');
     if (s.status !== 'ok' || pr.status !== 'ok') return fail(el, s.status !== 'ok' ? s : pr);
     const w = s.data[0];
     const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; e.textContent = txt; return e; };
     if (w && w.post_semana) {
-      el.replaceChildren(mk('q', '', w.post_semana), mk('p', 'hx-sub', (w.post_cuenta || '') + ' · semana del ' + semLabel(w.semana)), mk('p', 'hx-take', w.post_por_que || ''));
+      el.replaceChildren(mk('q', '', w.post_semana), mk('p', 'hx-sub', [w.post_cuenta, 'semana del ' + semLabel(w.semana)].filter(tiene).join(' · ')), mk('p', 'hx-take', w.post_por_que || ''));
     } else {
       const r = pr.data[0];
       if (!r) return vacio(el);
-      el.replaceChildren(mk('p', 'hx-note', 'El post de la semana sale del análisis semanal. Mientras, tu mejor post reciente:'), mk('q', '', r ? r.post : '—'), mk('p', 'hx-sub', r ? r.cuando + ' · ' + r.tipo + ' · ' + fmt.int(r.impresiones) + ' impresiones' : ''));
+      el.replaceChildren(mk('p', 'hx-note', 'El post de la semana sale del análisis semanal. Mientras, tu mejor post reciente:'), mk('q', '', r ? r.post : '—'), mk('p', 'hx-sub', [r.cuando, r.tipo, fmt.int(r.impresiones) + ' impresiones'].filter(tiene).join(' · ')));
     }
   });
   dash.calc('temas_clientes', {
@@ -1005,7 +1024,7 @@
     inputs: ['citas_detalle'],
     fn: (citas_detalle) => Array.from(d3.rollup(citas_detalle.filter((r) => r.tema), (v) => v.length, (r) => r.tema), ([tema, citas]) => ({tema, citas})).sort((a, b) => b.citas - a.citas)
   });
-  dash.draw('temas', (el) => {
+  reg('temas', (el) => {
     const d = dash.data('temas_clientes'), s = dash.data('semana_ultima');
     if (d.status !== 'ok') return fail(el, d);
     if (d.data.length) {
@@ -1015,14 +1034,14 @@
     }
     const w = s.status === 'ok' ? s.data[0] : null;
     if (w && w.temas) { const ul = document.createElement('ul'); ul.className = 'vz-temas'; String(w.temas).split(';').map((x) => x.trim()).filter(Boolean).forEach((x) => { const li = document.createElement('li'); li.textContent = x; ul.appendChild(li); }); el.replaceChildren(ul); return; }
-    const p = document.createElement('p'); p.className = 'hx-empty'; p.textContent = EMPTY; el.replaceChildren(p);
+    vacio(el);
   });
 
   /* ---- hitos ---- */
   const HF = d3.utcFormat('%d %b');
   const hcol = (c) => c === 'Página' ? 'var(--tb-pag)' : c === 'Ambas' ? 'var(--tb-acento)' : 'var(--tb-1)';
   window.hxHitos = () => { const h = dash.data('hitos'); return h.status === 'ok' && Array.isArray(h.data) ? h.data : []; };
-  dash.draw('timeline', (el) => {
+  reg('timeline', (el) => {
     const d = dash.data('hitos');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -1076,15 +1095,16 @@
 
   /* ---- Metas: velocímetro ---- */
   const pcf = new Intl.NumberFormat('es', {style: 'percent', maximumFractionDigits: 0});
-  dash.draw('gauge', (el) => {
+  reg('gauge', (el) => {
     const d = dash.data(el.getAttribute('data-source'));
     const gs = el.getAttribute('data-goal-source');
     const g = gs ? dash.data(gs) : d;
     if (d.status !== 'ok' || g.status !== 'ok') return fail(el, d.status !== 'ok' ? d : g);
     const row = d.data.length ? pickRow(el, d.data) : null;
     const grow = gs ? g.data[0] : row;
-    const val = row ? Number(row[el.getAttribute('data-field')]) : NaN;
-    const goal = el.hasAttribute('data-goal') ? Number(el.getAttribute('data-goal')) : (grow ? Number(grow[el.getAttribute('data-goal-field')]) : NaN);
+    const nn = (v) => (v === null || v === undefined || v === '') ? NaN : Number(v);
+    const val = row ? nn(row[el.getAttribute('data-field')]) : NaN;
+    const goal = el.hasAttribute('data-goal') ? Number(el.getAttribute('data-goal')) : (grow ? nn(grow[el.getAttribute('data-goal-field')]) : NaN);
     el.replaceChildren();
     const W = 240, H = 140, cx = 120, cy = 122, R = 100, r0 = 66;
     const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H).attr('role', 'img');
@@ -1119,7 +1139,7 @@
       return Object.values(by).map((r) => Object.assign(r, {porcentaje: Math.round(r.porcentaje * 10) / 10})).sort((a, b) => b.porcentaje - a.porcentaje);
     }
   });
-  dash.draw('flags', (el) => {
+  reg('flags', (el) => {
     const d = dash.data('audiencia_pais');
     if (d.status !== 'ok') return fail(el, d);
     if (!d.data.length) return vacio(el);
@@ -1131,11 +1151,11 @@
       c.append(e, p, n); return c;
     }));
   });
-  dash.draw('mapa', (el) => {
+  reg('mapa', (el) => {
     const m = dash.data('mapa_mundo'), ap = dash.data('audiencia_pais'), au = dash.data('audiencia');
     if (m.status !== 'ok' || ap.status !== 'ok' || au.status !== 'ok') return fail(el, m.status !== 'ok' ? m : ap.status !== 'ok' ? ap : au);
     el.replaceChildren();
-    if (!ap.data.length || !m.data.length) return;
+    if (!ap.data.length || !m.data.length) { el.classList.add('is-vacio'); return; }
     const feats = m.data.map((r) => ({type: 'Feature', properties: {pais: r.pais}, geometry: typeof r.geometria === 'string' ? JSON.parse(r.geometria) : r.geometria}));
     const W = Math.max(280, el.clientWidth), H = Math.round(Math.min(420, Math.max(260, W * 0.62)));
     const pct = new Map(ap.data.map((r) => [r.pais, r.porcentaje]));
@@ -1187,7 +1207,7 @@
       ];
     }
   });
-  dash.draw('funnel', (el) => {
+  reg('funnel', (el) => {
     const d = dash.data('embudo');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -1258,17 +1278,38 @@
   });
 
 
-  const AUD_CAMPOS = [['decisores_pct','Toman decisiones (gerente o superior)'],['alta_direccion_pct','Alta dirección'],['empresas_1000_pct','Empresas de más de 1.000 personas'],['rrhh_pct','Personas y RR. HH.'],['sin_decision_pct','Sin rol de decisión']];
-  window.hxAudCampos = AUD_CAMPOS;
+  /* Audiencia por arquetipo: el dataset audiencia_arquetipos trae filas {fecha, arquetipo, porcentaje}.
+     Los grupos salen de los arquetipos definidos en el dataset arquetipos, más la fila "Fuera del público". */
+  const FUERA = 'Fuera del público';
+  const esFuera = (n) => norm(n) === norm(FUERA);
   dash.calc('audiencia_arquetipo', {
     title: 'Audiencia por arquetipo, última lectura',
-    description: 'La lectura más reciente de la audiencia por arquetipo, con el valor de la primera lectura para comparar.',
-    inputs: ['audiencia_arquetipos'],
-    fn: (audiencia_arquetipos) => {
-      if (!audiencia_arquetipos.length) return [];
-      const s = audiencia_arquetipos.slice().sort((x, y) => String(x.fecha).localeCompare(String(y.fecha)));
-      const last = s[s.length - 1], first = s[0];
-      return window.hxAudCampos.map(([k, g]) => ({grupo: g, porcentaje: Number(last[k] || 0), inicial: Number(first[k] || 0), fecha: last.fecha, desde: first.fecha}));
+    description: 'Por cada arquetipo definido (y la fila "Fuera del público"), el porcentaje de la audiencia en la lectura más reciente y en la primera, para comparar.',
+    inputs: ['audiencia_arquetipos', 'arquetipos'],
+    fn: (audiencia_arquetipos, arquetipos) => {
+      const filas = audiencia_arquetipos.filter((r) => r && tiene(r.fecha) && tiene(r.arquetipo));
+      if (!filas.length) return [];
+      const fechas = [...new Set(filas.map((r) => String(r.fecha)))].sort();
+      const ult = fechas[fechas.length - 1];
+      const val = (f, n) => { const x = filas.find((r) => String(r.fecha) === f && norm(r.arquetipo) === norm(n)); return x ? numO(x.porcentaje) : null; };
+      const primera = (n) => { for (const f of fechas) { const v = val(f, n); if (v !== null) return {v, f}; } return null; };
+      const nombres = arquetipos.map((r) => r.arquetipo).filter(tiene).map((n) => String(n).trim());
+      filas.filter((r) => String(r.fecha) === ult).forEach((r) => { if (!nombres.some((n) => norm(n) === norm(r.arquetipo))) nombres.push(String(r.arquetipo).trim()); });
+      const orden = nombres.filter((n) => !esFuera(n)).concat(nombres.filter(esFuera).slice(0, 1));
+      return orden.map((n) => { const p = primera(n); return {grupo: n, arquetipo: n, fuera: esFuera(n), porcentaje: val(ult, n), inicial: p ? p.v : null, fecha: ult, desde: p ? p.f : ult}; });
+    }
+  });
+  dash.calc('audiencia_resumen', {
+    title: 'Audiencia dentro y fuera del público',
+    description: 'Qué porcentaje de la audiencia calza con alguno de los arquetipos y qué porcentaje queda fuera, en la última lectura.',
+    inputs: ['audiencia_arquetipo'],
+    fn: (audiencia_arquetipo) => {
+      const con = audiencia_arquetipo.filter((r) => r.porcentaje !== null);
+      if (!con.length) return [];
+      const f = con.find((r) => r.fuera);
+      const suma = d3.sum(con.filter((r) => !r.fuera), (r) => r.porcentaje);
+      const en = Math.max(0, Math.min(100, f ? 100 - f.porcentaje : suma));
+      return [{en_publico: Math.round(en), fuera: Math.round(100 - en), fecha: con[0].fecha}];
     }
   });
   dash.calc('conv_por_arquetipo', {
@@ -1280,29 +1321,29 @@
       return Array.from(by, ([arquetipo, o]) => Object.assign({arquetipo}, o)).sort((a, b) => b.conversaciones - a.conversaciones);
     }
   });
-  dash.draw('arq-aud', (el) => {
+  reg('arq-aud', (el) => {
     const d = dash.data('audiencia_arquetipo');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
     if (!d.data.length) return vacio(el);
     const tt = tip(el);
-    d.data.forEach((r) => {
-      const muted = r.grupo === 'Sin rol de decisión';
+    d.data.forEach((r, i) => {
+      const sd = r.porcentaje === null;
       const box = document.createElement('div'); box.className = 'vz-p';
-      const c = document.createElement('div'); c.className = 'vz-circ'; c.appendChild(window.hxSilueta(r.porcentaje, muted ? 'var(--cds-chart-muted)' : PAL.perfil[(d.data.indexOf(r)) % 3]));
-      const v = document.createElement('span'); v.className = 'vz-pv'; v.textContent = fmt.int(r.porcentaje) + ' %';
+      const c = document.createElement('div'); c.className = 'vz-circ'; c.appendChild(window.hxSilueta(sd ? 0 : r.porcentaje, r.fuera ? 'var(--cds-chart-muted)' : PAL.perfil[i % 3]));
+      const v = document.createElement('span'); v.className = 'vz-pv'; v.textContent = sd ? 's/d' : fmt.int(r.porcentaje) + ' %';
       const l = document.createElement('span'); l.className = 'vz-pl'; l.textContent = r.grupo;
       box.append(c, v, l);
-      box.addEventListener('mousemove', (ev) => tt.show(ev, [r.grupo, fmt.int(r.porcentaje) + ' % de tu público (estimado)', r.fecha === r.desde ? 'Primera lectura: ' + semLabel(r.fecha) : 'En la primera lectura (' + semLabel(r.desde) + '): ' + fmt.int(r.inicial) + ' %']));
+      box.addEventListener('mousemove', (ev) => tt.show(ev, [r.grupo, sd ? 'Sin dato en la última lectura' : fmt.int(r.porcentaje) + ' % de tu público (estimado)', r.inicial === null ? 'Lectura del ' + semLabel(r.fecha) : r.fecha === r.desde ? 'Primera lectura: ' + semLabel(r.fecha) : 'En la primera lectura (' + semLabel(r.desde) + '): ' + fmt.int(r.inicial) + ' %']));
       box.addEventListener('mouseleave', () => tt.hide());
       el.insertBefore(box, el.querySelector('.hx-tip'));
     });
   });
-  dash.draw('conv-arq', (el) => {
+  reg('conv-arq', (el) => {
     const d = dash.data('conv_por_arquetipo');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
-    if (!d.data.length) { const p = document.createElement('p'); p.className = 'hx-note'; p.textContent = EMPTY; el.appendChild(p); return; }
+    if (!d.data.length) return vacio(el);
     const max = d3.max(d.data, (r) => r.conversaciones) || 1;
     const tt = tip(el);
     d.data.forEach((r) => {
@@ -1322,15 +1363,46 @@
     document.querySelectorAll('#citas-vacio').forEach((p) => { p.hidden = hay; });
   });
 
+  /* Secciones opcionales. Cada elemento con data-si="evento|charlas|pagina|sin-pagina" se muestra solo si corresponde:
+     evento: supuestos.evento_nombre no está vacío.
+     charlas: supuestos.meta_charlas_mes es mayor que 0 o hay filas en charlas.
+     pagina: se oculta solo si supuestos.sin_pagina es verdadero y ningún dataset trae datos de la página. */
+  const PAG_RES = ['posts_pagina', 'impresiones_pagina', 'clics_pagina', 'reacciones_pagina', 'comentarios_pagina', 'seguidores_pagina'];
+  const PAG_SEM = ['impresiones_pagina', 'clics_pagina', 'interacciones_pagina', 'seguidores_nuevos_pagina'];
+  window.hxOpc = () => {
+    const s = filasDe('supuestos')[0] || {};
+    const r = filasDe('resumen')[0] || {};
+    const sinPag = s.sin_pagina === true || s.sin_pagina === 1 || /^(true|1|si|sí|verdadero)$/i.test(String(s.sin_pagina).trim());
+    const hayPag = filasDe('pagina_mensual').length > 0 || filasDe('posts_pagina').length > 0 || filasDe('puntaje').some((x) => x.perfil === 'Página')
+      || PAG_RES.some((k) => Number(r[k]) > 0) || filasDe('citas_semanas').some((x) => PAG_SEM.some((k) => Number(x[k]) > 0))
+      || filasDe('hitos').some((x) => x.cuenta === 'Página');
+    return {evento: tiene(s.evento_nombre), charlas: Number(s.meta_charlas_mes) > 0 || filasDe('charlas').length > 0, pagina: !(sinPag && !hayPag)};
+  };
+  /* Colores de la marca, opcionales: supuestos.color_acento reemplaza --tb-acento y supuestos.color_acento2 reemplaza --tb-1.
+     Solo se aceptan colores hex (#rgb o #rrggbb); si no vienen, queda la paleta neutra. */
+  const HEX = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i;
+  dash.onData(() => {
+    const o = window.hxOpc();
+    document.querySelectorAll('.hx [data-si]').forEach((el) => { const k = el.getAttribute('data-si'); el.hidden = k === 'sin-pagina' ? o.pagina : !o[k]; });
+    document.querySelectorAll('.hx .vz-y').forEach((el) => el.classList.toggle('is-una', !o.pagina));
+    const s = filasDe('supuestos')[0] || {};
+    document.querySelectorAll('.hx').forEach((hx) => {
+      [['--tb-acento', s.color_acento], ['--tb-1', s.color_acento2]].forEach(([k, v]) => {
+        const c = tiene(v) ? String(v).trim() : '';
+        if (HEX.test(c)) hx.style.setProperty(k, c); else hx.style.removeProperty(k);
+      });
+    });
+  });
+
   const SF = d3.utcFormat('%d-%m-%Y');
   const semLabel = (s) => { const t = new Date(String(s) + 'T00:00:00Z'); return isNaN(t) ? String(s) : SF(t); };
-  dash.draw('semana', (el) => {
+  reg('semana', (el) => {
     const d = dash.data(el.getAttribute('data-source'));
     const row = d.status === 'ok' && Array.isArray(d.data) && d.data[0];
     el.textContent = row ? semLabel(row[el.getAttribute('data-field')]) : '—';
   });
 
-  dash.draw('cupos', (el) => {
+  reg('cupos', (el) => {
     const d = dash.data('citas_ultima'), s = dash.data('supuestos');
     const row = d.status === 'ok' && Array.isArray(d.data) && d.data[0];
     const cupos = s.status === 'ok' && Array.isArray(s.data) && s.data[0] ? Number(s.data[0].evento_cupos) : 0;
@@ -1340,12 +1412,12 @@
     el.replaceChildren(b);
   });
 
-  dash.draw('cbars', (el) => {
+  reg('cbars', (el) => {
     const d = dash.data(el.getAttribute('data-source'));
     if (d.status !== 'ok') return fail(el, d);
     const key = el.getAttribute('data-key');
     el.replaceChildren();
-    if (!d.data.length) { const p = document.createElement('p'); p.className = 'hx-note'; p.textContent = EMPTY; el.appendChild(p); return; }
+    if (!d.data.length) return vacio(el);
     const max = d3.max(d.data, (r) => r.citas) || 1;
     const tt = tip(el);
     d.data.forEach((r, i) => {
@@ -1356,7 +1428,7 @@
     });
   });
 
-  dash.draw('embudo', (el) => {
+  reg('embudo', (el) => {
     const d = dash.data('citas_ultima');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -1374,7 +1446,7 @@
     });
   });
 
-  dash.draw('citas-sem', (el) => {
+  reg('citas-sem', (el) => {
     const d = dash.data('citas_semanas');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -1425,13 +1497,15 @@
     let ini = s.plan_inicio ? Date.parse(String(s.plan_inicio) + 'T00:00:00Z') : NaN;
     if (isNaN(ini) && citas_semanas && citas_semanas.length) ini = d3.min(citas_semanas, (r) => Date.parse(String(r.semana) + 'T00:00:00Z'));
     const dias = Number(s.plan_dias) > 0 ? Number(s.plan_dias) : 90;
-    return {ini: (ini === undefined || isNaN(ini)) ? null : ini, dias, semanas: Math.ceil(dias / 7),
+    const semanas = Math.ceil(dias / 7);
+    const rampa = Math.max(1, Math.min(semanas, Number(s.rampa_semanas) > 0 ? Math.round(Number(s.rampa_semanas)) : 10));
+    return {ini: (ini === undefined || isNaN(ini)) ? null : ini, dias, semanas, rampa,
       meta: Number(s.meta_reuniones_semana) > 0 ? Number(s.meta_reuniones_semana) : null,
-      evento: s.evento_nombre || '', evento_ms: s.evento_fecha ? Date.parse(String(s.evento_fecha) + 'T00:00:00Z') : NaN,
+      evento: tiene(s.evento_nombre) ? String(s.evento_nombre).trim() : '', evento_ms: s.evento_fecha ? Date.parse(String(s.evento_fecha) + 'T00:00:00Z') : NaN,
       cupos: Number(s.evento_cupos) > 0 ? Number(s.evento_cupos) : null};
   };
   const semN = (s, ini) => Math.floor((Date.parse(String(s) + 'T00:00:00Z') - ini) / (7 * DIA)) + 1;
-  const ideal = (n, meta) => Math.min(meta, Math.max(0, n) * meta / 10);
+  const ideal = (n, meta, rampa) => Math.min(meta, Math.max(0, n) * meta / (rampa > 0 ? rampa : 10));
   const dec = (v) => String(Math.round(v * 10) / 10).replace('.', ',');
   const hoyUTC = () => { const t = new Date(); return Date.UTC(t.getFullYear(), t.getMonth(), t.getDate()); };
   const ordSem = (rows) => rows.slice().sort((a, b) => String(a.semana).localeCompare(String(b.semana)));
@@ -1439,7 +1513,7 @@
 
   dash.calc('camino', {
     title: 'Vas en camino',
-    description: 'Semáforo, proyección, cuentas regresivas y rachas, desde las reuniones por semana frente a una rampa ideal que sube parejo hasta la meta en la semana 10. El inicio y la duración del plan, la meta y el evento salen de los supuestos.',
+    description: 'Semáforo, proyección, cuentas regresivas y rachas, desde las reuniones por semana frente a una rampa ideal que sube parejo hasta la meta en la semana que indique supuestos.rampa_semanas (10 si no viene, y nunca más que las semanas del plan). El inicio y la duración del plan (plan_dias), la meta y el evento salen de los supuestos.',
     inputs: ['citas_semanas', 'supuestos'],
     fn: (citas_semanas, supuestos) => {
       const P = window.hxPlan(supuestos, citas_semanas), meta = P.meta;
@@ -1449,7 +1523,7 @@
       const last = rows[rows.length - 1];
       const inscritos = last && last.inscritos_evento !== null && last.inscritos_evento !== undefined ? Number(last.inscritos_evento) : null;
       const fl = d3.utcFormat('%d-%m-%Y');
-      const o = {dia, plan_dias: P.dias, plan_semanas: P.semanas, plan_ini: P.ini, meta,
+      const o = {dia, plan_dias: P.dias, plan_semanas: P.semanas, rampa_semanas: P.rampa, plan_ini: P.ini, meta, hay_evento: !!P.evento,
         plan_txt: P.ini === null ? 'Falta la fecha de inicio del plan en los supuestos.' : 'Empezó el ' + fl(new Date(P.ini)) + ' y termina el ' + fl(new Date(P.ini + (P.dias - 1) * DIA)) + '.',
         evento_nombre: P.evento || 'sin evento definido', evento_cupos: P.cupos,
         dias_evento: isNaN(P.evento_ms) ? null : Math.max(0, Math.round((P.evento_ms - hoy) / DIA)),
@@ -1461,7 +1535,7 @@
       const n = semN(last.semana, P.ini);
       const ult2 = rows.slice(-2);
       const real = d3.mean(ult2, (r) => Number(r.citas || 0));
-      const idl = d3.mean(ult2, (r) => ideal(semN(r.semana, P.ini), meta));
+      const idl = d3.mean(ult2, (r) => ideal(semN(r.semana, P.ini), meta, P.rampa));
       const ratio = idl > 0 ? real / idl : 1;
       let slope;
       if (rows.length >= 2) { const xs = rows.map((r) => semN(r.semana, P.ini)), ys = rows.map((r) => Number(r.citas || 0)); const mx = d3.mean(xs), my = d3.mean(ys); const den = d3.sum(xs, (x) => (x - mx) ** 2); slope = den ? d3.sum(xs, (x, i) => (x - mx) * (ys[i] - my)) / den : 0; }
@@ -1481,19 +1555,20 @@
       const P = window.hxPlan(supuestos, citas_semanas);
       if (P.ini === null || P.meta === null) return [];
       const by = new Map(citas_semanas.map((r) => [semN(r.semana, P.ini), Number(r.citas || 0)]));
-      return d3.range(1, P.semanas + 1).map((n) => ({semana_n: n, semana: d3.utcFormat('%Y-%m-%d')(new Date(P.ini + (n - 1) * 7 * DIA)), ideal: ideal(n, P.meta), real: by.has(n) ? by.get(n) : null}));
+      return d3.range(1, P.semanas + 1).map((n) => ({semana_n: n, semana: d3.utcFormat('%Y-%m-%d')(new Date(P.ini + (n - 1) * 7 * DIA)), ideal: ideal(n, P.meta, P.rampa), real: by.has(n) ? by.get(n) : null}));
     }
   });
   dash.calc('vs_semana', {
     title: 'Frente a la semana anterior',
     description: 'Valor de la última semana medida, el de la anterior y la diferencia, para cada métrica clave.',
-    inputs: ['citas_semanas'],
-    fn: (citas_semanas) => {
+    inputs: ['citas_semanas', 'supuestos'],
+    fn: (citas_semanas, supuestos) => {
       const rows = ordSem(citas_semanas);
       const a = rows[rows.length - 1], b = rows[rows.length - 2];
       if (!a) return [];
+      const hayEvento = tiene((supuestos[0] || {}).evento_nombre);
       return [['citas', 'Reuniones'], ['respuestas', 'Respuestas'], ['dms_enviados', 'Mensajes enviados'], ['conversaciones', 'Personas con interés'], ['visitas_perfil', 'Visitas a tu perfil'], ['impresiones', 'Impresiones'], ['inscritos_evento', 'Inscritos al evento'], ['posts_publicados', 'Posts publicados']]
-        .filter(([k]) => a[k] !== null && a[k] !== undefined)
+        .filter(([k]) => a[k] !== null && a[k] !== undefined && (k !== 'inscritos_evento' || hayEvento))
         .map(([k, metrica]) => ({campo: k, metrica, actual: Number(a[k]), anterior: b && b[k] !== null && b[k] !== undefined ? Number(b[k]) : null, diferencia: b && b[k] !== null && b[k] !== undefined ? Number(a[k]) - Number(b[k]) : null}));
     }
   });
@@ -1550,9 +1625,8 @@
         {lado: 'habito', item: 'Mensajes enviados', valor: v(r.dms_enviados), meta: v(mr.mensajes_necesarios)},
         {lado: 'habito', item: 'Rondas de conversación', valor: v(r.rondas), meta: 2},
         {lado: 'resultado', item: 'Respuestas', valor: v(r.respuestas), meta: v(mr.respuestas_necesarias)},
-        {lado: 'resultado', item: 'Reuniones', valor: v(r.citas), meta},
-        {lado: 'resultado', item: 'Inscritos al evento', valor: v(r.inscritos_evento), meta: Number((supuestos[0] || {}).evento_cupos || 0) || null}
-      ];
+        {lado: 'resultado', item: 'Reuniones', valor: v(r.citas), meta}
+      ].concat(tiene((supuestos[0] || {}).evento_nombre) ? [{lado: 'resultado', item: 'Inscritos al evento', valor: v(r.inscritos_evento), meta: Number((supuestos[0] || {}).evento_cupos || 0) || null}] : []);
     }
   });
   const ETAPAS = ['encontrada', 'propuesta', 'aceptada', 'dada'];
@@ -1571,30 +1645,33 @@
   });
   dash.calc('pipeline', {
     title: 'Valor de la agenda',
-    description: 'Reuniones acumuladas por la tasa de cierre y el ticket promedio que indiques en los supuestos.',
-    inputs: ['citas_acum', 'supuestos'],
-    fn: (citas_acum, supuestos) => {
-      const s = supuestos[0] || {}, n = citas_acum[0] ? Number(citas_acum[0].citas) : 0;
-      const tk = s.ticket_promedio === null || s.ticket_promedio === undefined ? null : Number(s.ticket_promedio);
-      const tc = s.tasa_cierre === null || s.tasa_cierre === undefined ? null : Number(s.tasa_cierre);
-      if (tk !== null && tc === null) return [{reuniones: n, valor: null, frase: 'Tu ticket promedio es de ' + new Intl.NumberFormat('es', {style: 'currency', currency: s.moneda || 'USD', maximumFractionDigits: 0}).format(tk) + ' por proyecto, así que tus ' + fmt.int(n) + ' reuniones abren un valor potencial de ' + new Intl.NumberFormat('es', {style: 'currency', currency: s.moneda || 'USD', maximumFractionDigits: 0}).format(n * tk) + ' si todas cerraran. Falta la tasa de cierre (qué porcentaje de las reuniones se vuelve cliente) para calcular el valor esperado.'}];
-      if (tk === null || tc === null) return [{reuniones: n, valor: null, frase: 'Falta un dato: tu ticket promedio por proyecto y qué porcentaje de las reuniones se vuelve cliente. Con esos dos números, aquí verás cuánto vale cada reunión y tu agenda acumulada.'}];
-      const mon = new Intl.NumberFormat('es', {style: 'currency', currency: s.moneda || 'USD', maximumFractionDigits: 0});
+    description: 'Reuniones acumuladas por la tasa de cierre y el ticket (promedio, o la meta de ticket como referencia). Sin tasa de cierre no se calcula dinero por reunión.',
+    inputs: ['citas_acum', 'dinero'],
+    fn: (citas_acum, dinero) => {
+      const d = dinero[0] || {}, n = citas_acum[0] ? Number(citas_acum[0].citas) || 0 : 0;
+      const tk = d.ticket_uso === undefined ? null : d.ticket_uso, tc = d.tasa === undefined ? null : d.tasa;
+      const nom = d.ticket_tipo === 'referencia' ? 'ticket de referencia' : 'ticket promedio';
+      const reun = n === 1 ? 'tu reunión' : 'tus ' + fmt.int(n) + ' reuniones';
+      if (tk === null) return [{reuniones: n, valor: null, frase: 'Falta el ticket: anota tu ticket promedio o tu meta de ticket en los supuestos' + (tc === null ? ', y también la tasa de cierre (qué parte de las reuniones se vuelve cliente)' : '') + '. Con esos datos, aquí verás cuánto vale cada reunión y tu agenda acumulada.'}];
+      if (tc === null) return [{reuniones: n, valor: null, frase: 'Con un ' + nom + ' de ' + millones(tk) + ' por proyecto' + (d.ticket_tipo === 'referencia' ? ' (tu meta de ticket, mientras no haya ticket promedio)' : '') + (n ? ', ' + reun + (n === 1 ? ' abre' : ' abren') + ' un valor potencial de ' + millones(n * tk) + ' si ' + (n === 1 ? 'cerrara' : 'todas cerraran') : '') + '. Falta la tasa de cierre (qué parte de las reuniones se vuelve cliente): sin ella no se calcula cuánto vale cada reunión.'}];
       const v = n * tc * tk;
-      return [{reuniones: n, valor: v, frase: 'Cada reunión vale en promedio ' + mon.format(tc * tk) + '. Tus ' + fmt.int(n) + ' reuniones suman unos ' + mon.format(v) + ' en valor esperado.'}];
+      return [{reuniones: n, valor: v, frase: 'Cada reunión vale en promedio ' + millones(tc * tk) + (d.ticket_tipo === 'referencia' ? ', calculado con el ticket de referencia (tu meta de ticket, mientras no haya ticket promedio)' : '') + '. ' + (n ? (n === 1 ? 'Tu reunión suma' : 'Tus ' + fmt.int(n) + ' reuniones suman') + ' unos ' + millones(v) + ' en valor esperado.' : 'Aún no hay reuniones medidas.')}];
     }
   });
   dash.calc('ticket_meta', {
     title: 'Ticket frente a la meta',
-    description: 'Ticket promedio real frente a la meta por etapas: la primera meta y, al lograrla, la siguiente.',
-    inputs: ['supuestos'],
-    fn: (supuestos) => {
-      const s = supuestos[0] || {};
-      if (s.ticket_promedio === null || s.ticket_promedio === undefined || !s.ticket_meta) return [];
-      const t = Number(s.ticket_promedio), m1 = Number(s.ticket_meta), m2 = Number(s.ticket_meta_siguiente || 0);
-      const meta = (t >= m1 && m2) ? m2 : m1;
+    description: 'Ticket promedio real frente a la meta por etapas: la primera meta y, al lograrla, la siguiente. Sin ticket promedio, la meta queda como ticket de referencia.',
+    inputs: ['supuestos', 'dinero'],
+    fn: (supuestos, dinero) => {
+      const s = supuestos[0] || {}, d = dinero[0] || {};
       const mtxt = (v) => money(v, s.moneda);
-      return [{ticket: t, meta, meta_txt: mtxt(meta), frase: 'Hoy tu ticket promedio es de ' + mtxt(t) + '. Para llegar a ' + mtxt(meta) + ' tiene que crecer ' + String(Math.round(meta / t * 10) / 10).replace('.', ',') + ' veces.' + (meta === m1 && m2 ? ' Al lograrlo, la meta sube a ' + mtxt(m2) + '.' : '')}];
+      const veces = (a, b) => String(Math.round(a / b * 10) / 10).replace('.', ',');
+      const t = d.ticket_tipo === 'promedio' || d.ticket_tipo === 'ventas' ? d.ticket_uso : null;
+      const M = window.hxMetaTicket(s, t), meta = M.meta;
+      if (t === null && meta === null) return [{ticket: null, meta: null, meta_txt: '—', titulo: 'Ticket promedio frente a tu meta', frase: 'Falta el ticket promedio y la meta de ticket en los supuestos.'}];
+      if (t === null) return [{ticket: null, meta, meta_txt: mtxt(meta), titulo: 'Ticket de referencia: tu meta de ' + mtxt(meta), frase: 'Aún no hay ticket promedio. Mientras tanto, tu meta de ' + mtxt(meta) + ' se usa como ticket de referencia para estimar cuánto vale tu agenda.'}];
+      if (meta === null) return [{ticket: t, meta: null, meta_txt: '—', titulo: 'Ticket promedio frente a tu meta', frase: 'Hoy tu ticket promedio es de ' + mtxt(t) + '. Falta la meta de ticket en los supuestos.'}];
+      return [{ticket: t, meta, meta_txt: mtxt(meta), titulo: 'Ticket promedio frente a tu meta de ' + mtxt(meta), frase: 'Hoy tu ticket promedio es de ' + mtxt(t) + '. ' + (t >= meta ? 'Ya alcanzaste tu meta de ' + mtxt(meta) + '.' : 'Para llegar a ' + mtxt(meta) + ' tiene que crecer ' + veces(meta, t) + ' veces.') + (meta === M.m1 && M.m2 !== null && M.m2 > M.m1 ? ' Al lograrlo, la meta sube a ' + mtxt(M.m2) + '.' : '')}];
     }
   });
   dash.calc('resumen10', {
@@ -1612,7 +1689,7 @@
     }
   });
 
-  dash.draw('semaforo', (el) => {
+  reg('semaforo', (el) => {
     const d = dash.data('camino');
     if (d.status !== 'ok') return fail(el, d);
     const c = d.data[0] || {};
@@ -1624,13 +1701,13 @@
     t.append(s, p);
     el.replaceChildren(b, t);
   });
-  dash.draw('avance', (el) => {
+  reg('avance', (el) => {
     const d = dash.data('camino');
     const c = d.status === 'ok' && d.data[0];
     const i = document.createElement('i'); i.style.width = (c && c.dia ? c.dia / c.plan_dias * 100 : 0) + '%'; i.style.background = 'var(--tb-1)';
     el.replaceChildren(i);
   });
-  dash.draw('rampa', (el) => {
+  reg('rampa', (el) => {
     const d = dash.data('rampa'), cm = dash.data('camino');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -1664,7 +1741,7 @@
     [['var(--tb-1)', 'Ideal'], ['var(--tb-acento)', 'Real'], ['var(--tb-acento)', 'Si sigues igual (punteada)']].forEach(([col, t]) => { const s = document.createElement('span'); const i = document.createElement('i'); i.className = 'hx-sw'; i.style.background = col; s.append(i, document.createTextNode(t)); lg.appendChild(s); });
     el.appendChild(lg);
   });
-  dash.draw('vssem', (el) => {
+  reg('vssem', (el) => {
     const d = dash.data('vs_semana');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -1678,11 +1755,11 @@
       li.append(b, s, a); el.appendChild(li);
     });
   });
-  dash.draw('pasos', (el) => {
+  reg('pasos', (el) => {
     const d = dash.data('pasos');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
-    if (!d.data.length) { const p = document.createElement('p'); p.className = 'hx-empty'; p.textContent = EMPTY + ' Aquí leerás frases como "de cada 100 mensajes que envías, tantos reciben respuesta".'; el.appendChild(p); return; }
+    if (!d.data.length) return vacio(el, EMPTY + ' Aquí leerás frases como "de cada 100 mensajes que envías, tantos reciben respuesta".');
     d.data.forEach((r) => {
       const box = document.createElement('div'); box.className = 'vz-paso' + (r.cuello ? ' cuello' : '');
       const t = document.createElement('p'); t.className = 'vz-pt'; t.textContent = r.frase;
@@ -1695,13 +1772,13 @@
       el.appendChild(box);
     });
   });
-  dash.draw('hab', (el) => {
+  reg('hab', (el) => {
     const d = dash.data('habitos');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
     const lado = el.getAttribute('data-lado');
     const rows = d.data.filter((r) => r.lado === lado);
-    if (!rows.length) { const p = document.createElement('p'); p.className = 'hx-note'; p.textContent = EMPTY; el.appendChild(p); return; }
+    if (!rows.length) return vacio(el);
     const col = lado === 'habito' ? 'var(--tb-1)' : 'var(--tb-acento)';
     rows.forEach((r) => {
       const has = r.valor !== null, hm = r.meta !== null && r.meta > 0;
@@ -1709,21 +1786,35 @@
       el.appendChild(row);
     });
   });
-  dash.draw('charlas-emb', (el) => {
+  reg('charlas-emb', (el) => {
     const d = dash.data('charlas_embudo');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
     const max = d3.max(d.data, (r) => r.charlas) || 0;
-    if (!max) { const p = document.createElement('p'); p.className = 'hx-empty'; p.textContent = 'Aún no hay charlas registradas: se llena con la primera actualización semanal.'; el.appendChild(p); }
+    if (!max) return vacio(el, 'Aún no hay charlas registradas: se llena con la primera actualización semanal.');
     const cols = [PAL.perfil[0], PAL.perfil[1], PAL.perfil[1], PAL.perfil[2]];
     const lab = {encontrada: 'Encontradas', propuesta: 'Propuestas enviadas', aceptada: 'Aceptadas', dada: 'Dadas'};
     d.data.forEach((r, i) => el.appendChild(barRow(lab[r.etapa], max ? r.charlas / max : 0, cols[i], fmt.int(r.charlas))));
   });
 
   /* ==== El dinero ==== */
+  /* Ticket que se usa en los cálculos: el ticket promedio de los supuestos; si no hay, el promedio de las ventas cerradas;
+     si tampoco, la meta de ticket como "ticket de referencia". Si no hay ninguno, no se calcula dinero. */
+  const pos = (v) => { const n = numO(v); return n !== null && n > 0 ? n : null; };
+  window.hxTicket = (s, tkVentas) => {
+    const tp = pos(s.ticket_promedio), tv = pos(tkVentas), tm = pos(s.ticket_meta);
+    if (tp !== null) return {valor: tp, tipo: 'promedio'};
+    if (tv !== null) return {valor: tv, tipo: 'ventas'};
+    if (tm !== null) return {valor: tm, tipo: 'referencia'};
+    return {valor: null, tipo: null};
+  };
+  window.hxMetaTicket = (s, t) => {
+    const m1 = pos(s.ticket_meta), m2 = pos(s.ticket_meta_siguiente);
+    return {m1, m2, meta: m1 === null ? null : (t !== null && t >= m1 && m2 !== null ? m2 : m1)};
+  };
   dash.calc('dinero', {
     title: 'El dinero en una fila',
-    description: 'Vendido, número de ventas, ticket promedio, mínimo y máximo, perdidas, oportunidades abiertas y valor de cada reunión, desde las oportunidades de venta y los supuestos.',
+    description: 'Vendido, número de ventas, ticket (promedio o de referencia), mínimo y máximo, perdidas, oportunidades abiertas y valor de cada reunión, desde las oportunidades de venta y los supuestos. Sin tasa de cierre no se calcula dinero por reunión.',
     inputs: ['ventas', 'supuestos'],
     fn: (ventas, supuestos) => {
       const s = supuestos[0] || {};
@@ -1733,16 +1824,35 @@
       const abiertas = ventas.filter((r) => !String(r.estado).startsWith('Venta'));
       const conV = abiertas.filter((r) => Number(r.valor) > 0);
       const valorAb = d3.sum(conV, (r) => Number(r.valor));
-      const tasa = s.tasa_cierre === null || s.tasa_cierre === undefined ? null : Number(s.tasa_cierre);
-      const tki = s.ticket_promedio ? Number(s.ticket_promedio) : tk;
-      const vr = tasa !== null && tki ? tasa * tki : null;
-      const byO = d3.rollup(won, (v) => v.length, (r) => r.origen);
+      const tasa = numO(s.tasa_cierre);
+      const T = window.hxTicket(s, tk), tki = T.valor, ref = T.tipo === 'referencia';
+      const nomT = ref ? 'ticket de referencia' : 'ticket promedio';
+      const vr = tasa !== null && tki !== null ? tasa * tki : null;
+      const M = window.hxMetaTicket(s, ref ? null : tki);
+      const metaSem = pos(s.meta_reuniones_semana);
+      const byO = d3.rollup(won, (v) => v.length, (r) => r.origen || 'Sin dato');
       const top = Array.from(byO).sort((a, b) => b[1] - a[1])[0];
+      const sinV = abiertas.length - conV.length, enJuego = sinV * (tki || 0) + valorAb;
+      const faltaVR = tki === null && tasa === null ? 'Faltan el ticket y la tasa de cierre en los supuestos.' : tki === null ? 'Falta el ticket: anota tu ticket promedio o tu meta de ticket en los supuestos.' : tasa === null ? 'Falta la tasa de cierre en los supuestos.' : '';
+      const intro = (won.length ? 'Hasta ahora cerraste ' + fmt.int(won.length) + (won.length === 1 ? ' venta' : ' ventas') + ' por ' + millones(vendido) + '. ' : 'Aún no hay ventas cerradas. ')
+        + (tki === null ? 'Falta el ticket: anota tu ticket promedio o tu meta de ticket en los supuestos. '
+          : ref ? 'Aún no hay ticket promedio: se usa tu meta de ' + millones(tki) + ' como ticket de referencia. '
+          : 'Tu ticket promedio es de ' + millones(tki) + (M.meta !== null ? ' y tu próxima meta, ' + millones(M.meta) : '') + '. ')
+        + (vr !== null ? 'Hoy cada reunión vale unos ' + millones(vr) + ' esperados' + (ref ? ', calculados con el ticket de referencia.' : '.') : tasa === null ? 'Falta la tasa de cierre para saber cuánto vale cada reunión.' : '');
       return [{vendido, vendido_txt: millones(vendido), ventas: won.length, perdidas: ventas.filter((r) => r.estado === 'Venta perdida').length,
-        ticket: tk, ticket_txt: millones(tk), min_txt: millones(d3.min(vals)), max_txt: millones(d3.max(vals)),
+        ticket: tk, ticket_uso: tki, ticket_tipo: T.tipo, tasa, intro: intro.trim(),
+        ticket_txt: millones(tki), ticket_etiqueta: ref ? 'Ticket de referencia' : 'Ticket promedio',
+        ticket_nota: tki === null ? 'Falta el ticket promedio y la meta de ticket en los supuestos.' : ref ? 'Es tu meta de ticket: se usa mientras no haya ticket promedio ni ventas cerradas.' : vals.length ? (vals.length === 1 ? 'Una venta cerrada, de ' + millones(vals[0]) + '.' : 'Tus ventas van de ' + millones(d3.min(vals)) + ' a ' + millones(d3.max(vals)) + '.') : 'El que anotaste en los supuestos. Aún no hay ventas cerradas.',
+        min_txt: millones(d3.min(vals)), max_txt: millones(d3.max(vals)),
         abiertas: abiertas.length, abiertas_con_valor: conV.length, valor_abierto: valorAb,
-        abiertas_frase: !ventas.length ? EMPTY : 'Tienes ' + fmt.int(abiertas.length) + ' oportunidades abiertas, pero solo ' + fmt.int(conV.length) + ' tienen valor anotado (' + millones(valorAb) + '). Si las demás valieran tu ticket promedio, habría unos ' + millones((abiertas.length - conV.length) * (tki || 0) + valorAb) + ' en juego; con tu tasa de cierre, unos ' + millones(((abiertas.length - conV.length) * (tki || 0) + valorAb) * (tasa || 0)) + ' esperados.',
-        valor_reunion: vr, valor_reunion_txt: millones(vr), valor_semana_meta_txt: millones(vr === null ? null : vr * Number(s.meta_reuniones_semana || 0)),
+        abiertas_frase: !ventas.length ? EMPTY : !abiertas.length ? 'No tienes oportunidades abiertas en este momento.'
+          : 'Tienes ' + fmt.int(abiertas.length) + (abiertas.length === 1 ? ' oportunidad abierta' : ' oportunidades abiertas') + ' y ' + fmt.int(conV.length) + (conV.length === 1 ? ' tiene' : ' tienen') + ' valor anotado' + (conV.length ? ' (' + millones(valorAb) + ')' : '') + '.'
+            + (tki === null ? ' Falta el ticket para estimar cuánto hay en juego.'
+              : (sinV > 0 ? ' Si las demás valieran tu ' + nomT + ', habría unos ' + millones(enJuego) + ' en juego' : ' Hay ' + millones(enJuego) + ' en juego')
+                + (tasa !== null ? '; con tu tasa de cierre, unos ' + millones(enJuego * tasa) + ' esperados.' : '. Falta la tasa de cierre para estimar cuánto se espera cerrar.')),
+        valor_reunion: vr, valor_reunion_txt: millones(vr), valor_reunion_nota: vr !== null ? (ref ? 'Ticket de referencia × tasa de cierre' : 'Ticket × tasa de cierre') : faltaVR,
+        valor_semana_meta_txt: millones(vr === null || metaSem === null ? null : vr * metaSem),
+        semana_meta_frase: vr === null ? faltaVR + ' Sin ese dato no se calcula cuánto valen las reuniones de tu meta.' : metaSem === null ? 'Falta la meta de reuniones por semana para saber cuánto vale tu meta semanal.' : 'Las ' + fmt.int(metaSem) + ' reuniones semanales de la meta valen unos ' + millones(vr * metaSem) + ' esperados por semana.',
         concentracion: top ? fmt.int(top[1]) + ' de tus ' + fmt.int(won.length) + ' ventas vinieron de "' + top[0] + '".' : 'Aún no hay ventas cerradas.'}];
     }
   });
@@ -1795,7 +1905,7 @@
     fn: (ventas) => [...new Set(ventas.map((r) => r.estado))].sort((a, b) => (String(a).startsWith('Venta') ? 1 : 0) - (String(b).startsWith('Venta') ? 1 : 0)).map((e) => { const v = ventas.filter((r) => r.estado === e); const cv = v.filter((r) => Number(r.valor) > 0);
       return {etapa: e, oportunidades: v.length, con_valor: cv.length, valor: d3.sum(cv, (r) => Number(r.valor))}; })
   });
-  dash.draw('ventas-mes', (el) => {
+  reg('ventas-mes', (el) => {
     const d = dash.data('ventas_mes');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -1810,14 +1920,14 @@
       el.insertBefore(row, el.querySelector('.hx-tip'));
     });
   });
-  dash.draw('tickets', (el) => {
+  reg('tickets', (el) => {
     const d = dash.data('ventas'), tm = dash.data('ticket_meta');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
     const won = d.data.filter((r) => r.estado === 'Venta cerrada' && Number(r.valor) > 0).map((r) => Number(r.valor)).sort((a, b) => a - b);
     const m = tm.status === 'ok' && tm.data[0] ? tm.data[0] : null;
-    if (!won.length && !m) return vacio(el);
-    const meta = m ? m.meta : null, avg = d3.mean(won);
+    const meta = m && m.meta ? m.meta : null, avg = d3.mean(won);
+    if (!won.length && !meta) return vacio(el);
     const tope = Math.max(meta || 0, d3.max(won) || 0) || 1;
     const W = Math.max(280, el.clientWidth), H = 130, L = 10, R = 16, y0 = 62;
     const xs = d3.scaleLinear([0, tope * 1.05], [L, W - R]);
@@ -1835,7 +1945,7 @@
       svg.append('circle').attr('cx', xs(v)).attr('cy', y0 - dy).attr('r', 6).style('fill', 'var(--tb-1)').style('stroke', 'var(--color-bg)').attr('stroke-width', 1.5)
         .on('mousemove', (ev) => tt.show(ev, ['Venta cerrada', millones(v)])).on('mouseleave', () => tt.hide()); });
   });
-  dash.draw('cbars-din', (el) => {
+  reg('cbars-din', (el) => {
     const d = dash.data('ventas_origen');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -1849,7 +1959,7 @@
       el.insertBefore(row, el.querySelector('.hx-tip'));
     });
   });
-  dash.draw('lineas', (el) => {
+  reg('lineas', (el) => {
     const d = dash.data('ventas_linea');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -1863,7 +1973,7 @@
       el.insertBefore(row, el.querySelector('.hx-tip'));
     });
   });
-  dash.draw('etapas', (el) => {
+  reg('etapas', (el) => {
     const d = dash.data('opp_etapas');
     if (d.status !== 'ok') return fail(el, d);
     el.replaceChildren();
@@ -1887,19 +1997,18 @@
     const io = new IntersectionObserver((es) => { es.forEach((e) => { if (e.isIntersecting) { e.target.classList.remove('st-pre'); io.unobserve(e.target); } }); }, {root: document, rootMargin: '0px 0px -10% 0px'});
     chs.forEach((c) => io.observe(c));
   })();
-  dash.draw('lista', (el) => {
+  reg('lista', (el) => {
     const d = dash.data(el.getAttribute('data-source'));
     const row = d.status === 'ok' && Array.isArray(d.data) ? d.data[0] : null;
     const v = row ? row[el.getAttribute('data-field')] : null;
     const items = String(v || '').split(' · ').map((x) => x.trim()).filter(Boolean);
     el.replaceChildren(...(items.length ? items : [EMPTY]).map((x) => { const li = document.createElement('li'); li.textContent = x; return li; }));
   });
-  dash.draw('fichas', (el) => {
-    const a = dash.data('arquetipos'), au = dash.data('audiencia_arquetipos'), cv = dash.data('conv_por_arquetipo'), ci = dash.data('citas_por_arquetipo');
+  reg('fichas', (el) => {
+    const a = dash.data('arquetipos'), au = dash.data('audiencia_arquetipo'), cv = dash.data('conv_por_arquetipo'), ci = dash.data('citas_por_arquetipo');
     if (a.status !== 'ok') return fail(el, a);
     if (!a.data.length) return vacio(el);
     const ok = (x) => x.status === 'ok' && Array.isArray(x.data) ? x.data : [];
-    const ult = ok(au).slice().sort((x, y) => String(x.fecha).localeCompare(String(y.fecha))).pop();
     const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt !== undefined) e.textContent = txt; return e; };
     el.replaceChildren(...a.data.map((r, i) => {
       const card = mk('div', 'hx-card vz-pc'); card.style.borderTopColor = PAL.perfil[i % 3];
@@ -1907,13 +2016,26 @@
       const dl = document.createElement('dl');
       [['Quién es', r.quien], ['Le duele', r.dolor], ['Busca', r.busca], ['Le ofreces', r.oferta]].forEach(([k, v]) => { if (!v) return; dl.append(mk('dt', '', k), mk('dd', '', v)); });
       card.appendChild(dl);
-      const campo = r.campo_audiencia;
-      const pub = ult && campo && ult[campo] !== undefined && ult[campo] !== null && ult[campo] !== '' ? fmt.int(Number(ult[campo])) + ' %' : 's/d';
-      const c1 = ok(cv).find((x) => x.arquetipo === r.arquetipo), c2 = ok(ci).find((x) => x.arquetipo === r.arquetipo);
+      const ar = ok(au).find((x) => norm(x.arquetipo) === norm(r.arquetipo));
+      const pub = ar && ar.porcentaje !== null ? fmt.int(ar.porcentaje) + ' %' : 's/d';
+      const c1 = ok(cv).find((x) => norm(x.arquetipo) === norm(r.arquetipo)), c2 = ok(ci).find((x) => norm(x.arquetipo) === norm(r.arquetipo));
       const nums = mk('div', 'vz-nums');
       [[pub, 'de tu público'], [fmt.int(c1 ? c1.conversaciones : 0), 'conversaron'], [fmt.int(c2 ? c2.citas : 0), 'agendaron']].forEach(([v, l]) => { const b = document.createElement('div'); b.append(mk('b', '', v), mk('span', '', l)); nums.appendChild(b); });
       card.appendChild(nums);
       return card;
+    }));
+  });
+  reg('palanca', (el) => {
+    const a = dash.data('arquetipos');
+    if (a.status !== 'ok') return fail(el, a);
+    const nombres = a.data.map((r) => r.arquetipo).filter(tiene);
+    const au = filasDe('audiencia_arquetipo'), ci = filasDe('citas_por_arquetipo');
+    const li = (t) => { const e = document.createElement('li'); e.textContent = t; return e; };
+    if (!nombres.length) { el.replaceChildren(li('Aún no hay arquetipos definidos.')); return; }
+    el.replaceChildren(...nombres.map((n) => {
+      const x = au.find((r) => norm(r.arquetipo) === norm(n)), c = ci.find((r) => norm(r.arquetipo) === norm(n));
+      const k = c ? c.citas : 0;
+      return li(n + ': ' + (x && x.porcentaje !== null ? fmt.int(x.porcentaje) + ' % de tu audiencia' : 'sin dato de audiencia') + ' · ' + fmt.int(k) + (k === 1 ? ' reunión agendada' : ' reuniones agendadas'));
     }));
   });
   document.querySelectorAll('#hx-cat').forEach((s) => s.addEventListener('change', () => dash.draw('aud')));

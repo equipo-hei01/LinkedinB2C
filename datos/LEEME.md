@@ -41,7 +41,7 @@ El agente que los escribe los crea al primer uso. Si no existen, no es un error.
 | Archivo | Para qué | Lo escribe |
 | --- | --- | --- |
 | `estado.md` | Aprendizajes, última auditoría y puntaje del perfil | analista-li, auditor-li |
-| `plan.md` | El plan de la semana | li-plan, planificador-li |
+| `borradores/plan_<AAAA-MM-DD>.md` | El plan de la semana (la fecha es la del lunes; vale el más reciente). Da el orden y el tipo de las piezas, no el día ni la hora | li-plan, planificador-li, tarea del plan semanal |
 | `log.md` | Cada post publicado con su puntaje estimado y sus métricas | li-post, analista-li |
 | `rondas_log.md` | Rondas de conversación hechas (meta: 2 por semana) | conversaciones-li, li-tablero |
 | `swipe-li.md` | Resumen del radar ordenado por múltiplo | radar-nicho-li (con `swipe.py`) |
@@ -51,5 +51,6 @@ El agente que los escribe los crea al primer uso. Si no existen, no es un error.
 ## Reglas
 
 - Si un dato no está en estos archivos, no existe. Se le pide al usuario, nunca se inventa.
-- Las filas marcadas `EJEMPLO` en las plantillas muestran cómo se llena la tabla. Se borran al copiar el archivo a la carpeta de trabajo y **nunca se cuentan** en el tablero, el embudo ni los análisis.
+- **Marcadores de dato faltante: solo dos**, en todos los archivos, borradores y skills. `[verificar]` es un dato que falta confirmar (un cargo, un caso, una fecha, una anécdota, una fuente); puede decir qué falta: `[verificar: nombre del cliente]`. `[TU DATO]` es una cifra que solo el usuario puede poner (un monto, un porcentaje, un plazo). No se usa ninguna otra forma, y ningún texto se publica ni se envía con un marcador adentro.
+- Las filas y los bloques marcados `EJEMPLO` en las plantillas muestran cómo se llena la tabla. `/li-inicio` copia las plantillas a la carpeta de trabajo sin ellos (si alguno quedó, se borra) y **nunca se cuentan** en el tablero, el embudo ni los análisis.
 - Sin correos ni teléfonos de personas en ningún archivo (ver `seguridad.md`).

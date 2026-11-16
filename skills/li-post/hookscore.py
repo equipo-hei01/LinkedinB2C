@@ -9,7 +9,8 @@ suelen compartir las primeras líneas que retienen en LinkedIn B2B en español:
   LENGTH       cabe antes del "ver más" (~140 caracteres en móvil, ~210 en
                escritorio; no hay cifra oficial) y no gasta palabras.
   SPECIFICITY  algo que se puede ver o comprobar: una cifra, un nombre, un cargo
-               (gerente, directorio, comité), una industria, una escena ("el
+               u órgano (gerente, directorio, junta directiva, consejo de
+               administración, comité), una industria, una escena ("el
                comité del lunes"), "la mayoría de...", una cita.
   STAKES       algo en juego: negación, quién responde, error, costo, miedo,
                poder, y sobre todo el CONTRASTE ("No fue innovación. Fue
@@ -19,7 +20,7 @@ suelen compartir las primeras líneas que retienen en LinkedIn B2B en español:
                relleno ("Hoy quiero compartir", "Estoy feliz de") restan.
   ADDRESS      a quién le habla: tuteo (también con verbos: "necesitas",
                "tienes"), imperativo, o un cargo del arquetipo ("si eres
-               gerente", "tu directorio").
+               gerente", "tu comité").
 
 Qué NO es: un predictor de alcance. Se calibró sobre un set de 15 ganchos
 buenos y 10 malos: separa los dos grupos (AUC 1,00; el peor bueno 60, el mejor
@@ -57,6 +58,14 @@ import statistics
 import sys
 import unicodedata
 
+# Windows: la consola no siempre es UTF-8. Sin esto, las tildes salen rotas o
+# el script cae con UnicodeEncodeError si se corre sin `-X utf8`.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 WORD_RE = re.compile(r"[A-Za-zÁÉÍÓÚÑÜáéíóúñü0-9$%'’-]+")
 NUMBER_RE = re.compile(
     r"\$\s?\d[\d,.]*"
@@ -77,7 +86,10 @@ SPOKEN_NUMBERS = {
     "two", "three", "four", "five", "ten", "twenty", "hundred", "thousand", "million",
 }
 MONEY_WORDS = {
-    "pesos", "dólares", "euros", "uf", "lucas", "millonario", "ventas", "utilidad",
+    # monedas de países de habla hispana (sin modismos de un solo país)
+    "pesos", "dólares", "euros", "soles", "bolivianos", "guaraníes", "quetzales",
+    "lempiras", "colones", "usd", "eur",
+    "millonario", "ventas", "utilidad",
     "sueldo", "presupuesto", "dollars", "percent", "revenue", "profit", "salary",
 }
 
@@ -111,6 +123,8 @@ STAKES_PHRASES = [
     r"\bsale mal\b", r"\bsalió mal\b", r"\bquedar expuest[oa]\b",
     r"\bquién (?:responde|decide|firma|paga)\b", r"\bcapital político\b",
     r"\bqué pasa si\b", r"\bnadie (?:dice|pregunta|sabe)\b",
+    # el órgano de gobierno se llama distinto según el país
+    r"\bjunta directiva\b", r"\bconsejo (?:de administración|directivo)\b",
 ]
 
 # Lo concreto en LinkedIn en español no es solo una cifra.
@@ -118,12 +132,15 @@ NICHE_CONCRETE = {
     # cargos y órganos
     "gerente", "gerentes", "gerenta", "gerentas", "ceo", "cfo", "cio", "coo", "chro",
     "directorio", "directora", "director", "directores", "comité", "sponsor", "gerencia",
-    "gerencias", "jefaturas", "rrhh", "personas",
+    "gerencias", "jefaturas", "rrhh", "personas", "junta", "juntas", "socios",
+    "accionistas",
     # industrias
     "banca", "banco", "retail", "minera", "minería", "aerolínea", "salud", "clínica",
     "fintech", "aseguradora", "logística", "manufactura", "construcción",
     # países
-    "chile", "méxico", "colombia", "perú", "argentina", "españa", "latam",
+    "argentina", "bolivia", "chile", "colombia", "cuba", "ecuador", "españa",
+    "guatemala", "honduras", "méxico", "nicaragua", "panamá", "paraguay", "perú",
+    "uruguay", "venezuela", "latam", "latinoamérica", "centroamérica",
     # escenas
     "lunes", "martes", "miércoles", "jueves", "viernes", "mañana", "ayer", "cierre",
     "piloto", "pilotos", "ppt", "láminas", "correo", "cliente", "clientes", "presupuesto",
@@ -132,6 +149,8 @@ NICHE_CONCRETE = {
 SPEC_PHRASES = [
     r"\bla mayoría\b", r"\bcasi todos\b", r"\buno de cada\b", r"\bde cada \w+\b",
     r"\bla mitad\b", r"\brr\.\s?hh\.?", r"[\"“«][^\"”»]{3,}[\"”»]",
+    r"\bconsejo (?:de administración|directivo)\b",
+    r"\b(?:costa rica|el salvador|puerto rico|república dominicana)\b",
 ]
 
 # Aperturas que gastan la línea sin decir nada. Se comparan palabras completas.
@@ -174,6 +193,7 @@ ADDRESS_2P = re.compile(
     r"|conoces|imaginas)\b")
 AUDIENCE_RE = re.compile(
     r"(?i)\b(si eres|si lideras|si diriges|si estás|gerentes?|gerentas?|ceos?|directorio"
+    r"|junta directiva|consejo de administración|consejo directivo"
     r"|directores|líderes|equipos ejecutivos|rr\.?\s?hh|sponsors?)\b")
 IMPERATIVES = {"fíjate", "piensa", "imagina", "pregúntate", "revisa", "deja", "haz", "evita",
                "prueba", "olvida", "copia", "guarda", "usa", "escribe", "nunca"}
@@ -361,7 +381,7 @@ def run(text):
     scores = {k: v[0] for k, v in results.items()}
     weighted = sum(scores[k] * WEIGHTS[k] for k in CHECKS)
     # En LinkedIn la línea 1 se lee entera antes del "ver más": la propiedad
-    # más baja pesa menos que en un Reel.
+    # más baja pesa menos que en un video corto.
     overall = clamp(weighted * 0.75 + min(scores.values()) * 0.25 - len(flags) * 15)
     verdict = "STRONG" if (overall >= STRONG_AT and min(scores.values()) >= MIN_FOR_STRONG
                            and not flags) else ("OK" if overall >= OK_AT else "WEAK")

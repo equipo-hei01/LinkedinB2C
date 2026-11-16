@@ -8,11 +8,11 @@ Una fila por oferta. Cada post y cada DM llevan como máximo **una** oferta, ele
 | Oferta | Para quién (arquetipo) | Formato | Precio | Llamado (CTA) | Link | Vence |
 | --- | --- | --- | --- | --- | --- | --- |
 | EJEMPLO (borra esta fila): Diagnóstico de procesos (30 min): las 3 prioridades | Decisor, Implementador | Reunión en línea | Sin costo | "Agenda 30 minutos" | https://example.com/agenda | — |
-| EJEMPLO (borra esta fila): Taller "Mapa de procesos en un día" | Implementador | Presencial, 6 h, 12 cupos | [precio con moneda] | "Comenta MAPA" | https://example.com/taller | AAAA-MM-DD |
+| EJEMPLO (borra esta fila): Taller "Mapa de procesos en un día" | Implementador | Presencial, 6 h, 12 cupos | [TU DATO] | "Comenta MAPA" | https://example.com/taller | AAAA-MM-DD |
 
 Columnas:
 - **Para quién:** uno o más arquetipos de `arquetipos.md`, u "Organizadores de eventos" para charlas.
-- **Precio:** con la `moneda` de `marca.md`; "Sin costo" o "(pendiente)" si aún no se define. Nunca se inventa.
+- **Precio:** con la `moneda` de `marca.md`; "Sin costo", o `[TU DATO]` si aún no se define. Nunca se inventa.
 - **Link:** el `link_reservas` de `marca.md` para reuniones, o el link propio de la oferta.
 - **Vence:** fecha `AAAA-MM-DD` si la oferta termina; "—" si es permanente.
 

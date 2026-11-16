@@ -23,7 +23,7 @@ description: 'Crea carruseles para LinkedIn (PDF) e Instagram (imágenes) con la
 > `arquetipos.md`, la voz que corresponda, `ofertas.md`, `pruebas.md`,
 > `entregables.md`, `kanban.md` (la fila de contenido) y `seguridad.md`
 > (plantillas en `../../datos/`). Solo usa pruebas de `pruebas.md`. Si falta
-> un dato, deja `[dato real: ...]` y pídeselo al usuario. El llamado sale de
+> un dato, deja `[verificar: ...]` (o `[TU DATO]` si es una cifra) y pídeselo al usuario. El llamado sale de
 > `ofertas.md` o de `entregables.md`. Si la pieza muestra el método, usa el
 > `metodo` de `marca.md`, en su orden, si lo hay.
 

@@ -15,7 +15,7 @@ Hay un ejemplo lleno en `ejemplo/voz-persona.md` (empresa ficticia).
 - **Persona gramatical:** "yo". Al lector se le trata según el `tratamiento` de `marca.md`.
 - **Cómo aparece la marca:** [por ejemplo "mi equipo" o "en <marca>"; nunca como sujeto de todo el post]
 - **Rol desde el que habla:** [cargo y experiencia que el usuario puede firmar]
-- **Carácter en una frase:** [por ejemplo "cercana y directa: estoy contigo y sé a dónde vamos"]
+- **Carácter en una frase:** [por ejemplo "cercanía y franqueza: estoy contigo y sé a dónde vamos"]
 
 ## 2. Tono (por llenar)
 
@@ -27,7 +27,7 @@ Hay un ejemplo lleno en `ejemplo/voz-persona.md` (empresa ficticia).
 - **Emoji:** [nunca / uno, rara vez / con libertad; cuáles nunca]
 - **Groserías:** [no / suaves / sí]
 
-Si falta la anécdota, deja `[anécdota real: dónde/con quién/qué pasó]` y pídesela al usuario.
+Si falta la anécdota, deja `[verificar: anécdota real, dónde, con quién y qué pasó]` y pídesela al usuario.
 
 ## 3. Humor (por llenar; depende del campo `humor` de `marca.md`)
 
@@ -58,7 +58,7 @@ Reglas que valen para cualquiera:
 
 ## 5. Formato del post (reglas generales)
 
-- **Largo:** 150 a 250 palabras (900 a 1.300 caracteres, el rango de `/li-post`). Una sola idea y una tesis.
+- **Largo:** 900 a 1.300 caracteres, unas 150 a 220 palabras (la regla de largo de `/li-post`, que es la única). Una sola idea y una tesis.
 - **Gancho:** primera línea de máximo 12 palabras, sin punto final, que se entiende sola.
 - **Cuerpo:** realidad del lector (2 o 3 líneas) → el problema real (1 o 2) → el cambio de enfoque (1 o 2) → qué hace el usuario o qué resultado hubo (2 o 3) → una pregunta o invitación específica (1).
 - **Párrafos:** máximo 3 líneas seguidas, con aire entre párrafos. Sin viñetas en posts narrativos; viñetas solo en posts didácticos o de lista.
@@ -107,5 +107,5 @@ Lo que hace: [gancho · largo · tesis · cierre]
 - [ ] ¿Una sola idea, un solo llamado?
 - [ ] ¿Evita las palabras que nunca usa, la urgencia falsa y los conectores de manual?
 - [ ] ¿Respeta lo que el lector y sus equipos hacen hoy?
-- [ ] ¿Todo dato, caso o cita está en `pruebas.md`? Si no, va `{{tu cifra}}` o `[anécdota real: …]`.
+- [ ] ¿Todo dato, caso o cita está en `pruebas.md`? Si no, va `[TU DATO]` (una cifra) o `[verificar: …]` (una anécdota o un caso).
 - [ ] Si es post: ¿termina con la `firma_persona` y los `hashtags` de `marca.md`?

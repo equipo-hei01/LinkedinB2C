@@ -20,7 +20,7 @@ Norte Consultores hablando como organización ("nosotros"), en su página de emp
 - **Humor:** ninguno en la página.
 - **Emoji:** nunca.
 
-Evidencia antes que adjetivos: cada afirmación fuerte lleva una cifra o un caso de `pruebas.md`, o un `{{tu cifra}}` para completar.
+Evidencia antes que adjetivos: cada afirmación fuerte lleva una cifra o un caso de `pruebas.md`, o un `[TU DATO]` para completar.
 
 ## 3. Largo de frases y ritmo
 
@@ -41,7 +41,7 @@ Evidencia antes que adjetivos: cada afirmación fuerte lleva una cifra o un caso
 
 ## 5. Formato del post
 
-- **Largo:** 150 a 250 palabras. Una sola idea.
+- **Largo:** 900 a 1.300 caracteres, unas 150 a 220 palabras (la regla de largo de `/li-post`). Una sola idea.
 - **Gancho:** primera línea de máximo 12 palabras, sin punto final.
 - **Párrafos:** máximo 3 líneas seguidas, con aire. Viñetas solo en posts de lista.
 - **Negritas Unicode:** hasta 3 por post, con `skills/li-post/bold.py`.
@@ -93,7 +93,7 @@ Lo que hace: gancho con contraste · sigue los pasos 1, 2, 4, 5, 6 y 7 · el cas
 - [ ] ¿Está en "nosotros" y tutea?
 - [ ] ¿El cliente es el protagonista y Norte quien acompaña?
 - [ ] ¿Ordena el problema o solo lo describe?
-- [ ] ¿Cada afirmación fuerte tiene su prueba de `pruebas.md` o un `{{tu cifra}}`?
+- [ ] ¿Cada afirmación fuerte tiene su prueba de `pruebas.md` o un `[TU DATO]`?
 - [ ] ¿Evita las palabras que nunca usa, la urgencia falsa y los conectores de manual?
 - [ ] ¿Una sola idea, un solo llamado, sin humor?
 - [ ] Si es post: ¿termina con la `firma_empresa` y los dos hashtags?

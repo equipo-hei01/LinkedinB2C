@@ -1,28 +1,30 @@
 #!/usr/bin/env python3
 """
-swipe.py - rank reels you collected by how far they beat their own account,
-name the hook formula each one used, and write the swipe file.
+swipe.py - rank the LinkedIn posts you collected by how far they beat their
+own account, name the hook formula each one used, and write the swipe file.
 
-The point of this script is one correction: raw views are not evidence. A
-2,000,000-follower account doing 400,000 views had a quiet day. A 4,000-
-follower account doing 400,000 views found something. This ranks on the
-multiple over the account's own baseline, which is the only version of
-"went viral" that tells you anything you can copy.
+The point of this script is one correction: raw numbers are not evidence. A
+200,000-follower account with 400 reactions had a quiet day. A 4,000-follower
+account with 400 reactions found something. This ranks on the multiple over
+the account's own baseline, which is the only version of "it worked" that
+tells you anything you can copy.
 
-Input is a tab-separated file you fill in while you browse, one reel per row,
-with a header line naming the columns:
+Input is a tab-separated file you fill in while you browse, one post per row,
+with a header line naming the columns (in English or in Spanish: cuenta,
+seguidores, mediana, interacciones or reacciones, gancho, formato):
 
-    account   followers   median   views    hook
-    @someone  48000       11000    412000   nobody tells you your first 30 flop
+    cuenta    seguidores  mediana  interacciones  gancho
+    @alguien  48000       110      412            Nadie te dice que tus primeros 30 posts no los lee nadie
 
-`median` is that account's typical recent views and is the better baseline.
-If you only have `followers`, leave median out and the script says so.
-`hook` is the first line of the reel, spoken or on screen, in their words.
+`mediana` (median) is that account's typical recent interactions per post and
+is the better baseline. If you only have `seguidores` (followers), leave the
+median out and the script says so. `gancho` (hook) is the first line of the
+post, in their words. `interacciones` is stored internally as `views`.
 
-Usage
-  python3 swipe.py captured.tsv
-  python3 swipe.py captured.tsv --out ~/.claude/instagram/swipe.md
-  python3 swipe.py captured.tsv --json
+Usage (the working folder is the one in datos/LEEME.md; default ~/.claude/linkedin/)
+  python -X utf8 swipe.py captured.tsv
+  python -X utf8 swipe.py captured.tsv --out ~/.claude/linkedin/swipe-li.md
+  python -X utf8 swipe.py captured.tsv --json
 """
 
 import argparse
@@ -32,6 +34,14 @@ import re
 import statistics
 import sys
 
+# Windows: la consola no siempre es UTF-8. Sin esto, las tildes salen rotas o
+# el script cae con UnicodeEncodeError si se corre sin `-X utf8`.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 HOOKS = os.path.join(HERE, "hooks.json")  # LinkedIn: li-post/hooks.json
 WORD_RE = re.compile(r"[A-Za-zÁÉÍÓÚÑÜáéíóúñü0-9$%'’-]+")  # acentos del español
@@ -39,7 +49,7 @@ WORD_RE = re.compile(r"[A-Za-zÁÉÍÓÚÑÜáéíóúñü0-9$%'’-]+")  # acen
 try:                                              # optional: score the hooks too
     sys.path.insert(0, HERE)
     from hookscore import run as score_hook       # noqa: E402
-except Exception:                                 # ig-viral copied on its own
+except Exception:                                 # swipe.py copied on its own
     score_hook = None
 
 
@@ -126,7 +136,7 @@ def analyse(rows, formulas):
         "baseline": "account median" if used_median else "follower count",
         "n": len(ranked),
         "accounts": len({r.get("account", "") for r in ranked}),
-        "reels": ranked,
+        "posts": ranked,
         "top_formulas": sorted(counts.items(), key=lambda kv: -kv[1]),
         "top_formatos": sorted(formatos.items(), key=lambda kv: -kv[1]),
         "top_hook_score": med(top, "hook_score"),
@@ -142,7 +152,7 @@ def render(a, out=sys.stdout):
             f"baseline: {a['baseline']}")
     print("\n" + head, file=out)
     print("=" * max(len(head), 78), file=out)
-    for r in a["reels"]:
+    for r in a["posts"]:
         mult = f"{r['outlier']:.1f}x" if r["outlier"] else "   ?"
         score = f"{r['hook_score']:.0f}" if r["hook_score"] is not None else " -"
         fid = f"#{r['formula_id']:<2}" if r["formula_id"] else "-  "
@@ -173,17 +183,17 @@ def to_markdown(a):
     lines = ["# Swipe file", "",
              f"{a['n']} posts across {a['accounts']} accounts. "
              f"Ranked by multiple over {a['baseline']}.", ""]
-    for r in a["reels"]:
+    for r in a["posts"]:
         mult = f"{r['outlier']:.1f}x" if r["outlier"] else "?"
         lines += [f"## {mult}  {r['formula']}  ({r.get('account', '')})",
-                  f"- views: {r['views']:,}  baseline: {r['baseline']:,}",
+                  f"- interacciones: {r['views']:,}  baseline: {r['baseline']:,}",
                   f"- formato: {r.get('formato', '')}  hook score: {r['hook_score']}  words: {r['words']}",
                   f"- hook: \"{r['hook']}\"", ""]
     return "\n".join(lines) + "\n"
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Rank collected reels by outlier multiple.")
+    ap = argparse.ArgumentParser(description="Rank collected LinkedIn posts by outlier multiple.")
     ap.add_argument("input", nargs="?", default="-", help="TSV file, or - for stdin")
     ap.add_argument("--hooks", default=HOOKS, help="path to li-post/hooks.json")
     ap.add_argument("--out", help="also write the swipe file as markdown here")
@@ -192,7 +202,7 @@ def main():
 
     rows = read_rows(args.input)
     if not rows:
-        print("no usable rows. Need a tab-separated file with at least views and hook.",
+        print("no usable rows. Need a tab-separated file with at least interacciones (views) and gancho (hook).",
               file=sys.stderr)
         sys.exit(2)
     formulas = load_formulas(args.hooks)
@@ -209,7 +219,7 @@ def main():
     if args.out:
         path = os.path.expanduser(args.out)
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        open(path, "w", encoding="utf-8").write(to_markdown(a))
+        open(path, "w", encoding="utf-8", newline="\n").write(to_markdown(a))
         print(f"wrote {path}", file=sys.stderr)
 
 

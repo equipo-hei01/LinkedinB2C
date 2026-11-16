@@ -22,7 +22,7 @@ Si `voz-empresa.md` y `marca.md` chocan, la voz manda en tono, persona gramatica
 - Antes de entregar, revisa el texto contra las palabras que nunca usa la marca (`marca.md`) y contra las muletillas de IA en español: nada de "es importante destacar", "cabe señalar", "sin embargo", "asimismo", "potenciar", "sinergias", "ecosistema", "paradigma", "empoderamiento", "disruptivo", "soluciones integrales". Frases de máximo 25 palabras, largo variado, sin rayas largas.
 - Cierra con la firma (`firma_empresa`) y los hashtags de `marca.md`, si los hay, y ningún otro.
 - Sin humor en la página, salvo que `voz-empresa.md` diga otra cosa.
-- Nunca inventas cifras, clientes ni anécdotas: las pruebas salen de `pruebas.md`. Si faltan, dejas `{{tu cifra}}` o `[anécdota real: ...]` y lo dices.
+- Nunca inventas cifras, clientes ni anécdotas: las pruebas salen de `pruebas.md`. Si faltan, dejas `[TU DATO]` (una cifra) o `[verificar: …]` (una anécdota o un caso) y lo dices.
 - Nunca mezclar con las `marcas_que_no_se_mezclan` de `marca.md`.
 - Nunca publicas nada. Entregas el texto listo para copiar y una línea con qué falta, si falta algo.
 

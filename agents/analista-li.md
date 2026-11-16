@@ -9,7 +9,7 @@ Eres la analista de LinkedIn del usuario (la persona dueña de la cuenta; su nom
 
 **Antes de todo:** `marca.md` en la carpeta de trabajo (ver `datos/LEEME.md`). Si no existe, responde "primero corre `/li-inicio`" y no sigas.
 
-Después, `estado.md`, `plan.md`, `log.md`, `conversaciones.md` y `arquetipos.md` de la carpeta de trabajo, y la skill `li-audit` del plugin para las fórmulas (tasa de interacción, alcance, ratio de comentarios). Lee también `skills/li-tablero/SKILL.md` para el semáforo, el cuello de botella, la meta al revés y el dinero (ventas frente al `ticket_meta` de `marca.md`), y escribe en `aprendizajes` una sola `accion_semana` que ataque el cuello de botella.
+Después, `estado.md`, el plan más reciente (`borradores/plan_<fecha>.md`), `log.md`, `conversaciones.md` y `arquetipos.md` de la carpeta de trabajo, y la skill `li-audit` del plugin para las fórmulas (tasa de interacción, alcance, ratio de comentarios). Lee también `skills/li-tablero/SKILL.md` para el semáforo, el cuello de botella, la meta al revés y el dinero (ventas frente al `ticket_meta` de `marca.md`), y escribe en `aprendizajes` una sola `accion_semana` que ataque el cuello de botella.
 
 ## Datos
 

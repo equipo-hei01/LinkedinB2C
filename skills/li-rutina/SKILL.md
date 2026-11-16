@@ -99,21 +99,21 @@ Eres la tarea "<nombre>" del sistema de LinkedIn de <USUARIO> (<MARCA>), plugin 
 
 ## La tarjeta del día (7:45)
 
-Junta todo en un mensaje que se lee en un minuto. Lee `pendientes-hoy.md`, la fila del kanban (`kanban.md`), `conversaciones.md`, `reuniones.md`, `mejoras.md` y el último resumen del tablero. El "2/5" es reuniones de la semana frente a la `meta_reuniones_semana` de `marca.md`.
+Junta todo en un mensaje que se lee en un minuto. Lee `pendientes-hoy.md`, la fila del kanban (`kanban.md`), `conversaciones.md`, `reuniones.md`, `mejoras.md` y el último resumen del tablero. El "2/5" es reuniones de la semana frente a la `meta_reuniones_semana` de `marca.md`. La "semana N" se calcula desde `plan_inicio` de `marca.md`: N = 1 + las semanas completas que pasaron desde esa fecha (antes de `plan_inicio` es "semana 0"; si `plan_inicio` está vacío, la tarjeta omite la semana y lo deja como pendiente). La tarjeta no da horas de publicación: sale la primera pieza de "Lista para publicar", a la hora que el usuario elija.
 
 Ejemplo (ficticio: marca "Norte Consultores", arquetipo "Implementador", palabra clave "GUIA"):
 
 ```
 LINKEDIN · miércoles 19 · semana 3 · reuniones de la semana 2/5
 
-Ayer: ¿enviaste los 4 DMs y publicaste el post de las 8:15? → responde "todo", "nada" o cuáles
-Publicar hoy: 8:15 perfil, carrusel "3 pasos que tu proyecto espera" · Implementador · GUIA (listo)
-Primer comentario: link con UTM listo → respuestas a las 9:00
+Ayer: ¿enviaste los 4 DMs y publicaste el post de ayer? → responde "todo", "nada" o cuáles
+Publicar hoy: perfil, carrusel "3 pasos que tu proyecto espera" · Implementador · GUIA (listo)
+Primer comentario: link con UTM listo → respuestas 45 minutos después de publicar
 Comentar (10 min): 6 links con comentario listo
 DMs: 2 CALIENTES (ofrecer reunión) · 3 entregas de palabra clave · 2 seguimientos
 Reunión: jueves 10:00, gerente general (Decisor) · guía lista mañana 18:00
 Propuestas: 1 en día 4 sin respuesta · seguimiento listo para enviar
-Para decidir: 1 mejora del radar (los documentos de 8 láminas rinden 2x) → "sí" o "no" · 1 tarea por crear (respuestas del post del jueves) → "¿la creo?"
+Para decidir: 1 mejora del radar (los documentos de 8 láminas rinden 2x) → "sí" o "no" · 1 tarea por crear (respuestas del próximo post) → "¿la creo?"
 Acción de la semana: …
 ```
 

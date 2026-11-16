@@ -65,7 +65,7 @@ Then write in that order, and stop writing when the value stops.
   next person DM you.
 - **To a pitch in your comments:** ignore it. Replying gives it reach.
 
-> **Regla de la casa: forma de cada respuesta** (fuente: post de David Ibáñez, nov 2026). Máximo unas **40 palabras** (en apoyo, menos). Primero reconoce **lo que aporta en concreto** (repite su idea, no la elogies). Cierra, cuando sea aporte, pregunta o posible cliente, con **una pregunta que invite a contar su caso** ("¿En tu equipo pasa al revés?"). Prohibido el "gracias por tu comentario" de plantilla y prohibido mencionar lo que vende el usuario en público: la conversación comercial va por DM y solo si la persona la abre.
+> **Regla de la casa: forma de cada respuesta.** Máximo unas **40 palabras** (en apoyo, menos). Primero reconoce **lo que aporta en concreto** (repite su idea, no la elogies). Cierra, cuando sea aporte, pregunta o posible cliente, con **una pregunta que invite a contar su caso** ("¿En tu equipo pasa al revés?"). Prohibido el "gracias por tu comentario" de plantilla y prohibido mencionar lo que vende el usuario en público: la conversación comercial va por DM y solo si la persona la abre.
 
 ## Output
 

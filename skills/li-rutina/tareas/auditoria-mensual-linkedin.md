@@ -20,7 +20,7 @@ PASOS
    - Las carpetas de exports del último mes: exports/<AAAA-MM-DD>/ (archivos de la tarea semanal y resumen_semanal.md).
    - borradores/analisis_semanal_*.md y plan_*.md del mes; conversaciones.md; reuniones.md; log.md; radar.md; estado.md; arquetipos.md; ofertas.md.
    - exports/perfil_snapshot.json (titular, Acerca de, destacados, página de empresa).
-2. Analizar con las skills linkedin-agent-b2b:li-audit y li-profile (con rubric.json):
+2. Analizar con las skills linkedin-agent-b2b:li-audit y li-profile (con rubric.json para el perfil y rubric-pagina.json para la página, si hay):
    - Qué posts del mes funcionaron (impresiones, interacciones, comentarios, conversaciones y reuniones que trajeron) y por qué: arquetipo, gancho, formato (texto, video, carrusel), día y hora. Compara el puntaje estimado en log.md con el real.
    - Mezcla real de arquetipos frente al reparto vigente de arquetipos.md.
    - Embudo del mes desde conversaciones.md y reuniones.md: personas detectadas → DMs enviados → respuestas → citas → propuestas → ganadas, contra la `meta_reuniones_semana` de marca.md.

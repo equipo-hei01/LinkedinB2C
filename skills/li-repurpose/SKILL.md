@@ -51,7 +51,7 @@ List what you found, with counts, before writing anything. If the asset yields
 fewer than four items, it is thin, and four posts squeezed out of it will be
 thin too. Say that.
 
-> **Regla de la casa: un tema largo en 5 piezas** (10 videos de LinkedIn, nov 2026). De una pieza larga salen hasta 5 posts del mismo tema con tipos distintos: historia, observación, opinión contraria, lista y antes y ahora. Se reparten en semanas distintas (marca "Serie <tema> n/5" en la nota del kanban), nunca en días seguidos, para no cansar a la misma audiencia.
+> **Regla de la casa: un tema largo en 5 piezas.** De una pieza larga salen hasta 5 posts del mismo tema con tipos distintos: historia, observación, opinión contraria, lista y antes y ahora. Se reparten en semanas distintas (marca "Serie <tema> n/5" en la nota del kanban), nunca en días seguidos, para no cansar a la misma audiencia.
 
 ## Then build the week
 
@@ -74,12 +74,12 @@ SOURCE: "Why we killed discovery calls" (18 min, 3,400 words)
 FOUND  4 claims, 6 numbers, 2 stories, 3 mechanisms, 1 mistake, 5 quotable lines
 
 WEEK
-TUE  #1  Contrarian    Discovery calls are a tax you pay for a bad website
-WED  #17 Time Anchor   We got 6 hours a week back by deleting one calendar link
-THU  #9  Cold Open     "Can we just hop on a quick call?"
-FRI  #21 Direct Value  The 4-question form that replaced the call. Steal it.
+1  #1  Contrarian    Discovery calls are a tax you pay for a bad website
+2  #17 Time Anchor   We got 6 hours a week back by deleting one calendar link
+3  #9  Cold Open     "Can we just hop on a quick call?"
+4  #21 Direct Value  The 4-question form that replaced the call. Steal it.
 
-Say "write Tuesday" and I will draft it.
+Say "write 1" and I will draft it.
 ```
 
 Then draft on request, one at a time, each through `/li-post` and `/li-human`.

@@ -29,6 +29,14 @@ import statistics
 import sys
 import unicodedata
 
+# Windows: la consola no siempre es UTF-8. Sin esto, las tildes salen rotas o
+# el script cae con UnicodeEncodeError si se corre sin `-X utf8`.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 LEX = os.path.join(HERE, "slop.json")
 
