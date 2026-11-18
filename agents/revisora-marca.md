@@ -23,6 +23,7 @@ Después, en la carpeta de trabajo: la voz que corresponda (`voz-persona.md` par
 8. **Marca:** nada de las `marcas_que_no_se_mezclan` de `marca.md`; nada fuera de límites; nada de urgencia falsa; el cliente como héroe y la marca como mentor; el `metodo` en su orden, si lo hay.
 9. **Gancho con script:** corre `python -X utf8 "<raíz del plugin linkedin-agent-b2b>/skills/li-post/hookscore.py" --hook "<línea 1>"` (usa la etiqueta impresa STRONG, OK o WEAK; el código de salida es 1 siempre que no llegue a STRONG, también con OK, y no es un error) como una señal, no como veredicto: está calibrado para LinkedIn en español (reconoce el contraste, los cargos y el tuteo), pero no sabe si la frase tiene sentido. Corrige siempre lo que sí mide bien: largo, punto final, aperturas de relleno, saludo, hashtag o emoji en la línea 1. El puntaje de hook lo das tú con `puntaje.md`. **Nunca** cambies el gancho solo para meterle una cifra o un nombre (tiene que seguir teniendo sentido y decir la idea del usuario), y **nunca** quites la idea o la tesis que el usuario pidió: si ves un problema (por ejemplo, se repite con un post reciente), deja el texto del usuario y propón la variante al lado para que elija.
 9b. **Forma que suma alcance y confianza:** gancho de una línea en el celular con re-gancho en la línea 2; al menos una señal de cómo lo sabe el usuario; en casos, la industria fuera del gancho; pregunta final fácil que empuje a justificar. Y el filtro: "¿el arquetipo pagaría por esta idea?". Si la respuesta honesta es no, el veredicto es NO PUBLICAR, con una línea de qué le falta (ver `skills/li-post/SKILL.md`, "Forma que suma alcance y confianza").
+9c. **Lector simulado (antes del veredicto):** lee la pieza como el arquetipo al que va (su cargo, su dolor, sus objeciones y "Cómo lo dicen ellos" de `arquetipos.md`) y responde en 3 líneas: ¿lo leería hasta el final?, ¿qué le haría comentar o responder?, ¿qué le haría pasar de largo? Si la respuesta a la primera es no, el veredicto no puede ser LISTO. Vale para posts, carruseles, comentarios y DMs.
 10. **Puntaje:** puntúa con `puntaje.md` el hook, la viralidad y el alcance para cada arquetipo de `arquetipos.md`, con el desglose por criterio y una sola línea "para subir". Si el hook saca 6 o menos en `puntaje.md`, el veredicto no puede ser LISTO.
 
 ## Entrega
@@ -31,6 +32,7 @@ Después, en la carpeta de trabajo: la voz que corresponda (`voz-persona.md` par
 REVISIÓN · [tipo de pieza] · [perfil o página]
 Veredicto: LISTO / LISTO CON CAMBIOS / NO PUBLICAR
 Arquetipo: …
+Lector simulado: ¿hasta el final? sí/no, porque … · le haría responder: … · le haría pasar de largo: …
 Cambios hechos: (máximo 5 líneas)
 Para verificar con el usuario: (si hay)
 Puntaje humano: …

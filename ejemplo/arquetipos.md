@@ -100,6 +100,18 @@ En el recibo de cada pieza: `arquetipo: X · tensión: Y · reencuadre: Z`.
 
 **Objeciones:** "Ya lo intentamos y nadie siguió los manuales." · "Ahorita no tenemos tiempo: estamos creciendo." · "Mi gente ya sabe cómo hacerlo." · "¿Cuánto tiempo me va a quitar a mí?"
 
+**Respuesta por tipo de objeción:**
+- **Precio:** el valor y el costo de no hacerlo ("¿cuánto te costó el último pedido que se entregó tarde porque faltaba una persona?"). No se baja el precio en la misma conversación.
+- **Competencia:** comparar por criterio sin criticar a la otra consultora ("¿qué te importa más: un manual completo o un proceso que se use en 90 días?").
+- **"Ahora no":** acordar cuándo ("¿te escribo después del cierre de trimestre?") y pasar a NUTRIR con esa fecha. No se insiste en el momento.
+
+**Qué ya probó y por qué no le funcionó:** contrató una consultora grande que entregó un manual de 200 páginas; nadie lo abrió porque se escribió sin la gente que hace el trabajo. Compró un ERP esperando que ordenara la operación; terminó con el ERP y el Excel de siempre en paralelo.
+
+**Cómo lo dicen ellos:**
+- "Si me voy de vacaciones, me llaman a diario."
+- "Todo lo importante pasa por mi celular."
+- "Cada vez que alguien renuncia, empezamos de cero."
+
 **Reencuadres:** "No necesitas más gente. Necesitas que el trabajo no viva en una sola cabeza." · "El desorden no se nota en un día malo. Se nota el día que alguien clave renuncia." · "Crecer sin procesos es contratar más gente para apagar los mismos incendios."
 
 **Ganchos:**
@@ -140,6 +152,18 @@ En el recibo de cada pieza: `arquetipo: X · tensión: Y · reencuadre: Z`.
 
 **Objeciones:** "No tengo horas para un proyecto más." · "Las otras áreas no van a cooperar." · "¿Aplica a mi giro?" · "Ya tenemos un ISO en un cajón."
 
+**Respuesta por tipo de objeción:**
+- **Precio:** el valor en horas recuperadas y el costo de seguir con el retrabajo; si el presupuesto no es suyo, ayudarle a armar el caso para la dirección. Sin descuentos en la misma conversación.
+- **Competencia:** comparar por criterio ("¿quieres un diagnóstico largo o un primer proceso resuelto en 30 días?"), sin hablar mal del otro.
+- **"Ahora no":** acordar una fecha concreta (por ejemplo, después del inventario anual) y pasar a NUTRIR con esa fecha.
+
+**Qué ya probó y por qué no le funcionó:** certificó un ISO que quedó en un cajón porque se hizo para la auditoría y no para trabajar. Intentó documentar los procesos solo, en sus ratos libres, y lo dejó a las tres semanas por las urgencias.
+
+**Cómo lo dicen ellos:**
+- "Cada turno lo hace como quiere."
+- "Me la paso apagando incendios."
+- "Nadie me suelta a la gente para documentar."
+
 **Reencuadres:** "No te falta disciplina. Te falta un mapa." · "Un proceso dibujado en una hoja convence más que diez juntas." · "Empieza por el proceso que más duele, no por todos."
 
 **Ganchos:**
@@ -179,6 +203,18 @@ En el recibo de cada pieza: `arquetipo: X · tensión: Y · reencuadre: Z`.
 **Palabras que lo alejan:** recorte, eficiencia a toda costa, control, auditoría, estandarizar personas, reemplazo.
 
 **Objeciones:** "La gente va a pensar que la quieren reemplazar." · "Ya tenemos demasiadas capacitaciones." · "¿Quién va a tener tiempo de escribir todo eso?"
+
+**Respuesta por tipo de objeción:**
+- **Precio:** el valor frente al costo de la rotación y de las inducciones de meses. No se baja el precio en la misma conversación.
+- **Competencia:** comparar por criterio ("¿qué valoras más: un curso para todos o relevos armados con cada persona?"), sin criticar a otros proveedores.
+- **"Ahora no":** acordar cuándo (por ejemplo, después del cierre del clima laboral) y pasar a NUTRIR con esa fecha.
+
+**Qué ya probó y por qué no le funcionó:** organizó capacitaciones generales que no cambiaron cómo se trabaja, porque no tocaban el proceso de cada puesto. Pidió a las personas clave que "dejaran todo por escrito" y lo sintieron como una amenaza.
+
+**Cómo lo dicen ellos:**
+- "A la que más sabe no la puedo mandar de vacaciones."
+- "La gente nueva se va antes de aprender."
+- "Cada vez que hablamos de documentar, se ponen a la defensiva."
 
 **Reencuadres:** "Documentar no le quita valor a nadie. Le quita peso." · "La gente no se resiste al cambio. Se resiste a que le cambien el trabajo sin preguntarle." · "Un buen relevo es la mejor forma de dar vacaciones."
 

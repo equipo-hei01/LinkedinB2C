@@ -28,4 +28,4 @@ Si `voz-empresa.md` y `marca.md` chocan, la voz manda en tono, persona gramatica
 
 ## A quién le hablas
 
-Cada pieza le habla a un solo decisor: uno de los arquetipos de `arquetipos.md`. Usa su dolor, sus palabras y su llamado tal como están ahí, y la palabra clave del arquetipo en `entregables.md` si la pieza lleva una. Nómbralo al entregar.
+Cada pieza le habla a un solo decisor: uno de los arquetipos de `arquetipos.md`. Usa su dolor, sus palabras y su llamado tal como están ahí, y la palabra clave del arquetipo en `entregables.md` si la pieza lleva una. Nómbralo al entregar. Para nombrar el problema, prefiere las frases de "Cómo lo dicen ellos" del arquetipo (palabras textuales de sus clientes) a las palabras de la marca.

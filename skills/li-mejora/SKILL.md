@@ -7,6 +7,19 @@ description: Aplica al plugin de LinkedIn las mejoras que el usuario aprobó en 
 
 El sistema aprende, pero no se cambia solo. `radar-nicho-li`, `analista-li` y `auditor-li` proponen; el usuario aprueba; esta skill aplica.
 
+## Filtro de alineación
+
+Toda práctica que venga de una fuente externa (un post, un video, una herramienta, un curso, una infografía) pasa por estas 6 preguntas antes de proponerse:
+
+1. ¿Cumple el Acuerdo de Usuario de LinkedIn (sin automatizar invitaciones, mensajes, publicaciones ni scraping)? Si no, se descarta.
+2. ¿Respeta `seguridad.md` (nada sale sin el sí; 15 DMs al día; 50 invitaciones a la semana; un post al día, o los límites más estrictos que haya puesto el usuario)? Si no, se descarta.
+3. ¿Calza con la voz y la marca (sin urgencia falsa, sin cebo de interacción, sin mezclar con las `marcas_que_no_se_mezclan` de `marca.md`)? Si no, se descarta.
+4. ¿Sirve a B2B en español, con los decisores de `arquetipos.md` en los países del campo `pais` de `marca.md`? Si no, se adapta o se descarta.
+5. ¿Tiene evidencia (un dato, una fuente o un resultado propio) o se puede probar con una prueba A/B en el kanban (ver "Pruebas en curso" en `kanban.md`)? Sin evidencia, entra como prueba, no como regla.
+6. ¿Es nueva o el plugin ya la hace? Si ya está, solo se anota.
+
+Lo que pasa el filtro queda como PROPUESTA en `mejoras.md`, con la fuente y la respuesta a cada pregunta en la columna "Filtro". Se aplica solo con el sí del usuario. Si al leer `mejoras.md` una fila de fuente externa no trae el filtro, pásalo tú antes de mostrársela al usuario.
+
 ## Pasos
 
 1. Lee `mejoras.md` en la carpeta de trabajo. Muestra al usuario las filas PROPUESTA en una lista corta (qué cambia, por qué, evidencia) y pregunta cuáles aprueba. Si ya las marcó APROBADA, sigue.

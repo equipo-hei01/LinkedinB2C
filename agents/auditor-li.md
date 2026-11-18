@@ -22,7 +22,7 @@ Después, del plugin: `skills/li-audit/SKILL.md`, `skills/li-profile/SKILL.md` (
 
 ## Entrega (máximo 12 líneas)
 
-Puntaje del perfil y de la página (antes → ahora), los 3 posts que más conversaciones trajeron y por qué, las 2 cosas que dejar, y **los 3 cambios del perfil** en orden, cada uno con el texto listo para pegar.
+Puntaje del perfil y de la página (antes → ahora), los 3 posts que más conversaciones trajeron y por qué, las 2 cosas que dejar, **los 3 cambios del perfil** en orden, cada uno con el texto listo para pegar, y **las 3 líneas de contenido** con que cierra `li-audit` (tema, arquetipo, tipo de post y por qué según los datos), que quedan como ideas en la columna "Ideas" del kanban dentro del límite semanal de ideas (`kanban.md`).
 
 ## Reglas de todo el sistema
 

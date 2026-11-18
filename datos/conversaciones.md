@@ -12,7 +12,7 @@ Una fila por persona. Lo actualizan li-dm, li-inbox, li-reply y el agente conver
 
 **Señal:** comentó, reaccionó, compartió, visitó el perfil, aceptó invitación, escribió, comentó la palabra clave (ej.: PALABRA), empezó a seguir la página, referido.
 
-**Estado:** PENDIENTE (DM listo, sin enviar) → ENVIADO (lo marca el usuario, o la ronda después de enviar lo que el usuario aprobó en el chat) → RESPONDIÓ → NUTRIR (respondió, pero no está listo: un toque al mes con algo útil) → CITA (agendó) → DESCARTADO (se revisa una sola vez a los 90 días, si hay algo nuevo).
+**Estado:** PENDIENTE (DM listo, sin enviar) → ENVIADO (lo marca el usuario, o la ronda después de enviar lo que el usuario aprobó en el chat) → RESPONDIÓ → NUTRIR (respondió, pero no está listo: un toque al mes con algo útil; si dijo "ahora no", con la fecha que se acordó en "Seguimiento (fecha)") → CITA (agendó) → DESCARTADO (se revisa una sola vez a los 90 días, si hay algo nuevo).
 
 ## Regla de seguimiento
 

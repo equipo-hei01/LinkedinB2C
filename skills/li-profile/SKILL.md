@@ -34,6 +34,26 @@ experience entries, plus whether they have a banner and featured section. A
 screenshot of the top card is enough for the first pass. Do not log into
 LinkedIn on their behalf.
 
+## Prueba del amigo (antes del puntaje)
+
+Lee solo el titular (y la primera línea del Acerca de) y escribe en una frase
+qué hace la persona y para quién, como lo diría alguien que no la conoce
+("Por lo que leo, ayuda a [quién] a [qué]"). Compárala con `que_hace` de
+`marca.md` y con lo que vende (`ofertas.md`). Si la frase no sale clara o no
+coincide con lo que vende, **el titular es lo primero que se arregla**, aunque
+otros ítems resten más puntos. Muestra esa frase en la salida, arriba de la
+tabla: `Prueba del amigo: "…" · clara y coincide / no se entiende / no
+coincide con lo que vende`.
+
+## Acción deseada del perfil
+
+Lee `accion_perfil` de `marca.md`: qué quiere el usuario que haga quien visita
+el perfil (agendar, escribir, descargar…). Titular, Acerca de, destacados y
+banner se juzgan contra esa acción: en cada uno pregunta "¿lleva a
+[accion_perfil]?" y, si no lleva, dilo en su fila de la tabla y en la
+reescritura. Si `accion_perfil` está vacío o dice `[verificar]`, pregúntalo
+una vez antes de reescribir.
+
 ## Score it
 
 Read `rubric.json` in this folder. Twelve items, 100 points, each with what
@@ -74,6 +94,16 @@ PROFILE SCORE  41/100
   ...
 ```
 
+**La foto, mirada de verdad.** Cuando hay navegador o una captura del perfil,
+mira la foto real (no la supongas) con los criterios del ítem `photo` de
+`rubric.json`: cara en ~60 % del encuadre, ojos visibles, fondo que no
+distrae, buena luz, reciente y coherente con el público de `arquetipos.md`.
+Si pierde puntos, dilo concreto ("la cara ocupa un tercio del encuadre y el
+fondo es una ventana a contraluz"), no "mejora tu foto". Si hay instalada una
+skill de foto profesional (por ejemplo `professional-photo-director`), ofrece
+pasar a ella; nunca generes ni subas una foto sin el sí del usuario. Sin
+navegador ni captura, el ítem queda `[verificar]` y sin puntos inventados.
+
 ## Página de empresa (si hay `pagina_url` en `marca.md`)
 
 La página no se puntúa con la rúbrica del perfil. Tiene la suya:
@@ -92,6 +122,12 @@ se pudo leer (por ejemplo, los cargos de los seguidores), el ítem queda
 
 Fix in descending order of points lost. Do not rewrite everything at once -
 the user has to actually paste each of these in.
+
+> **Regla de la casa: orden y acción.** Si la prueba del amigo falló, el
+> titular va primero sin importar los puntos. Cada reescritura de titular,
+> Acerca de, destacados y banner termina llevando a `accion_perfil` de
+> `marca.md`; al entregarla, una línea: "¿Lleva a [accion_perfil]? sí / no,
+> porque…".
 
 **1. Headline (220 characters).** The formula that works:
 `{what you do for whom} | {proof} | {how to start}`. Not your job title. Not
@@ -128,7 +164,9 @@ default blue gradient is the clearest signal on the page that nobody is home.
 
 ## Output
 
-Score table, then the rewrites as copy-ready blocks in fix-first order, each
+The friend test sentence ("Prueba del amigo: …") first, then the score table
+(with the photo verdict if the photo was seen), then the rewrites as
+copy-ready blocks in fix-first order, each
 one already run through `/li-human`. Re-score at the end and show the delta
 honestly - if the rewrite gets to 88 and not 98, say 88, and say what the
 remaining points need (usually recommendations, a real banner and posting

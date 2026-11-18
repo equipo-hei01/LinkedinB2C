@@ -18,7 +18,20 @@ Después, del plugin: `skills/li-post/hooks.json` (solo nombres y números) y `p
 3. **Qué significa para el usuario.** Por cada formato y fórmula que gana, a qué arquetipo le sirve y cómo lo diría el usuario en su voz (`voz-persona.md`; un gancho de ejemplo, sin copiar el de otra persona). Deja hasta 3 ideas en la columna "Ideas" del kanban (reglas en `kanban.md`): cada idea con `t`, `arq`, `formato`, `tema`, `cita`, `vence` y `prueba` puestos con criterio, y en `nota` "Origen: radar <fecha> · Fuente: <link o archivo>". Máximo 3 por semana de tu parte y 6 entre todos los agentes; antes revisa duplicados por tema. Si no caben, deja la idea en una línea de `pendientes-hoy.md`.
 3b. **Noticia del día.** Si hay una noticia del rubro que todos comentan y el usuario tiene un ángulo para sus arquetipos, deja una idea de tipo "noticia del día" con `vence` 3 y en `nota` "Tipo: noticia · vence <fecha, 48 horas>". Si no la toman en 48 horas, deja de servir: dilo en la nota.
 4. **Escribe `radar.md`**: la sección "Esta semana" nueva, la anterior baja a Historial. `li-plan` y `planificador-li` la leen para rotar formatos.
-5. **Mejoras.** Si un cambio del algoritmo o un patrón que se repite 2 semanas seguidas pide ajustar algo (pesos de `puntaje.md`, reglas de `li-post`, la mezcla de formatos de `li-plan`, una fórmula nueva en `hooks.json`), escribe una fila PROPUESTA en `mejoras.md` con la evidencia. **No la aplicas**: la aplica `/li-mejora` cuando el usuario diga que sí.
+5. **Mejoras.** Si un cambio del algoritmo o un patrón que se repite 2 semanas seguidas pide ajustar algo (pesos de `puntaje.md`, reglas de `li-post`, la mezcla de formatos de `li-plan`, una fórmula nueva en `hooks.json`), escribe una fila PROPUESTA en `mejoras.md` con la evidencia. Antes, pásala por el "Filtro de alineación" de abajo. **No la aplicas**: la aplica `/li-mejora` cuando el usuario diga que sí.
+
+## Filtro de alineación
+
+Toda práctica que venga de una fuente externa (un post, un video, una herramienta, un curso, una infografía) pasa por estas 6 preguntas antes de proponerse:
+
+1. ¿Cumple el Acuerdo de Usuario de LinkedIn (sin automatizar invitaciones, mensajes, publicaciones ni scraping)? Si no, se descarta.
+2. ¿Respeta `seguridad.md` (nada sale sin el sí; 15 DMs al día; 50 invitaciones a la semana; un post al día, o los límites más estrictos que haya puesto el usuario)? Si no, se descarta.
+3. ¿Calza con la voz y la marca (sin urgencia falsa, sin cebo de interacción, sin mezclar con las `marcas_que_no_se_mezclan` de `marca.md`)? Si no, se descarta.
+4. ¿Sirve a B2B en español, con los decisores de `arquetipos.md` en los países del campo `pais` de `marca.md`? Si no, se adapta o se descarta.
+5. ¿Tiene evidencia (un dato, una fuente o un resultado propio) o se puede probar con una prueba A/B en el kanban (ver "Pruebas en curso" en `kanban.md`)? Sin evidencia, entra como prueba, no como regla.
+6. ¿Es nueva o el plugin ya la hace? Si ya está, solo se anota.
+
+Lo que pasa el filtro queda como PROPUESTA en `mejoras.md`, con la fuente y la respuesta a cada pregunta en la columna "Filtro". Se aplica solo con el sí del usuario.
 
 ## Entrega (máximo 12 líneas)
 

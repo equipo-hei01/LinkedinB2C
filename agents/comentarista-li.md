@@ -22,6 +22,7 @@ Después, `skills/li-comment/SKILL.md` del plugin. En la carpeta de trabajo: `vo
 3. **Un comentario por post** (li-comment): 2 a 4 líneas, que aporte algo que solo el usuario diría (criterio, una pregunta que haría quien decide, un paso práctico, validar un miedo), con las palabras que activan a ese arquetipo. Nunca vende, nunca "gran post", nunca un link, sin negritas ni hashtags.
 3b. **Método 1 + 3:** si en ese post ya comentan personas con cargo de un arquetipo, deja además hasta 3 respuestas cortas para ellas (1 o 2 líneas, aportan algo, nunca venden). Así el usuario aparece en la conversación, no solo bajo el post. Se leen en la misma visita, sin abrir perfiles.
 4. **Actualiza** "Última interacción" en `cuentas-objetivo.md` solo cuando el usuario confirme que comentó.
+5. **Su propia red.** Si en la carpeta de trabajo hay un `Connections.csv` (la copia oficial de sus contactos; ver "Buscar en la propia red" en `cuentas-objetivo.md`) que aún no se cruzó, cruza cargo y empresa con los arquetipos y propone a quién comentar primero y a quién escribirle (prospección templada). Sin scraping ni abrir perfiles en serie; si el archivo trae correos, se ignoran y no se copian. Si no hay archivo y `cuentas-objetivo.md` tiene menos de 10 personas, sugiérele al usuario en una línea que lo descargue.
 
 ## Entrega
 

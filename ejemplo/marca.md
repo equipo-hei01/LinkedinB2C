@@ -12,6 +12,7 @@ Este archivo es la fuente única de quién es el usuario, cómo suena y qué ven
 | `marca` | Norte Consultores |
 | `que_hace` | Ayudamos a empresas medianas a que su operación deje de depender de dos o tres personas, ordenando sus procesos críticos en 90 días con el Método Norte |
 | `metodo` | Método Norte: 1) Mapa (ver cómo se trabaja hoy), 2) Dueños (una persona responsable por proceso), 3) Ritmo (una revisión corta cada semana) |
+| `pilares` | 1) El trabajo que vive en una sola cabeza (riesgo y relevos) · 2) Primero el mapa, después la herramienta · 3) Cambiar con la gente, no contra ella · 4) Ritmo: la revisión corta que sostiene el orden |
 | `pais` | México |
 | `zona_horaria` | `America/Mexico_City` |
 | `idioma` | Español (variante: México) |
@@ -86,6 +87,7 @@ Los arquetipos (Decisor, Implementador y Cuidador) viven en `arquetipos.md`. Las
 
 | Campo | Valor |
 | --- | --- |
+| `accion_perfil` | Agendar el diagnóstico de procesos de 30 minutos (`link_reservas`) |
 | `meta_reuniones_semana` | 4 |
 | `reuniones_hoy_semana` | 1 |
 | `tasa_cierre` | 2 de 10 |

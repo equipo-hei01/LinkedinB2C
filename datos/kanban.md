@@ -29,7 +29,7 @@ No hay calendario. Nadie escribe fechas de publicación: cada día sale la prime
 | `comentario` | Primer comentario (link con UTM) |
 | `archivo` | Ruta del video, PDF o imagen |
 | `hilo` | Borrador o archivo de origen |
-| `nota` | Notas. Si se sabe, el tipo de post ("Tipo: contrario / noticia / lección / marco / caso / relación") y la serie ("Serie <tema> 2/5"). Las ideas que agregan los agentes empiezan con `Origen: <agente> <fecha> · Fuente: <link o archivo>` |
+| `nota` | Notas. Si se sabe, el tipo de post ("Tipo: contrario / noticia / lección / marco / caso / relación"), el pilar de `pilares` de `marca.md` ("Pilar: <pilar>") y la serie ("Serie <tema> 2/5"). Las ideas que agregan los agentes empiezan con `Origen: <agente> <fecha> · Fuente: <link o archivo>` |
 | `link` | Link publicado (lo pone el usuario o la tarjeta al confirmar) |
 | `cita`, `vence`, `prueba` | Puntaje 0 a 3 cada uno (ver abajo) |
 | `col` | `ideas`, `prep`, `aprobar`, `lista` o `publicada` |
@@ -75,7 +75,7 @@ Una prueba compara dos formas de hacer lo mismo (A y B) para decidir con datos d
 
 ## Límites para no saturar al usuario
 
-1. **Ideas de los agentes: máximo 6 por semana** entre todos (radar 3, reutilizador 3; alianzas las deja en `colaboraciones.md`, no aquí). Antes de agregar, cuenta las ideas con `Origen:` de los últimos 7 días; si ya hay 6, no agregues: deja la idea en una línea de `pendientes-hoy.md`. **Las ideas con `Origen: li-inicio` no cuentan para este límite**: son las 6 a 10 que siembra la puesta en marcha, una sola vez.
+1. **Ideas de los agentes: máximo 6 por semana** entre todos (radar 3, reutilizador 3; las 3 líneas de la auditoría y las objeciones de reunión entran en el mismo cupo; alianzas las deja en `colaboraciones.md`, no aquí). Antes de agregar, cuenta las ideas con `Origen:` de los últimos 7 días; si ya hay 6, no agregues: deja la idea en una línea de `pendientes-hoy.md`. **Las ideas con `Origen: li-inicio` no cuentan para este límite**: son las 6 a 10 que siembra la puesta en marcha, una sola vez.
 2. **Piezas en curso: máximo 5** entre "En preparación" y "Por aprobar". Si ya hay 5 o más, el plan del lunes no pasa nada nuevo a preparación: avisa al usuario que primero apruebe o descarte.
 3. **No dupliques**: antes de crear, revisa que no exista una pieza con el mismo `tema` o un título casi igual en cualquier columna.
 4. **Un post al día en LinkedIn** (perfil y página comparten carril) y nunca el mismo tema dos veces el mismo día. Otras redes van aparte.

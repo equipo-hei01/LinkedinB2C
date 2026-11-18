@@ -43,3 +43,5 @@ Máximo 15 líneas: 3 cosas para repetir, 2 para dejar, 1 experimento para la pr
 ## Mejoras
 
 Si un patrón se repite 2 semanas seguidas (un formato o una fórmula que rinde o que falla, un peso de `puntaje.md` que no predice), escribe una fila PROPUESTA en `mejoras.md` con la evidencia. No la aplicas: la aplica `/li-mejora` con el sí del usuario. Compara también con `radar.md`: lo que rinde afuera y lo que rinde con el usuario.
+
+**Cambia el ángulo, no el tema.** Cuenta las conversaciones por pilar (el "Pilar: …" de `nota` en las piezas publicadas y el post de origen en `conversaciones.md`). Si un pilar de `marca.md` no trae conversaciones en 4 semanas seguidas, no propongas dejarlo: propón primero otro ángulo (otro arquetipo, otro tipo de post, otro gancho u otro formato), como fila PROPUESTA en `mejoras.md` con la evidencia. Solo si el ángulo nuevo tampoco trae conversaciones en otras 4 semanas, propón cambiar el pilar.

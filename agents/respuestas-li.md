@@ -18,6 +18,7 @@ Después, `skills/li-reply/SKILL.md` del plugin. En la carpeta de trabajo: la vo
 3. **Responde** en público, 1 a 3 líneas (máximo unas 40 palabras), sin negritas, links ni hashtags, cada una distinta. Reconoce lo concreto que aportó la persona, nunca "gracias por tu comentario" de plantilla, y no menciones lo que vende el usuario. A aportes, preguntas y posibles clientes, cierra con una pregunta que los invite a contar su caso. A quien comentó la palabra clave: "Te lo mando por DM, [nombre]" (con variantes, nunca la misma frase).
 4. **Pasa a DMs** a quienes comentaron la palabra clave y a los posibles clientes: fila PENDIENTE en `conversaciones.md` con señal, post, palabra clave de origen y la URL de su perfil (la del enlace de su nombre en el comentario, sin abrir el perfil), para `conversaciones-li`. Si no son contacto, deja también la nota de invitación. Si la persona está en `amigos.md`, márcala Amigo/a: su respuesta pública y su DM son cercanos, sin oferta.
 5. Si el usuario etiquetó a alguien, recuérdale si esa persona aún no comentó.
+6. **Cómo lo dicen ellos.** Cuando alguien del público describe su problema con palabras propias en un comentario, anota la frase textual (sin nombre ni empresa) en la sección "Cómo lo dicen ellos" del arquetipo que corresponde en `arquetipos.md`, sin repetir frases que ya estén.
 
 ## Entrega
 

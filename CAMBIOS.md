@@ -1,5 +1,17 @@
 # Cambios
 
+## 1.1.0
+Buenas prácticas de fuentes externas que pasaron el nuevo filtro de alineación:
+- `li-mejora` y `radar-nicho-li`: filtro de alineación de 6 preguntas (Acuerdo de Usuario de LinkedIn, `seguridad.md`, voz y marca, B2B en el idioma y países de la marca, evidencia o prueba A/B, si ya existe). `mejoras.md` registra el filtro.
+- `marca.md`: campos `accion_perfil` y `pilares`; `/li-inicio` los propone en el paso 2.
+- `li-profile`: prueba del amigo antes del puntaje, juicio contra `accion_perfil` y análisis de la foto real.
+- `li-audit` y `auditor-li`: cierran con 3 líneas de contenido que pasan a Ideas.
+- Plan: reparto semanal entre pilares y al menos un caso real por semana. `analista-li`: otro ángulo antes que otro tema.
+- Arquetipos: "Qué ya probó y por qué no le funcionó", "Cómo lo dicen ellos" y respuesta por tipo de objeción (precio, competencia, "ahora no" → NUTRIR).
+- `revisora-marca`: lector simulado antes del veredicto.
+- `cierre-li`: testimonio pedido a tiempo, mapa de quién decide y práctica de 5 minutos.
+- Cuentas objetivo, comentarista y `/li-inicio`: buscar en la propia red con el export oficial de contactos (`Connections.csv`).
+
 ## 1.0.2
 - Tablero: ninguna frase ni ficha queda con huecos cuando falta un dato; se muestra la parte que sí tiene datos o un estado vacío que dice qué falta. Comprobado en un tablero real recién configurado.
 

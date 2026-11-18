@@ -67,6 +67,14 @@ Lee de la carpeta de trabajo: `marca.md`, `arquetipos.md`, la voz que correspond
    | Cuidador | gerente de personas | miedo de los equipos, capacitaciones que no cambian nada | cuidar y avanzar, adopción voluntaria | "No es personas o resultados. Es personas con resultados." |
 
    Reparto de la semana: el vigente de `arquetipos.md`.
+
+   > **Regla de la casa: sus palabras y lo que ya probó.** Para nombrar el
+   > problema, prefiere las frases de "Cómo lo dicen ellos" del arquetipo
+   > (palabras textuales de clientes, sin nombre ni empresa) a las palabras
+   > de la marca. Y "Qué ya probó y por qué no le funcionó" es el mejor
+   > material para un post contrario o un caso: lo que intentó y falló es la
+   > creencia común que el post discute. Si el campo dice `[verificar]`, no
+   > lo inventes.
    The client is the hero; the brand is the mentor with the map.
 
 ## Gancho con script (ahorra tokens)

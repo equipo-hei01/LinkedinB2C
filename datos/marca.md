@@ -12,6 +12,7 @@ La copia viva está en la carpeta de trabajo (ver `LEEME.md`). Esta es la planti
 | `marca` | Nombre de la empresa o marca |
 | `que_hace` | Una frase: a quién ayuda, a lograr qué, con qué método |
 | `metodo` | Nombre y pasos del método propio, en orden (si lo hay) |
+| `pilares` | Lista de 3 o 4 pilares de contenido, siempre los mismos y repetidos sin miedo (por ejemplo "1) … · 2) … · 3) …"). Salen de lo que ya rinde y de lo que vende. El plan semanal reparte las piezas entre ellos |
 | `pais` | País o países donde vende |
 | `zona_horaria` | Nombre IANA, por ejemplo `America/Bogota` o `Europe/Madrid` |
 | `idioma` | Español (variante: la del país del usuario, o neutro) |
@@ -51,6 +52,7 @@ Los arquetipos (1 a 4 tipos de cliente) viven en `arquetipos.md`: nombre, cargos
 
 | Campo | Valor |
 | --- | --- |
+| `accion_perfil` | Qué quiere que haga quien visita su perfil (agendar una reunión, escribirle, descargar algo…). Titular, Acerca de, destacados y banner llevan a esta acción |
 | `meta_reuniones_semana` | Reuniones por semana que quiere desde LinkedIn |
 | `reuniones_hoy_semana` | Reuniones por semana que tiene hoy desde LinkedIn (la línea base; 0 si ninguna) |
 | `tasa_cierre` | Aproximada: de cada 10 reuniones, cuántas terminan en venta (por ejemplo "2 de 10") |

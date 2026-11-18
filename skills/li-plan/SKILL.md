@@ -37,7 +37,8 @@ the last fortnight. Items 1, 2 and 4 below come from those files and from
 write it down:
 
 1. What the user sells, and to whom.
-2. The three or four themes they want to be known for.
+2. The three or four themes they want to be known for (the `pilares` in
+   `marca.md`; see "Pilares fijos" below).
 3. What actually happened this week - a client call, a number, a mistake, a
    thing they built, an argument they had. This is where posts come from.
 4. Ten to twenty people or companies worth being visible to.
@@ -45,6 +46,20 @@ write it down:
 ## Radar y rotación
 
 Antes de armar la semana lee la sección "Esta semana" de `radar.md` (formatos y ganchos que rinden en el nicho) y revisa en `log.md` y en el kanban los formatos de las últimas piezas para no repetir. Cada post de la semana lleva formato, arquetipo, palabra clave de `entregables.md` y fórmula de gancho, y nunca el mismo formato 3 veces seguidas en una cuenta.
+
+## Pilares fijos y un caso por semana
+
+> **Regla de la casa: pilares.** Los `pilares` de `marca.md` (3 o 4) son
+> siempre los mismos y se repiten sin miedo. Cada semana reparte las piezas
+> entre ellos: ninguno queda 2 semanas seguidas sin aparecer (revisa el plan
+> anterior y lo publicado en el kanban). Anota el pilar en cada línea del plan
+> y en `nota` de la pieza ("Pilar: …"). Si `marca.md` no tiene `pilares`,
+> dilo y pídelos.
+>
+> **Regla de la casa: un caso real por semana.** Si `pruebas.md` tiene al
+> menos un caso o testimonio autorizado, la semana lleva al menos una pieza
+> tipo "caso". Si no hay, dilo en la entrega: "No hay casos autorizados: pedir
+> uno".
 
 ## What to post
 
@@ -105,6 +120,8 @@ WEEK OF SEP 8  (order and type; no day, no time)
 2  OPINION  #1  Contrarian    - why we killed the discovery call
 3  TEACH    #21 Direct Value  - the 4-line reopen email, given away
 4  STORY    #9  Cold Open     - the "going with someone cheaper" email
+(each line also carries its pilar: "Pilar: …")
+Caso de la semana: 1  (or "No hay casos autorizados: pedir uno")
 Engage every working day (20 min, list below)
 
 ENGAGE  (5 reach / 3 peers / 2 buyers)

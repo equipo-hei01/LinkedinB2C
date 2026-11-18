@@ -63,7 +63,7 @@ Con un solo arquetipo, el reparto es 100 % y esta tabla tiene una fila.
 | Llamado | [la oferta de `ofertas.md` que le corresponde] | | |
 | Palabra clave | [la de `entregables.md`] | | |
 
-"Lo que piensa y no dice" es el mejor material: nombrar ese miedo en una línea detiene el scroll. En el recibo de cada pieza: `arquetipo: X · tensión: Y · reencuadre: Z`.
+"Lo que piensa y no dice" es el mejor material: nombrar ese miedo en una línea detiene el scroll. "Cómo lo dicen ellos" da las palabras para nombrarlo, y "Qué ya probó" el mejor punto de partida para un post contrario o un caso. En el recibo de cada pieza: `arquetipo: X · tensión: Y · reencuadre: Z`.
 
 ## Checklist antes de entregar
 
@@ -107,6 +107,16 @@ Copia el bloque de abajo una vez por arquetipo. Mejor un arquetipo bien descrito
 **Palabras que lo alejan:** [las que le suenan a humo, a amenaza o a otro mundo]
 
 **Objeciones:** ["…" · "…" · "…"]
+
+**Respuesta por tipo de objeción** (las 3 que más se repiten en B2B; ajusta la frase a este arquetipo):
+- **Precio:** [responder con el valor y el costo de no hacerlo; no bajar el precio en la misma conversación]
+- **Competencia:** [comparar por criterio sin criticar al otro; preguntar qué valora]
+- **"Ahora no":** [acordar cuándo y pasar a NUTRIR con fecha en `conversaciones.md`; nunca insistir en el momento]
+
+**Qué ya probó y por qué no le funcionó:** [otra consultora, un software, un curso, hacerlo con su equipo… y por qué no resultó, con lo que el usuario sabe de sus clientes. Es el mejor material para un post contrario o un caso. Si no se sabe, `[verificar]`]
+
+**Cómo lo dicen ellos:** [frases textuales con que las personas de este arquetipo describen su problema en comentarios, DMs o reuniones, sin nombre ni empresa. Las agregan `conversaciones-li`, `respuestas-li` y `cierre-li`. Para nombrar el problema, estas palabras van antes que las de la marca]
+- "[…]"
 
 **Reencuadres:** ["…" · "…"]
 
