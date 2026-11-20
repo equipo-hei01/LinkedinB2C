@@ -17,7 +17,7 @@ LinkedIn restringe cuentas con actividad automatizada. Estas reglas valen para t
    - Nunca se publica desde una tarea con horario ni sin nadie en la sesión.
 
    Si el usuario prefiere no usar estas excepciones, basta con borrarlas de su copia: todo vuelve a quedar como borrador.
-2. **Visitas de solo lectura:** como máximo una visita a LinkedIn por tarea (ej.: una a notificaciones por ronda de conversaciones). Sin recorrer perfiles en serie. Los envíos aprobados de la regla 1 no cuentan como visitas de lectura.
+2. **Visitas de solo lectura:** como máximo una visita a LinkedIn por tarea (ej.: una a notificaciones por ronda de conversaciones). Sin recorrer perfiles en serie. Los envíos aprobados de la regla 1 no cuentan como visitas de lectura. Para investigar antes de un DM: máximo 10 perfiles por ronda, solo de personas con arquetipo claro, uno por uno y con pausas, como lo haría una persona. La web de la empresa se busca fuera de LinkedIn (búsqueda web), sin límite. Nunca recorrer perfiles de una lista entera.
 3. **Invitaciones:** máximo 50 por semana, siempre con nota personal y una razón concreta.
 4. **DMs:** máximo 15 nuevos por día, todos distintos. Nunca el mismo texto a varias personas.
 5. **Tablero:** se actualiza una vez por semana (viernes), no a diario.

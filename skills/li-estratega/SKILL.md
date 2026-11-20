@@ -96,6 +96,7 @@ Ninguno publica, comenta, da like, conecta ni envía. Todo queda como borrador p
   - Si fallan la **interacción o las visitas**, el problema son los ganchos y el contenido: historias con persona y decisión, y menos agenda.
   - Si fallan las **respuestas**, hay que revisar los DMs: más específicos y con una sola pregunta.
   - Si falla la **agenda**, el problema es la oferta: una sola, clara y con el `link_reservas` de `marca.md`.
+- **El frío solo cuando el templado funciona:** no se arma prospección en frío (escribirles a personas que nunca interactuaron ni son contactos, por ejemplo desde `cuentas-objetivo.md`) hasta que los mensajes a quienes sí interactuaron o son contactos tengan respuestas de forma constante: al menos 2 semanas seguidas con respuestas en `conversaciones.md`. Si los mensajes no consiguen respuesta, se corrige el mensaje, no se sube el volumen. Comentar en sus posts sí se puede desde el inicio.
 - **Reparto de arquetipos:** el que manda está en `arquetipos.md` ("Reparto vigente").
 - **Referidos:** después de cada testimonio publicado, pide a esa persona 2 presentaciones (borrador en `conversaciones.md`).
 

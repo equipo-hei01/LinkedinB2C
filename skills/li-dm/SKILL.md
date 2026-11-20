@@ -81,6 +81,8 @@ Wait a day. Then:
 > - Termina en **una pregunta de verdad**, que el usuario quiera saber la respuesta y que se conteste fácil.
 > - **Sin links, sin propuesta de llamada y sin presentar al usuario con su cargo.** El perfil ya lo dice.
 > - Si no hay nada concreto de la persona, dilo y no inventes: un mensaje sin motivo es el que todos mandan.
+> - **Ángulo flojo:** si el dato con que abre serviría para cualquier persona ("vi que eres CEO", "me gustó tu perfil"), márcalo "ángulo flojo" y pide otro dato concreto de lo suyo. Si no hay, dilo; no se inventa.
+> - **Si dio la señal visitando el perfil:** entra por algo de lo suyo, nunca por "vi que viste mi perfil".
 
 ## Follow-ups
 
@@ -101,6 +103,7 @@ Then stop. A third follow-up converts nobody and costs the relationship.
 > - **Espejo:** igual largo, tono y formalidad que la persona (si escribe dos líneas, no le respondas ocho).
 > - **Siempre un siguiente paso concreto:** qué, quién y cuándo ("Te mando el ejemplo el jueves"). Nada de "seguimos en contacto".
 > - **Diagnóstico antes de ofrecer la reunión:** entiende su situación, su dolor y su urgencia, una pregunta a la vez, y habla menos que la persona. Ofrece la reunión (con el `link_reservas` de `marca.md`) solo si hay encaje; si no, dale algo útil y déjala en NUTRIR.
+> - **La propuesta de reunión dice para qué es:** en una línea, con lo que la persona ya contó y en sus palabras ("para ver cómo ordenar eso de los traspasos entre áreas que mencionaste"). Si no está claro que tenga sentido proponerla todavía, el borrador lo dice y explica por qué en vez de forzarla.
 > - **Nunca edites ni borres un mensaje ya enviado.** Si hay un error, se aclara en el siguiente.
 > - **NUTRIR:** quien respondió pero no está listo recibe un toque al mes con algo útil (un post, un dato, un recurso), sin oferta. **DESCARTADO** se revisa una sola vez a los 90 días, y solo si hay algo nuevo que contarle.
 > - **Prueba en curso, nota de voz:** a quien estaba interesado y dejó de responder, el usuario puede grabar una nota de voz corta (30 segundos) en vez del texto del día 10. Anota "nota de voz" en la fila para comparar respuestas.

@@ -34,7 +34,18 @@ what is worth writing.
 ## Input
 
 The user pastes the messages. Screenshots are fine. Do not log into their
-account or read their inbox with a browser tool.
+account or read their inbox with a browser tool (the only exception is the
+monthly sweep below).
+
+## Modo barrido (una vez al mes o a pedido)
+
+> **Regla de la casa.** A pedido ("barre mi bandeja", "revisa mis últimas conversaciones") o una vez al mes (por ejemplo, junto a la auditoría mensual), lee las **últimas 30 conversaciones** de LinkedIn en **una sola visita de solo lectura** a la bandeja (https://www.linkedin.com/messaging/), con el navegador del campo `navegador` de `marca.md`; si no hay navegador, con lo que el usuario pegue. Mientras lees, nunca respondas, marques, archives ni borres nada (regla 2 de `seguridad.md`). Ordena cada conversación en uno de 4 grupos:
+> 1. **Propongo responder:** con el borrador listo y el porqué en una línea.
+> 2. **Del público, pero le toca mover a la otra persona** (ya hay reunión, sin presupuesto ahora, quedó en retomar más adelante) → NUTRIR con fecha en "Seguimiento (fecha)" de `conversaciones.md`.
+> 3. **Fuera del público** (competencia, candidatos, gente que vende, pares, quien solo pidió un recurso): sin acción.
+> 4. **Mensajes propios sin respuesta de 4 días o más** → candidatos a seguimiento con algo nuevo (regla de seguimiento de `conversaciones.md`; si ya hubo 2 seguimientos, DESCARTADO).
+>
+> Entrega primero los conteos por grupo, después los borradores. Actualiza las filas de `conversaciones.md` (agrega a quien no esté). Nada se envía sin el sí del usuario en el chat.
 
 ## Sort into five
 

@@ -16,7 +16,7 @@ Con ese archivo, el plugin:
 3. Propone a quién comentar primero (pasa a la tabla de su arquetipo aquí abajo, con "Por qué: contacto de primer grado") y a quién escribirle (pasa como PENDIENTE a `conversaciones.md` para `conversaciones-li`, con un primer DM sin agenda). Quien esté en `amigos.md` va con su mensaje cercano.
 4. Anota al final de este archivo "Connections.csv cruzado: AAAA-MM-DD", para no cruzarlo dos veces. Si el usuario baja una copia nueva, se cruza solo lo nuevo.
 
-Reglas: sin scraping y sin abrir perfiles en serie (`seguridad.md`); los límites de DMs e invitaciones no cambian. **Si el CSV trae correos, se ignoran y no se copian** a ningún archivo. Solo nombre, cargo, empresa y URL del perfil.
+Reglas: sin scraping y sin abrir perfiles en serie (`seguridad.md`); los límites de DMs e invitaciones no cambian. **El frío espera:** los contactos de primer grado son prospección templada; escribirle a quien nunca interactuó ni es contacto (por ejemplo, alguien de las tablas de abajo que no está en tu red) es frío y no se arma hasta que los mensajes templados tengan respuestas de forma constante (al menos 2 semanas seguidas con respuestas en `conversaciones.md`; ver "El frío solo cuando el templado funciona" en `/li-estratega`). Si los mensajes no consiguen respuesta, se corrige el mensaje, no se sube el volumen. Comentar sus posts sí se puede desde el inicio. **Si el CSV trae correos, se ignoran y no se copian** a ningún archivo. Solo nombre, cargo, empresa y URL del perfil.
 
 ## [Arquetipo 1] ([cargos y tamaño de empresa, como en `arquetipos.md`])
 

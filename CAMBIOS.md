@@ -1,5 +1,13 @@
 # Cambios
 
+## 1.2.0
+Prácticas que pasaron el filtro de alineación (se descartaron los conectores de terceros que actúan en la cuenta y los envíos sin aprobación):
+- Ronda de conversaciones: "Quién ha visto tu perfil" como señal, en la misma visita y en solo lectura; los anónimos se suman por sector y ciudad para el contenido.
+- `li-inbox`: modo barrido mensual de las últimas 30 conversaciones en 4 grupos, sin envíos.
+- `li-dm`, revisora y conversaciones: marcan los ángulos flojos y la propuesta de reunión dice para qué es.
+- Estratega, cuentas objetivo, comentarista y `/li-inicio`: el frío solo cuando los mensajes templados ya tienen respuestas.
+- `seguridad.md`, regla 2: para investigar antes de un DM, máximo 10 perfiles por ronda, solo con arquetipo claro, uno por uno con pausas; la web de la empresa, fuera de LinkedIn.
+
 ## 1.1.0
 Buenas prácticas de fuentes externas que pasaron el nuevo filtro de alineación:
 - `li-mejora` y `radar-nicho-li`: filtro de alineación de 6 preguntas (Acuerdo de Usuario de LinkedIn, `seguridad.md`, voz y marca, B2B en el idioma y países de la marca, evidencia o prueba A/B, si ya existe). `mejoras.md` registra el filtro.
