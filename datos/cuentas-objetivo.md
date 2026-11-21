@@ -18,6 +18,13 @@ Con ese archivo, el plugin:
 
 Reglas: sin scraping y sin abrir perfiles en serie (`seguridad.md`); los límites de DMs e invitaciones no cambian. **El frío espera:** los contactos de primer grado son prospección templada; escribirle a quien nunca interactuó ni es contacto (por ejemplo, alguien de las tablas de abajo que no está en tu red) es frío y no se arma hasta que los mensajes templados tengan respuestas de forma constante (al menos 2 semanas seguidas con respuestas en `conversaciones.md`; ver "El frío solo cuando el templado funciona" en `/li-estratega`). Si los mensajes no consiguen respuesta, se corrige el mensaje, no se sube el volumen. Comentar sus posts sí se puede desde el inicio. **Si el CSV trae correos, se ignoran y no se copian** a ningún archivo. Solo nombre, cargo, empresa y URL del perfil.
 
+## Cuentas activas (radar de leads)
+
+Cuando una empresa de estas tablas tiene 2 o más personas con señales vigentes en `senales.md`, es **cuenta activa**: `conversaciones-li` la anota aquí y propone a quién más conviene conocer en esa empresa (quién decide, según el arquetipo que decide la compra en `arquetipos.md`). Ese "quién más" se busca con lo que ya se ve en LinkedIn y en la web de la empresa, **sin buscar correos** y sin abrir perfiles en serie. A esa persona se le comentan los posts; escribirle sigue la regla de "El frío espera".
+
+| Empresa | Personas con señales vigentes | Desde (AAAA-MM-DD) | Quién más conocer (cargo, y nombre si es público) | Estado (activa, ya no) |
+| --- | --- | --- | --- | --- |
+
 ## [Arquetipo 1] ([cargos y tamaño de empresa, como en `arquetipos.md`])
 
 | Nombre | Cargo y empresa | Link al perfil | Por qué | Última interacción |

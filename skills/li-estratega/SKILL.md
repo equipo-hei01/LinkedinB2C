@@ -97,6 +97,7 @@ Ninguno publica, comenta, da like, conecta ni envía. Todo queda como borrador p
   - Si fallan las **respuestas**, hay que revisar los DMs: más específicos y con una sola pregunta.
   - Si falla la **agenda**, el problema es la oferta: una sola, clara y con el `link_reservas` de `marca.md`.
 - **El frío solo cuando el templado funciona:** no se arma prospección en frío (escribirles a personas que nunca interactuaron ni son contactos, por ejemplo desde `cuentas-objetivo.md`) hasta que los mensajes a quienes sí interactuaron o son contactos tengan respuestas de forma constante: al menos 2 semanas seguidas con respuestas en `conversaciones.md`. Si los mensajes no consiguen respuesta, se corrige el mensaje, no se sube el volumen. Comentar en sus posts sí se puede desde el inicio.
+- **Radar de leads:** una lista dice a quién; una señal dice cuándo. Cada ronda de conversaciones anota en `senales.md` las señales de cada persona (comentarios, visitas, cargo nuevo, novedades de su empresa), que vencen y suman un puntaje de encaje + intención: con 1 se observa, con 2 pasa a la lista y con 3 en 14 días o 70 puntos se le escribe, con la frase "por qué ahora" y siempre con el sí del usuario. El tablero lo muestra en "Radar de leads".
 - **Reparto de arquetipos:** el que manda está en `arquetipos.md` ("Reparto vigente").
 - **Referidos:** después de cada testimonio publicado, pide a esa persona 2 presentaciones (borrador en `conversaciones.md`).
 
@@ -109,6 +110,7 @@ Lee `../../datos/LEEME.md`. Las fuentes únicas, todas en la carpeta de trabajo,
 - `ofertas.md`
 - `pruebas.md`
 - `conversaciones.md` (con la regla de seguimiento de los días 4 y 10)
+- `senales.md` (radar de leads: señales por persona, puntaje y a quién escribir)
 - `kanban.md` (la fila de contenido: la única fuente de lo que se publica; sin fechas salvo las 📌)
 - `cuentas-objetivo.md`
 - `charlas.md`

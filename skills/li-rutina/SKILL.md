@@ -74,6 +74,8 @@ Si hay tareas de otra red a la misma hora (por ejemplo, de un plugin de Instagra
 | 14 (manual) | Sin horario: el usuario la corre a mano | Auditoría a pedido de los últimos 30 días, sin la regla del primer lunes; guarda `auditoria_<AAAA-MM-DD>_manual.md` sin pisar la mensual. Hay también alianzas y charlas a pedido | auditor-li, alianzas-li, charlas-li | Sonnet |
 | 15 (manual) | Sin horario: el usuario la corre con un clic | **Publicar la siguiente pieza:** toma la primera de "Lista para publicar" del carril LinkedIn, le muestra al usuario qué sale y, solo con su "sí" en el chat, la publica desde su Chrome, agrega el primer comentario y la mueve a "Publicada" con el link (segunda excepción de la regla 1 de `seguridad.md`; un post al día) | li-estratega (o la tarea directa) | Sonnet |
 
+**Radar de leads:** la ronda de DMs (tarea 7) anota cada señal en `senales.md`, calcula el puntaje y decide a quién escribir (observar, lista o escribir); la del viernes busca además en la web novedades de hasta 10 cuentas objetivo, y el tablero del viernes (tarea 9) lo pasa al panel "Radar de leads". No es una tarea aparte.
+
 **Uso mensual opcional, sin tarea programada:** el barrido de las últimas 30 conversaciones de `/li-inbox` (modo barrido). El usuario lo pide en vivo, por ejemplo el día de la auditoría mensual; no se crea una tarea para eso.
 
 Si el usuario no tiene página de empresa (`pagina_url` vacío), las tareas trabajan solo con el perfil. Si no da charlas, no instales las tareas de charlas.

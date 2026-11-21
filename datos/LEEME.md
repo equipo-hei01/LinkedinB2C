@@ -25,8 +25,9 @@ En `ejemplo/` (raíz del plugin) hay un juego de archivos llenos para una empres
 | `pruebas.md` | Testimonios autorizados, casos y datos con fuente | li-post, li-carousel, li-dm, las dos voces |
 | `entregables.md` | Palabra clave y entregable por arquetipo | li-post, li-dm, conversaciones-li, cierre-li |
 | `conversaciones.md` | El embudo de personas y los seguimientos | li-dm, li-inbox, li-reply, conversaciones-li, analista-li |
+| `senales.md` | Radar de leads: cada señal por persona con fecha, fuente y vencimiento; el puntaje de encaje + intención y qué hacer con cada persona | conversaciones-li, analista-li, li-dm, li-tablero |
 | `kanban.md` | Reglas de la Fila de contenido (kanban): la única fuente de lo que se publica, sin fechas salvo las fijas | li-plan, li-post, li-estratega, planificador-li, tareas programadas |
-| `cuentas-objetivo.md` | A quién comentar cada semana, por arquetipo | li-comment, li-plan, comentarista-li |
+| `cuentas-objetivo.md` | A quién comentar cada semana, por arquetipo, y las cuentas activas del radar de leads | li-comment, li-plan, comentarista-li, conversaciones-li |
 | `charlas.md` | Embudo de charlas (encontrada → dada) | charlas-li, li-tablero |
 | `reuniones.md` | Cada reunión que viene de LinkedIn, hasta el cierre | cierre-li, analista-li, li-tablero |
 | `radar.md` | Formatos y ganchos que rinden en el nicho, y cambios del algoritmo | radar-nicho-li, li-plan, li-post |

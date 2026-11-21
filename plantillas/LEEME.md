@@ -5,7 +5,7 @@ Dos plantillas genéricas, sin datos ni marca de nadie. Los colores son una pale
 | Archivo | Qué es |
 |---|---|
 | `kanban.html` | La Fila de contenido: tarjeta "Hoy" por carril y tablero de 5 columnas (ideas, prep, aprobar, lista, publicada), con puntaje de 0 a 24 y botones para copiar texto y marcar publicada. Es una página completa: se publica tal cual como artefacto. |
-| `tablero.html` | El Tablero LinkedIn: semáforo, rampa, embudo, línea de tiempo, puntaje de perfiles, audiencia, posts, conversaciones, reuniones, hábitos, charlas y dinero. No es una página suelta: es el archivo `index.html` de un artefacto del tipo **Dashboard**. Usa `dash` y `d3`, que solo existen dentro de ese tipo. |
+| `tablero.html` | El Tablero LinkedIn: semáforo, rampa, embudo, línea de tiempo, puntaje de perfiles, audiencia, posts, conversaciones, radar de leads, reuniones, hábitos, charlas y dinero. No es una página suelta: es el archivo `index.html` de un artefacto del tipo **Dashboard**. Usa `dash` y `d3`, que solo existen dentro de ese tipo. |
 | `tablero-datos-vacios.json` | Semilla del tablero: título, y cada dataset con sus filas iniciales (vacías) y la descripción de cada columna. |
 | `tablero-mapa-mundo.json` | Filas del dataset `mapa_mundo` (contornos de países de Natural Earth, datos públicos). |
 
@@ -89,10 +89,10 @@ Dataset `resumen`, **una sola fila**:
 | `miembros_alcanzados` | la misma ficha, "personas alcanzadas en el año" |
 | `busquedas_7d` | ficha "Apariciones en búsquedas" |
 | `fuera_de_red` | ficha "Impresiones fuera de tu red"; fracción de 0 a 1 |
-| `fase_actual` | fase marcada en el capítulo 8 (0 a 4) |
-| `semana` | "semana N desde el arranque", capítulo 8 |
-| `linea_base_sesiones_semana` | línea base de reuniones por semana, capítulos 6 y 8 |
-| `linea_base_charlas_mes` | línea base de charlas por mes, capítulo 8 (solo si hay charlas) |
+| `fase_actual` | fase marcada en el capítulo 9 (0 a 4) |
+| `semana` | "semana N desde el arranque", capítulo 9 |
+| `linea_base_sesiones_semana` | línea base de reuniones por semana, capítulos 7 y 9 |
+| `linea_base_charlas_mes` | línea base de charlas por mes, capítulo 9 (solo si hay charlas) |
 | `posts_pagina`, `impresiones_pagina`, `seguidores_pagina`, `comentarios_pagina`, `clics_pagina`, `reacciones_pagina` | fichas de la página de empresa; con `sin_pagina: true` se dejan en `null` |
 
 `impresiones_perfil_7d` y `fecha_linea_base` existen en la semilla pero el tablero no las lee.
@@ -125,6 +125,8 @@ Clave → qué contiene; el detalle de cada columna está en `columnas` dentro d
 | `citas_semanas` | Una fila por semana: reuniones, conversaciones, mensajes, respuestas, inscritos al evento, alcance del perfil y de la página, posts publicados y planificados, rondas. |
 | `citas_detalle` | Una fila por reunión, sin datos personales: `semana`, `fecha`, `origen`, `arquetipo`, `presupuesto`, `modalidad`, `estado`, `tema`. |
 | `conv_arquetipo` | Una fila por semana y arquetipo: `conversaciones`, `respuestas`, `citas`. |
+| `radar_leads` | Una fila por persona con señales vigentes, desde `senales.md` y `conversaciones.md`: `persona`, `cargo`, `empresa`, `arquetipo`, `encaje` (0 a 50), `intencion` (0 a 50), `puntaje` (0 a 100), `senales_vigentes`, `tipos`, `ultima_senal`, `accion` (observar, lista, escribir o saltar), `por_que_ahora`, `estado`, `cuenta_activa` (sí o no). |
+| `senales_semana` | Una fila por semana y tipo de señal: `semana`, `tipo`, `senales`, `conversaciones`, `reuniones`. |
 | `aprendizajes` | Una fila por semana: `repetir`, `dejar`, `aprendizaje`, `accion_semana`, `post_semana`, `post_cuenta`, `post_por_que`, `temas`. |
 | `hitos` | Una fila por hito: `fecha`, `evento`, `cuenta` (Perfil, Página o Ambas), `tipo`, `estado` (realizado o planificado). |
 | `charlas` | Una fila por charla: `fecha`, `evento`, `estado` (encontrada, propuesta, aceptada, dada), `origen`. |
@@ -148,6 +150,7 @@ Clave → qué contiene; el detalle de cada columna está en `columnas` dentro d
 - **Página de empresa.** Si `sin_pagina` es `true` y ningún dataset trae datos de la página (`pagina_mensual`, `posts_pagina`, filas de `puntaje` o de `hitos` con Página, columnas de página en `resumen` o `citas_semanas`), se ocultan todos los bloques de la página. Si hay datos de página, se muestran aunque `sin_pagina` sea `true`.
 - **Ticket.** Se usa `ticket_promedio`; si es `null`, el promedio de las ventas cerradas; si tampoco hay, `ticket_meta`, y el texto lo llama "ticket de referencia". Si no hay ninguno, el capítulo del dinero dice que falta el ticket.
 - **Tasa de cierre.** Si `tasa_cierre` es `null`, el tablero no calcula dinero por reunión y muestra "Falta la tasa de cierre".
+- **Radar de leads** (capítulo 6). El titular dice cuántas personas están para escribir esta semana y cuántas cuentas activas hay; las fichas cuentan "Para escribir", "En la lista", "Observando" y "Cuentas activas" según `accion` y `cuenta_activa` de `radar_leads` (`accion` acepta también "en la lista" y "observando"; `cuenta_activa`, `sí`, `si` o `true`). La tabla "Para escribir esta semana" muestra solo las filas con `accion: "escribir"`, ordenadas por `puntaje`; si `puntaje` viene vacío, usa `encaje` + `intencion`, y si falta `por_que_ahora`, lo dice en la celda. "Señales por tipo" usa la semana más reciente de `senales_semana`; "Qué señales terminan en reunión" suma `reuniones` de todas las semanas; "Cuentas activas" cuenta personas por `empresa` con `cuenta_activa` en sí. Con los dos datasets vacíos, todo el capítulo dice "Aún no hay señales: se llenan con las rondas de conversaciones." Es el único lugar del tablero con nombres de personas y empresas: solo los públicos de LinkedIn, nunca correos ni teléfonos, y nunca en la planilla.
 - **Colores de la marca.** `color_acento` y `color_acento2` aceptan un color hex (`#rrggbb` o `#rgb`). El primero reemplaza el acento (variable `--tb-acento`: puntos reales, avance, reuniones) y el segundo, el color principal de las series del perfil (variable `--tb-1`). Vacíos o con otro formato, queda la paleta neutra. El mismo color se usa en modo claro y oscuro, así que conviene uno que se lea en ambos.
 
-**Valores que deben coincidir:** los nombres de arquetipo son los mismos en `arquetipos`, `audiencia_arquetipos`, `conv_arquetipo`, `citas_detalle` y en `config/marca` del kanban (el tablero ignora mayúsculas y tildes al cruzarlos). En `audiencia_arquetipos`, la fila de quienes no calzan se llama exactamente "Fuera del público". En `citas_detalle.origen`, el embudo cuenta "Perfil de LinkedIn" y "Página de LinkedIn".
+**Valores que deben coincidir:** los nombres de arquetipo son los mismos en `arquetipos`, `audiencia_arquetipos`, `conv_arquetipo`, `citas_detalle`, `radar_leads` y en `config/marca` del kanban (el tablero ignora mayúsculas y tildes al cruzarlos). En `audiencia_arquetipos`, la fila de quienes no calzan se llama exactamente "Fuera del público". En `citas_detalle.origen`, el embudo cuenta "Perfil de LinkedIn" y "Página de LinkedIn".

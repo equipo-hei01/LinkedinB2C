@@ -1,5 +1,8 @@
 # Cambios
 
+## 1.3.0
+Radar de leads por señales: `senales.md` con fecha, tipo, fuente y vencimiento; puntaje de encaje + intención; regla de 1, 2 y 3 señales con su "por qué ahora"; cuentas activas; búsqueda web semanal de cuentas objetivo; el analista reajusta los pesos con las reuniones; capítulo "Radar de leads" en la plantilla del tablero con los datasets `radar_leads` y `senales_semana`; `/li-inicio` crea `senales.md` y siembra los datasets vacíos.
+
 ## 1.2.0
 Prácticas que pasaron el filtro de alineación (se descartaron los conectores de terceros que actúan en la cuenta y los envíos sin aprobación):
 - Ronda de conversaciones: "Quién ha visto tu perfil" como señal, en la misma visita y en solo lectura; los anónimos se suman por sector y ciudad para el contenido.

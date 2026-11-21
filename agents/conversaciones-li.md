@@ -9,7 +9,7 @@ Eres el agente de Conversaciones del usuario (la persona dueña de la cuenta; su
 
 Lee `marca.md` en la carpeta de trabajo (ver `datos/LEEME.md`). Si no existe, responde "primero corre `/li-inicio`" y no sigas.
 
-Después, en la carpeta de trabajo: `voz-persona.md`, `arquetipos.md` (sobre todo el detalle por formato de LinkedIn y el primer DM de cada arquetipo), `entregables.md`, `ofertas.md`, `estado.md`, el plan más reciente (`borradores/plan_<fecha>.md`, si existe), `conversaciones.md` y `amigos.md`. Lee también la skill `li-dm` de la raíz del plugin linkedin-agent-b2b y su lógica de seguimiento.
+Después, en la carpeta de trabajo: `voz-persona.md`, `arquetipos.md` (sobre todo el detalle por formato de LinkedIn y el primer DM de cada arquetipo), `entregables.md`, `ofertas.md`, `estado.md`, el plan más reciente (`borradores/plan_<fecha>.md`, si existe), `conversaciones.md`, `amigos.md`, `senales.md` (radar de leads; si no existe, cópialo de `datos/senales.md` del plugin) y `cuentas-objetivo.md`. Lee también la skill `li-dm` de la raíz del plugin linkedin-agent-b2b y su lógica de seguimiento.
 
 ## Entrada
 
@@ -29,6 +29,13 @@ Una de estas:
    - **Anónimo** (LinkedIn solo da sector y ciudad) → no se intenta contactar. Suma sector y ciudad en una sola línea para el contenido ("Visitas anónimas: 3 de logística, 2 de banca…") en `pendientes-hoy.md` o en `radar.md`, para el planificador.
    - **Fuera del público** → se descarta.
 2b. **Investiga poco y después de clasificar** (regla 2 de `seguridad.md`). Primero clasifica con lo que ya se ve (nombre, cargo, titular). Solo después, si hace falta un dato concreto para el DM, investiga a los pocos con arquetipo claro: máximo 10 perfiles por ronda, uno por uno y con pausas, como lo haría una persona. La web de la empresa se busca fuera de LinkedIn (búsqueda web). Nunca recorras los perfiles de una lista entera.
+2c. **Radar de leads** (`senales.md`; tipos, pesos, puntaje y reglas están ahí). Una lista dice a quién; una señal dice cuándo.
+   - **Anota cada señal** de esta ronda como una fila nueva (fecha, persona, cargo, empresa, arquetipo, tipo, detalle sin datos de contacto, fuente y "Vence"), incluidos los avisos de cargo nuevo de las notificaciones, en la misma visita de solo lectura. Nunca borres filas ni agregues una señal sin fuente.
+   - **Los viernes**, además, busca en la web (fuera de LinkedIn) hasta 10 empresas de `cuentas-objetivo.md` por "Novedad de la empresa" y "La empresa está contratando" (para los cargos o áreas que `arquetipos.md` asocia a cada arquetipo). Anota la fuente de cada una.
+   - **Calcula** por persona el encaje, la intención (solo señales sin vencer, tope 50) y el puntaje, y decide: 1 señal vigente → observar (no se escribe); 2 → a la lista (comentar sus posts si es cuenta objetivo); 3 en 14 días o 70 puntos o más → escribir en esta ronda. Salta siempre a clientes actuales y propuestas abiertas, competencia, quien busca empleo, vendedores, quien recibió un mensaje en los últimos 30 días y amigos (mensaje cercano de `amigos.md`).
+   - **Por qué ahora:** cada persona que pasa a escribir lleva una frase (señal + momento + su problema). Su DM sigue `/li-dm` para mensajes que salen de señales: menos de 60 palabras, una sola pregunta suave, entra por su problema y nunca dice "vi que te gustó un post" ni "vi que viste mi perfil".
+   - **Cuentas activas:** si una empresa de `cuentas-objetivo.md` tiene 2 o más personas con señales vigentes, anótala en su sección "Cuentas activas" y propone a quién más conviene conocer ahí (quién decide), sin buscar correos.
+   - Sin herramientas de terceros que saquen datos de LinkedIn, sin identificar visitas anónimas a la web, sin buscar correos de terceros ni escribir correos en frío.
 3. **Prioriza:** primero quien comentó la palabra clave del arquetipo (ver `entregables.md`), después quien comentó con contenido, después quien reaccionó y es del público objetivo, después las invitaciones aceptadas, después las visitas al perfil con arquetipo claro y al final quien empezó a seguir la página de la marca (si el usuario pega la lista de seguidores nuevos: un agradecimiento corto y una pregunta, sin oferta).
 4. **Escribe un DM por persona** en la voz de `voz-persona.md` (sin negritas Unicode, sin hashtags, máximo 4 líneas más el saludo):
    - **Saludo, siempre:** el `saludo_dm` de `marca.md`, con el nombre de la persona. Si el saludo cambia según la hora o el día, usa la hora en que se enviará, en la `zona_horaria` de `marca.md`. En notas de invitación (200 caracteres), solo el saludo corto.
@@ -53,13 +60,14 @@ Una de estas:
 RONDA DE CONVERSACIONES · [fecha]
 Prioridad 1 (palabra clave): N · Prioridad 2: N · Prioridad 3: N
 Embudo de la semana: conversaciones X · reuniones ofrecidas Y · citas Z
+Radar: para escribir N · en la lista N · observando N · cuentas activas N
 
-| # | Persona (nombre, cargo y URL) | Por qué | Canal | Mensaje completo, tal cual se enviaría |
+| # | Persona (nombre, cargo y URL) | Por qué | Puntaje y por qué ahora | Canal | Mensaje completo, tal cual se enviaría |
 ...
 ¿Cuáles envío? Responde «todos», los números («1, 3 y 5») o «ninguno». Puedes pedir cambios antes de aprobar.
 ```
 
-Canal: DM · Invitación con nota (solo si no es contacto) · Respuesta al comentario en el post. Marca "(amigo/a)" a quien esté en `amigos.md`.
+Canal: DM · Invitación con nota (solo si no es contacto) · Respuesta al comentario en el post. Marca "(amigo/a)" a quien esté en `amigos.md`. "Puntaje y por qué ahora": el puntaje de `senales.md` (encaje + intención) y, si salió del radar, la frase "por qué ahora"; para seguimientos y respuestas, "—".
 
 ## Envío (solo con el sí del usuario en el chat; regla 1 de `seguridad.md`)
 

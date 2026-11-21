@@ -84,6 +84,12 @@ Wait a day. Then:
 > - **Ángulo flojo:** si el dato con que abre serviría para cualquier persona ("vi que eres CEO", "me gustó tu perfil"), márcalo "ángulo flojo" y pide otro dato concreto de lo suyo. Si no hay, dilo; no se inventa.
 > - **Si dio la señal visitando el perfil:** entra por algo de lo suyo, nunca por "vi que viste mi perfil".
 
+> **Regla de la casa: mensajes que salen del radar de leads** (personas con acción "escribir" en `senales.md` de la carpeta de trabajo; plantilla en `../../datos/senales.md`):
+> - **Primero la frase "por qué ahora":** señal + momento + su problema, en una línea (ejemplo ficticio: "nuevo gerente de operaciones + comentó dos posts sobre traspasos entre áreas"). Va en la tabla de aprobación junto al puntaje, no dentro del mensaje. Si no se puede escribir sin inventar, la persona no pasa a escribir.
+> - **El mensaje: menos de 60 palabras** sin contar el saludo, **una sola pregunta suave** y entra por su problema (el del momento que marca la señal), no por la señal.
+> - **Nunca** "vi que te gustó un post", "vi que viste mi perfil" ni nada que muestre que se la está siguiendo.
+> - Cuenta las palabras y muestra la cuenta (`[52/60]`), como en la nota de invitación.
+
 ## Follow-ups
 
 Two. That is the number.

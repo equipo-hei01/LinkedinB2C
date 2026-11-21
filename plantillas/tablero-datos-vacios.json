@@ -133,6 +133,39 @@
       "columnas": { "semana": "lunes de la semana, AAAA-MM-DD", "arquetipo": "nombre del arquetipo", "conversaciones": "personas que conversaron", "respuestas": "personas que respondieron", "citas": "personas que agendaron" },
       "rows": []
     },
+    "radar_leads": {
+      "title": "Radar de leads",
+      "description": "Una fila por persona con señales vigentes, desde senales.md y conversaciones.md: puntaje de encaje + intención y qué hacer. Si senales.md está vacío, queda vacío.",
+      "columnas": {
+        "persona": "nombre de la persona como aparece en LinkedIn (dato público; nunca correos ni teléfonos)",
+        "cargo": "cargo público en LinkedIn, o vacío",
+        "empresa": "empresa pública en LinkedIn, o vacío",
+        "arquetipo": "arquetipo por su cargo, con los mismos nombres del dataset arquetipos, u 'Otro'",
+        "encaje": "puntos de encaje, de 0 a 50: cargo que calza con un arquetipo 25 (cargo cercano 10), tamaño de empresa del arquetipo 15, país y sector del público 10",
+        "intencion": "puntos de intención, de 0 a 50: suma de los pesos de las señales vigentes, con tope 50",
+        "puntaje": "encaje + intención, de 0 a 100",
+        "senales_vigentes": "número de señales sin vencer",
+        "tipos": "tipos de señal vigentes, separados por coma",
+        "ultima_senal": "fecha de la señal más reciente, AAAA-MM-DD",
+        "accion": "'observar', 'lista', 'escribir' o 'saltar'",
+        "por_que_ahora": "solo con acción 'escribir': señal + momento + su problema, en una frase; si no, vacío",
+        "estado": "estado de la persona en conversaciones.md, o vacío",
+        "cuenta_activa": "'sí' si su empresa está en las cuentas objetivo y tiene 2 o más personas con señales vigentes; si no, 'no'"
+      },
+      "rows": []
+    },
+    "senales_semana": {
+      "title": "Señales por semana",
+      "description": "Una fila por semana y tipo de señal, desde senales.md y conversaciones.md: cuántas señales hubo y cuántas terminaron en conversación y en reunión. Si senales.md está vacío, queda vacío.",
+      "columnas": {
+        "semana": "lunes de la semana, AAAA-MM-DD",
+        "tipo": "tipo de señal, con los nombres de senales.md",
+        "senales": "señales de ese tipo anotadas en la semana",
+        "conversaciones": "personas con esa señal que pasaron a conversación en la semana",
+        "reuniones": "reuniones agendadas en la semana cuya señal de origen fue ese tipo"
+      },
+      "rows": []
+    },
     "aprendizajes": {
       "title": "Aprendizajes de la semana",
       "description": "Una fila por semana del análisis semanal.",

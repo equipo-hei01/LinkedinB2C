@@ -158,6 +158,18 @@
 @media (max-width:640px){.vz-hab{grid-template-columns:minmax(0,1fr)}}
 .vz-hab h4{margin:0 0 4px;font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium)}
 .vz-col{display:flex;flex-direction:column;gap:6px;position:relative}
+/* Radar de leads: la tabla se desplaza dentro de su tarjeta en pantallas angostas; la página no. */
+.rd-wrap{position:relative;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.rd-tabla{width:100%;min-width:42rem;border-collapse:collapse;font-size:var(--cds-font-size-caption);line-height:1.4}
+.rd-tabla th{text-align:left;font-weight:var(--cds-font-weight-medium);color:var(--color-fg-muted);padding:6px var(--cds-pad-sm);border-bottom:1px solid var(--color-border-line);white-space:nowrap}
+.rd-tabla td{padding:var(--cds-pad-xs) var(--cds-pad-sm);border-bottom:1px solid var(--color-border-line);vertical-align:top}
+.rd-tabla tr:last-child td{border-bottom:0}
+.rd-tabla .rd-per{font-weight:600}
+.rd-p{display:flex;flex-direction:column;gap:3px;min-width:8rem}
+.rd-pn{font-variant-numeric:tabular-nums;font-weight:600}
+.rd-bar{height:12px;background:var(--cds-chart-grid);border-radius:3px;position:relative;overflow:hidden}
+.rd-bar i{position:absolute;top:0;bottom:0;display:block}
+.rd-pd{color:var(--color-fg-muted);font-variant-numeric:tabular-nums}
 </style>
 
 <div class="hx">
@@ -453,9 +465,62 @@
     </div>
   </section>
 
-  <section class="st-ch is-goal" id="citas">
+  <section class="st-ch" id="radar">
     <span class="st-node" aria-hidden="true">6</span>
-    <p class="st-kick">Capítulo 6 · Agendan</p>
+    <p class="st-kick">Capítulo 6 · Radar de leads</p>
+    <h2 class="st-h2">Una lista dice a quién; una señal dice cuándo</h2>
+    <p class="st-now" id="radar-titular" data-frases><span data-fr>Para escribir esta semana: <b data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="escribir" data-row="0">—</b>.</span> <span data-fr>Cuentas activas: <b data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="cuentas_activas" data-row="0">—</b>.</span><span data-fr-vacio hidden>Aún no hay señales: se llenan con las rondas de conversaciones.</span></p>
+    <p class="st-lead">Cada señal (un comentario, una visita, un cargo nuevo, una novedad de su empresa) se anota con su fecha y vence. El puntaje suma el encaje con tus arquetipos y la intención de las señales vigentes. Con una señal se observa; con dos, la persona pasa a la lista; con tres en 14 días o 70 puntos, toca escribirle en la próxima ronda. Nada se envía sin tu sí.</p>
+    <div class="hx-tiles" id="radar-fichas">
+      <div class="hx-tile">
+        <p class="hx-lab">Para escribir esta semana</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="escribir" data-row="0">—</p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="radar_resumen.escribir">Tres señales en 14 días, o 70 puntos o más.</span><span data-fr-vacio hidden>Aún no hay señales.</span></p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">En la lista</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="lista" data-row="0">—</p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="radar_resumen.lista">Dos señales vigentes: comenta sus posts si es cuenta objetivo.</span><span data-fr-vacio hidden>Aún no hay señales.</span></p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">Observando</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="observar" data-row="0">—</p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="radar_resumen.observar">Una señal vigente: todavía no se escribe.</span><span data-fr-vacio hidden>Aún no hay señales.</span></p>
+      </div>
+      <div class="hx-tile">
+        <p class="hx-lab">Cuentas activas</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="cuentas_activas" data-row="0">—</p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="radar_resumen.cuentas_activas">Empresas de tus cuentas objetivo con dos o más personas con señales.</span><span data-fr-vacio hidden>Aún no hay señales.</span></p>
+      </div>
+    </div>
+    <div class="hx-card" id="radar-escribir">
+      <h3 class="hx-h2">Para escribir esta semana</h3>
+      <p class="hx-sub">Ordenado por puntaje, de 0 a 100. La barra suma el encaje con tus arquetipos (hasta 50) y la intención de sus señales vigentes (hasta 50). "Por qué ahora" es la señal, el momento y su problema: de ahí sale el mensaje, que nunca dice "vi que viste mi perfil".</p>
+      <div class="hx-legend"><span><i class="hx-sw" style="background:var(--tb-1)"></i>Encaje</span><span><i class="hx-sw" style="background:var(--tb-acento)"></i>Intención</span></div>
+      <div class="rd-wrap" data-draw="radar-tabla" data-source="radar_escribir radar_resumen"></div>
+    </div>
+    <div class="hx-grid">
+      <div class="hx-card" id="senales-tipo">
+        <h3 class="hx-h2">Señales por tipo · última semana</h3>
+        <p class="hx-sub" data-frases><span data-fr>Semana del <span data-draw="semana" data-source="senales_ultima" data-field="semana" data-row="0">—</span>.</span><span data-fr-vacio hidden>Cuántas señales de cada tipo se anotaron en la semana.</span></p>
+        <div class="hx-bars" data-draw="radar-bars" data-source="senales_ultima" data-key="tipo" data-val="senales" data-uno="señal" data-varios="señales" data-vacio="Aún no hay señales: se llenan con las rondas de conversaciones."></div>
+      </div>
+      <div class="hx-card" id="senales-reunion">
+        <h3 class="hx-h2">Qué señales terminan en reunión</h3>
+        <p class="hx-sub">Reuniones por el tipo de señal que las originó, todas las semanas sumadas. Con 8 reuniones o más, el análisis semanal propone reajustar los pesos.</p>
+        <div class="hx-bars" data-draw="radar-bars" data-source="senales_reunion" data-key="tipo" data-val="reuniones" data-uno="reunión" data-varios="reuniones" data-vacio="Aún ninguna señal terminó en reunión: se mide con el análisis semanal."></div>
+      </div>
+    </div>
+    <div class="hx-card" id="cuentas-activas">
+      <h3 class="hx-h2">Cuentas activas</h3>
+      <p class="hx-sub">Empresas de tus cuentas objetivo con dos o más personas con señales vigentes. Es el momento de saber quién más decide ahí, sin buscar correos.</p>
+      <div class="hx-bars" data-draw="radar-bars" data-source="radar_cuentas" data-key="empresa" data-val="personas" data-uno="persona con señales" data-varios="personas con señales" data-vacio="Aún no hay cuentas activas: aparecen cuando dos personas de una misma cuenta objetivo dan señales."></div>
+    </div>
+  </section>
+
+  <section class="st-ch is-goal" id="citas">
+    <span class="st-node" aria-hidden="true">7</span>
+    <p class="st-kick">Capítulo 7 · Agendan</p>
     <h2 class="st-h2" data-frases><span data-fr>La meta: <span data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</span> reuniones por semana</span><span data-fr-vacio hidden>La meta de reuniones por semana</span></h2>
     <p class="st-now"><span data-frases><span data-fr>Llevas <b data-draw="num" data-fmt="int" data-source="citas_acum" data-field="citas" data-row="0">—</b> reuniones desde que empezó el plan.</span> <span data-fr>La última semana fueron <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="citas" data-row="0">—</b> de <b data-draw="num" data-fmt="int" data-source="supuestos" data-field="meta_reuniones_semana" data-row="0">—</b>.</span><span data-fr-vacio hidden>Aún no hay reuniones medidas: se llena con la primera actualización semanal.</span></span> <span data-frases data-si="evento"><span data-fr>Tu próximo evento tiene <b data-draw="num" data-fmt="int" data-source="citas_ultima" data-field="inscritos_evento" data-row="0">—</b> de <span data-draw="num" data-fmt="int" data-source="camino" data-field="evento_cupos" data-row="0">—</span> cupos tomados.</span><span data-fr-vacio hidden>Aún no hay inscritos medidos para tu próximo evento.</span></span></p>
     <p class="st-lead">Reuniones de tu página de reservas, sin nombres, correos ni teléfonos. La barra se pone verde la semana que llegas a la meta.</p>
@@ -551,8 +616,8 @@
   </section>
 
   <section class="st-ch is-goal" id="dinero">
-    <span class="st-node" aria-hidden="true">7</span>
-    <p class="st-kick">Capítulo 7 · El dinero</p>
+    <span class="st-node" aria-hidden="true">8</span>
+    <p class="st-kick">Capítulo 8 · El dinero</p>
     <h2 class="st-h2">De reunión a proyecto: cuánto vale tu agenda</h2>
     <p class="st-now" data-draw="txt" data-source="dinero" data-field="intro" data-row="0">—</p>
     <p class="st-lead">Todo sale de tu tablero de ventas o CRM, sin nombres de clientes. Se lee como el resto: dónde estás, qué hay en juego, cuánto vale tu agenda, dónde está la meta y qué palanca la mueve.</p>
@@ -616,8 +681,8 @@
   </section>
 
   <section class="st-ch" id="aprendizajes">
-    <span class="st-node" aria-hidden="true">8</span>
-    <p class="st-kick">Capítulo 8 · Qué sigue</p>
+    <span class="st-node" aria-hidden="true">9</span>
+    <p class="st-kick">Capítulo 9 · Qué sigue</p>
     <h2 class="st-h2">Lo que haces esta semana para mover el número</h2>
     <div class="vz-action" id="accion" data-frases>
       <p class="hx-lab" data-frases><span data-fr>Tu única acción de la semana del <b data-draw="semana" data-source="semana_ultima" data-field="semana" data-row="0">—</b></span><span data-fr-vacio hidden>Tu única acción de la semana</span></p>
@@ -1379,6 +1444,121 @@
     const d = dash.data('citas_semanas');
     const hay = d.status === 'ok' && Array.isArray(d.data) && d.data.length > 0;
     document.querySelectorAll('#citas-vacio').forEach((p) => { p.hidden = hay; });
+  });
+
+  /* ---- Radar de leads ----
+     radar_leads: una fila por persona con señales vigentes (persona, cargo, empresa, arquetipo, encaje, intencion, puntaje,
+     senales_vigentes, tipos, ultima_senal, accion, por_que_ahora, estado, cuenta_activa). senales_semana: una fila por semana y tipo
+     de señal (senales, conversaciones, reuniones). Los dos salen de senales.md y conversaciones.md; si no hay señales quedan vacíos
+     y el capítulo muestra su estado vacío, nunca ceros inventados. */
+  const RADAR_VACIO = 'Aún no hay señales: se llenan con las rondas de conversaciones.';
+  const esSi = (v) => v === true || v === 1 || /^(true|1|si|sí|verdadero)$/i.test(String(v === null || v === undefined ? '' : v).trim());
+  const ACCIONES = {escribir: 'escribir', lista: 'lista', 'en la lista': 'lista', 'a la lista': 'lista', observar: 'observar', observando: 'observar', saltar: 'saltar'};
+  const accionDe = (r) => ACCIONES[norm(r && r.accion)] || '';
+  const puntajeDe = (r) => { const p = numO(r.puntaje); if (p !== null) return p; const e = numO(r.encaje), i = numO(r.intencion); return e === null && i === null ? null : (e || 0) + (i || 0); };
+  const filasRadar = (rows) => rows.filter((r) => r && tiene(r.persona));
+  dash.calc('radar_resumen', {
+    title: 'Radar de leads · resumen',
+    description: 'Cuántas personas con señales vigentes están para escribir, en la lista y observando, y cuántas cuentas activas hay. Vacío si no hay señales.',
+    inputs: ['radar_leads'],
+    fn: (radar_leads) => {
+      const filas = filasRadar(radar_leads);
+      if (!filas.length) return [];
+      const n = (a) => filas.filter((r) => accionDe(r) === a).length;
+      const cuentas = new Set(filas.filter((r) => esSi(r.cuenta_activa) && tiene(r.empresa)).map((r) => norm(r.empresa)));
+      return [{personas: filas.length, escribir: n('escribir'), lista: n('lista'), observar: n('observar'), saltar: n('saltar'), cuentas_activas: cuentas.size}];
+    }
+  });
+  dash.calc('radar_escribir', {
+    title: 'Radar de leads · para escribir',
+    description: 'Las personas con acción "escribir", ordenadas por puntaje (encaje + intención, de 0 a 100).',
+    inputs: ['radar_leads'],
+    fn: (radar_leads) => filasRadar(radar_leads).filter((r) => accionDe(r) === 'escribir').map((r) => ({
+      persona: String(r.persona).trim(), cargo: tiene(r.cargo) ? String(r.cargo).trim() : '', empresa: tiene(r.empresa) ? String(r.empresa).trim() : '',
+      arquetipo: tiene(r.arquetipo) ? String(r.arquetipo).trim() : '', encaje: numO(r.encaje), intencion: numO(r.intencion), puntaje: puntajeDe(r),
+      por_que_ahora: tiene(r.por_que_ahora) ? String(r.por_que_ahora).trim() : '', ultima_senal: tiene(r.ultima_senal) ? String(r.ultima_senal) : ''
+    })).sort((a, b) => (b.puntaje === null ? -1 : b.puntaje) - (a.puntaje === null ? -1 : a.puntaje))
+  });
+  dash.calc('radar_cuentas', {
+    title: 'Radar de leads · cuentas activas',
+    description: 'Por empresa marcada como cuenta activa, cuántas personas tienen señales vigentes.',
+    inputs: ['radar_leads'],
+    fn: (radar_leads) => {
+      const by = new Map();
+      filasRadar(radar_leads).filter((r) => esSi(r.cuenta_activa) && tiene(r.empresa)).forEach((r) => { const k = norm(r.empresa); if (!by.has(k)) by.set(k, {empresa: String(r.empresa).trim(), personas: 0}); by.get(k).personas++; });
+      return Array.from(by.values()).sort((a, b) => b.personas - a.personas || a.empresa.localeCompare(b.empresa, 'es'));
+    }
+  });
+  const filasSenales = (rows) => rows.filter((r) => r && tiene(r.semana) && tiene(r.tipo));
+  dash.calc('senales_ultima', {
+    title: 'Señales por tipo · última semana',
+    description: 'Cuántas señales de cada tipo se anotaron en la semana más reciente de senales_semana.',
+    inputs: ['senales_semana'],
+    fn: (senales_semana) => {
+      const filas = filasSenales(senales_semana);
+      if (!filas.length) return [];
+      const ult = filas.map((r) => String(r.semana)).sort().pop();
+      const by = new Map();
+      filas.filter((r) => String(r.semana) === ult).forEach((r) => { const k = norm(r.tipo); if (!by.has(k)) by.set(k, {semana: ult, tipo: String(r.tipo).trim(), senales: 0}); by.get(k).senales += numO(r.senales) || 0; });
+      return Array.from(by.values()).filter((r) => r.senales > 0).sort((a, b) => b.senales - a.senales);
+    }
+  });
+  dash.calc('senales_reunion', {
+    title: 'Reuniones por tipo de señal',
+    description: 'Todas las semanas sumadas: reuniones que se originaron en cada tipo de señal.',
+    inputs: ['senales_semana'],
+    fn: (senales_semana) => {
+      const by = new Map();
+      filasSenales(senales_semana).forEach((r) => { const k = norm(r.tipo); if (!by.has(k)) by.set(k, {tipo: String(r.tipo).trim(), reuniones: 0, senales: 0}); const o = by.get(k); o.reuniones += numO(r.reuniones) || 0; o.senales += numO(r.senales) || 0; });
+      return Array.from(by.values()).filter((r) => r.reuniones > 0).sort((a, b) => b.reuniones - a.reuniones);
+    }
+  });
+  reg('radar-tabla', (el) => {
+    const d = dash.data('radar_escribir'), res = dash.data('radar_resumen');
+    if (d.status !== 'ok') return fail(el, d);
+    if (res.status === 'ok' && !(res.data || []).length) return vacio(el, RADAR_VACIO);
+    if (!d.data.length) return vacio(el, 'Nadie para escribir esta semana: las personas con señales siguen en la lista u observando.');
+    const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt !== undefined) e.textContent = txt; return e; };
+    const t = mk('table', 'rd-tabla'), th = mk('thead'), trh = mk('tr'), tb = mk('tbody');
+    ['Persona', 'Cargo', 'Empresa', 'Arquetipo', 'Puntaje', 'Por qué ahora'].forEach((h) => trh.appendChild(mk('th', '', h)));
+    th.appendChild(trh);
+    d.data.forEach((r) => {
+      const tr = mk('tr');
+      tr.append(mk('td', 'rd-per', r.persona), mk('td', '', r.cargo || 'Sin cargo'), mk('td', '', r.empresa || 'Sin empresa'), mk('td', '', r.arquetipo || 'Sin arquetipo'));
+      const p = mk('div', 'rd-p'), bar = mk('div', 'rd-bar');
+      if (r.encaje !== null || r.intencion !== null) {
+        const e = Math.max(0, Math.min(100, r.encaje || 0)), i = Math.max(0, Math.min(100 - e, r.intencion || 0));
+        const s1 = mk('i'); s1.style.left = '0%'; s1.style.width = e + '%'; s1.style.background = 'var(--tb-1)';
+        const s2 = mk('i'); s2.style.left = e + '%'; s2.style.width = i + '%'; s2.style.background = 'var(--tb-acento)';
+        bar.append(s1, s2);
+      } else if (r.puntaje !== null) { const s = mk('i'); s.style.left = '0%'; s.style.width = Math.max(0, Math.min(100, r.puntaje)) + '%'; s.style.background = 'var(--tb-gris)'; bar.appendChild(s); }
+      p.append(mk('span', 'rd-pn', r.puntaje === null ? 'Sin puntaje' : fmt.int(r.puntaje) + ' de 100'), bar);
+      const det = [r.encaje !== null ? 'encaje ' + fmt.int(r.encaje) : '', r.intencion !== null ? 'intención ' + fmt.int(r.intencion) : ''].filter(Boolean).join(' · ');
+      if (det) p.appendChild(mk('span', 'rd-pd', det));
+      const td = mk('td'); td.appendChild(p);
+      tr.append(td, mk('td', '', r.por_que_ahora || 'Falta la frase de por qué ahora.'));
+      tb.appendChild(tr);
+    });
+    t.append(th, tb);
+    el.replaceChildren(t);
+  });
+  reg('radar-bars', (el) => {
+    const d = dash.data(el.getAttribute('data-source'));
+    if (d.status !== 'ok') return fail(el, d);
+    const key = el.getAttribute('data-key'), val = el.getAttribute('data-val');
+    const uno = el.getAttribute('data-uno'), varios = el.getAttribute('data-varios');
+    el.replaceChildren();
+    if (!filasDe('radar_leads').length && !filasDe('senales_semana').length) return vacio(el, RADAR_VACIO);
+    if (!d.data.length) return vacio(el, el.getAttribute('data-vacio') || RADAR_VACIO);
+    const max = d3.max(d.data, (r) => r[val]) || 1;
+    const tt = tip(el);
+    d.data.forEach((r, i) => {
+      const row = barRow(r[key], r[val] / max, i === 0 ? 'var(--tb-acento)' : 'var(--tb-1)', fmt.int(r[val]));
+      const extra = val === 'reuniones' && r.senales ? [fmt.int(r.senales) + (r.senales === 1 ? ' señal anotada' : ' señales anotadas')] : [];
+      row.addEventListener('mousemove', (ev) => tt.show(ev, [r[key], fmt.int(r[val]) + ' ' + (r[val] === 1 ? uno : varios)].concat(extra)));
+      row.addEventListener('mouseleave', () => tt.hide());
+      el.insertBefore(row, el.querySelector('.hx-tip'));
+    });
   });
 
   /* Secciones opcionales. Cada elemento con data-si="evento|charlas|pagina|sin-pagina" se muestra solo si corresponde:
