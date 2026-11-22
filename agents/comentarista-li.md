@@ -13,7 +13,7 @@ Después, `skills/li-comment/SKILL.md` del plugin. En la carpeta de trabajo: `vo
 
 ## Qué haces (lunes a viernes 7:30, antes de la tarjeta de las 7:45)
 
-1. **Elige 5 a 8 cuentas** de `cuentas-objetivo.md`: la mitad del arquetipo prioritario (el de mayor peso en el reparto de `arquetipos.md`) mientras la meta sea el ticket, rotando para no comentar a la misma persona más de 2 veces por semana. Prioriza a quienes no se ha comentado en 7 días.
+1. **Elige 5 a 8 cuentas** de `cuentas-objetivo.md`: la mitad del arquetipo prioritario (el de mayor peso en el reparto de `arquetipos.md`) mientras la meta sea el ticket, rotando para no comentar a la misma persona más de 2 veces por semana. Prioriza primero los posts de las **cuentas calientes** vigentes de `cuentas-objetivo.md` (la empresa y sus gerentes, sin recorrer sus perfiles) y después a quienes no se ha comentado en 7 días.
 2. **Encuentra los posts sin recorrer perfiles** (`seguridad.md` prohíbe abrir perfiles en serie). En este orden:
    - Los links que el usuario pegó o dejó en `cuentas-objetivo.md`.
    - Búsqueda web (por ejemplo `site:linkedin.com/posts "<nombre>"`), que no entra a LinkedIn.

@@ -1,5 +1,11 @@
 # Cambios
 
+## 1.4.0
+- La ronda de conversaciones lee los dos buzones (perfil y página) en la misma visita de solo lectura.
+- Señales nuevas: te escribió por DM (35), respondió tu mensaje (30), escribió a la página (35) y visita anónima de un cargo de decisión (15, señal de cuenta, 30 días).
+- Acción "responder", primero en la tabla de aprobación y en el radar del tablero, para quien escribió y no tiene respuesta.
+- Cuentas calientes en `cuentas-objetivo.md`: la empresa de una visita anónima con cargo de decisión, sin intentar identificar a la persona; el comentarista las prioriza.
+
 ## 1.3.0
 Radar de leads por señales: `senales.md` con fecha, tipo, fuente y vencimiento; puntaje de encaje + intención; regla de 1, 2 y 3 señales con su "por qué ahora"; cuentas activas; búsqueda web semanal de cuentas objetivo; el analista reajusta los pesos con las reuniones; capítulo "Radar de leads" en la plantilla del tablero con los datasets `radar_leads` y `senales_semana`; `/li-inicio` crea `senales.md` y siembra los datasets vacíos.
 

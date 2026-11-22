@@ -469,9 +469,14 @@
     <span class="st-node" aria-hidden="true">6</span>
     <p class="st-kick">Capítulo 6 · Radar de leads</p>
     <h2 class="st-h2">Una lista dice a quién; una señal dice cuándo</h2>
-    <p class="st-now" id="radar-titular" data-frases><span data-fr>Para escribir esta semana: <b data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="escribir" data-row="0">—</b>.</span> <span data-fr>Cuentas activas: <b data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="cuentas_activas" data-row="0">—</b>.</span><span data-fr-vacio hidden>Aún no hay señales: se llenan con las rondas de conversaciones.</span></p>
-    <p class="st-lead">Cada señal (un comentario, una visita, un cargo nuevo, una novedad de su empresa) se anota con su fecha y vence. El puntaje suma el encaje con tus arquetipos y la intención de las señales vigentes. Con una señal se observa; con dos, la persona pasa a la lista; con tres en 14 días o 70 puntos, toca escribirle en la próxima ronda. Nada se envía sin tu sí.</p>
+    <p class="st-now" id="radar-titular" data-frases><span data-fr>Para responder: <b data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="responder" data-row="0">—</b>.</span> <span data-fr>Para escribir esta semana: <b data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="escribir" data-row="0">—</b>.</span> <span data-fr>Cuentas activas: <b data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="cuentas_activas" data-row="0">—</b>.</span><span data-fr-vacio hidden>Aún no hay señales: se llenan con las rondas de conversaciones.</span></p>
+    <p class="st-lead">Cada señal (un comentario, una visita, un cargo nuevo, una novedad de su empresa) se anota con su fecha y vence. El puntaje suma el encaje con tus arquetipos y la intención de las señales vigentes. Con una señal se observa; con dos, la persona pasa a la lista; con tres en 14 días o 70 puntos, toca escribirle en la próxima ronda. Quien te escribió (a tu perfil o a tu página) y espera respuesta va primero, sin importar el puntaje. Nada se envía sin tu sí.</p>
     <div class="hx-tiles" id="radar-fichas">
+      <div class="hx-tile">
+        <p class="hx-lab">Para responder</p>
+        <p class="hx-big" data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="responder" data-row="0">—</p>
+        <p class="hx-note" data-frases="una"><span data-fr data-pide="radar_resumen.responder">Te escribieron a tu perfil o a tu página y esperan respuesta.</span><span data-fr-vacio hidden>Aún no hay señales.</span></p>
+      </div>
       <div class="hx-tile">
         <p class="hx-lab">Para escribir esta semana</p>
         <p class="hx-big" data-draw="num" data-fmt="int" data-source="radar_resumen" data-field="escribir" data-row="0">—</p>
@@ -494,8 +499,8 @@
       </div>
     </div>
     <div class="hx-card" id="radar-escribir">
-      <h3 class="hx-h2">Para escribir esta semana</h3>
-      <p class="hx-sub">Ordenado por puntaje, de 0 a 100. La barra suma el encaje con tus arquetipos (hasta 50) y la intención de sus señales vigentes (hasta 50). "Por qué ahora" es la señal, el momento y su problema: de ahí sale el mensaje, que nunca dice "vi que viste mi perfil".</p>
+      <h3 class="hx-h2">Para responder y escribir esta semana</h3>
+      <p class="hx-sub">Primero quienes te escribieron y esperan respuesta; después, para escribir, ordenado por puntaje, de 0 a 100. La barra suma el encaje con tus arquetipos (hasta 50) y la intención de sus señales vigentes (hasta 50). "Por qué ahora" es la señal, el momento y su problema: de ahí sale el mensaje, que nunca dice "vi que viste mi perfil".</p>
       <div class="hx-legend"><span><i class="hx-sw" style="background:var(--tb-1)"></i>Encaje</span><span><i class="hx-sw" style="background:var(--tb-acento)"></i>Intención</span></div>
       <div class="rd-wrap" data-draw="radar-tabla" data-source="radar_escribir radar_resumen"></div>
     </div>
@@ -1453,31 +1458,31 @@
      y el capítulo muestra su estado vacío, nunca ceros inventados. */
   const RADAR_VACIO = 'Aún no hay señales: se llenan con las rondas de conversaciones.';
   const esSi = (v) => v === true || v === 1 || /^(true|1|si|sí|verdadero)$/i.test(String(v === null || v === undefined ? '' : v).trim());
-  const ACCIONES = {escribir: 'escribir', lista: 'lista', 'en la lista': 'lista', 'a la lista': 'lista', observar: 'observar', observando: 'observar', saltar: 'saltar'};
+  const ACCIONES = {responder: 'responder', 'por responder': 'responder', 'para responder': 'responder', escribir: 'escribir', lista: 'lista', 'en la lista': 'lista', 'a la lista': 'lista', observar: 'observar', observando: 'observar', saltar: 'saltar'};
   const accionDe = (r) => ACCIONES[norm(r && r.accion)] || '';
   const puntajeDe = (r) => { const p = numO(r.puntaje); if (p !== null) return p; const e = numO(r.encaje), i = numO(r.intencion); return e === null && i === null ? null : (e || 0) + (i || 0); };
   const filasRadar = (rows) => rows.filter((r) => r && tiene(r.persona));
   dash.calc('radar_resumen', {
     title: 'Radar de leads · resumen',
-    description: 'Cuántas personas con señales vigentes están para escribir, en la lista y observando, y cuántas cuentas activas hay. Vacío si no hay señales.',
+    description: 'Cuántas personas con señales vigentes están para responder (te escribieron y esperan respuesta), para escribir, en la lista y observando, y cuántas cuentas activas hay. Vacío si no hay señales.',
     inputs: ['radar_leads'],
     fn: (radar_leads) => {
       const filas = filasRadar(radar_leads);
       if (!filas.length) return [];
       const n = (a) => filas.filter((r) => accionDe(r) === a).length;
       const cuentas = new Set(filas.filter((r) => esSi(r.cuenta_activa) && tiene(r.empresa)).map((r) => norm(r.empresa)));
-      return [{personas: filas.length, escribir: n('escribir'), lista: n('lista'), observar: n('observar'), saltar: n('saltar'), cuentas_activas: cuentas.size}];
+      return [{personas: filas.length, responder: n('responder'), escribir: n('escribir'), lista: n('lista'), observar: n('observar'), saltar: n('saltar'), cuentas_activas: cuentas.size}];
     }
   });
   dash.calc('radar_escribir', {
-    title: 'Radar de leads · para escribir',
-    description: 'Las personas con acción "escribir", ordenadas por puntaje (encaje + intención, de 0 a 100).',
+    title: 'Radar de leads · para responder y escribir',
+    description: 'Primero las personas con acción "responder" (te escribieron y esperan respuesta), después las de acción "escribir"; cada grupo ordenado por puntaje (encaje + intención, de 0 a 100).',
     inputs: ['radar_leads'],
-    fn: (radar_leads) => filasRadar(radar_leads).filter((r) => accionDe(r) === 'escribir').map((r) => ({
-      persona: String(r.persona).trim(), cargo: tiene(r.cargo) ? String(r.cargo).trim() : '', empresa: tiene(r.empresa) ? String(r.empresa).trim() : '',
+    fn: (radar_leads) => filasRadar(radar_leads).filter((r) => accionDe(r) === 'responder' || accionDe(r) === 'escribir').map((r) => ({
+      accion: accionDe(r), persona: String(r.persona).trim(), cargo: tiene(r.cargo) ? String(r.cargo).trim() : '', empresa: tiene(r.empresa) ? String(r.empresa).trim() : '',
       arquetipo: tiene(r.arquetipo) ? String(r.arquetipo).trim() : '', encaje: numO(r.encaje), intencion: numO(r.intencion), puntaje: puntajeDe(r),
       por_que_ahora: tiene(r.por_que_ahora) ? String(r.por_que_ahora).trim() : '', ultima_senal: tiene(r.ultima_senal) ? String(r.ultima_senal) : ''
-    })).sort((a, b) => (b.puntaje === null ? -1 : b.puntaje) - (a.puntaje === null ? -1 : a.puntaje))
+    })).sort((a, b) => (a.accion === b.accion ? 0 : a.accion === 'responder' ? -1 : 1) || (b.puntaje === null ? -1 : b.puntaje) - (a.puntaje === null ? -1 : a.puntaje))
   });
   dash.calc('radar_cuentas', {
     title: 'Radar de leads · cuentas activas',
@@ -1517,14 +1522,14 @@
     const d = dash.data('radar_escribir'), res = dash.data('radar_resumen');
     if (d.status !== 'ok') return fail(el, d);
     if (res.status === 'ok' && !(res.data || []).length) return vacio(el, RADAR_VACIO);
-    if (!d.data.length) return vacio(el, 'Nadie para escribir esta semana: las personas con señales siguen en la lista u observando.');
+    if (!d.data.length) return vacio(el, 'Nadie para responder ni para escribir esta semana: las personas con señales siguen en la lista u observando.');
     const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt !== undefined) e.textContent = txt; return e; };
     const t = mk('table', 'rd-tabla'), th = mk('thead'), trh = mk('tr'), tb = mk('tbody');
-    ['Persona', 'Cargo', 'Empresa', 'Arquetipo', 'Puntaje', 'Por qué ahora'].forEach((h) => trh.appendChild(mk('th', '', h)));
+    ['Acción', 'Persona', 'Cargo', 'Empresa', 'Arquetipo', 'Puntaje', 'Por qué ahora'].forEach((h) => trh.appendChild(mk('th', '', h)));
     th.appendChild(trh);
     d.data.forEach((r) => {
       const tr = mk('tr');
-      tr.append(mk('td', 'rd-per', r.persona), mk('td', '', r.cargo || 'Sin cargo'), mk('td', '', r.empresa || 'Sin empresa'), mk('td', '', r.arquetipo || 'Sin arquetipo'));
+      tr.append(mk('td', 'rd-per', r.accion === 'responder' ? 'Responder' : 'Escribir'), mk('td', 'rd-per', r.persona), mk('td', '', r.cargo || 'Sin cargo'), mk('td', '', r.empresa || 'Sin empresa'), mk('td', '', r.arquetipo || 'Sin arquetipo'));
       const p = mk('div', 'rd-p'), bar = mk('div', 'rd-bar');
       if (r.encaje !== null || r.intencion !== null) {
         const e = Math.max(0, Math.min(100, r.encaje || 0)), i = Math.max(0, Math.min(100 - e, r.intencion || 0));

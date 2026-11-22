@@ -39,6 +39,8 @@ monthly sweep below).
 
 ## Modo barrido (una vez al mes o a pedido)
 
+La ronda de conversaciones (martes y viernes) ya lee cada semana los dos buzones (el personal y el de la página, con actividad de los últimos 14 días); este barrido mensual sigue siendo para las últimas 30 conversaciones.
+
 > **Regla de la casa.** A pedido ("barre mi bandeja", "revisa mis últimas conversaciones") o una vez al mes (por ejemplo, junto a la auditoría mensual), lee las **últimas 30 conversaciones** de LinkedIn en **una sola visita de solo lectura** a la bandeja (https://www.linkedin.com/messaging/), con el navegador del campo `navegador` de `marca.md`; si no hay navegador, con lo que el usuario pegue. Mientras lees, nunca respondas, marques, archives ni borres nada (regla 2 de `seguridad.md`). Ordena cada conversación en uno de 4 grupos:
 > 1. **Propongo responder:** con el borrador listo y el porqué en una línea.
 > 2. **Del público, pero le toca mover a la otra persona** (ya hay reunión, sin presupuesto ahora, quedó en retomar más adelante) → NUTRIR con fecha en "Seguimiento (fecha)" de `conversaciones.md`.

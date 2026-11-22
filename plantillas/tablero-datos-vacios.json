@@ -147,8 +147,8 @@
         "senales_vigentes": "número de señales sin vencer",
         "tipos": "tipos de señal vigentes, separados por coma",
         "ultima_senal": "fecha de la señal más reciente, AAAA-MM-DD",
-        "accion": "'observar', 'lista', 'escribir' o 'saltar'",
-        "por_que_ahora": "solo con acción 'escribir': señal + momento + su problema, en una frase; si no, vacío",
+        "accion": "'responder' (te escribió al perfil o a la página y aún no le respondes; va primero, sin importar el puntaje), 'observar', 'lista', 'escribir' o 'saltar'",
+        "por_que_ahora": "solo con acción 'responder' o 'escribir': señal + momento + su problema, en una frase; si no, vacío",
         "estado": "estado de la persona en conversaciones.md, o vacío",
         "cuenta_activa": "'sí' si su empresa está en las cuentas objetivo y tiene 2 o más personas con señales vigentes; si no, 'no'"
       },

@@ -25,6 +25,14 @@ Cuando una empresa de estas tablas tiene 2 o más personas con señales vigentes
 | Empresa | Personas con señales vigentes | Desde (AAAA-MM-DD) | Quién más conocer (cargo, y nombre si es público) | Estado (activa, ya no) |
 | --- | --- | --- | --- | --- |
 
+## Cuentas calientes (visita anónima de un cargo de decisión)
+
+Cuando "Quién ha visto tu perfil" muestra un visitante anónimo con un cargo que calza con un arquetipo y su empresa (por ejemplo, "Director ejecutivo en una empresa de consumo masivo"), `conversaciones-li` anota aquí la empresa como **cuenta caliente** durante 30 días (es la señal de cuenta de `senales.md`). Mientras esté vigente, suma su peso a cualquier persona de esa empresa que dé otra señal, y `comentarista-li` prioriza los posts de esa empresa y de sus gerentes. **Nunca** se intenta identificar a la persona, no se le escribe ("vi que viste mi perfil", jamás) y no se recorren los perfiles de la empresa.
+
+| Empresa | Motivo | Desde (AAAA-MM-DD) | Vence (Desde + 30 días) |
+| --- | --- | --- | --- |
+| EJEMPLO (borra esta fila): empresa ficticia de consumo masivo | visita anónima de Director ejecutivo el AAAA-MM-DD | AAAA-MM-DD | AAAA-MM-DD |
+
 ## [Arquetipo 1] ([cargos y tamaño de empresa, como en `arquetipos.md`])
 
 | Nombre | Cargo y empresa | Link al perfil | Por qué | Última interacción |
