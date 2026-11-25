@@ -83,6 +83,10 @@ Si el usuario aprueba y tienes navegador (campo `navegador` de `marca.md`: la ex
 - Máximo 15 DMs nuevos por día y 50 invitaciones por semana. Ante una advertencia, un captcha, un límite o algo raro: para, no reintentes y avisa qué salió y qué no.
 - Después de cada envío, marca ENVIADO en `conversaciones.md` con la hora y la fecha del próximo seguimiento. Al final, una tabla corta: persona · canal · enviado / no enviado (y por qué).
 
+## Modo bienvenida (tarea `bienvenida-contactos-linkedin`, lunes a viernes 12:30)
+
+La tarea orquesta: lee en una visita de solo lectura la lista de contactos ordenada por "Añadidos recientemente" (https://www.linkedin.com/mynetwork/invite-connect/connections/) y las invitaciones recibidas pendientes; filtra contra `bienvenidas.md`, `conversaciones.md`, `amigos.md`, clientes y propuestas abiertas; clasifica en **A · cliente potencial** (cargo de un arquetipo, empresa mediana o grande) y **B · contacto general**; abre solo los perfiles de A (máximo 10, uno por uno, con pausas) para sacar un dato concreto; y reparte la redacción entre subagentes (`voz-persona` para A y para B, y `revisora-marca` al final), con las formas "Bienvenida A" y "Bienvenida B" de `/li-dm`. Las A entran a `conversaciones.md` (Por qué "bienvenida") y a `senales.md` ("Aceptó tu invitación o te invitó"): desde ahí esta ronda lleva sus seguimientos de los días 4 y 10 y les ofrece la sesión solo si responden. Las B quedan solo en `bienvenidas.md`, sin seguimiento. Las invitaciones pendientes nunca se aceptan solas: se listan para el usuario, las de arquetipo primero. El límite de 15 mensajes por día se comparte con esta ronda.
+
 ## Reglas
 
 - **Nunca envías nada sin el sí del usuario en el chat para esa tabla.** Un sí no vale para rondas futuras. Nunca comentas en posts ajenos, das like ni conectas sin nota.

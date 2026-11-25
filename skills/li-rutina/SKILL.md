@@ -65,6 +65,7 @@ Si hay tareas de otra red a la misma hora (por ejemplo, de un plugin de Instagra
 | 5 | Lunes a viernes 7:30 | Comentarios del día con link y texto listo (antes de la tarjeta, para que la tarjeta los traiga) | comentarista-li | Sonnet |
 | 6 | 45 min después de cada post publicado (columna "Publicada" del kanban) y 20:00 | Respuestas de la primera hora; palabra clave a DMs | respuestas-li | Sonnet |
 | 7 | Martes y viernes 18:00 | Ronda de DMs: entregas de palabra clave, calificación, seguimientos día 4 y 10, citas. Termina con la tabla de aprobación y envía solo lo que el usuario apruebe en el chat | conversaciones-li | Sonnet |
+| 7b | Lunes a viernes 12:30 | **Bienvenida a contactos nuevos:** quien aceptó la invitación de el usuario o a quien ella aceptó; perfil de los de arquetipo (máximo 10), bienvenida A (cliente potencial, abre conversación) o B (saludo corto), invitaciones pendientes por aceptar. Tabla de aprobación; envía solo lo que el usuario apruebe | conversaciones-li (orquesta) + voz-persona + revisora-marca | Sonnet y Haiku |
 | 8 | El día antes de cada reunión 18:00, el día después 10:00 y los días 4 y 10 de cada propuesta enviada 10:00 | Guía de la reunión; seguimiento, propuesta, seguimiento de la propuesta y paso en el CRM (o en `reuniones.md`) | cierre-li | Sonnet |
 | 9 | Viernes 8:00 | Tablero, análisis y, si las hay, planilla y dinero desde el CRM | li-tablero + analista-li | Sonnet |
 | 10 | Viernes 15:30 | Reutilizar lo mejor de la semana hacia LinkedIn | reutilizador-li | Sonnet |

@@ -90,6 +90,11 @@ Wait a day. Then:
 > - **Nunca** "vi que te gustó un post", "vi que viste mi perfil" ni nada que muestre que se la está siguiendo.
 > - Cuenta las palabras y muestra la cuenta (`[52/60]`), como en la nota de invitación.
 
+> **Bienvenida a un contacto nuevo** (tarea `bienvenida-contactos-linkedin`, lunes a viernes 12:30). Para quien se conectó con el usuario en los últimos 7 días (aceptó su invitación o el usuario aceptó la suya) y no tiene conversación abierta. Dos formas:
+> - **Bienvenida A · cliente potencial** (su cargo es de un arquetipo): "Hola [nombre], gracias por conectar." + **una frase concreta de lo suyo** (su cargo actual, su empresa, algo que publicó; sacado de su perfil, nunca personal) + **una pregunta de verdad según su arquetipo** (sale de "Primer DM (sin agenda)" de su arquetipo en `arquetipos.md`). Máximo 4 líneas. **Sin link, sin presentar los servicios y sin proponer reunión**: la sesión se ofrece cuando responde (la ronda de conversaciones lo hace, con lo que contó). Nunca "vi tu perfil" ni "me encantó tu perfil".
+> - **Bienvenida B · contacto general** (pares, consultores, otros cargos): saludo corto y cálido + **una línea de lo que hace el usuario** (`que_hace` de `marca.md`) + si `marca.md` tiene una página de recursos o un entregable abierto, su link con UTM "por si te sirve" (si no, nada). Sin pregunta ni pedido. Máximo 3 líneas. No lleva seguimiento.
+> - Ningún texto se repite igual entre dos personas. Si es amigo o cercano (`amigos.md`), no va la bienvenida: va el mensaje cercano de ese archivo.
+
 ## Follow-ups
 
 Two. That is the number.

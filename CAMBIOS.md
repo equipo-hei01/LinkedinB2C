@@ -1,5 +1,10 @@
 # Cambios
 
+## 1.8.0
+- Tarea nueva `bienvenida-contactos-linkedin` (lunes a viernes 12:30): un orquestador lee en una visita de solo lectura los contactos añadidos recientemente (quien aceptó la invitación y a quien se le aceptó) y las invitaciones pendientes; filtra amigos, clientes, conversaciones abiertas, competidores y reclutadores; abre solo los perfiles de quienes calzan con un arquetipo (máximo 10, con pausas) y reparte la redacción entre subagentes (voz personal y revisora).
+- Dos formas en `li-dm`: Bienvenida A (cliente potencial: un dato concreto de lo suyo y una pregunta de su arquetipo, sin link ni reunión; la sesión se ofrece cuando responde) y Bienvenida B (contacto general: saludo corto y una línea de lo que se hace, sin seguimiento).
+- Las A entran a `conversaciones.md` y `senales.md`, y la ronda lleva sus seguimientos. Registro nuevo `datos/bienvenidas.md`. Tabla de aprobación: nada sale sin el sí; las invitaciones pendientes nunca se aceptan solas. El límite de 15 mensajes por día se comparte con la ronda.
+
 ## 1.7.0
 - `li-post`: tipo nuevo "Herramienta de regalo" (un prompt, una plantilla corta o una lista de verificación completa en el post, con un ejemplo y el criterio del usuario), en la mezcla de valor del planificador.
 
