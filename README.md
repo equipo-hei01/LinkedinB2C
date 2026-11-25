@@ -68,6 +68,10 @@ Los dos son artefactos tuyos: `/li-inicio` los crea y guarda sus links en `marca
 
 Todo lo tuyo vive en una carpeta de trabajo (por defecto `~/.claude/linkedin/`; ver `datos/LEEME.md`), en archivos de texto que puedes abrir y corregir: `marca.md`, `arquetipos.md`, `voz-persona.md`, `voz-empresa.md`, `ofertas.md`, `entregables.md`, `pruebas.md` y los registros de conversaciones, reuniones y charlas. La carpeta `datos/` del plugin trae las plantillas, y `ejemplo/` trae un juego completo de una empresa ficticia para ver cómo queda un inicio terminado.
 
+### Conocimiento
+
+La carpeta `conocimiento/` es lo que el plugin ya sabe antes de conocerte, para que no tengas que enseñárselo: una biblioteca de 8 arquetipos B2B ya escritos, el mapa de dónde sale cada dato de tu marca sin preguntártelo, el método de venta en una página y el catálogo de fuentes (videos, posts y estudios) de donde sale cada regla. Ver `conocimiento/LEEME.md`.
+
 ## Cómo empezar
 
 1. Instala el plugin.
@@ -81,7 +85,7 @@ Todo lo tuyo vive en una carpeta de trabajo (por defecto `~/.claude/linkedin/`; 
 
    **App de escritorio de Claude:** agrega el plugin desde Personalizar → Plugins.
 
-2. Corre `/li-inicio`. Con tu permiso lee tu perfil, tu página, tus últimos posts, tus métricas y tu sitio web, te pide los documentos que tengas (manual de marca, brochure, casos) y te propone tu ADN, tus voces y tus arquetipos para que los corrijas. Después puntúa tu perfil, crea tu kanban y tu tablero con la línea base, instala las tareas programadas y deja lista la primera semana. Dura entre 60 y 90 minutos y se puede retomar si se interrumpe.
+2. Corre `/li-inicio`. Con tu permiso lee tu perfil, tu página, tus últimos posts, tus métricas y tu sitio web, te pide los documentos que tengas (manual de marca, brochure, casos) y te propone tu ADN, tus voces y tus arquetipos para que los corrijas. Después puntúa tu perfil, crea tu kanban y tu tablero con la línea base, instala las tareas programadas y deja lista la primera semana. En modo rápido (el que parte por defecto) dura de 20 a 30 minutos y te hace solo 4 preguntas: tu meta de reuniones, el valor de una venta típica, qué quieres que haga quien visita tu perfil y cuál de tus posts suena a ti. Lo demás lo deduce de lo que lee y de `conocimiento/`, lo marca como supuesto y lo ajusta solo con tus correcciones y tus conversaciones. Si prefieres revisarlo todo campo por campo, pide el modo completo (60 a 90 minutos). Se puede retomar si se interrumpe.
 3. Cuando termine, corre `/li-estratega` para tu primer día, y `/li-rutina` cuando quieras dejar las tareas programadas.
 
 Si falta `marca.md` en tu carpeta de trabajo, cualquier comando te dirá que primero corras `/li-inicio`.
@@ -116,4 +120,4 @@ Licencia MIT. Ver `LICENSE`.
 
 ## Referencias
 
-Algunas reglas de la casa (el titular, los destacados, la experiencia y el banner del perfil, los mensajes y sus seguimientos, y la forma de los posts) se inspiran en publicaciones de David Ibáñez y Luis Garau sobre LinkedIn para B2B en español, y en videos públicos de otros creadores que enseñan LinkedIn. Aquí están reescritas y adaptadas: lo que diga este plugin es responsabilidad del plugin, no de esas personas.
+Algunas reglas de la casa (el titular, los destacados, la experiencia y el banner del perfil, los mensajes y sus seguimientos, y la forma de los posts) se inspiran en publicaciones de David Ibáñez y Luis Garau sobre LinkedIn para B2B en español, y en videos públicos de otros creadores que enseñan LinkedIn. Aquí están reescritas y adaptadas: lo que diga este plugin es responsabilidad del plugin, no de esas personas. La lista completa, con qué se tomó y qué se descartó de cada fuente, está en `conocimiento/fuentes.md`.

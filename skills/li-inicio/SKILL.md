@@ -1,11 +1,30 @@
 ---
 name: li-inicio
-description: Puesta en marcha completa del sistema de LinkedIn para una marca nueva. Lee todo lo que puede (perfil, página, posts, métricas, sitio web y los documentos que suba el usuario), arma el ADN de la marca en marca.md, define arquetipos, voces, ofertas y entregables, puntúa el perfil, audita lo publicado, crea el kanban y el tablero con los datos iniciales, instala las tareas programadas y deja lista la primera semana. Usar cuando alguien diga /li-inicio, "empecemos", "configura el plugin", "es mi primera vez", "instala el sistema", "por dónde parto", o cuando cualquier skill o agente no encuentre marca.md en la carpeta de trabajo.
+description: Puesta en marcha del sistema de LinkedIn para una marca nueva, en modo rápido (20 a 30 minutos y 4 preguntas, el resto se deduce con la base de conocimiento del plugin) o completo. Lee todo lo que puede (perfil, página, posts, métricas, sitio web y los documentos que suba el usuario), arma el ADN de la marca en marca.md, define arquetipos, voces, ofertas y entregables, puntúa el perfil, audita lo publicado, crea el kanban y el tablero con los datos iniciales, instala las tareas programadas y deja lista la primera semana. Usar cuando alguien diga /li-inicio, "empecemos", "configura el plugin", "es mi primera vez", "instala el sistema", "por dónde parto", o cuando cualquier skill o agente no encuentre marca.md en la carpeta de trabajo.
 ---
 
 # li-inicio · puesta en marcha
 
 Deja el plugin listo para una marca nueva, de punta a punta. Al terminar, el usuario tiene su ADN escrito, su perfil puntuado, su tablero con la línea base, su kanban con las primeras ideas y las tareas programadas corriendo. Nada del sistema funciona bien sin este paso: todas las skills, agentes y tareas leen `marca.md`.
+
+## Dos modos: rápido (por defecto) y completo
+
+Al partir, ofrece los dos en una línea y, si el usuario no elige, sigue en **rápido**.
+
+**Rápido: 20 a 30 minutos y 4 preguntas.** El plugin trae una base de conocimiento (`conocimiento/` del plugin) para que el usuario no tenga que enseñarle nada que ya se sepa:
+- `conocimiento/inferencia.md`: de dónde sale cada campo de `marca.md`, las voces, los arquetipos, las ofertas y los entregables **sin preguntarlo**, qué valor por defecto lleva si no se encuentra y con qué se corrige solo después. Lo deducido entra marcado `(supuesto)`.
+- `conocimiento/arquetipos-biblioteca.md`: 8 arquetipos B2B ya escritos (Decisor, Implementador, Cuidador de personas, Guardián del presupuesto, Guardián técnico, Líder comercial, Dueño de pyme, Pares). Se eligen de 1 a 4 según lo leído y se adaptan a su oferta e industria.
+- `conocimiento/venta-base.md`: el método de venta del sistema, para no preguntarle cómo vende.
+- `conocimiento/fuentes.md`: de dónde sale cada regla.
+
+En modo rápido cambian estos pasos (lo demás sigue igual):
+- **Paso 0:** la carpeta de trabajo por defecto se crea sin preguntar; se avisa la ruta en una línea por si quiere otra.
+- **Pasos 2 y 3 en uno:** con lo leído en el paso 1 y los tres archivos de arriba, escribe de una vez `marca.md`, `voz-persona.md` (y `voz-empresa.md` si hay página), `arquetipos.md`, `ofertas.md`, `pruebas.md` (solo lo ya publicado), `entregables.md` y `cuentas-objetivo.md` (con quienes ya interactuaron). Haz **solo las 4 preguntas** de `conocimiento/inferencia.md` en un único bloque con opciones (`AskUserQuestion`). Muestra **un solo resumen** de una pantalla: qué entendiste, qué arquetipos elegiste y por qué, la palabra clave de cada uno, y la lista de `(supuesto)` que más pesan (máximo 5). Un "sí" cierra los dos pasos. Arma el primer entregable del arquetipo principal (con la skill `lead-magnets` si está instalada) y déjalo en "Revisar": no detiene el inicio.
+- **Paso 4:** puntaje del perfil con lo ya leído y la línea base en `estado.md`. La auditoría de posts y el radar del nicho no se hacen ahora: los hacen solas las tareas de la primera semana (radar del lunes y análisis del viernes) y se anota en "Estado del inicio".
+- **Paso 6:** activa con un solo sí las tareas diarias y semanales (las mensuales quedan para el segundo mes, anotadas en "Estado del inicio").
+- **Lo que no se pregunta, se aprende:** dilo en el cierre en una línea ("la voz y los arquetipos se ajustan solos con tus correcciones y tus conversaciones; no tienes que llenar nada más").
+
+**Completo: 60 a 90 minutos.** Los 8 pasos tal como están abajo, con todas las preguntas por bloque. Para quien prefiere revisar campo por campo, o cuando casi no hay nada que leer (perfil vacío, sin sitio, sin posts).
 
 ## Cómo acompaña
 
@@ -55,7 +74,7 @@ Llena `marca.md` de la carpeta de trabajo con lo leído, campo por campo, y mué
 4. **Metas:** `accion_perfil`, `meta_reuniones_semana`, `reuniones_hoy_semana`, `tasa_cierre`, `ticket_meta`, `ticket_promedio`, `moneda`, `meta_charlas_mes`, `plan_inicio`, `cadencia`, `minutos_dia`. Estas sí se preguntan: no se leen en ninguna parte.
 5. **Identidad visual:** colores, tipografía, logo, foto e iniciales, desde el manual de marca, el sitio o el banner. Si no hay manual, propón una paleta sacada del sitio y el usuario la confirma.
 
-**Lo que no se puede leer se pregunta siempre**, en bloques de 1 a 4 preguntas y con opciones cuando se pueda (lo demás, solo si quedó vacío):
+Antes de preguntar cualquier cosa, revisa `conocimiento/inferencia.md`: si el campo tiene una fuente o un valor por defecto, se propone escrito y no se pregunta. En modo rápido solo van sus 4 preguntas. En modo completo, **lo que no se puede leer se pregunta**, en bloques de 1 a 4 preguntas y con opciones cuando se pueda (lo demás, solo si quedó vacío):
 
 - **Bloque de voz 1:** cómo saluda en un mensaje (`saludo_dm`) · si cierra sus posts con una firma fija, en el perfil y en la página (`firma_persona`, `firma_empresa`; vacío si no usa) · si quiere negritas Unicode en sus posts (`negritas_unicode`) · qué palabras nunca usa.
 - **Bloque de voz 2:** de los posts leídos, cuál es "este soy yo" (muéstrale los 3 o 4 que mejor rindieron para que elija) · si hay página, en qué persona gramatical habla (nosotros, tercera persona o el nombre de la marca).
@@ -68,7 +87,7 @@ Si el usuario no sabe algo (por ejemplo el ticket o la tasa de cierre), deja `[v
 
 ## Paso 3 · A quién le vende y qué entrega (15 minutos)
 
-1. **Arquetipos** (`arquetipos.md`): propón de 1 a 4 tipos de cliente a partir de sus clientes y casos, de los cargos de su audiencia en Analytics y de a quién le habla en sus posts. Por cada uno: nombre corto, cargos, tamaño de empresa, dolor, lo que piensa y no dice, palabras que lo activan y lo alejan, objeciones (separando precio, competencia y "ahora no"), evidencia que necesita y el llamado que le calza. **Pregunta siempre, por arquetipo, "Qué ya probó y por qué no le funcionó"** (otra consultora, un software, un curso, hacerlo con su equipo…): no se lee en ninguna parte; si el usuario no lo sabe, queda `[verificar]`. Si en lo leído (comentarios, mensajes, documentos) hay frases textuales de clientes que describen su problema, propónlas para "Cómo lo dicen ellos", sin nombre ni empresa. Compara con la audiencia real: si su audiencia no calza con a quién quiere venderle, dilo ahora. Propón el reparto del contenido entre arquetipos (por ejemplo "60 / 25 / 15") y pregúntale al usuario si es ese: lo decide él, según a quién quiere venderle más.
+1. **Arquetipos** (`arquetipos.md`): parte de `conocimiento/arquetipos-biblioteca.md` (regla "Cómo elegir") y propón de 1 a 4 tipos de cliente ya escritos y adaptados a su oferta, a partir de sus clientes y casos, de los cargos de su audiencia en Analytics y de a quién le habla en sus posts. Por cada uno: nombre corto, cargos, tamaño de empresa, dolor, lo que piensa y no dice, palabras que lo activan y lo alejan, objeciones (separando precio, competencia y "ahora no"), evidencia que necesita y el llamado que le calza. **Pregunta siempre, por arquetipo, "Qué ya probó y por qué no le funcionó"** (otra consultora, un software, un curso, hacerlo con su equipo…): no se lee en ninguna parte; si el usuario no lo sabe, queda `[verificar]`. Si en lo leído (comentarios, mensajes, documentos) hay frases textuales de clientes que describen su problema, propónlas para "Cómo lo dicen ellos", sin nombre ni empresa. Compara con la audiencia real: si su audiencia no calza con a quién quiere venderle, dilo ahora. Propón el reparto del contenido entre arquetipos (por ejemplo "60 / 25 / 15") y pregúntale al usuario si es ese: lo decide él, según a quién quiere venderle más.
 2. **Ofertas** (`ofertas.md`): qué vende, a qué arquetipo, formato, precio si lo publica, llamado y link. La primera oferta siempre es la conversación inicial (`link_reservas`): pregunta cuánto dura y si tiene costo, y anótalo en su fila (columnas Formato y Precio).
 3. **Pruebas** (`pruebas.md`): casos, cifras y testimonios. Por cada caso pregunta si es publicable y con qué nombre ("empresa de retail" en vez del nombre real, si no). Lo que no tiene un sí explícito queda como no publicable.
 4. **Palabra clave y entregable** por arquetipo (`entregables.md`): una palabra fácil de escribir en el teléfono y algo útil y corto que se entrega por DM, con la pregunta que deja abierta. **Arma aquí mismo al menos UN entregable sencillo para el arquetipo principal** (el de mayor reparto): una página, checklist o guía corta, escrita solo con lo leído y lo que el usuario dijo, en su voz y con la pregunta que deja abierta. El usuario lo aprueba dentro del resumen del paso y queda "Listo" (o "Revisar", si pidió cambios). Guárdalo en `entregables/` de la carpeta de trabajo. Los demás quedan "Por armar", con la propuesta de cuál sería cada uno. Mientras el entregable de un arquetipo esté "Por armar", sus posts cierran con una pregunta y no con palabra clave (ver `/li-post`): así la primera semana no se bloquea.

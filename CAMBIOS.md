@@ -1,5 +1,11 @@
 # Cambios
 
+## 1.5.0
+Base de conocimiento para que el inicio pregunte lo mínimo:
+- Carpeta nueva `conocimiento/`: `arquetipos-biblioteca.md` (8 arquetipos B2B ya escritos y la regla para elegirlos según lo que vende el usuario), `inferencia.md` (de dónde sale cada dato de la marca sin preguntarlo, su valor por defecto y con qué se corrige solo), `venta-base.md` (el método de venta en una página y cómo aprende el sistema) y `fuentes.md` (catálogo de videos, posts, guías, estudios y repositorios con lo que se tomó, lo que se descartó y la pregunta del filtro que falló).
+- `/li-inicio`: modo rápido por defecto, de 20 a 30 minutos y 4 preguntas (meta de reuniones, valor de una venta, acción del perfil y el post que suena al usuario). Los pasos 2 y 3 se hacen juntos con un solo resumen; lo deducido queda como `(supuesto)`; la auditoría y el radar los hacen las tareas de la primera semana. El modo completo sigue disponible.
+- `fuentes.md` registra la lista de 20 videos de Link360 / David Ibáñez analizada con transcripción: lo que pasó el filtro queda como candidato para una versión siguiente.
+
 ## 1.4.0
 - La ronda de conversaciones lee los dos buzones (perfil y página) en la misma visita de solo lectura.
 - Señales nuevas: te escribió por DM (35), respondió tu mensaje (30), escribió a la página (35) y visita anónima de un cargo de decisión (15, señal de cuenta, 30 días).
