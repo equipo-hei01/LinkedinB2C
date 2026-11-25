@@ -13,6 +13,11 @@ Las 3 o 4 empresas o personas con las que tus clientes te comparan. **Los nombre
 | Mes | Competidor | Qué cambió (oferta, precio, mensaje, evento) | Fuente (link y fecha) | Qué significa para tu oferta | Acción concreta |
 | --- | --- | --- | --- | --- | --- |
 
+## Para la objeción de competencia
+
+Una frase de partida por competidor, que compara por criterio sin criticar (ver la respuesta a la objeción de competencia en los arquetipos). La usa el agente de cierre en la guía de la reunión.
+- **"Ya trabajamos con [competidor]":** "[pregunta por lo que más le importa y dónde trabajas tú]"
+
 Reglas:
 - Solo con fuente. Si no hubo cambios, una fila "sin cambios".
 - Sirve para responder la objeción de competencia (comparar por criterio, sin criticar al otro) y para afinar la oferta. Nunca se copia su contenido ni se habla mal de nadie en público.

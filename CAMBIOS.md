@@ -1,5 +1,8 @@
 # Cambios
 
+## 1.9.1
+- El agente de cierre lee `competidores.md`: si la objeción probable es de competencia, la guía de la reunión trae qué vende ese competidor (con fuente) y la frase para responder, comparando por criterio. Si el competidor no está en la lista, propone agregarlo.
+
 ## 1.9.0
 - **Negociación** en `conocimiento/venta-base.md` y en `cierre-li`: 2 opciones con qué se cede, qué se pide a cambio y qué no se negocia.
 - **Checklist de cierre** de 6 puntos en `cierre-li` antes de enviar la propuesta.
