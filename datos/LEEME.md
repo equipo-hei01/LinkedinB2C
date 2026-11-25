@@ -34,6 +34,7 @@ En `ejemplo/` (raíz del plugin) hay un juego de archivos llenos para una empres
 | `mejoras.md` | Mejoras propuestas a las skills, con su estado | radar-nicho-li, analista-li, auditor-li, li-mejora |
 | `amigos.md` | Amigos y cercanos: reciben un mensaje cercano, no comercial | conversaciones-li, li-dm, respuestas-li |
 | `seguridad.md` | Límites para no arriesgar la cuenta (y las únicas excepciones de envío y publicación con aprobación) | todas las skills y tareas |
+| `competidores.md` | Los 3 o 4 competidores que escribe el usuario y lo que cambió cada mes, con fuente | auditor-li, cierre-li |
 
 ## Archivos sin plantilla
 

@@ -31,6 +31,18 @@ Resumen del método de venta que siguen las skills y los agentes del plugin. Sir
 | Competencia | Comparar por criterio, sin criticar al otro. Preguntar qué valora |
 | "Ahora no" | Acordar cuándo, pasar a NUTRIR con fecha y escribir en esa fecha con algo útil. Nunca insistir en el momento |
 
+## Negociación (ya quiere avanzar, pero pide algo)
+
+Cuando la persona ya quiere avanzar y pide **descuento, más plazo o más alcance**, no se responde con un sí ni con un no en el momento. El borrador lleva **2 opciones**, y cada una dice tres cosas: qué se cede, qué se pide a cambio y qué no se negocia.
+
+| Pide | Opción 1 | Opción 2 |
+| --- | --- | --- |
+| **Descuento** | Mismo precio, alcance ajustado (menos módulos, menos personas o una etapa menos) | Precio menor a cambio de algo que vale: pago por adelantado, contrato más largo, o testimonio y caso autorizados al cierre |
+| **Más plazo** (para pagar o para empezar) | Pago en cuotas ligadas a entregas, mismo total | Inicio más adelante, con la reserva firmada ahora |
+| **Más alcance** | Lo extra como segunda etapa, con su propio precio | Lo extra entra si sale otra cosa del alcance actual, mismo precio |
+
+**No se negocia:** bajar el precio por la misma entrega; el orden del `metodo` de `marca.md`, si lo hay; avanzar sin una fecha de decisión. El usuario decide qué opción ofrece; el agente solo arma las dos, con los montos como `[monto]` (nunca cifras inventadas). Si la persona no pidió nada, no se ofrece descuento (fuente: Juan Cruz Sinkec, IPAP, "Tu departamento de ventas con Claude", nov 2026).
+
 **Cuando quien conversa está convencido y su jefatura no:** proponer un **primer paso más chico** que su jefe pueda aprobar y ver funcionar antes de invertir más (un piloto acotado, un diagnóstico, una sesión con el equipo).
 
 ## Cómo vender a cada arquetipo

@@ -32,10 +32,19 @@ Actualiza `reuniones.md` y `conversaciones.md` con resultado y próximo paso con
 
 **Recordatorio de tarea:** cuando alguien agenda o el usuario confirma que envió una propuesta, no crees tareas programadas tú. Deja en `pendientes-hoy.md` cuál hay que crear (cuándo y para qué reunión o propuesta); la tarjeta se la pregunta al usuario.
 
+**Checklist de cierre (antes de enviar la propuesta y antes de marcar EN NEGOCIACIÓN):** revisa estos 6 puntos con lo que hay en `reuniones.md` y `conversaciones.md`, y contesta cada uno con sí, no o "no sé":
+1. El problema está escrito con las palabras de la persona (textual, sin resumirlo).
+2. Habla quien decide, o ya se sabe quién decide.
+3. La propuesta responde al problema, al plazo y al precio que se conversaron.
+4. Las objeciones que salieron tienen respuesta.
+5. Hay una fecha acordada para la decisión.
+6. El siguiente paso está en el calendario.
+Cada "no" o "no sé" se convierte en el próximo paso (una pregunta para la próxima reunión o una línea en el seguimiento), no en presión. Anota el resultado en el próximo paso de `reuniones.md` ("Cierre 4/6: falta quién decide y fecha de decisión") y en `pendientes-hoy.md`. Con menos de 4 de 6, dile a el usuario que la propuesta todavía no está madura y qué falta (fuente: Juan Cruz Sinkec, IPAP, "Tu departamento de ventas con Claude", nov 2026).
+
 **Después de enviar la propuesta (hasta que se gana o se pierde):** cuando el usuario confirme que la envió, anota en `reuniones.md` la fecha de envío, el valor y el estado PROPUESTA ENVIADA. Luego:
 - **Día 4 sin respuesta:** borrador corto que agrega algo nuevo (una respuesta a la objeción que salió en la reunión, un dato de `pruebas.md` o una pregunta concreta sobre el siguiente paso). Nunca "¿pudiste ver la propuesta?".
 - **Día 10 sin respuesta:** borrador que cierra el ciclo con salida fácil (ejemplo: "si no es el momento, lo dejamos aquí y te escribo en unos meses").
-- **Respuesta:** GANADA, PERDIDA (con el motivo en una línea, para el analista) o EN NEGOCIACIÓN (con el próximo paso y su fecha). Indica qué mover en el CRM; lo mueve el usuario, o tú solo si te lo pide.
+- **Respuesta:** GANADA, PERDIDA (con el motivo en una línea, para el analista) o EN NEGOCIACIÓN (con el próximo paso y su fecha). Si pide descuento, más plazo o más alcance, borrador con 2 opciones según "Negociación" de `conocimiento/venta-base.md`. Indica qué mover en el CRM; lo mueve el usuario, o tú solo si te lo pide.
 - **Repaso de cada cliente GANADO:** deja en `pendientes-hoy.md` 3 preguntas para que el usuario se las haga al cliente cuando sea natural (en el arranque del proyecto, por ejemplo): qué vio primero, qué le hizo escribir y qué casi lo frena. Las respuestas, textuales y sin nombre ni empresa, van a "Cómo lo dicen ellos" de su arquetipo en `arquetipos.md` y a la columna "Repaso del cliente ganado" de `reuniones.md`, para `analista-li`. Nunca se envían sin el sí del usuario.
 Después de 2 seguimientos sin respuesta, queda EN PAUSA hasta una señal nueva. La tarjeta del día muestra las propuestas que vencen.
 

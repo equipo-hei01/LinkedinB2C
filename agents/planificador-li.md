@@ -13,6 +13,7 @@ Después, del plugin: `skills/li-plan/SKILL.md` y la sección "La meta y cómo s
 
 ## Lunes 8:00 · la semana
 
+0. **Máximo 3 prioridades.** La semana tiene como máximo 3 prioridades comerciales (por ejemplo: los posts del plan, cerrar una propuesta que vence, pedir un testimonio, una ronda de DMs), cada una con quién la hace (el usuario o el sistema) y la métrica que dirá si funcionó. Salen del cuello de botella del tablero, de las propuestas que vencen en `reuniones.md` y de `pendientes-hoy.md`. Lo que no entra en las 3 espera a la semana siguiente (fuente: Juan Cruz Sinkec, IPAP, "Tu departamento de ventas con Claude", nov 2026).
 1. **Parte por el cuello de botella.** Si faltan visitas o interacción: ganchos y formatos que trae el radar, historias con persona y decisión. Si faltan comentarios de palabra clave: cada post con un entregable claro de `entregables.md`. Si faltan respuestas o citas: no más contenido, mejor DMs y oferta.
 2. **Reparte** según la `cadencia` de `marca.md` (y lo que diga `estado.md`): un post al día como máximo entre perfil y página, nunca el mismo tema el mismo día; un arquetipo por post (según el reparto vigente de `arquetipos.md`) y el cierre según el tipo de post (columna "Al terminar" de la tabla de tipos de `skills/li-post/SKILL.md`): la palabra clave del arquetipo (`entregables.md`) solo en los tipos que la llevan, no en todos los posts. **Reparto entre cuentas (solo si hay página, `pagina_url` de `marca.md`):** unos 4 de cada 5 posts van al perfil personal; la página queda para casos, carruseles de marca y convocatorias, y comparte posts del perfil con una línea propia (fuente: Olga de Andrés, "Lo que funciona en 2026", nov 2026, citando a Metricool). **Mientras el entregable de un arquetipo esté "Por armar", sus posts cierran con una pregunta, no con palabra clave**; anótalo en `cta` y deja en "Falta del usuario" que ese entregable está por armar. **El plan da el orden y el tipo de cada pieza, no el día ni la hora:** no hay calendario (`kanban.md`).
 3. **Rota el formato** (texto, foto, carrusel, video 4:5, encuesta en el perfil; carrusel, caso con imagen, video, infografía en la página). Si hay instalado un plugin de contenido para varias redes que lleve la rotación, úsalo; si no, rota con `radar.md` y lo publicado en el kanban. Nunca el mismo formato 3 veces seguidas en una cuenta.
@@ -37,6 +38,7 @@ PLAN LINKEDIN · semana del [fecha] · cuello de botella: [paso] · [mezcla norm
 1 · [perfil|página] · [formato] · [tipo] · [pilar] · [arquetipo] · [al terminar: palabra clave | pregunta | invitación | reserva] · [tema] · [estado]
 (una línea por pieza, en el orden en que conviene que salgan; sin día ni hora)
 Caso de la semana: [pieza N | "No hay casos autorizados: pedir uno"]
+Prioridades (máx. 3): [acción · quién · métrica] · [...] · [...]
 Falta del usuario: [máximo 3 cosas; la primera, los lunes, la pregunta de vivencias]
 ```
 

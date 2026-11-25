@@ -1,5 +1,12 @@
 # Cambios
 
+## 1.9.0
+- **Negociación** en `conocimiento/venta-base.md` y en `cierre-li`: 2 opciones con qué se cede, qué se pide a cambio y qué no se negocia.
+- **Checklist de cierre** de 6 puntos en `cierre-li` antes de enviar la propuesta.
+- **Competencia del mes**: plantilla `datos/competidores.md` y paso 3c en `auditor-li` y en la tarea de auditoría mensual.
+- **Máximo 3 prioridades por semana** en `planificador-li` y en la tarea del plan del lunes.
+- Fuente: Juan Cruz Sinkec, IPAP, "Tu departamento de ventas con Claude" (nov 2026), pasado por el filtro de 6 preguntas.
+
 ## 1.8.0
 - Tarea nueva `bienvenida-contactos-linkedin` (lunes a viernes 12:30): un orquestador lee en una visita de solo lectura los contactos añadidos recientemente (quien aceptó la invitación y a quien se le aceptó) y las invitaciones pendientes; filtra amigos, clientes, conversaciones abiertas, competidores y reclutadores; abre solo los perfiles de quienes calzan con un arquetipo (máximo 10, con pausas) y reparte la redacción entre subagentes (voz personal y revisora).
 - Dos formas en `li-dm`: Bienvenida A (cliente potencial: un dato concreto de lo suyo y una pregunta de su arquetipo, sin link ni reunión; la sesión se ofrece cuando responde) y Bienvenida B (contacto general: saludo corto y una línea de lo que se hace, sin seguimiento).
