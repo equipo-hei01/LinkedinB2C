@@ -1,5 +1,8 @@
 # Cambios
 
+## 1.7.0
+- `li-post`: tipo nuevo "Herramienta de regalo" (un prompt, una plantilla corta o una lista de verificación completa en el post, con un ejemplo y el criterio del usuario), en la mezcla de valor del planificador.
+
 ## 1.6.0
 Lo que pasó el filtro de alineación de la lista "20 videos para conseguir clientes con LinkedIn" (Link360 / David Ibáñez; detalle en `conocimiento/fuentes.md`; 17 videos nuevos analizados con transcripción: Ibáñez, Olga de Andrés, Héctor Labarta, Núria Masip, Laura Pérez Izquierdo, Kallaway, Matt Gray, Connor Murray, Paolo Trivellato y los casos Dule Gil y Javier Arambarri):
 - `li-post`: tipos nuevos Puerta, Palabra clave y Autodiagnóstico, y columna "Al terminar" (el cierre depende del tipo); prueba "¿lo podría haber publicado cualquiera?"; `Señal esperada` en la nota al aprobar.
