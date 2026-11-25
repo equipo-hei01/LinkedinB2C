@@ -45,6 +45,17 @@ otros ítems resten más puntos. Muestra esa frase en la salida, arriba de la
 tabla: `Prueba del amigo: "…" · clara y coincide / no se entiende / no
 coincide con lo que vende`.
 
+**Coherencia del perfil (parte de la prueba del amigo).** Después lee
+seguidos, como alguien que no conoce al usuario, el titular, el Acerca de y el
+cargo actual: tienen que contar la misma historia (mismo cliente, mismo
+problema, misma promesa). Si uno cuenta otra cosa, dilo en una línea debajo de
+la prueba del amigo y arréglalo junto con el titular. Si hay página
+(`pagina_url` de `marca.md`), el Acerca de del perfil y el de la página no
+dicen lo mismo: el perfil habla en "yo" de lo que el usuario hace por su
+cliente ideal; la página, en "nosotros" de la empresa (fuente: Héctor Labarta,
+"El nuevo algoritmo de 2026", nov 2026; Laura Pérez Izquierdo, "Perfil con
+ejemplos reales", nov 2026).
+
 ## Acción deseada del perfil
 
 Lee `accion_perfil` de `marca.md`: qué quiere el usuario que haga quien visita
@@ -134,7 +145,9 @@ the user has to actually paste each of these in.
 "Helping X do Y" as the first three words, which every second profile now
 opens with. Give three options.
 
-> **Regla de la casa: titular.** Fórmula clara antes que creativa: "Ayudo a [cargo] a [resultado] sin [lo que no quieren] | [palabras clave de búsqueda]". Entrega 3 opciones. **Recomendaciones:** pide una a cada cliente que ya dio un testimonio autorizado (los de `pruebas.md`) y a quienes ya trabajaron con el usuario.
+> **Regla de la casa: titular.** Fórmula clara antes que creativa: "Ayudo a [cargo] a [resultado] sin [lo que no quieren] | [palabras clave de búsqueda]". Entrega 3 opciones.
+>
+> **Los primeros ~50 caracteres se entienden solos.** Bajo el nombre, en el feed y en cada comentario se ve solo el comienzo del titular. Ese tramo dice qué hace el usuario y para quién, sin cargo ni nombre de empresa adelante. Muestra cada opción también cortada a ~50 caracteres (`"Ayudo a gerentes de operaciones a orde…"`) y aplícale la prueba del amigo así cortada: si no se entiende, la opción no pasa (fuente: Laura Pérez Izquierdo, "Perfil con ejemplos reales", nov 2026). **Recomendaciones:** pide una a cada cliente que ya dio un testimonio autorizado (los de `pruebas.md`) y a quienes ya trabajaron con el usuario.
 
 **2. About, first two lines.** Everything after line 2 is behind "see more" on
 mobile, so those two lines are the whole about section for most readers. They
@@ -156,6 +169,16 @@ that are outcomes with numbers, not duties. Cut anything older than ten years
 to a single line.
 
 > **Regla de la casa: Experiencia.** En **primera persona**, escrita para el cliente ideal, de tareas a resultados, **máximo 5 líneas** por cargo. Usa solo los logros y cifras que el usuario dio: donde una frase necesite una cifra que no está, escribe **`[TU DATO]`** y no la inventes. Cuenta cada cargo como una historia corta: qué encontraste, qué hiciste y qué cambió.
+
+**5b. Palabras clave.** Elige con el usuario 3 a 5 términos que su cliente
+ideal escribiría para buscarlo (en LinkedIn, en un buscador o en ChatGPT),
+sacados de `que_hace` de `marca.md` y de "Palabras que lo activan" de
+`arquetipos.md`. Repítelos, iguales, en el titular, el Acerca de, los títulos
+de experiencia y las aptitudes; revisa también el campo "Sector" de la
+presentación, que calce con lo que vende. No digas que esto sube el SSI: no
+hay evidencia. Se mide con las respuestas "buscador o ChatGPT" a "¿cómo
+llegaste?" en `reuniones.md` (fuente: Núria Masip, "Perfil para atraer
+clientes sin Premium", nov 2026).
 
 **6. Banner.** One sentence of positioning and one way to reach you. The
 default blue gradient is the clearest signal on the page that nobody is home.

@@ -6,14 +6,14 @@ Resumen del método de venta que siguen las skills y los agentes del plugin. Sir
 
 | Etapa | Qué pasa | Quién lo prepara | Qué hace el usuario |
 | --- | --- | --- | --- |
-| 1. Atención | Posts para un arquetipo por vez, con la mezcla 1 de alcance, 2 de valor y 1 de relación por cada 4, y al menos un caso real por semana si hay pruebas autorizadas | `planificador-li`, `/li-post` | Aprueba y publica |
-| 2. Presencia | Comentarios con aporte en las cuentas objetivo (método 1 + 3) y respuestas a quien comenta sus posts | `comentarista-li`, `respuestas-li` | Pega los comentarios |
-| 3. Señal | Alguien comenta la palabra clave, escribe, responde, ve el perfil, cambia de cargo o su empresa anuncia algo. Cada señal suma puntos; 3 en 14 días o 70 puntos = escribirle | `datos/senales.md`, `conversaciones-li` | — |
+| 1. Atención | Posts para un arquetipo por vez, con la mezcla 1 de alcance, 2 de valor y 1 de relación por cada 4, al menos un caso real por semana si hay pruebas autorizadas y un post "puerta" cada 2 o 3 semanas. Cada tipo cierra con lo suyo (pregunta, palabra clave, invitación o reserva). Después de un post que rinde, 1 o 2 semanas de conversión | `planificador-li`, `/li-post` | Aprueba y publica |
+| 2. Presencia | Comentarios con aporte en las cuentas objetivo (método 1 + 3), primero donde los comentarios llegan más lejos, y respuestas a quien comenta sus posts | `comentarista-li`, `respuestas-li` | Pega los comentarios |
+| 3. Señal | Alguien comenta la palabra clave, escribe, responde, ve el perfil, responde a un comentario del usuario en su post, cambia de cargo (si es excliente, pesa más) o su empresa anuncia algo. Cada señal suma puntos; 3 en 14 días o 70 puntos = escribirle | `datos/senales.md`, `conversaciones-li` | — |
 | 4. Primer mensaje | 2 frases sobre algo concreto de la persona y una pregunta de verdad. Sin link, sin llamada, sin presentarse. A quien pidió el entregable: el link primero y una pregunta diagnóstica | `/li-dm` | Aprueba y envía |
 | 5. Conversación | Responder sobre lo que la persona contó, con sus palabras. Seguimientos el día 4 y el día 10, con algo útil, sin reprochar el silencio. Dos sin respuesta = se deja | `conversaciones-li` | Aprueba y envía |
 | 6. Oferta | La reunión se ofrece **solo cuando la persona respondió y está caliente** (decide, tiene el problema, hay urgencia) | `conversaciones-li` | Aprueba |
-| 7. Reunión | Guía con lo que la persona dijo, su arquetipo y la objeción probable; simulación de 5 minutos antes | `cierre-li` | Tiene la reunión |
-| 8. Propuesta y cierre | Seguimiento al día siguiente, borrador de propuesta, objeción → idea de contenido, pedido de testimonio a tiempo | `cierre-li` | Envía |
+| 7. Reunión | Guía con lo que la persona dijo, su arquetipo y la objeción probable; simulación de 5 minutos antes. Se le pregunta "¿cómo llegaste?" y se anota tal como lo dice, aparte del origen que deduce el sistema | `cierre-li` | Tiene la reunión |
+| 8. Propuesta y cierre | Seguimiento al día siguiente, borrador de propuesta, objeción → idea de contenido, pedido de testimonio a tiempo. Con cada cliente ganado, 3 preguntas: qué vio primero, qué le hizo escribir y qué casi lo frena | `cierre-li` | Envía |
 
 ## Reglas que no cambian
 
@@ -41,7 +41,8 @@ El llamado, la evidencia y el tono de cada uno están en `arquetipos.md` (y su p
 
 - Cada post que el usuario corrige ajusta la voz (`/li-post` anota qué cambió).
 - Cada conversación agrega frases a "Cómo lo dicen ellos" y reemplaza los supuestos del arquetipo.
-- Cada reunión agrega la objeción real y "qué ya probó" (`cierre-li`).
-- Cada viernes, `analista-li` mide qué tema, formato y arquetipo trajo conversaciones y reuniones, y propone cambios en `mejoras.md`.
+- Cada reunión agrega la objeción real, "qué ya probó" y cómo llegó la persona, según ella (`cierre-li`); cada cliente ganado, su repaso de 3 preguntas.
+- Cada lunes, la pregunta de vivencias trae ideas del usuario, y cada charla o video suyo suma escenas y frases propias a `voz-persona.md` (con su sí).
+- Cada viernes, `analista-li` mide qué tema, formato y arquetipo trajo conversaciones y reuniones, mira cada post por las señales que deja (visitas al perfil, guardados, envíos, quién comenta) y no por las reacciones, lleva las pruebas A/B de `kanban.md` y propone cambios en `mejoras.md`.
 - Cada mes, `auditor-li` vuelve a puntuar el perfil.
 - Toda práctica nueva pasa por el filtro de alineación de `/li-mejora` antes de entrar.

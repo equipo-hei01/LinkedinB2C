@@ -113,7 +113,7 @@ DO MORE: the ones with a cost you paid, and a number.
 
 > **Regla de la casa: cierra con 3 líneas de contenido.** La auditoría
 > termina con 3 líneas de contenido concretas, sacadas de los datos de arriba,
-> cada una con tema, arquetipo, tipo de post (los 5 tipos de `li-post`) y por
+> cada una con tema, arquetipo, tipo de post (los de la tabla de tipos de `li-post`) y por
 > qué según los datos ("el tema X trajo 4 de las 6 conversaciones del
 > periodo"). Si `marca.md` tiene `pilares`, di a qué pilar va cada una. Con
 > pocos posts, dilo y márcalas como señal. Déjalas como ideas en la columna

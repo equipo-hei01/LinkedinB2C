@@ -121,6 +121,8 @@ Para decidir: 1 mejora del radar (los documentos de 8 láminas rinden 2x) → "s
 Acción de la semana: …
 ```
 
+**Los lunes, pregunta de vivencias:** la tarjeta del lunes suma una línea fija: "¿Qué frase, reunión o situación de esta semana te quedó dando vueltas?". Si el usuario responde, su respuesta entra como idea en "Ideas" del kanban con `nota` "Origen: vivencia <fecha>", sin nombres de clientes; no cuenta en el límite de 6 ideas de los agentes (fuente: Laura Pérez Izquierdo, "Posts de +100.000 impresiones", nov 2026).
+
 **Hora de comunidad:** la línea "Publicar hoy" siempre recuerda bloquear 30 minutos después de publicar para responder en vivo con los borradores de `respuestas-li` (los comentarios de la primera hora sostienen el alcance).
 
 **La línea "Ayer" es la única fuente de lo enviado y lo publicado.** Con la respuesta del usuario: marca ENVIADO en `conversaciones.md` con la fecha del próximo seguimiento (día 4 o 10), mueve la pieza a "Publicada" en el kanban con fecha y link y anota el post en `log.md`; lo que no salió queda PENDIENTE y vuelve a la tarjeta. Si el usuario no responde, no supongas que se envió.

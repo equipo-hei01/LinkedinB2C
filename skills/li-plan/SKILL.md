@@ -45,7 +45,7 @@ write it down:
 
 ## Radar y rotación
 
-Antes de armar la semana lee la sección "Esta semana" de `radar.md` (formatos y ganchos que rinden en el nicho) y revisa en `log.md` y en el kanban los formatos de las últimas piezas para no repetir. Cada post de la semana lleva formato, arquetipo, palabra clave de `entregables.md` y fórmula de gancho, y nunca el mismo formato 3 veces seguidas en una cuenta.
+Antes de armar la semana lee la sección "Esta semana" de `radar.md` (formatos y ganchos que rinden en el nicho) y revisa en `log.md` y en el kanban los formatos de las últimas piezas para no repetir. Cada post de la semana lleva formato, tipo, arquetipo, el cierre que pide su tipo (columna "Al terminar" de la tabla de tipos de `li-post`: la palabra clave de `entregables.md` solo en los tipos que la llevan) y fórmula de gancho, y nunca el mismo formato 3 veces seguidas en una cuenta.
 
 ## Pilares fijos y un caso por semana
 

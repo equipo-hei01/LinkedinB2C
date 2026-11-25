@@ -22,7 +22,7 @@ Si `voz-persona.md` y `marca.md` chocan, la voz manda en tono, persona gramatica
 - Antes de entregar, revisa el texto contra las palabras que nunca usa el usuario (`marca.md`) y contra las muletillas de IA en español: nada de "es importante destacar", "cabe señalar", "sin embargo", "asimismo", "potenciar", "sinergias", "ecosistema", "paradigma", "empoderamiento", "disruptivo", "soluciones integrales". Frases de máximo 25 palabras, largo variado, sin rayas largas.
 - Los posts cierran con la firma (`firma_persona`) y los hashtags de `marca.md`, si los hay, y ningún otro. Comentarios, respuestas y DMs van sin firma, sin hashtags y sin negritas; los DMs parten con el `saludo_dm`.
 - Humor solo si el campo `humor` de `marca.md` lo permite, y como mucho una pincelada.
-- Nunca inventas cifras, clientes ni anécdotas: las pruebas salen de `pruebas.md`. Si faltan, dejas `[TU DATO]` (una cifra) o `[verificar: …]` (una anécdota o un caso) y lo dices.
+- Nunca inventas cifras, clientes ni anécdotas: las pruebas salen de `pruebas.md`. Antes de dejar `[verificar: anécdota real…]`, busca una escena o frase que calce en la sección "Escenas y frases mías" de `voz-persona.md` y úsala tal cual. Si no hay, dejas `[TU DATO]` (una cifra) o `[verificar: …]` (una anécdota o un caso) y lo dices.
 - Nunca mezclar con las `marcas_que_no_se_mezclan` de `marca.md`.
 - Nunca publicas ni envías nada. Entregas el texto listo para copiar y una línea con qué falta, si falta algo.
 

@@ -1,5 +1,19 @@
 # Cambios
 
+## 1.6.0
+Lo que pasó el filtro de alineación de la lista "20 videos para conseguir clientes con LinkedIn" (Link360 / David Ibáñez; detalle en `conocimiento/fuentes.md`; 17 videos nuevos analizados con transcripción: Ibáñez, Olga de Andrés, Héctor Labarta, Núria Masip, Laura Pérez Izquierdo, Kallaway, Matt Gray, Connor Murray, Paolo Trivellato y los casos Dule Gil y Javier Arambarri):
+- `li-post`: tipos nuevos Puerta, Palabra clave y Autodiagnóstico, y columna "Al terminar" (el cierre depende del tipo); prueba "¿lo podría haber publicado cualquiera?"; `Señal esperada` en la nota al aprobar.
+- `puntaje.md` y revisora: prueba de doble lectura del gancho; ángulo flojo también en posts.
+- Planificador: palabra clave según el tipo; unos 4 de cada 5 posts al perfil si hay página; ciclos de alcance y conversión después de un post que rinde el doble; pregunta semanal de vivencias (`Origen: vivencia`).
+- Analista: cada post se mide por las señales que deja (visitas al perfil, guardados, envíos, seguidores y quién comenta) y la tasa de guardados más envíos por tema y formato; perfil frente a página a los 90 días; "Cómo llegó" y repaso de clientes ganados.
+- Cierre y `reuniones.md`: "¿cómo llegaste?" tal como lo dice la persona y 3 preguntas a cada cliente ganado.
+- `li-profile`: los primeros ~50 caracteres del titular se entienden solos; palabras clave en todo el perfil y el campo Sector; coherencia entre titular, Acerca de y cargo actual.
+- Señales nuevas en `senales.md`: respondió o reaccionó a tu comentario en su post (15, 14 días) y excliente que cambió de empresa (30, 90 días). Comentarista: prioriza por el alcance de los propios comentarios y propone la invitación con nota a quien respondió.
+- Voz personal: banco "Escenas y frases mías" que alimenta el reutilizador con el sí del usuario.
+- Pruebas nuevas en `kanban.md`: imagen resumen contra imagen con título, radar filtrado por compradores, y pedir a quien comenta la palabra que envíe él la invitación.
+- Descartado: grupos de interacción, conectar sin nota o en masa, ofertas con plazo inventado, herramientas que extraen datos de perfiles, DMs que nombran la visita al perfil y afirmaciones del algoritmo sin datos.
+- Además: tipo Caso en la tabla, plantilla del tablero con los tipos nuevos, `conocimiento/fuentes.md` y `venta-base.md` actualizados.
+
 ## 1.5.0
 Base de conocimiento para que el inicio pregunte lo mínimo:
 - Carpeta nueva `conocimiento/`: `arquetipos-biblioteca.md` (8 arquetipos B2B ya escritos y la regla para elegirlos según lo que vende el usuario), `inferencia.md` (de dónde sale cada dato de la marca sin preguntarlo, su valor por defecto y con qué se corrige solo), `venta-base.md` (el método de venta en una página y cómo aprende el sistema) y `fuentes.md` (catálogo de videos, posts, guías, estudios y repositorios con lo que se tomó, lo que se descartó y la pregunta del filtro que falló).

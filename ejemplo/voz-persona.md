@@ -23,7 +23,13 @@ Ana Pérez hablando como persona, desde su perfil personal ("yo"). Se lee despu�
 - **Emoji:** casi nunca; como mucho uno, y nunca cohetes ni fuego.
 - **Groserías:** no.
 
-Si falta la anécdota, deja `[verificar: anécdota real, dónde, con quién y qué pasó]` y pídesela a Ana.
+Si falta la anécdota, busca primero en "Escenas y frases mías". Si no hay una que calce, deja `[verificar: anécdota real, dónde, con quién y qué pasó]` y pídesela a Ana.
+
+## 2b. Escenas y frases mías
+
+| Escena o frase (textual) | De dónde salió (charla, video, nota) y fecha | Sirve para (tema o arquetipo) |
+| --- | --- | --- |
+| "El pizarrón de la planta tenía tres turnos de notas encima y nadie se atrevía a borrar ninguna." | Charla en una cámara de comercio (ficticia), AAAA-MM-DD | Procesos que nadie se atreve a cambiar · Implementador |
 
 ## 3. Humor
 

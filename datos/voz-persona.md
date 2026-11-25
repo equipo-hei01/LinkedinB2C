@@ -27,7 +27,15 @@ Hay un ejemplo lleno en `ejemplo/voz-persona.md` (empresa ficticia).
 - **Emoji:** [nunca / uno, rara vez / con libertad; cuáles nunca]
 - **Groserías:** [no / suaves / sí]
 
-Si falta la anécdota, deja `[verificar: anécdota real, dónde, con quién y qué pasó]` y pídesela al usuario.
+Si falta la anécdota, busca primero en "Escenas y frases mías" (abajo). Si ahí no hay una que calce, deja `[verificar: anécdota real, dónde, con quién y qué pasó]` y pídesela al usuario.
+
+## 2b. Escenas y frases mías (banco; lo alimenta `reutilizador-li`)
+
+La voz no se construye: se extrae (fuente: caso Javier Arambarri, canal de David Ibáñez, nov 2026). Aquí van escenas que el usuario vivió y frases que dijo de verdad, sacadas de transcripciones de sus charlas, videos y notas. Las agrega `reutilizador-li`, solo con el sí del usuario y sin nombres de clientes ni de empresas. Los redactores las usan antes de dejar `[verificar: anécdota real…]`, tal cual o recortadas, sin inventar detalles.
+
+| Escena o frase (textual) | De dónde salió (charla, video, nota) y fecha | Sirve para (tema o arquetipo) |
+| --- | --- | --- |
+| [escena o frase] | [fuente, AAAA-MM-DD] | [tema] |
 
 ## 3. Humor (por llenar; depende del campo `humor` de `marca.md`)
 

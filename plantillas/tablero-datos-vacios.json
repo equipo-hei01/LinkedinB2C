@@ -226,7 +226,7 @@
       "title": "Posts de la página",
       "description": "Posts de la página de empresa del export de contenido, con su tipo.",
       "fixed": true,
-      "columnas": { "post": "primeras palabras del post", "cuando": "fecha corta", "tipo": "tipo de post: contrario, noticia, lección, marco, caso, relación u otro; se muestra el valor que venga", "impresiones": "impresiones", "clics": "clics", "reacciones": "reacciones", "comentarios": "comentarios", "compartidos": "compartidos" },
+      "columnas": { "post": "primeras palabras del post", "cuando": "fecha corta", "tipo": "tipo de post: contrario, noticia, lección, marco, caso, relación, autodiagnóstico, palabra clave, puerta u otro; se muestra el valor que venga", "impresiones": "impresiones", "clics": "clics", "reacciones": "reacciones", "comentarios": "comentarios", "compartidos": "compartidos" },
       "rows": []
     },
     "audiencia": {

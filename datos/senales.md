@@ -23,6 +23,8 @@ Una fila por señal. **Nunca se borra una fila:** al calcular, las que pasaron s
 | Vio tu perfil | 10 | 7 días |
 | Aceptó tu invitación o te invitó | 10 | 14 días |
 | Cargo nuevo (aviso de LinkedIn en notificaciones) | 20 | 90 días |
+| Excliente o exparticipante que cambió de empresa (aviso de cargo nuevo cruzado con los clientes del CRM y `reuniones.md`; va en lugar de "Cargo nuevo", no suma los dos) | 30 | 90 días |
+| Respondió o reaccionó a tu comentario en su post | 15 | 14 días |
 | Novedad de la empresa (nueva gerencia, un área nueva en lo que resuelven tus ofertas, fusión, plan estratégico, un proyecto anunciado en ese tema) | 25 | 30 días |
 | La empresa está contratando para los cargos o áreas que `arquetipos.md` asocia a cada arquetipo | 20 | 30 días |
 | Siguió la página de la empresa | 8 | 14 días |
@@ -32,7 +34,9 @@ Una fila por señal. **Nunca se borra una fila:** al calcular, las que pasaron s
 
 ## Fuentes (las únicas)
 
-- **La ronda de conversaciones:** interacciones, visitas al perfil, invitaciones y avisos de cargo nuevo en notificaciones, en la misma visita de solo lectura que la ronda ya hace (`seguridad.md`, regla 2). Las visitas anónimas no entran como fila de persona; solo la de un cargo de decisión entra como señal de cuenta (abajo).
+- **La ronda de conversaciones:** interacciones, visitas al perfil, invitaciones, respuestas o reacciones a los comentarios del usuario en posts ajenos y avisos de cargo nuevo en notificaciones, en la misma visita de solo lectura que la ronda ya hace (`seguridad.md`, regla 2). Las visitas anónimas no entran como fila de persona; solo la de un cargo de decisión entra como señal de cuenta (abajo).
+- **Excliente o exparticipante que cambió de empresa:** cada aviso de cargo nuevo se cruza con los clientes del CRM (`crm` de `marca.md`, solo lectura) y con las filas GANADA de `reuniones.md` (y los participantes de una formación o un programa, si el usuario lleva esa lista). Si calza, la señal es esta y no "Cargo nuevo". Sin Sales Navigator ni otras herramientas (fuente: Connor Murray, "How social selling actually works", nov 2026). En la empresa nueva ya no es cliente actual: no se salta por esa regla.
+- **Respondió o reaccionó a tu comentario en su post:** si es una cuenta objetivo que no es contacto, `comentarista-li` propone la invitación con nota que retoma ese intercambio (ver `cuentas-objetivo.md`; fuente: caso Dule Gil, canal de David Ibáñez, nov 2026).
 - **Los dos buzones, en esa misma visita de solo lectura:** el buzón personal (https://www.linkedin.com/messaging/), conversaciones con actividad en los últimos 14 días, y el de la página de empresa (vista de administración de la página, sección Mensajes o Bandeja de entrada), si el usuario tiene página. Se usan el nombre y el titular que se ven en la conversación, sin abrir perfiles en serie (la regla de investigación de `seguridad.md` no cambia: máximo 10 perfiles por ronda, solo con arquetipo claro).
 - **Búsqueda web (fuera de LinkedIn), en la ronda del viernes:** las empresas de `cuentas-objetivo.md`, máximo 10 por semana, solo para "Novedad de la empresa" y "La empresa está contratando". En "Fuente" va el sitio donde se vio (web de la empresa, prensa, portal de empleo).
 

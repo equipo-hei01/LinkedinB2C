@@ -6,6 +6,10 @@ Meta: 20 a 30 por arquetipo. Los comentarios se reparten según el reparto vigen
 
 Una sección por cada arquetipo de `arquetipos.md` (copia el bloque y pon su nombre), más la de pares.
 
+**Alcance último comentario:** una vez al mes, en la visita de solo lectura del viernes de `comentarista-li` (o con lo que el usuario pegue), se anota el alcance de su último comentario en esa cuenta (impresiones y visitas al perfil que trajo, si LinkedIn lo muestra) con el mes. Antes de usarla, se confirma que LinkedIn muestra esa métrica en la cuenta del usuario; si no aparece, la columna queda vacía y no se estima. `comentarista-li` prioriza las cuentas donde los comentarios llegan más lejos o traen visitas (fuente: Olga de Andrés, "Lo que funciona en 2026", nov 2026; Héctor Labarta, "El nuevo algoritmo de 2026", nov 2026).
+
+**Respondió o reaccionó a tu comentario en su post:** es una señal de `senales.md`. Si es una persona de estas tablas y no es contacto del usuario, `comentarista-li` propone una invitación con nota que retoma ese intercambio, dentro de las 50 invitaciones por semana y solo con el sí del usuario (fuente: caso Dule Gil, canal de David Ibáñez, nov 2026).
+
 ## Buscar en la propia red (prospección templada)
 
 Los mejores primeros nombres suelen estar ya entre los contactos del usuario. El usuario puede descargarlos de forma oficial: LinkedIn → Configuración → Privacidad de datos → Obtener una copia de tus datos → Contactos. Llega un archivo `Connections.csv`, que deja en la carpeta de trabajo.
@@ -35,23 +39,23 @@ Cuando "Quién ha visto tu perfil" muestra un visitante anónimo con un cargo qu
 
 ## [Arquetipo 1] ([cargos y tamaño de empresa, como en `arquetipos.md`])
 
-| Nombre | Cargo y empresa | Link al perfil | Por qué | Última interacción |
-| --- | --- | --- | --- | --- |
-| EJEMPLO (borra esta fila): Marta Solís Vega | Directora general, empresa ficticia de logística | https://example.com/in/marta-solis | Publica cada semana sobre crecimiento y procesos; su equipo es del tamaño de nuestros clientes | AAAA-MM-DD, comentario en su post |
+| Nombre | Cargo y empresa | Link al perfil | Por qué | Última interacción | Alcance último comentario |
+| --- | --- | --- | --- | --- | --- |
+| EJEMPLO (borra esta fila): Marta Solís Vega | Directora general, empresa ficticia de logística | https://example.com/in/marta-solis | Publica cada semana sobre crecimiento y procesos; su equipo es del tamaño de nuestros clientes | AAAA-MM-DD, comentario en su post | [impresiones] · [visitas al perfil] (AAAA-MM) |
 
 ## [Arquetipo 2] ([cargos])
 
-| Nombre | Cargo y empresa | Link al perfil | Por qué | Última interacción |
-| --- | --- | --- | --- | --- |
+| Nombre | Cargo y empresa | Link al perfil | Por qué | Última interacción | Alcance último comentario |
+| --- | --- | --- | --- | --- | --- |
 
 ## [Arquetipo 3] ([cargos])
 
-| Nombre | Cargo y empresa | Link al perfil | Por qué | Última interacción |
-| --- | --- | --- | --- | --- |
+| Nombre | Cargo y empresa | Link al perfil | Por qué | Última interacción | Alcance último comentario |
+| --- | --- | --- | --- | --- | --- |
 
 ## Pares y amplificadores (otros consultores, organizadores de eventos, medios)
 
-| Nombre | Cargo y empresa | Link al perfil | Por qué | Última interacción |
-| --- | --- | --- | --- | --- |
+| Nombre | Cargo y empresa | Link al perfil | Por qué | Última interacción | Alcance último comentario |
+| --- | --- | --- | --- | --- | --- |
 
 Pendiente del usuario: la primera lista de 10 a 20. Mientras no exista, li-comment trabaja con los posts que el usuario pegue.

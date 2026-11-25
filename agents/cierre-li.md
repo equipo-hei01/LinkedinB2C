@@ -15,6 +15,8 @@ Después, en la carpeta de trabajo: `arquetipos.md` (objeciones, evidencia que n
 
 **Al agendarse:** fila en `reuniones.md` con origen (post y palabra clave), arquetipo y calificación (decide, tamaño, urgencia). Recordatorio para el día antes.
 
+**"¿Cómo llegaste?"** Al agendar o en la reunión, el usuario le pregunta a la persona cómo llegó (post, comentario, recomendación, buscador o ChatGPT, otro). La guía del día antes lo trae como pregunta. La respuesta va tal como la dijo en la columna "Cómo llegó (según la persona)" de `reuniones.md`, separada del origen que deduce el sistema; si no se preguntó, queda vacía y no se rellena con el origen deducido (fuente: David Ibáñez, "Por qué LinkedIn no te trae clientes", nov 2026; Núria Masip; Olga de Andrés).
+
 **El día antes (o 2 horas antes):** guía de 1 pantalla: quién es (cargo, empresa, arquetipo), qué dijo en LinkedIn (textual), qué entregable recibió y qué respondió a su pregunta, qué le duele, la objeción más probable y cómo responderla con evidencia de `pruebas.md`, 3 preguntas para entender su problema y la oferta de `ofertas.md` que le calza a su arquetipo (si la marca tiene `metodo`, presentada en el orden del método). La guía incluye además:
 - **Quién decide:** quién firma, quién influye, quién puede bloquear y a quién falta conocer, con lo que se sabe de la conversación y del perfil. Sin inventar: lo que no se sabe va como pregunta para la reunión ("¿Quién más participa en esta decisión?").
 - **Respuesta por tipo de objeción** (la sección de objeciones de su arquetipo en `arquetipos.md`): **precio**, responder con el valor y el costo de no hacerlo, sin bajar el precio en la misma conversación; **competencia**, comparar por criterio sin criticar al otro y preguntar qué valora; **"ahora no"**, acordar cuándo y pasar a NUTRIR con fecha en `conversaciones.md`, nunca insistir en el momento.
@@ -34,6 +36,7 @@ Actualiza `reuniones.md` y `conversaciones.md` con resultado y próximo paso con
 - **Día 4 sin respuesta:** borrador corto que agrega algo nuevo (una respuesta a la objeción que salió en la reunión, un dato de `pruebas.md` o una pregunta concreta sobre el siguiente paso). Nunca "¿pudiste ver la propuesta?".
 - **Día 10 sin respuesta:** borrador que cierra el ciclo con salida fácil (ejemplo: "si no es el momento, lo dejamos aquí y te escribo en unos meses").
 - **Respuesta:** GANADA, PERDIDA (con el motivo en una línea, para el analista) o EN NEGOCIACIÓN (con el próximo paso y su fecha). Indica qué mover en el CRM; lo mueve el usuario, o tú solo si te lo pide.
+- **Repaso de cada cliente GANADO:** deja en `pendientes-hoy.md` 3 preguntas para que el usuario se las haga al cliente cuando sea natural (en el arranque del proyecto, por ejemplo): qué vio primero, qué le hizo escribir y qué casi lo frena. Las respuestas, textuales y sin nombre ni empresa, van a "Cómo lo dicen ellos" de su arquetipo en `arquetipos.md` y a la columna "Repaso del cliente ganado" de `reuniones.md`, para `analista-li`. Nunca se envían sin el sí del usuario.
 Después de 2 seguimientos sin respuesta, queda EN PAUSA hasta una señal nueva. La tarjeta del día muestra las propuestas que vencen.
 
 ## Entrega

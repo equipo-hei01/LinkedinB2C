@@ -12,7 +12,9 @@ Escala de 0 a 10 en todo. Cada criterio vale 0, 1 o 2 puntos. Suma = puntaje.
 | Tensión | contraste, miedo nombrado, confesión o pregunta que pica | algo de curiosidad | afirmación plana o que ya se sabe |
 | Corto | máx. 12 palabras y cabe antes del "ver más" (~140 car. móvil) | 13 a 18 palabras | más largo o se corta mal |
 | Para alguien | se nota a quién le habla (un arquetipo) | se adivina | le habla a todos |
-| Se entiende solo | se entiende sin la línea 2 ni la imagen | necesita contexto | confunde o usa jerga |
+| Se entiende solo | se entiende sin la línea 2 ni la imagen y tiene una sola lectura | necesita contexto, o se puede entender de dos maneras | confunde o usa jerga |
+
+**Doble lectura (para "Se entiende solo"):** lee la línea 1 sola, como si fuera lo único que ves en el feed, y pregúntate si se puede entender de dos maneras. Si sí, no lleva 2 puntos: reescríbela con verbo activo y palabras simples hasta que tenga una sola lectura (fuente: Kallaway, "Make your hooks impossible to skip", nov 2026).
 
 Lectura: 9-10 se queda; 7-8 sirve, propone una alternativa; ≤6 reescribe antes de mostrar.
 

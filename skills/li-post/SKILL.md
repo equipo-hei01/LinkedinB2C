@@ -32,12 +32,12 @@ Lee de la carpeta de trabajo: `marca.md`, `arquetipos.md`, la voz que correspond
 
 - **Pieza:** búscala en la fila del kanban (reglas en `kanban.md` de la carpeta de trabajo; plantilla en `../../datos/kanban.md`). Si no existe, créala en "Ideas" o "En preparación" con su puntaje. No hay fechas ni horas de publicación, salvo las 📌 reales: el plan da el orden y el tipo de cada pieza.
 - **Prueba:** usa solo lo que está en `pruebas.md`. Las citas van textuales. Si falta una prueba, pídela; nunca la inventes.
-- **Palabra clave por arquetipo:** si el llamado es comentar, usa la palabra clave del arquetipo en `entregables.md` (en los ejemplos, `PALABRA`). Anota la palabra clave en el campo `cta` de la pieza del kanban. **Mientras el entregable de ese arquetipo esté "Por armar" en `entregables.md`, el post no lleva palabra clave: cierra con una pregunta** (y `cta` lleva esa pregunta). La palabra clave vuelve cuando el entregable esté "Listo".
+- **Palabra clave por arquetipo:** el cierre depende del tipo de post (columna "Al terminar" de la tabla de tipos, más abajo). Si el llamado es comentar, usa la palabra clave del arquetipo en `entregables.md` (en los ejemplos, `PALABRA`). Anota la palabra clave en el campo `cta` de la pieza del kanban. **Mientras el entregable de ese arquetipo esté "Por armar" en `entregables.md`, el post no lleva palabra clave: cierra con una pregunta** (y `cta` lleva esa pregunta). La palabra clave vuelve cuando el entregable esté "Listo".
 - **Lo que rinde afuera:** lee solo la sección "Esta semana" de `radar.md` (la escribe `radar-nicho-li` los lunes) y prefiere un formato y una fórmula que estén rindiendo, si calzan con la idea.
 - **Oferta:** como máximo una de `ofertas.md`, la del arquetipo elegido y no vencida. El link va en el primer comentario, nunca en el texto, con UTM: `?utm_source=linkedin&utm_medium=<perfil|pagina>&utm_content=<AAAA-MM-DD-tema>`.
 - **Firma de contraste:** si `voz-persona.md` dice que el usuario usa el contraste como recurso propio ("No dice X. Dice Y.", "No fue X. Fue Y."), puede ir una vez por post. El humanizador lo permite una vez; desde la segunda, reescribe.
 - **Video:** si la pieza lleva video (testimonios u otro) y hay un plugin o skill de video instalado, úsalo para el formato 4:5 del feed. Entrega junto al post: el texto, el primer comentario con el link UTM y a quién etiquetar.
-- **Al aprobar:** con el texto revisado, la pieza pasa a "Por aprobar" con `texto` y `comentario`; solo el usuario la pasa a "Lista para publicar". Para publicarla sin hacerlo a mano, el usuario usa la tarea "LinkedIn · publicar la siguiente pieza" (publica solo con su sí en el chat). Al publicarse, anota el post en `log.md`. Si etiqueta a alguien, recuérdale al usuario avisarle el día antes.
+- **Al aprobar:** con el texto revisado, la pieza pasa a "Por aprobar" con `texto` y `comentario`, y en `nota` una línea `Señal esperada: …` con lo que debería dejar el post si funciona, más allá de las reacciones (por ejemplo "que comente un cargo del arquetipo Decisor", "guardados", "visitas al perfil"); el viernes `analista-li` la compara con lo que pasó (fuente: David Ibáñez, "Copiar posts te aleja de tus clientes", nov 2026); solo el usuario la pasa a "Lista para publicar". Para publicarla sin hacerlo a mano, el usuario usa la tarea "LinkedIn · publicar la siguiente pieza" (publica solo con su sí en el chat). Al publicarse, anota el post en `log.md`. Si etiqueta a alguien, recuérdale al usuario avisarle el día antes.
 
 ## Before you write
 
@@ -53,6 +53,13 @@ Lee de la carpeta de trabajo: `marca.md`, `arquetipos.md`, la voz que correspond
 3. If the idea is thin - "post about AI" - do not pad it. Ask one batched
    question: what happened, to whom, and what did it cost or return. A post
    needs one specific true thing. Get it before writing.
+
+   > **Regla de la casa: escenas antes que `[verificar: anécdota real…]`.**
+   > Antes de dejar ese marcador o de preguntar, busca en la sección "Escenas
+   > y frases mías" de `voz-persona.md` una escena o frase del usuario que
+   > calce con la idea. Si hay, úsala tal cual (sin nombres de clientes); si
+   > no, deja el marcador y pregunta (fuente: caso Javier Arambarri, canal de
+   > David Ibáñez, nov 2026).
 4. **Pick one decision archetype per post**, from `arquetipos.md` in the
    working folder. Name it in the receipt. A post for everyone speaks to no
    one. For the archetype, `arquetipos.md` gives: who they are (roles), what
@@ -106,17 +113,21 @@ Close      one specific question, or one instruction. Never both.
 > - **Señal de credibilidad:** media frase que diga cómo lo sabe el usuario (años en el oficio, trabajos hechos, el tipo de cliente), cerca del gancho y una o dos veces en el cuerpo. Solo datos de `marca.md` o `pruebas.md`.
 > - **Casos sin la industria en el gancho:** arriba, el problema amplio que cualquier cliente ideal reconoce; la industria y el cliente, después del "ver más".
 > - **Pregunta final fácil que empuje a justificar** ("¿Están sobre o bajo lo que esperaban?"). La pregunta profunda va en el primer comentario.
-> - **Imagen con título:** si lleva imagen, que el título funcione como segundo gancho.
-> - **Filtro antes de "Por aprobar":** "¿el cliente ideal pagaría por esta idea?". Si la respuesta honesta es no, no pasa: dilo y propone qué le falta.
+> - **Imagen con título:** si lleva imagen, que el título funcione como segundo gancho. En posts tipo marco, si en `kanban.md` está en curso la PRUEBA IMAGEN RESUMEN, la pieza lleva la variante que le toca: imagen con título (A) o una lámina que dibuja todo el post, con los pasos, para guardarla (B) (fuente: Matt Gray, "Beat the new LinkedIn algorithm", nov 2026).
+> - **Filtro antes de "Por aprobar", dos preguntas:** "¿el cliente ideal pagaría por esta idea?" y "¿lo podría haber publicado cualquiera?": si cambias al usuario por cualquier otro consultor de su rubro y el post sigue igual, le falta experiencia o postura propia (fuente: Laura Pérez Izquierdo, "Posts de +100.000 impresiones", nov 2026). Si alguna de las dos no pasa, con honestidad, el post no pasa: dilo y propone qué le falta.
 >
-> **Los 5 tipos de post y su estructura** (anota el tipo en `nota` del kanban como "Tipo: …"):
-> | Tipo | Para qué | Estructura |
-> | --- | --- | --- |
-> | Contrario | alcance | afirmación contra la creencia común → por qué la creencia falla → la alternativa del usuario |
-> | Noticia del día | alcance | qué pasó → qué se está perdiendo la mayoría → qué significa para el cliente ideal → qué hacer. Solo si sale en 48 horas |
-> | Lección de detrás de escena | valor | qué pasó → qué hizo el usuario (lo que salió mal llega más lejos que lo que salió bien) → qué aprendió → cómo se aplica. Siempre real |
-> | Marco | valor | nombre recordable → 3 a 5 pasos → una línea por paso. Es el que más se guarda |
-> | Relación | conversación | una postura → una pregunta real que revele un problema que la marca resuelve, o "trabajo con [cargo], ¿te pasa esto?" |
+> **Los tipos de post, su estructura y qué debe pasar al terminar de leer** (anota el tipo en `nota` del kanban como "Tipo: …"; el cierre sale de la columna "Al terminar", no se pone la palabra clave en todos los posts) (fuente: Laura Pérez Izquierdo, "Posts de +100.000 impresiones", nov 2026):
+> | Tipo | Para qué | Estructura | Al terminar |
+> | --- | --- | --- | --- |
+> | Contrario | alcance | afirmación contra la creencia común → por qué la creencia falla → la alternativa del usuario | una pregunta fácil de contestar |
+> | Noticia del día | alcance | qué pasó → qué se está perdiendo la mayoría → qué significa para el cliente ideal → qué hacer. Solo si sale en 48 horas | una pregunta fácil de contestar |
+> | Lección de detrás de escena | valor | qué pasó → qué hizo el usuario (lo que salió mal llega más lejos que lo que salió bien) → qué aprendió → cómo se aplica. Siempre real | la palabra clave del arquetipo si su entregable está "Listo"; si no, una pregunta |
+> | Marco | valor | nombre recordable → 3 a 5 pasos → una línea por paso. Es el que más se guarda | la palabra clave del arquetipo si su entregable está "Listo"; si no, una pregunta |
+> | Caso | valor | la situación del cliente (sin la industria en el gancho) → qué se hizo → qué cambió, con la prueba de `pruebas.md` → para quién sirve | una invitación a conversar ("si te pasa algo parecido, escríbeme") |
+> | Relación | conversación | una postura → una pregunta real que revele un problema que la marca resuelve, o "trabajo con [cargo], ¿te pasa esto?" | la pregunta del post |
+> | Autodiagnóstico | valor y conversación | 4 o 5 preguntas de sí o no → el umbral ("si respondes no a 3…") → qué significa el resultado → el primer paso. Cuando no haya otra prueba sobre marcos en curso, se compara con Marco como prueba de `kanban.md`, midiendo comentarios con contenido y DMs (fuente: Paolo Trivellato, "Agencia a 1,2 M$ al año", nov 2026) | una pregunta por su resultado ("¿cuántas te salieron?") o la palabra clave si su entregable está "Listo" |
+> | Palabra clave | conversión | gancho de curiosidad → lo que le piden seguido al usuario → qué entrega → media frase de credibilidad → una frase que saca la presión ("no hay nada que comprar") → la palabra clave. Solo con el entregable "Listo". Si la PRUEBA CTA está en curso en `kanban.md`, cuenta como pieza de esa prueba (fuente: David Ibáñez, "70 llamadas de venta con 1 solo post", nov 2026) | la palabra clave del arquetipo |
+> | Puerta | conversión | cómo es por dentro trabajar juntos (la sesión, el diagnóstico): qué pasa, qué se lleva el cliente y para quién NO es. Sin cupos ni fechas límite. Uno cada 2 o 3 semanas, o en la fase de conversión (fuente: David Ibáñez, "14K seguidores y +40 clientes", nov 2026) | "escríbeme" o el `link_reservas` de `marca.md` en el primer comentario |
 
 **Length (la única regla de largo del plugin; las voces, los agentes y las
 tareas remiten a esta):** 900 to 1,300 characters, about 150 to 220 words, for

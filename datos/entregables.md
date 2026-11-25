@@ -37,4 +37,5 @@ Forma de todo DM de entrega: el `saludo_dm` de `marca.md`, **primero el link**, 
 - El llamado del post: "Comenta PALABRA y te lo mando por DM". Uno solo por post.
 - Al responder el comentario en público: una línea ("Te lo mando por DM, [nombre]"), sin link.
 - Si la persona no es contacto, invitación con nota (200 caracteres) que nombra la palabra clave; el DM de entrega va cuando acepte.
+- **PRUEBA INVITACIÓN** (ver "Pruebas en curso" en `kanban.md`): en los posts de la variante B, la respuesta pública le pide a quien no es contacto que envíe él la invitación ("Te lo mando por DM; si aún no estamos conectados, envíame la invitación y te llega."). El DM de entrega va cuando el usuario la acepte. Así se cuida el tope de 50 invitaciones por semana (fuente: Paolo Trivellato, dos videos, nov 2026).
 - Anota en `conversaciones.md` la palabra clave y el post de origen: así `analista-li` y el tablero saben qué pieza trae reuniones.
