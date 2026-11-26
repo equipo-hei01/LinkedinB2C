@@ -1,5 +1,11 @@
 # Cambios
 
+## 1.10.0
+- **Conversaciones dormidas:** la ronda deja hasta 2 reactivaciones por semana para quienes respondieron alguna vez y llevan 30 días o más sin mensajes: retoman lo último que contó la persona y traen un motivo nuevo y real; sin motivo, no se escribe. Forma nueva en `li-dm`.
+- **A quién decir que no:** sección nueva en `arquetipos.md` y desglose de victorias trimestral en el analista (lo comprobado separado de lo interpretado, lo que se repite y de 3 a 5 señales para descartar, como propuesta).
+- **Nota de voz:** guion de menos de 40 segundos (nombre, un detalle real, un punto útil y una sola petición fácil).
+- Fuente: Link360, "Las 42 skills de captación con Claude" (nov 2026), pasado por el filtro de 6 preguntas.
+
 ## 1.9.1
 - El agente de cierre lee `competidores.md`: si la objeción probable es de competencia, la guía de la reunión trae qué vende ese competidor (con fuente) y la frase para responder, comparando por criterio. Si el competidor no está en la lista, propone agregarlo.
 

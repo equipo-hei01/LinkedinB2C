@@ -148,6 +148,15 @@ Copia el bloque de abajo una vez por arquetipo. Mejor un arquetipo bien descrito
 
 ---
 
+## A quién decir que no (señales para descartar)
+
+Lo completa `analista-li` una vez por trimestre con el desglose de victorias (ver su punto "Desglose de victorias"), y el usuario aprueba cada fila. Mientras esté vacío, solo valen las exclusiones fijas del agente de conversaciones (paso 1: spam, reclutadores, vendedores, competidores y quien no es del público).
+
+| Señal para descartar | Evidencia (cliente o reunión, sin nombre ni empresa) | Desde |
+| --- | --- | --- |
+
+Uso: si una persona cumple 2 o más señales, no se le ofrece la sesión; recibe algo útil y queda en NUTRIR, o se descarta con una línea de por qué. Nunca se le dice que no calza (fuente: Link360, "Las 42 skills de captación con Claude", nov 2026).
+
 ## Datos de mercado con fuente (para la evidencia)
 
 Solo datos con fuente verificable. Citar siempre la fuente. Si se necesita un dato nuevo, verificarlo antes de usarlo y agregarlo aquí.

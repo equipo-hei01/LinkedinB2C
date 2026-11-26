@@ -117,7 +117,9 @@ Then stop. A third follow-up converts nobody and costs the relationship.
 > - **La propuesta de reunión dice para qué es:** en una línea, con lo que la persona ya contó y en sus palabras ("para ver cómo ordenar eso de los traspasos entre áreas que mencionaste"). Si no está claro que tenga sentido proponerla todavía, el borrador lo dice y explica por qué en vez de forzarla.
 > - **Nunca edites ni borres un mensaje ya enviado.** Si hay un error, se aclara en el siguiente.
 > - **NUTRIR:** quien respondió pero no está listo recibe un toque al mes con algo útil (un post, un dato, un recurso), sin oferta. **DESCARTADO** se revisa una sola vez a los 90 días, y solo si hay algo nuevo que contarle.
-> - **Prueba en curso, nota de voz:** a quien estaba interesado y dejó de responder, el usuario puede grabar una nota de voz corta (30 segundos) en vez del texto del día 10. Anota "nota de voz" en la fila para comparar respuestas.
+> - **Prueba en curso, nota de voz:** a quien estaba interesado y dejó de responder, el usuario puede grabar una nota de voz en vez del texto del día 10. Guion para decirlo, no para leerlo: menos de 40 segundos; su nombre, un detalle real de lo que contó, un punto útil y una sola petición fácil. Sin presentarse con cargo ni empresa, sin cifras ni listas. El agente deja el guion en 4 líneas cortas. Anota "nota de voz" en la fila para comparar respuestas (forma: fuente: Link360, "Las 42 skills de captación con Claude", nov 2026).
+>
+> **Reactivar una conversación dormida** (la persona respondió alguna vez y lleva 30 días o más sin mensajes). De 2 a 4 líneas: retoma lo último que contó, con sus palabras; trae un motivo nuevo y real para contestar; termina en una pregunta fácil. Nunca "solo quería saber cómo va", "¿pudiste verlo?", culpa ni la oferta. Si no hay motivo nuevo, no se escribe. Si hace menos de 30 días, no es reactivar: es el seguimiento del día 4 o 10 (fuente: Link360, "Las 42 skills de captación con Claude", nov 2026).
 
 ## Never
 
