@@ -35,6 +35,7 @@ Las horas son de la `zona_horaria` de `marca.md`. El cron corre con la hora del 
 | Semanal | `plan-semanal-linkedin` | Lunes 8:00 | `0 8 * * 1` |
 | Semanal | `revision-plan-miercoles-linkedin` | Miércoles 12:00 | `0 12 * * 3` |
 | Semanal | `ronda-conversaciones` | Martes y viernes 18:00 | `0 18 * * 2,5` |
+| Semanal | `cuentas-objetivo-semanal` | Lunes 10:30 | `30 10 * * 1` |
 | Diaria | `bienvenida-contactos-linkedin` | Lunes a viernes 12:30 | `30 12 * * 1-5` |
 | Semanal | `tablero-linkedin-semanal` | Viernes 8:00 | `0 8 * * 5` |
 | Semanal | `reutilizador-viernes-linkedin` | Viernes 15:30 | `30 15 * * 5` |

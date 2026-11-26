@@ -10,6 +10,15 @@ Una sección por cada arquetipo de `arquetipos.md` (copia el bloque y pon su nom
 
 **Respondió o reaccionó a tu comentario en su post:** es una señal de `senales.md`. Si es una persona de estas tablas y no es contacto del usuario, `comentarista-li` propone una invitación con nota que retoma ese intercambio, dentro de las 50 invitaciones por semana y solo con el sí del usuario (fuente: caso Dule Gil, canal de David Ibáñez, nov 2026).
 
+## Las 30 cuentas (venta por cuentas)
+
+Para vender proyectos grandes se trabaja un número fijo de organizaciones, cada una con 2 o 3 personas: quien firma, quien impulsa y quien puede frenar. La lista la arma el usuario (o Claude, solo con lo que hay en los archivos: clientes y negocios del CRM, bienvenidas, señales) y la aprueba el usuario. `cuentas-li` la revisa cada lunes. Parte siempre por los clientes que ya compraron y los negocios abiertos: la venta más rápida es a quien ya confía.
+
+| # | Cuenta | Nivel | Por qué ahora (fuente) | Personas conocidas | Falta sumar | Siguiente paso | Tamaño | Aprobada |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+
+Niveles: **1** relación o negocio abierto (siguiente paso esta semana) · **2** propuesta abierta o señal reciente (cada 2 semanas) · **3** calentar (solo comentar hasta que haya una señal). El tamaño que no se sabe dice "verificar". Las personas de cada cuenta aprobada van también a las tablas por arquetipo de abajo, para el comentarista.
+
 ## Buscar en la propia red (prospección templada)
 
 Los mejores primeros nombres suelen estar ya entre los contactos del usuario. El usuario puede descargarlos de forma oficial: LinkedIn → Configuración → Privacidad de datos → Obtener una copia de tus datos → Contactos. Llega un archivo `Connections.csv`, que deja en la carpeta de trabajo.

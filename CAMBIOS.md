@@ -1,5 +1,10 @@
 # Cambios
 
+## 1.11.0
+- **Venta por cuentas, proactiva:** agente nuevo `cuentas-li` y tarea `cuentas-objetivo-semanal` (lunes 10:30). Revisa las 30 cuentas (semáforo y siguiente paso), detecta quién falta en cada una (quien firma, quien impulsa, quien puede frenar), completa los links en una visita de solo lectura y deja la acción del mes con cada cliente (recompra, referido o caso con cifras). Plantilla "Las 30 cuentas" en `datos/cuentas-objetivo.md`.
+- **Cola de bienvenidas:** la tarea diaria parte por las bienvenidas PENDIENTE de días anteriores, en orden (cuentas objetivo, A, B) y dentro del cupo del día (15 menos lo enviado, con 3 reservados para la ronda); reescribe las que tengan vocabulario viejo o más de 14 días y descarta las B de más de 21.
+- **Enviar sin errores:** en el paso de envío de la ronda (y de las bienvenidas), cerrar los chats abiertos antes de cada mensaje, Mayús+Enter para los saltos de línea, mirar el texto antes de enviar, comprobar que quedó en la conversación y ajustar el saludo a la hora real del envío.
+
 ## 1.10.0
 - **Conversaciones dormidas:** la ronda deja hasta 2 reactivaciones por semana para quienes respondieron alguna vez y llevan 30 días o más sin mensajes: retoman lo último que contó la persona y traen un motivo nuevo y real; sin motivo, no se escribe. Forma nueva en `li-dm`.
 - **A quién decir que no:** sección nueva en `arquetipos.md` y desglose de victorias trimestral en el analista (lo comprobado separado de lo interpretado, lo que se repite y de 3 a 5 señales para descartar, como propuesta).
